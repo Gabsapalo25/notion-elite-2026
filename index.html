@@ -1,13 +1,155 @@
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notion Elite Kit 2026 — Organize a sua rotina em 24 horas</title>
-    <link href="/src/index.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notion Elite Kit 2026 — Organize a sua rotina em 24 horas</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #000000; color: #ffffff; font-family: system-ui, -apple-system, 'Inter', sans-serif; line-height: 1.5; scroll-behavior: smooth; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .btn-primary { background-color: #00E5FF; color: #000000; padding: 14px 28px; border-radius: 40px; text-decoration: none; font-weight: bold; display: inline-block; transition: all 0.3s; border: none; cursor: pointer; }
+    .btn-primary:hover { background-color: #00b8d4; transform: scale(1.02); }
+    .btn-whatsapp { background-color: #25D366; color: #ffffff; padding: 14px 28px; border-radius: 40px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; }
+    .btn-whatsapp:hover { opacity: 0.9; transform: scale(1.02); }
+    .section { padding: 80px 0; }
+    .bg-dark { background-color: #0a0a0a; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 48px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 48px; }
+    .card { background-color: #111111; border: 1px solid #222222; border-radius: 24px; padding: 24px; transition: all 0.3s; }
+    .card:hover { border-color: #00E5FF; transform: translateY(-4px); }
+    .module-card { background-color: #111111; border: 1px solid #222222; border-radius: 16px; padding: 20px; text-align: center; }
+    .testimonial-card { background-color: #111111; border-radius: 20px; padding: 24px; border: 1px solid #222222; }
+    .gradient-text { background: linear-gradient(135deg, #00E5FF, #0088ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .price-old { font-size: 2rem; text-decoration: line-through; color: #666666; }
+    .price-new { font-size: 4rem; font-weight: 800; color: #00E5FF; }
+    .navbar { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid #222; z-index: 1000; padding: 16px 24px; }
+    .navbar-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .faq-question { background-color: #111111; border: 1px solid #222222; border-radius: 16px; margin-bottom: 16px; overflow: hidden; }
+    .faq-question button { width: 100%; padding: 20px; text-align: left; background: none; border: none; color: white; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-answer { padding: 0 20px 20px 20px; color: #aaaaaa; border-top: 1px solid #222222; display: none; }
+    .faq-answer.show { display: block; }
+    .star { color: #FFD700; }
+    @media (max-width: 768px) { .section { padding: 48px 0; } .price-new { font-size: 3rem; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <img src="https://drive.google.com/thumbnail?id=11MvkwbsJstF-st-tYMxpyeCVW1sDG4ks&sz=w400" alt="Logo" style="height: 40px;">
+      <a href="#preco" class="btn-primary" style="padding: 10px 24px;">ADQUIRIR</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section style="padding-top: 120px; padding-bottom: 60px; text-align: center;">
+      <div class="container">
+        <h1 style="font-size: 3rem; margin-bottom: 24px;">DOMINE A SUA ROTINA EM <span class="gradient-text">24 HORAS</span></h1>
+        <div style="max-width: 800px; margin: 0 auto; border-radius: 28px; overflow: hidden; border: 1px solid #333;">
+          <iframe width="100%" height="450" src="https://www.youtube.com/embed/UwCl0a-FWp4" title="VSL" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMAS -->
+    <section class="section bg-dark">
+      <div class="container">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 16px;">A Raiz da Desorganização</h2>
+        <p style="text-align: center; color: #00E5FF;">O problema não é falta de motivação. É falta de sistema.</p>
+        <div class="grid-3">
+          <div class="card"><div style="font-size: 2rem; color: #00E5FF;">01</div><h3>Caos Fragmentado</h3><p style="color: #aaa;">Notas espalhadas entre WhatsApp, Google Drive, cadernos físicos.</p></div>
+          <div class="card"><div style="font-size: 2rem; color: #00E5FF;">02</div><h3>Sobrecarga Mental</h3><p style="color: #aaa;">Tarefas esquecidas porque dependes da memória frágil.</p></div>
+          <div class="card"><div style="font-size: 2rem; color: #00E5FF;">03</div><h3>Pânico na Véspera</h3><p style="color: #aaa;">Prazos de surpresa que criam madrugadas de ansiedade.</p></div>
+          <div class="card"><div style="font-size: 2rem; color: #00E5FF;">04</div><h3>Falsa Produtividade</h3><p style="color: #aaa;">Trabalha muito, mas a matéria continua atrasada.</p></div>
+          <div class="card"><div style="font-size: 2rem; color: #00E5FF;">05</div><h3>Ansiedade Constante</h3><p style="color: #aaa;">Nervosismo antes de provas e reuniões importantes.</p></div>
+          <div class="card"><div style="font-size: 2rem; color: #00E5FF;">06</div><h3>Fadiga de Ferramentas</h3><p style="color: #aaa;">Testa apps complexas que abandona em 3 dias.</p></div>
+        </div>
+        <p style="text-align: center; margin-top: 48px; font-style: italic; color: #666;">“Nenhuma quantidade de esforço compensa um sistema que não existe.”</p>
+      </div>
+    </section>
+
+    <!-- MÓDULOS -->
+    <section class="section">
+      <div class="container">
+        <h2 style="text-align: center; font-size: 2.5rem;">Arquitetura Premium</h2>
+        <p style="text-align: center; color: #aaa; margin-bottom: 48px;">Tudo o que precisas para dominar a tua execução</p>
+        <div class="grid-4">
+          <div class="module-card"><div style="color:#00E5FF; font-size:12px;">Módulo 1</div><strong>Dashboard de Elite</strong></div>
+          <div class="module-card"><div style="color:#00E5FF; font-size:12px;">Módulo 2</div><strong>Cérebro Digital</strong></div>
+          <div class="module-card"><div style="color:#00E5FF; font-size:12px;">Módulo 3</div><strong>Gestor de Matérias</strong></div>
+          <div class="module-card"><div style="color:#00E5FF; font-size:12px;">Módulo 4</div><strong>Calendário Estratégico</strong></div>
+          <div class="module-card"><div style="color:#00E5FF; font-size:12px;">Módulo 5</div><strong>Prompts de IA</strong></div>
+          <div class="module-card"><div style="color:#00E5FF; font-size:12px;">Módulo 6</div><strong>Rotinas de 5 Minutos</strong></div>
+          <div class="module-card"><div style="color:#00E5FF; font-size:12px;">Módulo 7</div><strong>Filtro de Foco</strong></div>
+          <div class="module-card"><div style="color:#00E5FF; font-size:12px;">Módulo 8</div><strong>Sistema Anti-Procrastinação</strong></div>
+          <div class="module-card"><div style="color:#00E5FF; font-size:12px;">Módulo 9</div><strong>Finanças Pessoais</strong></div>
+          <div class="module-card"><div style="color:#00E5FF; font-size:12px;">Módulo 10</div><strong>Setup 24H</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTOR -->
+    <section class="section bg-dark">
+      <div class="container" style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center; justify-content: center;">
+        <img src="https://drive.google.com/thumbnail?id=1kmUAUklxpI5yMEfaUaFQT2ye4rpgrbKP&sz=w800" alt="Gabriel Sapalo" style="width: 200px; border-radius: 20px; border: 2px solid #00E5FF;">
+        <div style="max-width: 500px;">
+          <h3 style="font-size: 2rem;">Gabriel Sapalo</h3>
+          <p style="color: #00E5FF;">🏆 Campeão Nacional de Xadrez de Angola 2024 • Fundador da GlowScalePro</p>
+          <p style="color: #aaa;">“No xadrez, cada jogada tem consequência. Quem não tem sistema, joga no improviso e perde prazos.”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="section">
+      <div class="container">
+        <h2 style="text-align: center; font-size: 2.5rem;">Resultados Comprovados</h2>
+        <div class="grid-3">
+          <div class="testimonial-card"><div class="star">★★★★★</div><p style="margin: 16px 0; font-style: italic;">“Passei de média de 12 para 15 em dois meses.”</p><strong>Mariana Costa</strong><div style="color:#00E5FF; font-size:12px;">Lisboa, Portugal</div></div>
+          <div class="testimonial-card"><div class="star">★★★★★</div><p style="margin: 16px 0; font-style: italic;">“Na primeira semana entreguei dois trabalhos antes do prazo.”</p><strong>Sofia Rodrigues</strong><div style="color:#00E5FF; font-size:12px;">Coimbra, Portugal</div></div>
+          <div class="testimonial-card"><div class="star">★★★★★</div><p style="margin: 16px 0; font-style: italic;">“Poupo quase 2 horas por dia em organização.”</p><strong>João Pedro Silva</strong><div style="color:#00E5FF; font-size:12px;">São Paulo, Brasil</div></div>
+          <div class="testimonial-card"><div class="star">★★★★★</div><p style="margin: 16px 0; font-style: italic;">“Planeio a semana toda em 10 minutos ao domingo.”</p><strong>Tomás Ferreira</strong><div style="color:#00E5FF; font-size:12px;">Porto, Portugal</div></div>
+          <div class="testimonial-card"><div class="star">★★★★★</div><p style="margin: 16px 0; font-style: italic;">“Controlo total sobre prazos e projetos.”</p><strong>Ana Luísa Mendes</strong><div style="color:#00E5FF; font-size:12px;">Luanda, Angola</div></div>
+          <div class="testimonial-card"><div class="star">★★★★★</div><p style="margin: 16px 0; font-style: italic;">“Já vou no terceiro mês e a minha média subiu.”</p><strong>Beatriz Mendonça</strong><div style="color:#00E5FF; font-size:12px;">Maputo, Moçambique</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREÇO -->
+    <section id="preco" class="section bg-dark">
+      <div class="container">
+        <div style="max-width: 600px; margin: 0 auto; background-color: #111111; border: 1px solid #333; border-radius: 48px; padding: 48px; text-align: center;">
+          <div class="price-old">249 USD</div>
+          <div class="price-new">10 USD</div>
+          <p style="margin-bottom: 32px;">ou 10.000 AKZ para pagamentos locais</p>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <a href="https://pay.hotmart.com/Q105490101M?off=xablp4k5&hotfeature=51" target="_blank" class="btn-primary" style="display: block;">💳 ADQUIRIR POR $10 USD</a>
+            <a href="https://chat.whatsapp.com/LDV8ORaZgzGC9ljtt3gTLh" target="_blank" class="btn-whatsapp" style="justify-content: center;">📱 PAGAR 10.000 AKZ</a>
+          </div>
+          <p style="margin-top: 32px; font-size: 12px; color: #666;">⚠️ Garantia Incondicional de 7 Dias. Risco Zero.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="padding: 48px 24px; text-align: center; border-top: 1px solid #222;">
+      <div style="display: flex; justify-content: center; gap: 32px; margin-bottom: 24px;">
+        <a href="https://drive.google.com/file/d/1cpwleZI5mtMGj8oVQ9C-xFkPmW6iJd1c/view" style="color: #666; text-decoration: none;">Termos</a>
+        <a href="https://drive.google.com/file/d/1yi1D2p_QYdK9tIwCaU8kxlFnol97kGdg/view" style="color: #666; text-decoration: none;">Privacidade</a>
+      </div>
+      <p style="color: #444;">Gabriel Sapalo — 2026. Feito com ❤ em Angola para o Mundo.</p>
+    </footer>
+  </main>
+
+  <script>
+    // FAQ interativo
+    document.querySelectorAll('.faq-question button').forEach(button => {
+      button.addEventListener('click', () => {
+        const answer = button.parentElement.querySelector('.faq-answer');
+        answer.classList.toggle('show');
+      });
+    });
+  </script>
+</body>
 </html>
