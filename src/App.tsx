@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Menu, X, ArrowRight, CheckCircle, Play, Sparkles, Brain,
-  Zap, Target, Clock, Shield, CreditCard, Smartphone, MessageCircle,
-  ChevronDown, ChevronUp, Star
+  Menu, X, ArrowRight, CheckCircle, Play, Sparkles, Brain, Zap, Target, Clock,
+  Shield, CreditCard, Smartphone, MessageCircle, ChevronDown, ChevronUp, Star
 } from "lucide-react";
 
 // ==========================================
-// 1. CONFIGURAÇÃO (TUDO IGUAL AO SITE)
+// 1. CONFIGURAÇÃO (100% IGUAL AO SITE)
 // ==========================================
 const CONFIG = {
   authorName: "Gabriel Sapalo",
@@ -22,7 +21,7 @@ const CONFIG = {
 };
 
 // ==========================================
-// 2. DADOS (DEPOIMENTOS REAIS DO SITE)
+// 2. DEPOIMENTOS (COPIADOS DO SITE)
 // ==========================================
 const TESTIMONIALS = [
   { name: "Mariana Costa", loc: "Lisboa, Portugal", text: "Passei de média de 12 para 15 em dois meses. O dashboard mudou completamente a minha organização académica." },
@@ -34,7 +33,15 @@ const TESTIMONIALS = [
 ];
 
 // ==========================================
-// 3. COMPONENTES
+// 3. MODULOS (10 ITENS DO SITE)
+// ==========================================
+const MODULES = [
+  "Dashboard de Elite", "Cérebro Digital", "Gestor de Matérias", "Calendário Estratégico", "Prompts de IA",
+  "Rotinas de 5 Minutos", "Filtro de Foco", "Sistema Anti-Procrastinação", "Finanças Pessoais", "Setup 24H"
+];
+
+// ==========================================
+// 4. COMPONENTES
 // ==========================================
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -84,7 +91,7 @@ const Hero = () => (
 );
 
 const Problemas = () => {
-  const problemas = [
+  const problemasList = [
     { titulo: "Caos Fragmentado", texto: "Notas espalhadas entre WhatsApp, Google Drive, cadernos físicos e rascunhos de e-mails." },
     { titulo: "Sobrecarga Mental", texto: "Tarefas esquecidas e pontas soltas porque dependes inteiramente da tua memória frágil." },
     { titulo: "Pânico na Véspera", texto: "Prazos de entrega que aparecem de surpresa na véspera e criam madrugadas de pura ansiedade." },
@@ -98,7 +105,7 @@ const Problemas = () => {
         <h2 className="text-4xl font-black text-center mb-4">A Raiz da Desorganização</h2>
         <p className="text-xl text-cyan-400 text-center mb-16">O problema não é falta de motivação. É falta de sistema.</p>
         <div className="grid md:grid-cols-3 gap-8">
-          {problemas.map((p, i) => (
+          {problemasList.map((p, i) => (
             <div key={i} className="bg-zinc-900/50 p-8 rounded-2xl border border-white/5 hover:border-cyan-500/30">
               <div className="text-3xl font-black text-cyan-500 mb-4">{(i+1).toString().padStart(2, '0')}</div>
               <h3 className="text-xl font-bold mb-3">{p.titulo}</h3>
@@ -112,40 +119,34 @@ const Problemas = () => {
   );
 };
 
-const Modulos = () => {
-  const modulos = [
-    "Dashboard de Elite", "Cérebro Digital", "Gestor de Matérias", "Calendário Estratégico", "Prompts de IA",
-    "Rotinas de 5 Minutos", "Filtro de Foco", "Sistema Anti-Procrastinação", "Finanças Pessoais", "Setup 24H"
-  ];
-  return (
-    <section id="modulos" className="py-24 bg-zinc-950">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-black text-center mb-4">Arquitetura Premium</h2>
-        <p className="text-center text-zinc-400 mb-16">Tudo o que precisas para dominar a tua execução</p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {modulos.map((m, i) => (
-            <div key={i} className="bg-black border border-white/10 rounded-2xl p-5 text-center hover:border-cyan-500/40">
-              <span className="text-cyan-500 text-xs font-bold">Módulo {i+1}</span>
-              <h3 className="font-bold mt-2 text-sm">{m}</h3>
-            </div>
-          ))}
-        </div>
+const Solucao = () => (
+  <section id="solucao" className="py-24 bg-zinc-950">
+    <div className="max-w-7xl mx-auto px-6 text-center">
+      <h2 className="text-4xl font-black mb-4">A Transformação Digital</h2>
+      <p className="text-xl text-zinc-300 mb-16 max-w-3xl mx-auto">O Notion Elite Kit transforma o teu Notion num cérebro digital em menos de 24 horas.</p>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {["Pronto a Usar", "Centralização Total", "Curva Zero", "Sincronização Perfeita"].map((item, i) => (
+          <div key={i} className="bg-black p-6 rounded-2xl border border-white/10">
+            <Sparkles className="text-cyan-400 w-10 h-10 mx-auto mb-4" />
+            <h3 className="font-bold text-xl mb-2">{item}</h3>
+            <p className="text-zinc-400 text-sm">{i===0 && "Ecossistema configurado para organizar tudo no mesmo lugar."}{i===1 && "Unifica tarefas, resumos, finanças e metas anuais."}{i===2 && "Funciona mesmo para quem nunca abriu o Notion."}{i===3 && "Acede no PC, tablet ou smartphone."}</p>
+          </div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
-const Depoimentos = () => (
-  <section id="depoimentos" className="py-24 bg-black">
+const Modulos = () => (
+  <section id="modulos" className="py-24 bg-black">
     <div className="max-w-7xl mx-auto px-6">
-      <h2 className="text-4xl font-black text-center mb-16">Resultados Comprovados</h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {TESTIMONIALS.map((t, i) => (
-          <div key={i} className="bg-zinc-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30">
-            <div className="flex gap-1 mb-3 text-yellow-400">★★★★★</div>
-            <p className="text-zinc-300 italic mb-4">“{t.text}”</p>
-            <p className="font-bold">{t.name}</p>
-            <p className="text-cyan-500 text-xs">{t.loc}</p>
+      <h2 className="text-4xl font-black text-center mb-4">Arquitetura Premium</h2>
+      <p className="text-center text-zinc-400 mb-16">Tudo o que precisas para dominar a tua execução</p>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        {MODULES.map((m, i) => (
+          <div key={i} className="bg-zinc-900/50 border border-white/10 rounded-2xl p-5 text-center hover:border-cyan-500/40">
+            <span className="text-cyan-500 text-xs font-bold">Módulo {i+1}</span>
+            <h3 className="font-bold mt-2 text-sm">{m}</h3>
           </div>
         ))}
       </div>
@@ -166,6 +167,24 @@ const Autor = () => (
   </section>
 );
 
+const Depoimentos = () => (
+  <section id="depoimentos" className="py-24 bg-black">
+    <div className="max-w-7xl mx-auto px-6">
+      <h2 className="text-4xl font-black text-center mb-16">Resultados Comprovados</h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {TESTIMONIALS.map((t, i) => (
+          <div key={i} className="bg-zinc-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30">
+            <div className="flex gap-1 mb-3 text-yellow-400">★★★★★</div>
+            <p className="text-zinc-300 italic mb-4">“{t.text}”</p>
+            <p className="font-bold">{t.name}</p>
+            <p className="text-cyan-500 text-xs">{t.loc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 const FAQ = () => {
   const [open, setOpen] = useState(null);
   const faqs = [
@@ -175,12 +194,12 @@ const FAQ = () => {
     { q: "Tem garantia?", a: "Sim. 7 dias incondicionais. Se não gostar, devolvemos o dinheiro." }
   ];
   return (
-    <section id="faq" className="py-24 bg-black">
+    <section id="faq" className="py-24 bg-zinc-950">
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="text-4xl font-black text-center mb-16">Perguntas Frequentes</h2>
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div key={i} className="border border-white/10 rounded-2xl overflow-hidden">
+            <div key={i} className="border border-white/10 rounded-2xl overflow-hidden bg-black">
               <button onClick={() => setOpen(open === i ? null : i)} className="w-full flex justify-between p-5 text-left font-semibold">
                 {faq.q}
                 {open === i ? <ChevronUp /> : <ChevronDown />}
@@ -230,7 +249,7 @@ const Footer = () => (
 );
 
 // ==========================================
-// 4. MAIN APP
+// 5. MAIN APP
 // ==========================================
 export function App() {
   return (
@@ -238,9 +257,10 @@ export function App() {
       <Navbar />
       <Hero />
       <Problemas />
+      <Solucao />
       <Modulos />
-      <Depoimentos />
       <Autor />
+      <Depoimentos />
       <FAQ />
       <Pricing />
       <Footer />
