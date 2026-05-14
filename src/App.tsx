@@ -31,7 +31,7 @@ const CONFIG = {
   authorPhoto: "https://drive.google.com/thumbnail?id=1kmUAUklxpI5yMEfaUaFQT2ye4rpgrbKP&sz=w800",
   heroVideo: "https://www.youtube.com/embed/UwCl0a-FWp4",
   glowscaleLogo: "https://drive.google.com/thumbnail?id=11MvkwbsJstF-st-tYMxpyeCVW1sDG4ks&sz=w400",
-  productLogo: "https://drive.google.com/thumbnail?id=1JQNTaRNAk3MZn0osMyPCNenpOfd-1MVn&sz=w400",
+  productLogo: "https://drive.google.com/thumbnail?id=1PhCQaeCPI4b1sWrfpMIDI3t1eFDac0aT",
   whatsappLogo: "https://drive.google.com/thumbnail?id=1ty3u0-Vks2IM4NNT2bJ14riAvG0Zh5Cd&sz=w200",
   telegramLogo: "https://drive.google.com/thumbnail?id=1I1PJ4DpRVqiWgQGX4jMWLBi6plwQsiJN&sz=w200",
   notionMockup: "https://drive.google.com/thumbnail?id=1ufRMrYBRKe0zj38foMxjdgbckH8SLxcl&sz=w1000",
@@ -844,7 +844,7 @@ const AuthoritySection = memo(() => {
           </div>
           <div className="mt-4">
             <h3 className="text-xs font-semibold text-white">{CONFIG.authorName}</h3>
-            <p className="text-[10px] text-[#00E5FF] font-mono mt-0.5 font-semibold">Estratega & Arquitecto do Sistema</p>
+            <p className="text-[10px] text-[#00E5FF] font-mono mt-0.5 font-semibold">Estratega & Arquitecto do Sistema (Campeão Nacional de Xadrez)</p>
           </div>
         </div>
 
@@ -897,7 +897,7 @@ const SocialProofSection = memo(() => {
               <div>
                 {/* Posicionamento do Rosto em Grande Destaque à Esquerda / Topo */}
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4 pb-4 border-b border-white/[0.04]">
-                  <div className="w-24 h-24 rounded-full overflow-hidden bg-[#050505] shrink-0 border-2 border-[#00E5FF] shadow-[0_0_15px_rgba(0,229,255,0.35)] relative">
+                  <div className="w-28 h-28 rounded-full overflow-hidden bg-[#050505] shrink-0 border-2 border-[#00E5FF] shadow-[0_0_20px_rgba(0,229,255,0.4)] relative">
                     <img
                       src={t.avatar}
                       alt={t.name}
