@@ -264,7 +264,7 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        {/* Identidade de Luxo Minimalista com Logótipo Oficial (TAMANHO MULTIPLICADO POR 2) */}
+        {/* Identidade de Luxo Minimalista com Logótipo Oficial - TAMANHO 2.5x (w-[4.5rem] h-[4.5rem] = 72px) */}
         <a
           href="#"
           onClick={(e) => {
@@ -277,7 +277,7 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
           <img
             src={CONFIG.productLogo}
             alt="Notion Elite Starter Kit 2026"
-            className="w-14 h-14 object-contain group-hover:scale-105 transition-transform" // Tamanho aumentado de w-7 h-7 para w-14 h-14 (2x)
+            className="w-[4.5rem] h-[4.5rem] object-contain group-hover:scale-105 transition-transform"
           />
           <div className="flex flex-col">
             <span className="font-semibold text-xs text-white tracking-tight flex items-center gap-1.5">
@@ -669,7 +669,7 @@ const WalkthroughSection = memo(() => {
           </div>
         ) : (
           <iframe
-            src={CONFIG.walkthroughVideo} // Link atualizado para o Google Drive
+            src={`${CONFIG.walkthroughVideo}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
             title="Walkthrough Interno do Sistema"
             className="w-full h-full absolute inset-0 border-0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -1368,7 +1368,7 @@ const LegalFooter = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ APLICAÇÃO DE ELITE (ROOT ECOSYSTEM)
+// ♟️ APLICAÇÃO DE ELITE (ROOT ECOSYSTEM) - COM FAVICONS ADICIONADOS
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 export function App() {
@@ -1460,18 +1460,41 @@ export function App() {
   return (
     <div className="cinematic-noise min-h-screen bg-[#050505] text-white font-sans relative">
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          ♟️ CAMADA DE METADADOS & SEO ELITE (HELMET)
+          ♟️ CAMADA DE METADADOS & SEO ELITE (HELMET) - COM FAVICONS
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <Helmet>
         <title>Notion Elite Kit 2026 — Ecossistema Operacional Premium</title>
         <meta name="description" content="Domine a sua rotina e organize a sua vida académica/profissional em menos de 24 horas. Arquitetura minimalista de alto desempenho cognitivo." />
         <link rel="canonical" href={window.location.href} />
         
+        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            ♟️ FAVICONS ADICIONADOS (CORRETAMENTE IMPLEMENTADOS)
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* Favicon padrão (desktop) */}
+        <link rel="icon" type="image/x-icon" href="https://drive.google.com/thumbnail?id=14rQjLyO4yBn0J4Xm36JyXhc3uK7B1v1k&sz=64" />
+        
+        {/* Apple Touch Icon (iOS, iPadOS) */}
+        <link rel="apple-touch-icon" sizes="180x180" href="https://drive.google.com/thumbnail?id=14ObH6mZWZH-UOVfLxze-6BTMLed9L7IZ&sz=180" />
+        
+        {/* PWA Icon - Android/Chrome (192x192) */}
+        <link rel="icon" type="image/png" sizes="192x192" href="https://drive.google.com/thumbnail?id=1e87UtUWFWZwHlXjOUX8mxEg55rGiePko&sz=192" />
+        
+        {/* Suporte para modo web app mobile */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="Notion Elite" />
+        <meta name="application-name" content="Notion Elite Kit" />
+        
+        {/* Tema de cor para navegadores mobile */}
+        <meta name="theme-color" content="#050505" />
+        <meta name="msapplication-TileColor" content="#050505" />
+        
         {/* Open Graph Tags Cinemáticas */}
         <meta property="og:title" content="Notion Elite Kit 2026 — Ecossistema Operacional Premium" />
         <meta property="og:description" content="Domine a sua rotina e organize a sua vida académica/profissional em menos de 24 horas." />
         <meta property="og:image" content={CONFIG.notionMockup} />
         <meta property="og:type" content="product" />
+        <meta property="og:site_name" content="Notion Elite Kit" />
         
         {/* Twitter Cards Elegantes */}
         <meta name="twitter:card" content="summary_large_image" />
