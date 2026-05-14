@@ -37,6 +37,8 @@ const CONFIG = {
   notionMockup: "https://drive.google.com/thumbnail?id=1ufRMrYBRKe0zj38foMxjdgbckH8SLxcl&sz=w1000",
   internalView: "https://drive.google.com/thumbnail?id=1AQUxp-P7-Wf64CPqbTiQDsPqqBhL7dvL&sz=w1000",
   laptopOffer: "https://drive.google.com/thumbnail?id=1ek54pgWKa_2j90WGcpmb30XGuzB5qjvJ&sz=w800",
+  // NOVA IMAGEM DE CAPA ADICIONADA
+  coverImage: "https://drive.google.com/thumbnail?id=1Gv_vB4wENBXyiaQi1iD3UyuXkTvXg8sc&sz=w1000",
 
   // CTAS OFICIAIS DE CONVERSÃO EXTREMA
   hotmartCheckout: "https://pay.hotmart.com/Q105490101M?off=xablp4k5&hotfeature=51",
@@ -746,7 +748,7 @@ const SolutionSection = memo(() => {
               },
               {
                 title: "Cockpit de Produtividade",
-                desc: "Visualização panorâmica que elimina fricção diária. Sabes exatamente o que fazer hoje, amanh联 e durante a totalidade do semestre."
+                desc: "Visualização panorâmica que elimina fricção diária. Sabes exatamente o que fazer hoje, amanhã e durante a totalidade do semestre."
               },
               {
                 title: "Implementação Ultra Rápida",
@@ -767,7 +769,7 @@ const SolutionSection = memo(() => {
 
           <div className="relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#050505] shadow-2xl">
             <img
-              src={CONFIG.internalView}
+              src={CONFIG.coverImage}
               alt="Visão do Ecossistema Interno"
               className="w-full h-auto object-cover block opacity-95"
               loading="lazy"
@@ -826,7 +828,7 @@ const ModulesSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ SECTION DE AUTORIDADE (GABRIEL SAPALO)
+// ♟️ SECTION DE AUTORIDADE (GABRIEL SAPALO) - TEXTO ATUALIZADO
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const AuthoritySection = memo(() => {
@@ -844,22 +846,24 @@ const AuthoritySection = memo(() => {
           </div>
           <div className="mt-4">
             <h3 className="text-xs font-semibold text-white">{CONFIG.authorName}</h3>
-            <p className="text-[10px] text-[#00E5FF] font-mono mt-0.5 font-semibold">Estratega & Arquitecto do Sistema (Campeão Nacional de Xadrez)</p>
+            <p className="text-[10px] text-[#00E5FF] font-mono mt-0.5 font-semibold">Campeão Nacional de Xadrez 2024 • Estratega</p>
           </div>
         </div>
 
         <div className="md:col-span-2 space-y-4 text-xs text-[#A1A1AA] leading-relaxed text-left">
           <span className="text-[10px] font-mono tracking-widest text-white uppercase block font-semibold">
-            Arquitectura de Sistemas & Dados
+            ━━━━━━━━━━━━━━━━━━━
+            👤 PERFIL ESTRATÉGICO (GABRIEL SAPALO)
+            ━━━━━━━━━━━━━━━━━━━
           </span>
           <p className="text-sm font-semibold text-white">
-            “No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exatamente o mesmo: quem não tem sistema, joga no improviso e falha.”
+            "No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exatamente o mesmo: quem não tem sistema, joga no improviso e falha."
           </p>
           <p>
-            Gabriel Sapalo conquistou o título de <strong>Campeão Nacional Absoluto de Xadrez de Angola 2024</strong> fundindo planeamento analítico e disciplina inegociável.
+            Gabriel Sapalo, <strong>Campeão Nacional Absoluto de Xadrez de Angola 2024</strong>, consolidou a sua carreira na intersecção entre o Planeamento Estatístico e a Psicologia Analítica.
           </p>
           <p>
-            Como <strong>Arquitecto</strong> especializado em engenharia de ecossistemas de informação e inteligência de dados, Gabriel modelou o <em>Notion Elite Kit</em> para otimizar fluxos cognitivos complexos, assegurando máxima retenção e execução sem fricção técnica.
+            Com uma especialização em Contabilidade e Auditoria e vasta experiência na gestão de fluxos de informação (GEPE), Gabriel utilizou a sua visão de <strong>Estratega</strong> para modelar o <em>Notion Elite Kit</em>. O sistema não é um template; é uma infraestrutura de inteligência de dados desenhada para otimizar fluxos cognitivos complexos, assegurando execução absoluta e zero fricção técnica.
           </p>
         </div>
       </div>
