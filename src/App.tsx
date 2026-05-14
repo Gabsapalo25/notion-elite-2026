@@ -39,6 +39,9 @@ const CONFIG = {
   laptopOffer: "https://drive.google.com/thumbnail?id=1ek54pgWKa_2j90WGcpmb30XGuzB5qjvJ&sz=w800",
   // NOVA IMAGEM DE CAPA ADICIONADA
   coverImage: "https://drive.google.com/thumbnail?id=1Gv_vB4wENBXyiaQi1iD3UyuXkTvXg8sc&sz=w1000",
+  
+  // LINK CORRETO DO VIDE WALKTHROUGH (GOOGLE DRIVE)
+  walkthroughVideo: "https://drive.google.com/file/d/1qzelqkdoxr_828C4OhgonEMzJNdMKCsa/preview",
 
   // CTAS OFICIAIS DE CONVERSÃO EXTREMA
   hotmartCheckout: "https://pay.hotmart.com/Q105490101M?off=xablp4k5&hotfeature=51",
@@ -261,7 +264,7 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        {/* Identidade de Luxo Minimalista com Logótipo Oficial */}
+        {/* Identidade de Luxo Minimalista com Logótipo Oficial (TAMANHO MULTIPLICADO POR 2) */}
         <a
           href="#"
           onClick={(e) => {
@@ -274,7 +277,7 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
           <img
             src={CONFIG.productLogo}
             alt="Notion Elite Starter Kit 2026"
-            className="w-7 h-7 object-contain group-hover:scale-105 transition-transform"
+            className="w-14 h-14 object-contain group-hover:scale-105 transition-transform" // Tamanho aumentado de w-7 h-7 para w-14 h-14 (2x)
           />
           <div className="flex flex-col">
             <span className="font-semibold text-xs text-white tracking-tight flex items-center gap-1.5">
@@ -616,7 +619,7 @@ const HeroSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ ESPAÇO DE REFORÇO (A PROVA DO WALKTHROUGH INTERNO)
+// ♟️ ESPAÇO DE REFORÇO (A PROVA DO WALKTHROUGH INTERNO) - VÍDEO ATUALIZADO
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const WalkthroughSection = memo(() => {
@@ -666,7 +669,7 @@ const WalkthroughSection = memo(() => {
           </div>
         ) : (
           <iframe
-            src={`${CONFIG.heroVideo}?autoplay=1&rel=0`}
+            src={CONFIG.walkthroughVideo} // Link atualizado para o Google Drive
             title="Walkthrough Interno do Sistema"
             className="w-full h-full absolute inset-0 border-0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -828,7 +831,7 @@ const ModulesSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ SECTION DE AUTORIDADE (GABRIEL SAPALO) - TEXTO ATUALIZADO
+// ♟️ SECTION DE AUTORIDADE (GABRIEL SAPALO) - TEXTO ATUALIZADO (SEM GEPE)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const AuthoritySection = memo(() => {
@@ -863,7 +866,7 @@ const AuthoritySection = memo(() => {
             Gabriel Sapalo, <strong>Campeão Nacional Absoluto de Xadrez de Angola 2024</strong>, consolidou a sua carreira na intersecção entre o Planeamento Estatístico e a Psicologia Analítica.
           </p>
           <p>
-            Com uma especialização em Contabilidade e Auditoria e vasta experiência na gestão de fluxos de informação (GEPE), Gabriel utilizou a sua visão de <strong>Estratega</strong> para modelar o <em>Notion Elite Kit</em>. O sistema não é um template; é uma infraestrutura de inteligência de dados desenhada para otimizar fluxos cognitivos complexos, assegurando execução absoluta e zero fricção técnica.
+            Com uma especialização em Contabilidade e Auditoria e vasta experiência na gestão de fluxos de informação, Gabriel utilizou a sua visão de <strong>Estratega</strong> para modelar o <em>Notion Elite Kit</em>. O sistema não é um template; é uma infraestrutura de inteligência de dados desenhada para otimizar fluxos cognitivos complexos, assegurando execução absoluta e zero fricção técnica.
           </p>
         </div>
       </div>
