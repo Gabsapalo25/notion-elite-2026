@@ -62,33 +62,33 @@ const CONFIG = {
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const MODULES = [
   {
-    title: "Dashboard Operacional",
-    description: "Centro de controlo unificado. Desenvolvido com zero atrito para gerires tarefas iminentes, rotinas e prazos absolutos numa única dobra visual.",
+    title: "Dashboard Central",
+    description: "O seu centro operacional diário. Tenha tarefas, compromissos urgentes e metas do semestre inteiramente organizados num único ecrã sem poluição.",
     icon: Command
   },
   {
     title: "Cérebro Digital",
-    description: "Repositório cognitivo imaculado. Arquitetura desenhada para reteres notas de aulas, relatórios, atas e insights sem fragmentação da informação.",
+    description: "O fim das anotações perdidas. Um repositório simples e inteligente para guardar apontamentos de aulas, ideias, PDFs e resumos sem confusão.",
     icon: Brain
   },
   {
-    title: "Gestão Estratégica",
-    description: "Acompanhamento milimétrico por disciplinas ou vetores corporativos. Visualização de progresso e alocação de largura de banda pessoal em tempo real.",
+    title: "Gestor de Disciplinas",
+    description: "Acompanhamento prático por cadeira ou projeto. Veja automaticamente o seu progresso e entregas pendentes para nunca falhar uma data limite.",
     icon: Target
   },
   {
-    title: "Calendário Inteligente",
-    description: "Sincronização preditiva de entregas. O sistema avisa-te de saturações e sobreposições antes que se transformem em madrugadas de urgência.",
+    title: "Calendário Integrado",
+    description: "Planeamento visual sem stress. Visualize compromissos e prazos lado a lado, distribuindo as suas semanas com antecipação e tranquilidade.",
     icon: Calendar
   },
   {
-    title: "IA & Prompts",
-    description: "Enriquecido com matrizes neurais de prompts. Extrai sínteses automáticas, gera flashcards de alta retenção e planeia ciclos complexos num clique.",
+    title: "Motor de IA & Prompts",
+    description: "Acelere os seus estudos com a IA nativa do Notion. Crie resumos automáticos, flashcards de estudo e organize ideias em segundos.",
     icon: Sparkles
   },
   {
-    title: "Anti-Fricção",
-    description: "Protocolo de sustentação. Integra rotinas de manutenção limpas de apenas 5 minutos para que o teu sistema se mantenha perpetuamente vivo e limpo.",
+    title: "Rotinas de 5 Minutos",
+    description: "O segredo da consistência. Pequenos passos diários desenhados para limpar a sua caixa de entrada e manter o sistema leve e funcional o ano todo.",
     icon: Zap
   }
 ];
@@ -99,42 +99,42 @@ const TESTIMONIALS = [
     role: "Dupla Licenciatura",
     location: "Porto, Portugal",
     avatar: "https://drive.google.com/thumbnail?id=1B8EXhe3kIo9EW8MEaEu4MLSUWqgUZS-U&sz=w400",
-    text: "Faço dupla licenciatura e trabalho aos fins-de-semana num café. Antes disto vivia em pânico permanente — dormia 4 horas e mesmo assim entregava tudo atrasado. Agora planeio a semana toda em 10 minutos ao domingo."
+    text: "Mano... consegui finalmente organizar tudo 😭 Faço dupla licenciatura e trabalho num café aos fins-de-semana. Antes vivia em pânico e dormia 4 horas. Agora planeio a semana toda em 10 min ao domingo. Surreal."
   },
   {
     name: "Mariana Costa",
     role: "Estudante Universitária",
     location: "Lisboa, Portugal",
     avatar: "https://drive.google.com/thumbnail?id=1Qp6Ggy8nwDujXUimXGOYXsluBlLnlCa1&sz=w400",
-    text: "Passei de média de 12 para 15 em dois meses. O dashboard mudou completamente a minha organização académica e eliminou a dispersão que sentia."
+    text: "Passei de média de 12 para 15 em dois meses!! O cérebro digital tirou aquele peso de ter mil abas abertas e anotações perdidas. Recomendo demais a toda a gente."
   },
   {
     name: "Ana Luísa Mendes",
     role: "Gestora de Projetos",
     location: "Luanda, Angola",
     avatar: "https://drive.google.com/thumbnail?id=1wU9eMnFFPWcMZF6BNoPiRdZHF7xBcQJi&sz=w400",
-    text: "Finalmente tenho controlo total sobre os meus projetos e prazos. Entreguei o último trabalho com uma semana de antecedência pela primeira vez na minha vida."
+    text: "Finalmente tenho controlo total sobre os meus prazos sem enlouquecer. Entreguei o último grande relatório com uma semana de antecedência pela primeira vez na vida 🙏🏾"
   },
   {
     name: "João Pedro Silva",
     role: "Profissional & Estudante",
     location: "São Paulo, Brasil",
     avatar: "https://drive.google.com/thumbnail?id=19FTCcE3bLkdF3EYSnzSzR6Q_z5nsCTLH&sz=w400",
-    text: "Trabalho e estudo ao mesmo tempo. Este sistema fez-me poupar quase 2 horas por dia em organização. Isso dá-me tempo para finalmente ir ao ginásio e dormir 7 horas."
+    text: "Trabalhar e estudar ao mesmo tempo sempre foi um inferno. Este setup poupou-me quase 2 horas por dia em pura organização. Voltei a ir ao ginásio e a dormir 7h seguidas. Vale 100x o preço."
   },
   {
     name: "Sofia Rodrigues",
     role: "Mestranda e Pesquisadora",
     location: "Coimbra, Portugal",
     avatar: "https://drive.google.com/thumbnail?id=1zmsp7FfLOBEizrHjOLjsK_ro2vVEX9C7&sz=w400",
-    text: "Eu era daquelas que tinha 15 separadores abertos no Chrome, notas no WhatsApp para mim mesma e três cadernos diferentes — e mesmo assim esquecia-me de tudo. Na primeira semana com o Kit, entreguei dois trabalhos antes do prazo."
+    text: "Eu era a rainha do caos: 15 separadores no Chrome, notas soltas no WhatsApp e 3 cadernos. E esquecia-me de tudo igual. Na primeira semana com o Kit, entreguei dois artigos antes do prazo 🔥"
   },
   {
     name: "Beatriz Mendonça",
     role: "Consultora Júnior",
     location: "Maputo, Moçambique",
     avatar: "https://drive.google.com/thumbnail?id=1vtcYqW_DZSgwc6UExrQnerPYNEtt2shQ&sz=w400",
-    text: "Comprei a pensar que ia ser mais um template que uso dois dias e abandono. Mas o Método 24H obrigou-me a montar tudo de uma vez. Já vou no terceiro mês e a minha média subiu."
+    text: "Achei que ia ser só mais um template que uso dois dias e abandono. Mas a lógica de Setup 24H obrigou-me a deixar tudo pronto. Já vou no terceiro mês e o meu foco mudou completamente."
   }
 ];
 
@@ -914,6 +914,51 @@ const SolucaoModulosSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ♟️ SIMPLICIDADE OPERACIONAL (COMO FUNCIONA EM 3 PASSOS)
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const ComoFuncionaSection = memo(() => {
+  return (
+    <section className="py-24 bg-[#050505] border-b border-white/[0.05] px-6 text-center">
+      <div className="max-w-4xl mx-auto">
+        <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block mb-3 font-bold">
+          Processo Descomplicado
+        </span>
+        <h2 className="premium-heading text-2xl sm:text-3xl text-white mb-12">
+          Como funciona em 3 passos simples
+        </h2>
+
+        <div className="grid sm:grid-cols-3 gap-6 text-left">
+          <div className="p-6 rounded-xl bg-[#0A0A0A] border border-white/[0.04] relative">
+            <span className="text-[10px] font-mono text-[#00E5FF] block mb-2 font-bold">01</span>
+            <h3 className="text-xs font-bold text-white mb-1.5 uppercase tracking-tight">Duplicar Template</h3>
+            <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
+              Aceda ao link seguro de ativação e duplique a infraestrutura instantaneamente para o seu Notion pessoal em um clique.
+            </p>
+          </div>
+
+          <div className="p-6 rounded-xl bg-[#0A0A0A] border border-white/[0.04] relative">
+            <span className="text-[10px] font-mono text-[#FF007A] block mb-2 font-bold">02</span>
+            <h3 className="text-xs font-bold text-white mb-1.5 uppercase tracking-tight">Assistir Setup Rápido</h3>
+            <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
+              Siga as breves instruções em vídeo focado para personalizar as suas cadeiras, metas de rendimento e ligar os atalhos neurais.
+            </p>
+          </div>
+
+          <div className="p-6 rounded-xl bg-[#0A0A0A] border border-white/[0.04] relative">
+            <span className="text-[10px] font-mono text-[#25D366] block mb-2 font-bold">03</span>
+            <h3 className="text-xs font-bold text-white mb-1.5 uppercase tracking-tight">Organizar tudo em 24h</h3>
+            <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
+              Assuma de imediato o controlo da sua produtividade diária, extinguindo o stress mental e o acúmulo de notas dispersas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+});
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // ♟️ DESTAQUE ISOLADO 1: MAPEAMENTO TÁTICO
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -1110,10 +1155,10 @@ const AuthoritySection = memo(() => {
             “No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exatamente o mesmo: quem não tem sistema, joga no improviso e falha.”
           </p>
           <p className="text-gray-300">
-            Gabriel Sapalo, <strong>Campeão Nacional Absoluto de Xadrez de Angola 2024</strong>, consolidou a sua carreira na intersecção entre o Planeamento Estatístico e a Psicologia Analítica.
+            Gabriel Sapalo, <strong>Campeão Nacional Absoluto de Xadrez de Angola 2024</strong>, funde com mestria o planeamento analítico de alta competição com a psicologia de execução.
           </p>
           <p className="text-gray-300">
-            Com uma especialização em Contabilidade e Auditoria e vasta experiência na gestão de fluxos de informação, Gabriel utilizou a sua visão de Estratega para modelar o <strong>Notion Elite Kit</strong>. O sistema não é um template; é uma infraestrutura de inteligência de dados desenhada para otimizar fluxos cognitivos complexos, assegurando execução absoluta e zero fricção técnica.
+            O sistema foi construído precisamente com a mesma lógica estratégica usada no tabuleiro: antecipação, eliminação do ruído e avanço implacável. Com especialização em auditoria e fluxos de informação, Gabriel desenhou o <strong>Notion Elite Kit</strong> para atuar como o seu segundo cérebro focado no fim da desorganização diária.
           </p>
           <div className="pt-2 flex flex-wrap items-center gap-2">
             <span className="text-[9px] font-mono bg-[#00E5FF]/10 text-[#00E5FF] px-2 py-0.5 rounded border border-[#00E5FF]/20 font-bold">
@@ -1682,6 +1727,7 @@ export function App() {
       <TransformacaoSection />
       <RepositorioNeuralSection />
       <SolucaoModulosSection />
+      <ComoFuncionaSection />
       <MapeamentoTaticoSection />
       <BonusProgressivosSection onExecuteConversion={handleFinalChoice} />
       <AuthoritySection />
@@ -1712,17 +1758,17 @@ export function App() {
         )}
       </AnimatePresence>
 
-      {/* STICKY CTA MOBILE EXTREMAMENTE PERSISTENTE */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0A0A0A]/95 backdrop-blur-md border-t border-white/[0.08] p-3 flex items-center gap-2">
+      {/* STICKY CTA MOBILE ELEGANTE (SUAVIZADO PARA NÃO COMPETIR COM A LEITURA) */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0A0A0A]/80 backdrop-blur-xl border-t border-white/[0.05] p-2.5 flex items-center gap-2 shadow-sm">
         <button
           onClick={() => handleFinalChoice("international")}
-          className="flex-1 btn-luxury-cyan py-2.5 px-2 rounded-lg text-[11px] font-bold text-center block leading-tight truncate"
+          className="flex-1 btn-luxury-cyan py-2 px-2 rounded-lg text-[11px] font-bold text-center block leading-tight truncate"
         >
           Acesso Global ($10)
         </button>
         <button
           onClick={() => handleFinalChoice("angola")}
-          className="flex-1 btn-magnetic-aggressive py-2.5 px-2 rounded-lg text-[11px] font-bold text-center block leading-tight truncate text-white"
+          className="flex-1 btn-magnetic-aggressive py-2 px-2 rounded-lg text-[11px] font-bold text-center block leading-tight truncate text-white"
         >
           Angola (10k AKZ)
         </button>
