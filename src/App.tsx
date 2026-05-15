@@ -390,6 +390,7 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
 
 const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marketSegment: "international" | "angola") => void }) => {
   const [timeLeft, setTimeLeft] = useState({ hours: 23, minutes: 59, seconds: 42 });
+  const [isPlayingVSL, setIsPlayingVSL] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -471,7 +472,7 @@ const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marke
         </span>
       </motion.div>
 
-      {/* VSL DE VENDA (Vídeo 1 no Topo) */}
+      {/* VSL DE VENDA (Vídeo 1 no Topo sem Autoplay Involuntário) */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -479,12 +480,40 @@ const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marke
         className="max-w-4xl mx-auto mb-10"
       >
         <div className="video-luxury-container w-full shadow-[0_0_50px_rgba(0,0,0,0.95)]">
-          <iframe
-            src={`${CONFIG.heroVideo}?autoplay=1&rel=0&modestbranding=1`}
-            title="VSL Oficial de Lançamento"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+          {!isPlayingVSL ? (
+            <div
+              onClick={() => {
+                setIsPlayingVSL(true);
+                Telemetry.emit("vsl_video_playback_started");
+              }}
+              className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]"
+            >
+              <img
+                src={CONFIG.laptopOffer}
+                alt="Pré-visualização da VSL"
+                className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 transition-opacity duration-400"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
+
+              <div className="relative z-10 w-16 h-16 rounded-full bg-white text-[#050505] flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform duration-300">
+                <Play className="w-6 h-6 fill-[#050505] translate-x-0.5" />
+              </div>
+              <p className="relative z-10 text-xs font-bold text-white mt-4 tracking-wide group-hover:text-[#00E5FF] transition-colors">
+                Assistir à Apresentação Estratégica (3 Minutos)
+              </p>
+              <span className="relative z-10 text-[10px] text-[#00E5FF] mt-1 font-mono font-semibold">
+                Recomendado assistir com áudio ativado
+              </span>
+            </div>
+          ) : (
+            <iframe
+              src={`${CONFIG.heroVideo}?autoplay=1&rel=0&modestbranding=1`}
+              title="VSL Oficial de Lançamento"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          )}
         </div>
       </motion.div>
 
@@ -806,73 +835,67 @@ const SolucaoModulosSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ VITRINE DE ENGENHARIA VISUAL (MOCKUPS PREMIUM)
+// ♟️ DESTAQUE ISOLADO 1: MAPEAMENTO TÁTICO
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-const ArquiteturaVisualSection = memo(() => {
+const MapeamentoTaticoSection = memo(() => {
   return (
-    <section className="py-24 bg-[#050505] border-b border-white/[0.05] px-6 text-center">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-12 max-w-2xl mx-auto">
+    <section className="py-24 bg-[#050505] border-b border-white/[0.05] px-6 text-center relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#00E5FF]/[0.03] rounded-full blur-[150px] pointer-events-none -z-10" />
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-10 max-w-2xl mx-auto">
           <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block mb-3 font-extrabold">
-            Inspeção de Telas Nativas
+            Ênfase Arquitetural
           </span>
-          <h2 className="premium-heading text-2xl sm:text-3xl text-white">
-            Arquitetura Visual de Alta Fidelidade
+          <h2 className="premium-heading text-2xl sm:text-4xl text-white">
+            Painel Analítico de Decisão
           </h2>
           <p className="text-xs text-[#A1A1AA] mt-2">
-            Mapeamento cirúrgico de fluxos táticos e painéis modulares otimizados para total imersão e zero atrito cognitivo.
+            Cada componente reativo foi disposto milimetricamente para fornecer um panorama imediato de métricas diárias e prioridades intocáveis.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-stretch text-left max-w-5xl mx-auto">
-          {/* Mockup Premium 1 */}
-          <div className="bg-[#0A0A0A] border border-white/[0.06] p-4 sm:p-6 rounded-2xl flex flex-col justify-between group hover:border-[#00E5FF]/40 transition-all duration-300 shadow-xl">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-[10px] font-mono text-[#00E5FF] font-bold">Mapeamento Tático</span>
-                <span className="text-[9px] bg-white/5 text-gray-400 px-2 py-0.5 rounded font-mono">100% Nativo</span>
-              </div>
-              <div className="rounded-xl overflow-hidden border border-white/[0.04] bg-[#050505] mb-4 group-hover:scale-[1.01] transition-transform duration-500">
-                <img
-                  src={CONFIG.mockupExtra1}
-                  alt="Mockup do Ecossistema Tático"
-                  className="w-full h-auto object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-sm font-bold text-white mb-1">Painel Analítico de Decisão</h3>
-              <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
-                Cada componente reativo foi disposto milimetricamente para fornecer panorama imediato de métricas diárias e prioridades intocáveis.
-              </p>
-            </div>
-          </div>
+        <div className="rounded-2xl overflow-hidden border border-[#00E5FF]/20 bg-[#0A0A0A] p-2 sm:p-3 shadow-[0_20px_80px_rgba(0,229,255,0.07)] max-w-4xl mx-auto">
+          <img
+            src={CONFIG.mockupExtra1}
+            alt="Mapeamento Tático Nativo"
+            className="w-full h-auto rounded-xl object-cover block"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+  );
+});
 
-          {/* Mockup Premium 2 */}
-          <div className="bg-[#0A0A0A] border border-white/[0.06] p-4 sm:p-6 rounded-2xl flex flex-col justify-between group hover:border-[#FF007A]/40 transition-all duration-300 shadow-xl custom-badge-glow">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-[10px] font-mono text-[#FF007A] font-bold">Módulo Cérebro Integrado</span>
-                <span className="text-[9px] bg-white/5 text-gray-400 px-2 py-0.5 rounded font-mono">Sincronizado</span>
-              </div>
-              <div className="rounded-xl overflow-hidden border border-white/[0.04] bg-[#050505] mb-4 group-hover:scale-[1.01] transition-transform duration-500">
-                <img
-                  src={CONFIG.mockupExtra2}
-                  alt="Mockup do Ecossistema Estratégico"
-                  className="w-full h-auto object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-sm font-bold text-white mb-1">Repositório Neural de IA</h3>
-              <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
-                Integração fluida concebida para reter anotações densas, acionar atalhos de inteligência artificial e prever sobrecargas antes do colapso.
-              </p>
-            </div>
-          </div>
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ♟️ DESTAQUE ISOLADO 2: REPOSITÓRIO NEURAL
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const RepositorioNeuralSection = memo(() => {
+  return (
+    <section className="py-24 bg-[#0A0A0A] border-b border-white/[0.05] px-6 text-center relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#FF007A]/[0.02] rounded-full blur-[150px] pointer-events-none -z-10" />
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-10 max-w-2xl mx-auto">
+          <span className="text-[10px] font-mono tracking-widest text-[#FF007A] uppercase block mb-3 font-extrabold">
+            Módulo Cérebro Sincronizado
+          </span>
+          <h2 className="premium-heading text-2xl sm:text-4xl text-white">
+            Repositório Neural de IA
+          </h2>
+          <p className="text-xs text-[#A1A1AA] mt-2">
+            Integração fluida concebida para reter anotações densas, acionar atalhos de inteligência artificial e prever sobrecargas antes do colapso.
+          </p>
+        </div>
+
+        <div className="rounded-2xl overflow-hidden border border-[#FF007A]/20 bg-[#050505] p-2 sm:p-3 shadow-[0_20px_80px_rgba(255,0,122,0.08)] max-w-4xl mx-auto custom-badge-glow">
+          <img
+            src={CONFIG.mockupExtra2}
+            alt="Repositório Neural de IA"
+            className="w-full h-auto rounded-xl object-cover block"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
@@ -1577,8 +1600,9 @@ export function App() {
       <HeroSection onExecuteConversion={handleFinalChoice} />
       <EngenhariaSection />
       <TransformacaoSection />
+      <RepositorioNeuralSection />
       <SolucaoModulosSection />
-      <ArquiteturaVisualSection />
+      <MapeamentoTaticoSection />
       <BonusProgressivosSection onExecuteConversion={handleFinalChoice} />
       <AuthoritySection />
       <SocialProofSection />
