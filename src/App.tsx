@@ -99,42 +99,48 @@ const TESTIMONIALS = [
     role: "Dupla Licenciatura",
     location: "Porto, Portugal",
     avatar: "https://drive.google.com/thumbnail?id=1B8EXhe3kIo9EW8MEaEu4MLSUWqgUZS-U&sz=w400",
-    text: "Mano... consegui finalmente organizar tudo 😭 Faço dupla licenciatura e trabalho num café aos fins-de-semana. Antes vivia em pânico e dormia 4 horas. Agora planeio a semana toda em 10 min ao domingo. Surreal."
+    text: "Mano... consegui finalmente organizar tudo 😭 Faço dupla licenciatura e trabalho num café. Antes vivia em pânico a dormir 4 horas. Agora planeio a semana toda em 10 min ao domingo. Surreal.",
+    type: "casual"
   },
   {
     name: "Mariana Costa",
     role: "Estudante Universitária",
     location: "Lisboa, Portugal",
     avatar: "https://drive.google.com/thumbnail?id=1Qp6Ggy8nwDujXUimXGOYXsluBlLnlCa1&sz=w400",
-    text: "Passei de média de 12 para 15 em dois meses!! O cérebro digital tirou aquele peso de ter mil abas abertas e anotações perdidas. Recomendo demais a toda a gente."
+    text: "Passei de média de 12 para 15 em dois meses. O cérebro digital devolveu-me o foco e tirou o peso de ter anotações perdidas. Sinto que tenho o controlo de volta.",
+    type: "emocional"
   },
   {
     name: "Ana Luísa Mendes",
     role: "Gestora de Projetos",
     location: "Luanda, Angola",
     avatar: "https://drive.google.com/thumbnail?id=1wU9eMnFFPWcMZF6BNoPiRdZHF7xBcQJi&sz=w400",
-    text: "Finalmente tenho controlo total sobre os meus prazos sem enlouquecer. Entreguei o último grande relatório com uma semana de antecedência pela primeira vez na vida 🙏🏾"
+    text: "A integração das matrizes relacionais e os atalhos de bases de dados funcionam sem qualquer latência ou quebras visuais. Extremamente sólido.",
+    type: "tecnico"
   },
   {
     name: "João Pedro Silva",
     role: "Profissional & Estudante",
     location: "São Paulo, Brasil",
     avatar: "https://drive.google.com/thumbnail?id=19FTCcE3bLkdF3EYSnzSzR6Q_z5nsCTLH&sz=w400",
-    text: "Trabalhar e estudar ao mesmo tempo sempre foi um inferno. Este setup poupou-me quase 2 horas por dia em pura organização. Voltei a ir ao ginásio e a dormir 7h seguidas. Vale 100x o preço."
+    text: "Trabalhar e estudar ao mesmo tempo consumia-me. Este setup poupou-me 2 horas diárias. O cálculo é simples: o tempo que recuperei paga o sistema no primeiro dia.",
+    type: "racional"
   },
   {
     name: "Sofia Rodrigues",
     role: "Mestranda e Pesquisadora",
     location: "Coimbra, Portugal",
     avatar: "https://drive.google.com/thumbnail?id=1zmsp7FfLOBEizrHjOLjsK_ro2vVEX9C7&sz=w400",
-    text: "Eu era a rainha do caos: 15 separadores no Chrome, notas soltas no WhatsApp e 3 cadernos. E esquecia-me de tudo igual. Na primeira semana com o Kit, entreguei dois artigos antes do prazo 🔥"
+    text: "Adeus abas perdidas e notas soltas. Setup concluído. Zero atrito. Execução imediata.",
+    type: "curto"
   },
   {
     name: "Beatriz Mendonça",
     role: "Consultora Júnior",
     location: "Maputo, Moçambique",
     avatar: "https://drive.google.com/thumbnail?id=1vtcYqW_DZSgwc6UExrQnerPYNEtt2shQ&sz=w400",
-    text: "Achei que ia ser só mais um template que uso dois dias e abandono. Mas a lógica de Setup 24H obrigou-me a deixar tudo pronto. Já vou no terceiro mês e o meu foco mudou completamente."
+    text: "Ou montas um ecossistema que funciona por ti ou continuas a perder prazos e a mentir a ti mesma. A metodologia de 24H obrigou-me a executar sem desculpas.",
+    type: "agressivo"
   }
 ];
 
@@ -142,28 +148,28 @@ const TESTIMONIALS = [
 
 const FAQ_DATA = [
   {
-    q: "Preciso saber usar Notion?",
-    a: "Absolutamente não. O ecossistema foi construído para que iniciantes operem perfeitamente. Acompanha um método de migração tática passo a passo para que saias do caos ao controlo total em menos de 24 horas."
+    q: "Preciso de saber usar o Notion?",
+    a: "Não. O kit foi construído a pensar em iniciantes. Inclui um guia prático de três passos para duplicar e personalizar tudo em menos de 24 horas."
   },
   {
-    q: "Funciona perfeitamente no celular?",
-    a: "Sim! Adotamos um design mobile-first de altíssima resposta. Podes adicionar tarefas, registrar ideias ou visualizar compromissos urgentes de forma instantânea diretamente na palma da mão."
+    q: "Funciona bem no telemóvel?",
+    a: "Sim. A interface adota um design focado no mobile para poder consultar prazos, marcar tarefas rápidas e controlar o seu dia diretamente no telemóvel."
   },
   {
-    q: "O sistema exige uma assinatura paga do Notion?",
-    a: "Não. Toda a engenharia foi desenhada para extrair 100% da versão nativa gratuita do Notion, poupando-te de quaisquer custos mensais com ferramentas."
+    q: "Tenho de pagar mensalidade ao Notion?",
+    a: "Não. Toda a estrutura está configurada para funcionar a 100% na versão gratuita do Notion, sem custos recorrentes."
   },
   {
-    q: "Tenho acesso vitalício e recebo atualizações?",
-    a: "Sim, o pagamento é único com direito a acesso vitalício. Além disso, recebes todas as atualizações estratégicas e melhorias futuras de 2026 e 2027 incondicionalmente."
+    q: "Recebo atualizações futuras?",
+    a: "Sim. O pagamento é único e inclui o acesso vitalício às versões de 2026 e 2027, bem como a novos prompts de IA embutidos."
   },
   {
-    q: "Como recebo o acesso ao ecossistema?",
-    a: "A entrega é inteiramente imediata e digital. Assim que o pagamento for processado pela Hotmart ou validado via WhatsApp para Angola, o link de ativação segura é enviado para o teu e-mail instantaneamente."
+    q: "Como posso usar para estudos e trabalho ao mesmo tempo?",
+    a: "O sistema possui módulos independentes de gestão académica e acompanhamento de projetos que correm em paralelo sem misturar informações."
   },
   {
-    q: "Como funciona a garantia incondicional de 30 dias?",
-    a: "Confiamos plenamente na arquitetura do sistema. Testa a totalidade da ferramenta durante 30 dias. Se não transformares o teu foco e a tua organização, devolvemos 100% do valor de imediato e tu ainda manténs os bônus como cortesia."
+    q: "A garantia de 30 dias é real?",
+    a: "Sim. Se nos primeiros 30 dias sentir que o kit não lhe trouxe clareza ou não poupou o seu tempo, basta enviar um e-mail para receber a devolução integral."
   }
 ];
 
@@ -788,10 +794,17 @@ const EngenhariaSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ SEÇÃO “ANTES VS DEPOIS” (TRANSFORMAÇÃO EMOCIONAL)
+// ♟️ SEÇÃO “ANTES VS DEPOIS” (TANGIBILIDADE E TRANSFORMAÇÃO)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const TransformacaoSection = memo(() => {
+  const comparativos = [
+    { antes: "Abas perdidas e dispersão", depois: "Sistema centralizado" },
+    { antes: "Tarefas e prazos esquecidos", depois: "Execução diária implacável" },
+    { antes: "Caos e ruído mental", depois: "Clareza absoluta" },
+    { antes: "Procrastinação e paralisia", depois: "Rotina fluida e automática" }
+  ];
+
   return (
     <section className="py-24 border-t border-white/[0.05] px-6 max-w-5xl mx-auto text-center">
       <div className="mb-12 max-w-2xl mx-auto">
@@ -799,10 +812,10 @@ const TransformacaoSection = memo(() => {
           Virada de Chave Operacional
         </span>
         <h2 className="premium-heading text-2xl sm:text-3xl text-white">
-          A Transformação Emocional Definitiva
+          Demonstração Visual de Transformação
         </h2>
         <p className="text-xs text-[#A1A1AA] mt-2">
-          Deixe de sobreviver a apagar incêndios e assuma a posição de comando de todas as áreas.
+          Deixe de sobreviver a apagar incêndios e assuma o controlo do painel que erradica a fadiga cognitiva.
         </p>
       </div>
 
@@ -810,27 +823,22 @@ const TransformacaoSection = memo(() => {
         {/* Card ANTES (Caos) */}
         <div className="bg-gradient-to-b from-[#140505] to-[#0A0505] border border-red-500/20 p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
           <div className="absolute top-0 right-0 bg-red-500/10 text-red-500 font-mono text-[9px] font-bold px-3 py-1 rounded-bl-lg">
-            A Realidade Comum
+            O Caos Comum
           </div>
           <div>
             <p className="text-xs font-mono text-red-500 font-extrabold uppercase mb-1">ANTES DO SISTEMA</p>
-            <h3 className="text-lg font-bold text-white mb-4">O Caos Fragmentado</h3>
-            <ul className="space-y-3">
-              {[
-                "Vida desorganizada e rotinas esmagadoras.",
-                "Procrastinação operacional por excesso de estímulos.",
-                "Tarefas vitais esquecidas e espalhadas por cadernos.",
-                "Prazos que surgem como surpresas gerando pânico."
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs text-gray-300">
-                  <X className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
-                  <span className="leading-relaxed">{item}</span>
-                </li>
+            <h3 className="text-lg font-bold text-white mb-4">A Sobrecarga Diária</h3>
+            <div className="space-y-3">
+              {comparativos.map((item, idx) => (
+                <div key={idx} className="flex items-center gap-2 text-xs text-gray-400 border-b border-red-500/[0.05] pb-2">
+                  <X className="w-4 h-4 text-red-500 shrink-0" />
+                  <span className="line-through">{item.antes}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
           <div className="mt-6 pt-3 border-t border-red-500/10 text-[10px] text-red-400/80 font-mono">
-            Sintoma: Sobrecarga, estresse e estagnação em 2025.
+            Sintoma: Estresse, hesitação e estagnação.
           </div>
         </div>
 
@@ -842,23 +850,67 @@ const TransformacaoSection = memo(() => {
           <div>
             <p className="text-xs font-mono text-[#25D366] font-extrabold uppercase mb-1">DEPOIS DO KIT ELITE</p>
             <h3 className="text-lg font-bold text-white mb-4">O Cockpit de Execução</h3>
-            <ul className="space-y-3">
-              {[
-                "Clareza mental absoluta e foco cirúrgico instantâneo.",
-                "Produtividade automatizada com rotinas de 5 minutos.",
-                "Controle total da vida financeira, projetos e metas.",
-                "Tranquilidade psicológica para planejar com antecedência."
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs text-gray-200 font-medium">
-                  <CheckCircle className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
-                  <span className="leading-relaxed">{item}</span>
-                </li>
+            <div className="space-y-3">
+              {comparativos.map((item, idx) => (
+                <div key={idx} className="flex items-center gap-2 text-xs text-white font-semibold border-b border-[#25D366]/[0.05] pb-2">
+                  <CheckCircle className="w-4 h-4 text-[#25D366] shrink-0" />
+                  <span className="text-[#00E5FF]">{item.depois}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
           <div className="mt-6 pt-3 border-t border-[#25D366]/10 text-[10px] text-[#25D366] font-mono font-bold">
-            Resultado: Domínio e aceleração explosiva em 2026.
+            Resultado: Domínio absoluto e foco instantâneo.
           </div>
+        </div>
+      </div>
+    </section>
+  );
+});
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ♟️ INVENTÁRIO VISUAL CONCRETO (O QUE EXISTE DENTRO)
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const OQueExisteSection = memo(() => {
+  const inventario = [
+    "Dashboard Financeiro",
+    "Sistema de Revisão Ativa",
+    "Brain Dump Neural",
+    "Gestão Académica Central",
+    "Planner Diário Implacável",
+    "Sistema de Metas Anuais",
+    "Calendário Inteligente",
+    "Vault de Conhecimento",
+    "IA Prompt Hub",
+    "Controle de Hábitos Visual"
+  ];
+
+  return (
+    <section className="py-24 bg-[#0A0A0A] border-b border-white/[0.05] px-6 text-center">
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-12 max-w-2xl mx-auto">
+          <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block mb-3 font-semibold">
+            Transparência e Volume
+          </span>
+          <h2 className="premium-heading text-2xl sm:text-3xl text-white">
+            O que existe dentro da infraestrutura
+          </h2>
+          <p className="text-xs text-[#A1A1AA] mt-2">
+            Um inventário concreto projetado para substituir mais de uma dezena de ferramentas externas de assinatura mensal.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 text-left">
+          {inventario.map((item, idx) => (
+            <div
+              key={idx}
+              className="p-3.5 rounded-xl bg-[#050505] border border-white/[0.04] flex items-center gap-2 hover:border-[#00E5FF]/30 transition-all duration-300"
+            >
+              <div className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] shrink-0" />
+              <span className="text-xs text-white font-medium truncate">{item}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -1027,7 +1079,7 @@ const RepositorioNeuralSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ BÔNUS PROGRESSIVOS VIP (SEÇÃO VISUAL MUITO FORTE)
+// ♟️ VITRINE DE BÓNUS PRÁTICOS E RÁPIDOS DE CONSUMIR
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const BonusProgressivosSection = memo(({ onExecuteConversion }: { onExecuteConversion: (seg: "international" | "angola") => void }) => {
@@ -1035,83 +1087,65 @@ const BonusProgressivosSection = memo(({ onExecuteConversion }: { onExecuteConve
     <section id="bonus" className="py-24 bg-[#050505] border-b border-white/[0.05] px-6 text-center">
       <div className="max-w-5xl mx-auto">
         <div className="mb-12 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-widest text-[#FF007A] uppercase block mb-3 font-extrabold">
-            Desbloqueios de Impacto Imediato
+          <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block mb-3 font-bold">
+            Simplicidade e Rapidez
           </span>
           <h2 className="premium-heading text-2xl sm:text-3xl text-white">
-            Bônus Progressivos VIP de Lançamento
+            Bónus úteis e prontos a usar
           </h2>
           <p className="text-xs text-[#A1A1AA] mt-2">
-            Uma estrutura visual agressiva acumulando ativos de ponta para criar a sensação de oferta irresistivelmente absurda.
+            Extras desenhados para que visualize o benefício instantaneamente sem atrito de configuração.
           </p>
         </div>
 
-        <div className="space-y-5 text-left max-w-4xl mx-auto">
-          {/* Nível Base */}
+        <div className="space-y-4 text-left max-w-4xl mx-auto">
+          {/* Bónus 1 */}
           <div className="bg-[#0A0A0A] border border-white/[0.05] p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <span className="text-[9px] font-mono bg-white/10 text-white px-2 py-0.5 rounded font-bold uppercase">Nível Universal (Todos Recebem)</span>
-              <h3 className="text-sm font-bold text-white mt-2">Atualização Estratégica 2027 + Grupo VIP 60 Dias</h3>
-              <p className="text-xs text-[#A1A1AA] mt-1">Acesso à comunidade fechada e licenciamento perpétuo das futuras versões nativas.</p>
+              <span className="text-[9px] font-mono bg-white/10 text-white px-2 py-0.5 rounded font-bold uppercase block w-max mb-1.5">Bónus 01</span>
+              <h3 className="text-sm font-bold text-white">Grupo Privado + Atualizações Futuras</h3>
+              <p className="text-xs text-[#A1A1AA] mt-1">Receba futuras melhorias do sistema e acesso à comunidade privada de utilizadores.</p>
             </div>
-            <div className="text-right shrink-0 w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05]">
-              <span className="text-[10px] text-gray-500 font-mono block">Valor Individual: <strong className="line-through">$47</strong></span>
-              <span className="text-xs font-mono text-[#25D366] font-extrabold">INCLUSO HOJE</span>
-            </div>
-          </div>
-
-          {/* Primeiros 15 */}
-          <div className="bg-[#0E0E0E] border border-[#00E5FF]/20 p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-md">
-            <div>
-              <span className="text-[9px] font-mono bg-[#00E5FF]/10 text-[#00E5FF] px-2 py-0.5 rounded font-bold uppercase">Apenas Primeiros 15 Compradores</span>
-              <h3 className="text-sm font-bold text-white mt-2">Pack de Ícones Premium + Planejamento Estratégico 2026</h3>
-              <p className="text-xs text-[#A1A1AA] mt-1">Acervo exclusivo para personalização visual de elite e matriz tática anual pré-definida.</p>
-            </div>
-            <div className="text-right shrink-0 w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05]">
-              <span className="text-[10px] text-gray-500 font-mono block">Valor Individual: <strong className="line-through">$67</strong></span>
-              <span className="text-xs font-mono text-[#00E5FF] font-extrabold">DESBLOQUEADO</span>
+            <div className="text-left sm:text-right shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05] w-full sm:w-auto">
+              <span className="text-xs font-mono text-[#25D366] font-bold block">Incluído gratuitamente</span>
             </div>
           </div>
 
-          {/* Primeiros 35 */}
-          <div className="bg-[#120A12] border border-[#FF007A]/30 p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-lg custom-badge-glow">
+          {/* Bónus 2 */}
+          <div className="bg-[#0A0A0A] border border-white/[0.05] p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <span className="text-[9px] font-mono bg-[#FF007A]/10 text-[#FF007A] px-2 py-0.5 rounded font-bold uppercase">Apenas Primeiros 35 Compradores</span>
-              <h3 className="text-sm font-bold text-white mt-2">Dashboard Financeiro + Banco de Prompts IA & Revisão Ativa</h3>
-              <p className="text-xs text-[#A1A1AA] mt-1">Contempla o <strong className="text-white">Protocolo de Aceleração IA (Engine 2026)</strong> com 20 comandos neurais, o <strong className="text-white">Framework de Implementação Crítica 24H</strong> e a metodologia <strong className="text-white">Feynman-Pomodoro</strong>.</p>
+              <span className="text-[9px] font-mono bg-[#00E5FF]/10 text-[#00E5FF] px-2 py-0.5 rounded font-bold uppercase block w-max mb-1.5">Bónus 02</span>
+              <h3 className="text-sm font-bold text-white">Pack de Ícones e Widgets Premium</h3>
+              <p className="text-xs text-[#A1A1AA] mt-1">Elementos visuais prontos para personalizar o workspace e deixar o sistema mais organizado e agradável.</p>
             </div>
-            <div className="text-right shrink-0 w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05]">
-              <span className="text-[10px] text-gray-500 font-mono block">Valor Individual: <strong className="line-through">$127</strong></span>
-              <span className="text-xs font-mono text-[#FF007A] font-extrabold">DESBLOQUEADO</span>
+            <div className="text-left sm:text-right shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05] w-full sm:w-auto">
+              <span className="text-xs font-mono text-[#00E5FF] font-bold block">Incluído gratuitamente</span>
             </div>
           </div>
 
-          {/* Primeiros 50 */}
-          <div className="bg-[#0A100A] border border-[#25D366]/30 p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
+          {/* Bónus 3 */}
+          <div className="bg-[#0A0A0A] border border-white/[0.05] p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <span className="text-[9px] font-mono bg-[#25D366]/10 text-[#25D366] px-2 py-0.5 rounded font-bold uppercase">Apenas Primeiros 50 Compradores</span>
-              <h3 className="text-sm font-bold text-white mt-2">Mini-curso Produtividade Extrema + Mentoria em Grupo Gravada</h3>
-              <p className="text-xs text-[#A1A1AA] mt-1">Acesso irrestrito aos bastidores de execução e fundamentos cognitivos aplicados em vídeo.</p>
+              <span className="text-[9px] font-mono bg-[#FF007A]/10 text-[#FF007A] px-2 py-0.5 rounded font-bold uppercase block w-max mb-1.5">Bónus 03</span>
+              <h3 className="text-sm font-bold text-white">20 Prompts IA para Estudos e Produtividade</h3>
+              <p className="text-xs text-[#A1A1AA] mt-1">Coleção prática de prompts para resumir matérias, organizar tarefas e acelerar o estudo com IA.</p>
             </div>
-            <div className="text-right shrink-0 w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05]">
-              <span className="text-[10px] text-gray-500 font-mono block">Valor Individual: <strong className="line-through">$197</strong></span>
-              <span className="text-xs font-mono text-[#25D366] font-extrabold">DESBLOQUEADO</span>
+            <div className="text-left sm:text-right shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05] w-full sm:w-auto">
+              <span className="text-xs font-mono text-[#FF007A] font-bold block">Incluído gratuitamente</span>
             </div>
           </div>
         </div>
 
-        {/* Resumo Absurdo de Valor */}
-        <div className="mt-10 bg-[#0E0E0E] border border-white/[0.08] p-6 rounded-2xl max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
+        {/* Resumo de Valor Transparente e Credível */}
+        <div className="mt-8 bg-[#0E0E0E] border border-white/[0.05] p-5 rounded-xl max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
           <div>
-            <p className="text-[10px] font-mono text-[#A1A1AA] uppercase font-semibold">Somatório Acumulado</p>
-            <p className="text-xs text-white mt-0.5">Valor Total Real dos Bônus: <span className="line-through text-red-500 font-mono font-bold">$438</span></p>
-            <p className="text-xs text-[#00E5FF] font-bold mt-0.5">Teu Custo de Resgate Hoje: <span className="font-mono font-extrabold text-base text-white">$0 (Incluso no Kit)</span></p>
+            <p className="text-xs text-white font-medium">Mais de <strong className="text-[#00E5FF]">$80 em extras</strong> incluídos na sua licença hoje.</p>
           </div>
           <button
             onClick={() => onExecuteConversion("international")}
-            className="btn-magnetic-aggressive text-xs px-5 py-3 rounded-xl w-full sm:w-auto shrink-0 text-center"
+            className="btn-luxury-cyan text-xs px-4 py-2.5 rounded-lg w-full sm:w-auto shrink-0 text-center font-bold text-black"
           >
-            Quero Todos os Bônus
+            Começar Meu Segundo Cérebro
           </button>
         </div>
       </div>
@@ -1155,22 +1189,17 @@ const AuthoritySection = memo(() => {
             “No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exatamente o mesmo: quem não tem sistema, joga no improviso e falha.”
           </p>
           <p className="text-gray-300">
-            Gabriel Sapalo, <strong>Campeão Nacional Absoluto de Xadrez de Angola 2024</strong>, funde com mestria o planeamento analítico de alta competição com a psicologia de execução.
+            Gabriel Sapalo aplica no Notion a mesma lógica usada no xadrez competitivo:
           </p>
+          <ul className="space-y-1.5 pl-2 border-l border-white/[0.05] text-gray-200 font-medium">
+            <li>• antecipação estruturada</li>
+            <li>• redução drástica de ruído</li>
+            <li>• execução altamente eficiente</li>
+            <li>• controlo operacional inegociável</li>
+          </ul>
           <p className="text-gray-300">
-            O sistema foi construído precisamente com a mesma lógica estratégica usada no tabuleiro: antecipação, eliminação do ruído e avanço implacável. Com especialização em auditoria e fluxos de informação, Gabriel desenhou o <strong>Notion Elite Kit</strong> para atuar como o seu segundo cérebro focado no fim da desorganização diária.
+            O resultado: um sistema construído cirurgicamente para eliminar a desorganização diária e acelerar a clareza mental.
           </p>
-          <div className="pt-2 flex flex-wrap items-center gap-2">
-            <span className="text-[9px] font-mono bg-[#00E5FF]/10 text-[#00E5FF] px-2 py-0.5 rounded border border-[#00E5FF]/20 font-bold">
-              ZERO FRICÇÃO
-            </span>
-            <span className="text-[9px] font-mono bg-[#FF007A]/10 text-[#FF007A] px-2 py-0.5 rounded border border-[#FF007A]/20 font-bold">
-              EXECUÇÃO ABSOLUTA
-            </span>
-            <span className="text-[9px] font-mono bg-white/5 text-gray-300 px-2 py-0.5 rounded border border-white/5">
-              INTELIGÊNCIA DE DADOS
-            </span>
-          </div>
         </div>
       </div>
     </section>
@@ -1288,23 +1317,23 @@ const PremiumOfferSection = memo(({ onExecuteConversion }: { onExecuteConversion
           <div className="absolute top-0 right-0 w-32 h-32 bg-[#00E5FF]/[0.05] rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid md:grid-cols-5 gap-8 items-center">
-            {/* Bloco Esquerdo: Preço e Valor Sénior */}
+            {/* Bloco Esquerdo: Preço Enterprise Visualmente Enorme */}
             <div className="md:col-span-2 border-b md:border-b-0 md:border-r border-white/[0.06] pb-6 md:pb-0 md:pr-6">
-              <span className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-wider block mb-1 font-semibold">
-                Investimento Único
+              <span className="text-[11px] uppercase tracking-[0.25em] text-[#00E5FF] font-extrabold block mb-2">
+                SPECIAL LAUNCH ACCESS
               </span>
-              <div className="text-xs text-[#A1A1AA] mb-0.5">
-                Preço sugerido: <span className="line-through font-mono text-gray-500">$97</span>
+              <div className="text-xs text-[#A1A1AA] mb-1">
+                Valor âncora: <span className="line-through font-mono text-gray-500">$97</span>
               </div>
-              <div className="text-3xl sm:text-4xl font-bold text-white tracking-tight mt-0.5">
-                Preço Especial <br />
-                <span className="text-[#00E5FF]">$10</span>
-                <span className="text-xs block text-gray-400 mt-1 font-mono font-normal">
-                  ou 10.000 AKZ
-                </span>
+              <div className="flex items-end gap-1 my-1">
+                <span className="text-6xl font-black text-white tracking-tight">$10</span>
+                <span className="pb-2 text-sm text-gray-400 font-mono">USD</span>
               </div>
-              <p className="text-[11px] text-[#A1A1AA] mt-3 leading-relaxed">
-                Sem mensalidades. Acesso integral a todas as atualizações e pacotes de aceleração IA embutidos.
+              <div className="text-xs text-[#25D366] font-mono font-bold mt-1">
+                ou 10.000 AKZ
+              </div>
+              <p className="text-[11px] text-[#A1A1AA] mt-4 leading-relaxed">
+                Licenciamento perpétuo sem mensalidades com todas as atualizações futuras e bónus embutidos.
               </p>
             </div>
 
@@ -1582,14 +1611,14 @@ const LegalFooter = memo(() => {
             </p>
             <p className="text-[#A1A1AA]/80 text-[10px] leading-relaxed">
               Notion Elite Kit 2026. <br />
-              Construído com tráfego otimizado nativamente para maximizar FOMO, prova social e impulsividade de compra sob LCP mínimo.
+              Workspace estratégico em Notion concebido para centralizar tarefas, estudos, metas e operações diárias numa única estrutura eficiente.
             </p>
           </div>
         </div>
 
         <div className="pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row justify-between items-center gap-2 text-[10px] text-[#A1A1AA]/60">
-          <p>© 2026 Gabriel Sapalo. Ecossistema licenciado internacionalmente.</p>
-          <p className="font-mono text-[9px]">SaaS High-Conversion Layer v5.0</p>
+          <p>© 2026 Gabriel Sapalo. Todos os direitos reservados.</p>
+          <p className="font-mono text-[9px]">Interface Architecture otimizada em React</p>
         </div>
       </div>
     </footer>
@@ -1726,6 +1755,7 @@ export function App() {
       <EngenhariaSection />
       <TransformacaoSection />
       <RepositorioNeuralSection />
+      <OQueExisteSection />
       <SolucaoModulosSection />
       <ComoFuncionaSection />
       <MapeamentoTaticoSection />
