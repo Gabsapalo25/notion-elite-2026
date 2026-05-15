@@ -21,7 +21,6 @@ import {
   X,
   Shield,
   Send,
-  Flame,
   CheckCircle,
   TrendingUp
 } from "lucide-react";
@@ -243,11 +242,11 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
           : "bg-gradient-to-b from-[#050505] via-[#050505]/95 to-transparent pb-4"
       }`}
     >
-      {/* Banner de Lançamento Privado (Sem Escassez Excessiva) */}
+      {/* Banner Superior Estrito (Alinhado com a VSL) */}
       <div className="bg-[#0A0A0A] border-b border-white/[0.08] py-2 px-4 text-center mb-4">
         <p className="text-[11px] font-mono text-[#00E5FF] tracking-wide font-medium flex items-center justify-center gap-2">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse" />
-          <span>Preço Fundador de Lançamento Ativo — o valor de acesso subirá após o término desta campanha</span>
+          <span>🔥 LANÇAMENTO OFICIAL — De $224 por apenas $10 (preço sobe para $49 em breve)</span>
         </p>
       </div>
 
@@ -302,10 +301,10 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
               Telemetry.emit("header_cta_click");
               onRequestScroll();
             }}
-            className="btn-magnetic-aggressive text-xs px-4 py-2 rounded-md shadow-lg flex items-center gap-1.5 outline-none cursor-pointer"
+            className="btn-magnetic-aggressive text-xs px-4 py-2 rounded-md shadow-lg flex items-center gap-1.5 outline-none cursor-pointer text-white"
           >
-            <span>Garantir Vaga</span>
-            <ArrowRight className="w-3 h-3" />
+            <span>Garantir por $10 agora</span>
+            <ArrowRight className="w-3 h-3 text-white" />
           </button>
 
           {/* Menu Hambúrguer Minimalista */}
@@ -401,82 +400,62 @@ const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marke
       {/* Glow Ambiental Subtil e Agressivo */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[750px] h-[380px] gradient-magnetic opacity-15 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-      {/* Badge de Lançamento */}
+      {/* Badge de Lançamento Rigoroso */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="inline-flex items-center gap-2 bg-[#101010] border border-[#FF007A]/40 px-4 py-1.5 rounded-full text-xs text-white mb-6 custom-badge-glow"
+        className="inline-flex items-center gap-2 bg-[#101010] border border-[#00E5FF]/40 px-4 py-1.5 rounded-full text-xs text-white mb-4 shadow-[0_0_15px_rgba(0,229,255,0.2)]"
       >
-        <Flame className="w-3.5 h-3.5 text-[#FF007A] animate-bounce" />
-        <span className="font-bold tracking-wide text-gradient-magnetic">LANÇAMENTO EXCLUSIVO 89% OFF</span>
+        <span className="font-bold tracking-wide text-[#00E5FF]">DE $224 → HOJE APENAS $10 • SOBE PARA $49 EM BREVE</span>
       </motion.div>
 
-      {/* Movimento e Identidade (Pertencimento) */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="mb-3"
-      >
-        <span className="text-[10px] font-mono bg-[#00E5FF]/10 text-[#00E5FF] border border-[#00E5FF]/20 px-3 py-1 rounded-md tracking-widest font-bold uppercase inline-block">
-          ⚡ MOVIMENTO DOS OPERADORES DE ELITE (SECOND BRAIN SOCIETY)
-        </span>
-      </motion.div>
-
-      {/* Headlines de Transformação Emocional e Paz Mental */}
-      <motion.h2
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.05 }}
-        className="text-xs sm:text-sm font-mono text-[#A1A1AA] tracking-tight uppercase font-extrabold mb-2"
-      >
-        Seu Segundo Cérebro Definitivo para Dominar 2026
-      </motion.h2>
-
+      {/* Headline de Conversão Obrigatória */}
       <motion.h1
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
         className="premium-heading text-4xl sm:text-5xl md:text-6xl text-white max-w-4xl mx-auto mb-6 tracking-tight leading-[1.05]"
       >
-        Pare de viver no caos. <br />
-        <span className="text-gradient-magnetic">Coloque a sua vida em ordem</span> com um único sistema.
+        Organize toda a sua vida académica e profissional em menos de 24 horas
       </motion.h1>
 
-      {/* Subheadline Focada no Resultado Emocional (Controle & Paz Mental) */}
+      {/* Subheadline Clara & Preço de Lançamento Insano */}
       <motion.p
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.15 }}
-        className="text-sm sm:text-base text-[#A1A1AA] max-w-3xl mx-auto leading-relaxed mb-8 font-normal"
+        className="text-sm sm:text-base text-[#A1A1AA] max-w-3xl mx-auto leading-relaxed mb-3 font-normal"
       >
-        Troque a sobrecarga contínua e as tarefas espalhadas por absoluto <span className="text-white font-semibold">controle</span>, <span className="text-[#00E5FF] font-semibold">clareza visual</span> e <span className="text-white font-semibold">paz mental</span>. Domine suas metas, finanças e rotina com uma extensão cognitiva infalível construída no Notion.
+        Mais de <strong className="text-white">3.200 estudantes</strong> já transformaram o seu dia-a-dia com este sistema completo de Notion.
+      </motion.p>
+      
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.18 }}
+        className="text-xs text-[#00E5FF] font-mono font-bold mb-8"
+      >
+        Preço de lançamento insano: apenas $10 (valor normal $49)
       </motion.p>
 
-      {/* Ganhos Imediatos: O que muda HOJE */}
+      {/* Ganhos Imediatos da VSL */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="bg-[#0A0A0A] border border-white/[0.06] p-4 rounded-xl max-w-3xl mx-auto mb-8 text-left shadow-xl"
+        className="bg-[#0A0A0A] border border-white/[0.06] p-4.5 rounded-xl max-w-3xl mx-auto mb-8 text-left shadow-xl"
       >
-        <p className="text-xs font-bold text-white uppercase tracking-wider mb-2.5 text-center sm:text-left flex items-center justify-center sm:justify-start gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#25D366]" />
-          <span>Nas próximas 24 horas você consegue:</span>
-        </p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        <div className="grid sm:grid-cols-2 gap-3">
           {[
-            "Organizar tarefas atrasadas",
-            "Centralizar estudos",
-            "Controlar finanças",
-            "Planejar a semana",
-            "Eliminar excesso de abas",
-            "Criar rotina clara"
+            "Tenha todas as disciplinas, prazos e finanças num único lugar",
+            "Elimine o caos mental e ganhe clareza total",
+            "Setup completo em menos de 24 horas",
+            "Funciona perfeitamente no telemóvel"
           ].map((item, idx) => (
-            <div key={idx} className="flex items-center gap-1.5 text-[11px] text-gray-300">
-              <span className="text-[#00E5FF] font-bold">✓</span>
-              <span className="truncate">{item}</span>
+            <div key={idx} className="flex items-start gap-2 text-xs text-gray-300">
+              <span className="text-[#00E5FF] font-bold shrink-0 mt-0.5">✓</span>
+              <span className="leading-tight">{item}</span>
             </div>
           ))}
         </div>
@@ -536,12 +515,12 @@ const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marke
       >
         <div className="bg-[#0E0E0E] p-4 rounded-xl border border-white/[0.05] mb-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-left">
           <div>
-            <span className="text-[10px] font-mono text-[#A1A1AA] uppercase block font-semibold">Valor Ancorado Oficial</span>
-            <p className="text-xs text-[#A1A1AA]">De <span className="line-through font-mono text-gray-500">$97</span> por apenas <strong className="text-[#00E5FF] font-mono font-extrabold text-base">$10</strong></p>
+            <span className="text-[10px] font-mono text-[#A1A1AA] uppercase block font-semibold">Valor Ancorado da VSL</span>
+            <p className="text-xs text-[#A1A1AA]">De <span className="line-through font-mono text-gray-500">$224</span> por apenas <strong className="text-[#00E5FF] font-mono font-extrabold text-base">$10</strong></p>
           </div>
           <div className="text-right flex items-center sm:block gap-2">
-            <span className="text-[10px] text-white bg-[#FF007A] px-2 py-0.5 rounded font-bold uppercase tracking-tight block">89% de Desconto</span>
-            <span className="text-[9px] text-gray-400 font-mono block">Garantia 30 dias</span>
+            <span className="text-[10px] text-white bg-[#00E5FF]/20 text-[#00E5FF] px-2 py-0.5 rounded font-bold uppercase tracking-tight block border border-[#00E5FF]/30">Preço Fundador</span>
+            <span className="text-[9px] text-gray-400 font-mono block">Sobe para $49 em breve</span>
           </div>
         </div>
 
@@ -549,21 +528,21 @@ const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marke
           {/* Botão Internacional */}
           <button
             onClick={() => onExecuteConversion("international")}
-            className="w-full btn-luxury-cyan py-3.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-xl cursor-pointer outline-none font-extrabold tracking-tight"
+            className="w-full btn-luxury-cyan py-3.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-xl cursor-pointer outline-none tracking-tight text-black"
           >
             <CreditCard className="w-4 h-4 text-[#050505] shrink-0" />
-            <span>Começar Meu Segundo Cérebro ($10)</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span>Quero o Kit por $10</span>
+            <ArrowRight className="w-3.5 h-3.5 text-black" />
           </button>
 
           {/* Botão Angola */}
           <button
             onClick={() => onExecuteConversion("angola")}
-            className="w-full btn-magnetic-aggressive py-3.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-xl cursor-pointer outline-none font-extrabold tracking-tight"
+            className="w-full btn-magnetic-aggressive py-3.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-xl cursor-pointer outline-none tracking-tight text-white"
           >
             <MessageCircle className="w-4 h-4 text-white shrink-0 fill-white" />
-            <span>Organizar Minha Vida em 24h (10k AKZ)</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span>Quero por 10.000 AKZ via WhatsApp</span>
+            <ArrowRight className="w-3.5 h-3.5 text-white" />
           </button>
         </div>
 
@@ -618,18 +597,18 @@ const MomentoUauSection = memo(() => {
           Sem hesitação. Sem a ansiedade do domingo à noite. O seu ecossistema pessoal cuida de cruzar metas, finanças e rotina em segundo plano, libertando a sua mente para focar estritamente na execução.
         </p>
 
-        {/* Pilares de Clareza Extrema */}
+        {/* Pilares de Clareza Extrema (Comunicação 100% Humana e Direta) */}
         <div className="grid sm:grid-cols-3 gap-6 text-left">
           <div className="bg-[#050505] p-6 rounded-xl border border-white/[0.04] flex flex-col justify-between">
             <div>
               <span className="text-lg mb-2 block">🧠</span>
               <h3 className="text-xs font-bold text-white mb-1.5 uppercase tracking-tight">O Que É</h3>
               <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
-                Uma infraestrutura de dados centralizada no Notion que funciona como uma extensão cognitiva inviolável para o seu cérebro.
+                Um conjunto de templates prontos a usar no Notion para organizar os seus estudos, gerir tarefas diárias e planear finanças num único ecrã.
               </p>
             </div>
             <span className="mt-4 pt-2 border-t border-white/[0.02] text-[9px] font-mono text-[#00E5FF] block">
-              Paz Mental Imediata
+              Simplicidade Imediata
             </span>
           </div>
 
@@ -638,11 +617,11 @@ const MomentoUauSection = memo(() => {
               <span className="text-lg mb-2 block">🎯</span>
               <h3 className="text-xs font-bold text-white mb-1.5 uppercase tracking-tight">Para Quem É</h3>
               <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
-                Estudantes sob pressão, criadores e operadores focados em erradicar pontas soltas e alavancar a produtividade sem atrito.
+                Estudantes e profissionais que precisam de centralizar a rotina e eliminar o stress de ter prazos e ideias espalhados por várias aplicações.
               </p>
             </div>
             <span className="mt-4 pt-2 border-t border-white/[0.02] text-[9px] font-mono text-[#FF007A] block">
-              Foco Cirúrgico
+              Foco Prático
             </span>
           </div>
 
@@ -651,7 +630,7 @@ const MomentoUauSection = memo(() => {
               <span className="text-lg mb-2 block">⚡</span>
               <h3 className="text-xs font-bold text-white mb-1.5 uppercase tracking-tight">Por Que Comprar Agora</h3>
               <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
-                Acesso instantâneo com 89% de desconto exclusivo e todos os pacotes de aceleração neurais embutidos sem custos adicionais.
+                Aproveite o preço fundador temporário de apenas $10, com acesso vitalício incluído e garantia total de devolução caso não se adapte.
               </p>
             </div>
             <span className="mt-4 pt-2 border-t border-white/[0.02] text-[9px] font-mono text-[#25D366] block">
@@ -680,12 +659,12 @@ const EngenhariaSection = memo(() => {
   const [activeHighlight, setActiveHighlight] = useState(0);
 
   const miniHighlights = [
-    { label: "Finanças", desc: "Fluxos preditivos de receita e despesa." },
-    { label: "Hábitos", desc: "Métricas diárias com gamificação visual." },
-    { label: "Projetos", desc: "Progresso dinâmico de tarefas ativas." },
-    { label: "IA", desc: "Matrizes de comandos neurais instantâneos." },
-    { label: "Calendário", desc: "Cronograma sincronizado de alta urgência." },
-    { label: "Metas", desc: "Desdobramento tático para execução diária." }
+    { label: "Finanças", desc: "Orçamentos, despesas e poupanças centralizadas." },
+    { label: "Hábitos", desc: "Registo visual simples para manter o ritmo diário." },
+    { label: "Projetos", desc: "Acompanhamento de tarefas e trabalhos práticos." },
+    { label: "IA Hub", desc: "Atalhos nativos para criar resumos de matérias." },
+    { label: "Calendário", desc: "Planeamento visual focado nos seus prazos." },
+    { label: "Metas", desc: "Objetivos anuais divididos em passos diários." }
   ];
 
   useEffect(() => {
@@ -699,13 +678,13 @@ const EngenhariaSection = memo(() => {
     <section id="engenharia" className="py-24 border-t border-white/[0.05] px-6 max-w-6xl mx-auto text-center">
       <div className="mb-12 max-w-2xl mx-auto">
         <span className="text-[10px] font-mono tracking-widest text-[#FF007A] uppercase block mb-3 font-extrabold">
-          Inspeção Operacional de Luxo
+          Demonstração Prática Real
         </span>
         <h2 className="premium-heading text-2xl sm:text-3xl text-white">
-          Engenharia em Acção
+          Veja o ecossistema a funcionar na prática
         </h2>
         <p className="text-xs text-[#A1A1AA] mt-2">
-          Demonstração real do sistema operando sem edições, provando a velocidade e sincronização imbatível da interface.
+          Poupe centenas de horas sem adivinhar o design. Navegue nas funcionalidades prontas a usar sem complicações.
         </p>
       </div>
 
@@ -785,7 +764,7 @@ const EngenhariaSection = memo(() => {
           </div>
 
           <div className="pt-3 border-t border-white/[0.04] mt-4 text-[9px] font-mono text-gray-500 text-center">
-            Sincronização Absoluta Instantânea
+            Tudo interligado de forma simples e natural
           </div>
         </div>
       </div>
@@ -1011,7 +990,7 @@ const ComoFuncionaSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ DESTAQUE ISOLADO 1: MAPEAMENTO TÁTICO
+// ♟️ DESTAQUE ISOLADO 1: CONTROLO DE TAREFAS
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const MapeamentoTaticoSection = memo(() => {
@@ -1021,20 +1000,20 @@ const MapeamentoTaticoSection = memo(() => {
       <div className="max-w-5xl mx-auto">
         <div className="mb-10 max-w-2xl mx-auto">
           <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block mb-3 font-extrabold">
-            Ênfase Arquitetural
+            Clareza de Tarefas
           </span>
           <h2 className="premium-heading text-2xl sm:text-4xl text-white">
-            Painel Analítico de Decisão
+            Planeamento diário simples e visual
           </h2>
           <p className="text-xs text-[#A1A1AA] mt-2">
-            Cada componente reativo foi disposto milimetricamente para fornecer um panorama imediato de métricas diárias e prioridades intocáveis.
+            Saiba exatamente quais as tarefas urgentes e o que precisa de ser entregue hoje sem se perder em menus secundários.
           </p>
         </div>
 
         <div className="rounded-2xl overflow-hidden border border-[#00E5FF]/20 bg-[#0A0A0A] p-2 sm:p-3 shadow-[0_20px_80px_rgba(0,229,255,0.07)] max-w-4xl mx-auto">
           <img
             src={CONFIG.mockupExtra1}
-            alt="Mapeamento Tático Nativo"
+            alt="Dashboard Visual Prático"
             className="w-full h-auto rounded-xl object-cover block"
             loading="lazy"
           />
@@ -1045,7 +1024,7 @@ const MapeamentoTaticoSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ DESTAQUE ISOLADO 2: REPOSITÓRIO NEURAL
+// ♟️ DESTAQUE ISOLADO 2: CENTRAL DE NOTAS
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const RepositorioNeuralSection = memo(() => {
@@ -1055,20 +1034,20 @@ const RepositorioNeuralSection = memo(() => {
       <div className="max-w-5xl mx-auto">
         <div className="mb-10 max-w-2xl mx-auto">
           <span className="text-[10px] font-mono tracking-widest text-[#FF007A] uppercase block mb-3 font-extrabold">
-            Módulo Cérebro Sincronizado
+            Apontamentos e Ideias
           </span>
           <h2 className="premium-heading text-2xl sm:text-4xl text-white">
-            Repositório Neural de IA
+            Central de Notas Pronta a Usar
           </h2>
           <p className="text-xs text-[#A1A1AA] mt-2">
-            Integração fluida concebida para reter anotações densas, acionar atalhos de inteligência artificial e prever sobrecargas antes do colapso.
+            Guarde aulas, relatórios ou rascunhos de forma organizada, integrando comandos nativos para simplificar textos com um clique.
           </p>
         </div>
 
         <div className="rounded-2xl overflow-hidden border border-[#FF007A]/20 bg-[#050505] p-2 sm:p-3 shadow-[0_20px_80px_rgba(255,0,122,0.08)] max-w-4xl mx-auto custom-badge-glow">
           <img
             src={CONFIG.mockupExtra2}
-            alt="Repositório Neural de IA"
+            alt="Central de Notas e Resumos"
             className="w-full h-auto rounded-xl object-cover block"
             loading="lazy"
           />
@@ -1317,13 +1296,13 @@ const PremiumOfferSection = memo(({ onExecuteConversion }: { onExecuteConversion
           <div className="absolute top-0 right-0 w-32 h-32 bg-[#00E5FF]/[0.05] rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid md:grid-cols-5 gap-8 items-center">
-            {/* Bloco Esquerdo: Preço Enterprise Visualmente Enorme */}
+            {/* Bloco Esquerdo: Preço Enterprise Visualmente Enorme alinhado com a VSL */}
             <div className="md:col-span-2 border-b md:border-b-0 md:border-r border-white/[0.06] pb-6 md:pb-0 md:pr-6">
               <span className="text-[11px] uppercase tracking-[0.25em] text-[#00E5FF] font-extrabold block mb-2">
                 SPECIAL LAUNCH ACCESS
               </span>
               <div className="text-xs text-[#A1A1AA] mb-1">
-                Valor âncora: <span className="line-through font-mono text-gray-500">$97</span>
+                Valor âncora da VSL: <span className="line-through font-mono text-gray-500">$224</span>
               </div>
               <div className="flex items-end gap-1 my-1">
                 <span className="text-6xl font-black text-white tracking-tight">$10</span>
@@ -1333,7 +1312,7 @@ const PremiumOfferSection = memo(({ onExecuteConversion }: { onExecuteConversion
                 ou 10.000 AKZ
               </div>
               <p className="text-[11px] text-[#A1A1AA] mt-4 leading-relaxed">
-                Licenciamento perpétuo sem mensalidades com todas as atualizações futuras e bónus embutidos.
+                Preço normal após o lançamento: <strong className="text-white">$49</strong>. Licenciamento perpétuo sem mensalidades e atualizações incluídas.
               </p>
             </div>
 
