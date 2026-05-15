@@ -420,14 +420,26 @@ const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marke
         <span className="font-bold tracking-wide text-gradient-magnetic">LANÇAMENTO EXCLUSIVO 89% OFF</span>
       </motion.div>
 
-      {/* Headlines Combinadas de Conversão Extrema */}
+      {/* Movimento e Identidade (Pertencimento) */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="mb-3"
+      >
+        <span className="text-[10px] font-mono bg-[#00E5FF]/10 text-[#00E5FF] border border-[#00E5FF]/20 px-3 py-1 rounded-md tracking-widest font-bold uppercase inline-block">
+          ⚡ MOVIMENTO DOS OPERADORES DE ELITE (SECOND BRAIN SOCIETY)
+        </span>
+      </motion.div>
+
+      {/* Headlines de Transformação Emocional e Paz Mental */}
       <motion.h2
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.05 }}
-        className="text-xs sm:text-sm font-mono text-[#00E5FF] tracking-widest uppercase font-extrabold mb-2"
+        className="text-xs sm:text-sm font-mono text-[#A1A1AA] tracking-tight uppercase font-extrabold mb-2"
       >
-        Seu Segundo Cérebro Completo para Dominar 2026
+        Seu Segundo Cérebro Definitivo para Dominar 2026
       </motion.h2>
 
       <motion.h1
@@ -436,17 +448,18 @@ const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marke
         transition={{ duration: 0.5, delay: 0.1 }}
         className="premium-heading text-4xl sm:text-5xl md:text-6xl text-white max-w-4xl mx-auto mb-6 tracking-tight leading-[1.05]"
       >
-        O Sistema Tudo-em-Um que Organiza Sua Vida Inteira em 2026
+        Pare de viver no caos. <br />
+        <span className="text-gradient-magnetic">Coloque a sua vida em ordem</span> com um único sistema.
       </motion.h1>
 
-      {/* Subheadline com Lista de Pilares */}
+      {/* Subheadline Focada no Resultado Emocional (Controle & Paz Mental) */}
       <motion.p
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.15 }}
         className="text-sm sm:text-base text-[#A1A1AA] max-w-3xl mx-auto leading-relaxed mb-8 font-normal"
       >
-        Domine <span className="text-white font-semibold">produtividade</span>, <span className="text-[#00E5FF] font-semibold">finanças</span>, <span className="text-white font-semibold">metas</span>, <span className="text-[#FF007A] font-semibold">hábitos</span>, <span className="text-white font-semibold">projetos</span>, <span className="text-[#00E5FF] font-semibold">IA</span> e a sua <span className="text-white font-semibold">rotina</span> com organização total centralizada em um único dashboard Notion.
+        Troque a sobrecarga contínua e as tarefas espalhadas por absoluto <span className="text-white font-semibold">controle</span>, <span className="text-[#00E5FF] font-semibold">clareza visual</span> e <span className="text-white font-semibold">paz mental</span>. Domine suas metas, finanças e rotina com uma extensão cognitiva infalível construída no Notion.
       </motion.p>
 
       {/* Timer Dinâmico Rítmico na Hero */}
@@ -582,6 +595,81 @@ const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marke
           </span>
         </div>
       </motion.div>
+    </section>
+  );
+});
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ♟️ O MOMENTO UAU (DECISÃO EMOCIONAL PROGRESSIVA)
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const MomentoUauSection = memo(() => {
+  return (
+    <section className="py-24 bg-[#080808] border-b border-white/[0.05] px-6 text-center relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#00E5FF]/[0.02] rounded-full blur-[120px] pointer-events-none -z-10" />
+      
+      <div className="max-w-4xl mx-auto">
+        <span className="text-[10px] font-mono text-[#00E5FF] uppercase block mb-3 font-bold tracking-widest">
+          Experiência de Decisão em 5 Segundos
+        </span>
+        
+        <h2 className="premium-heading text-3xl sm:text-4xl text-white mb-6 leading-tight">
+          Imagine acordar sabendo <span className="text-gradient-magnetic">exatamente o que fazer.</span>
+        </h2>
+        
+        <p className="text-xs sm:text-sm text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed mb-12">
+          Sem hesitação. Sem a ansiedade do domingo à noite. O seu ecossistema pessoal cuida de cruzar metas, finanças e rotina em segundo plano, libertando a sua mente para focar estritamente na execução.
+        </p>
+
+        {/* Pilares de Clareza Extrema */}
+        <div className="grid sm:grid-cols-3 gap-6 text-left">
+          <div className="bg-[#050505] p-6 rounded-xl border border-white/[0.04] flex flex-col justify-between">
+            <div>
+              <span className="text-lg mb-2 block">🧠</span>
+              <h3 className="text-xs font-bold text-white mb-1.5 uppercase tracking-tight">O Que É</h3>
+              <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
+                Uma infraestrutura de dados centralizada no Notion que funciona como uma extensão cognitiva inviolável para o seu cérebro.
+              </p>
+            </div>
+            <span className="mt-4 pt-2 border-t border-white/[0.02] text-[9px] font-mono text-[#00E5FF] block">
+              Paz Mental Imediata
+            </span>
+          </div>
+
+          <div className="bg-[#050505] p-6 rounded-xl border border-white/[0.04] flex flex-col justify-between">
+            <div>
+              <span className="text-lg mb-2 block">🎯</span>
+              <h3 className="text-xs font-bold text-white mb-1.5 uppercase tracking-tight">Para Quem É</h3>
+              <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
+                Estudantes sob pressão, criadores e operadores focados em erradicar pontas soltas e alavancar a produtividade sem atrito.
+              </p>
+            </div>
+            <span className="mt-4 pt-2 border-t border-white/[0.02] text-[9px] font-mono text-[#FF007A] block">
+              Foco Cirúrgico
+            </span>
+          </div>
+
+          <div className="bg-[#050505] p-6 rounded-xl border border-white/[0.04] flex flex-col justify-between">
+            <div>
+              <span className="text-lg mb-2 block">⚡</span>
+              <h3 className="text-xs font-bold text-white mb-1.5 uppercase tracking-tight">Por Que Comprar Agora</h3>
+              <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
+                Acesso instantâneo com 89% de desconto exclusivo e todos os pacotes de aceleração neurais embutidos sem custos adicionais.
+              </p>
+            </div>
+            <span className="mt-4 pt-2 border-t border-white/[0.02] text-[9px] font-mono text-[#25D366] block">
+              Risco Absolutamente Zero
+            </span>
+          </div>
+        </div>
+
+        {/* Citação de Confiança Visual Premium */}
+        <div className="mt-10 p-4 rounded-lg bg-white/[0.01] border border-white/[0.03] text-center">
+          <p className="text-xs text-gray-400 italic">
+            "A simplicidade é o mais alto grau de sofisticação." — A sensação de facilidade que separa o ruído da verdadeira execução.
+          </p>
+        </div>
+      </div>
     </section>
   );
 });
@@ -1598,6 +1686,7 @@ export function App() {
       {/* RENDERIZAÇÃO GERAL DO FUNIL */}
       <Header onRequestScroll={executeScrollToOffer} />
       <HeroSection onExecuteConversion={handleFinalChoice} />
+      <MomentoUauSection />
       <EngenhariaSection />
       <TransformacaoSection />
       <RepositorioNeuralSection />
