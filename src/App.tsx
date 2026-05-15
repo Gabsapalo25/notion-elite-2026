@@ -26,23 +26,26 @@ import {
 } from "lucide-react";
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ CONFIGURAÇÃO OFICIAL & ASSETS ABSOLUTOS
+// ♟️ CONFIGURAÇÃO OFICIAL & ASSETS ABSOLUTOS (CLOUDINARY)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const CONFIG = {
   authorName: "Gabriel Sapalo",
-  authorPhoto: "https://drive.google.com/thumbnail?id=1kmUAUklxpI5yMEfaUaFQT2ye4rpgrbKP&sz=w800",
+  authorTitle: "Estrategista & Especialista em Gestão de Sistemas de Informação",
+  authorBio: "Campeão Nacional Absoluto de Xadrez de Angola 2024. Consolidou a sua carreira na intersecção entre o Planeamento Estatístico e a Psicologia Analítica. Com especialização em Contabilidade e Auditoria, Gabriel utilizou a sua visão de Estrategista para modelar o Notion Elite Kit como uma infraestrutura de inteligência de dados para fluxos cognitivos complexos.",
+  authorPhoto: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858082/Gabriel_Sapalo_kp0dhm.png",
+  
+  // Vídeos
   heroVideo: "https://www.youtube.com/embed/UwCl0a-FWp4",
-  glowscaleLogo: "https://drive.google.com/thumbnail?id=11MvkwbsJstF-st-tYMxpyeCVW1sDG4ks&sz=w400",
-  productLogo: "https://drive.google.com/thumbnail?id=1PhCQaeCPI4b1sWrfpMIDI3t1eFDac0aT",
-  whatsappLogo: "https://drive.google.com/thumbnail?id=1ty3u0-Vks2IM4NNT2bJ14riAvG0Zh5Cd&sz=w200",
-  telegramLogo: "https://drive.google.com/thumbnail?id=1I1PJ4DpRVqiWgQGX4jMWLBi6plwQsiJN&sz=w200",
-  notionMockup: "https://drive.google.com/thumbnail?id=1ufRMrYBRKe0zj38foMxjdgbckH8SLxcl&sz=w1000",
-  internalView: "https://drive.google.com/thumbnail?id=1AQUxp-P7-Wf64CPqbTiQDsPqqBhL7dvL&sz=w1000",
-  laptopOffer: "https://drive.google.com/thumbnail?id=1ek54pgWKa_2j90WGcpmb30XGuzB5qjvJ&sz=w800",
-  mockupExtra1: "https://drive.google.com/thumbnail?id=1Gv_vB4wENBXyiaQi1iD3UyuXkTvXg8sc&sz=w1000",
-  mockupExtra2: "https://drive.google.com/thumbnail?id=1o79_tWug5lCJ2kI3T4yz0vJOm5wQ2P70&sz=w1000",
-  videoDemonstracaoReal: "https://drive.google.com/file/d/1qzelqkdoxr_828C4OhgonEMzJNdMKCsa/preview",
-
+  demoVideo: "https://www.youtube.com/embed/qfKGywfh05A",
+  
+  // Logos
+  productLogo: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858080/Logotipo_Notion_Elite_2026_qhvyup.png",
+  glowscaleLogo: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858081/Logotipo_da_Glowscalepro_vawgu4.png",
+  
+  // Mockups
+  notionMockup: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857929/MOCKUP_NOTION_FINAL_1_zc7jj0.png",
+  antesDepoisMockup: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857908/Mockup_2_antes_e_depois_nr6xmh.png",
+  
   // CTAS OFICIAIS DE CONVERSÃO EXTREMA
   hotmartCheckout: "https://pay.hotmart.com/Q105490101M?off=xablp4k5&hotfeature=51",
   whatsappPayment: "https://chat.whatsapp.com/LDV8ORaZgzGC9ljtt3gTLh",
@@ -97,7 +100,7 @@ const TESTIMONIALS = [
     name: "Tomás Ferreira",
     role: "Dupla Licenciatura",
     location: "Porto, Portugal",
-    avatar: "https://drive.google.com/thumbnail?id=1B8EXhe3kIo9EW8MEaEu4MLSUWqgUZS-U&sz=w400",
+    avatar: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857744/Tomás_Ferreira_-Porto_-_Portugal_goriez.png",
     text: "Mano... consegui finalmente organizar tudo 😭 Faço dupla licenciatura e trabalho num café. Antes vivia em pânico a dormir 4 horas. Agora planeio a semana toda em 10 min ao domingo. Surreal.",
     type: "casual"
   },
@@ -105,7 +108,7 @@ const TESTIMONIALS = [
     name: "Mariana Costa",
     role: "Estudante Universitária",
     location: "Lisboa, Portugal",
-    avatar: "https://drive.google.com/thumbnail?id=1Qp6Ggy8nwDujXUimXGOYXsluBlLnlCa1&sz=w400",
+    avatar: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857744/Mariana_-_Lisboa_Portugal_uerhir.png",
     text: "Passei de média de 12 para 15 em dois meses. O cérebro digital devolveu-me o foco e tirou o peso de ter anotações perdidas. Sinto que tenho o controlo de volta.",
     type: "emocional"
   },
@@ -113,7 +116,7 @@ const TESTIMONIALS = [
     name: "Ana Luísa Mendes",
     role: "Gestora de Projetos",
     location: "Luanda, Angola",
-    avatar: "https://drive.google.com/thumbnail?id=1wU9eMnFFPWcMZF6BNoPiRdZHF7xBcQJi&sz=w400",
+    avatar: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857745/Ana_Luisa_-_Luanda_Angola_vae6mt.png",
     text: "A integração das matrizes relacionais e os atalhos de bases de dados funcionam sem qualquer latência ou quebras visuais. Extremamente sólido.",
     type: "tecnico"
   },
@@ -121,7 +124,7 @@ const TESTIMONIALS = [
     name: "João Pedro Silva",
     role: "Profissional & Estudante",
     location: "São Paulo, Brasil",
-    avatar: "https://drive.google.com/thumbnail?id=19FTCcE3bLkdF3EYSnzSzR6Q_z5nsCTLH&sz=w400",
+    avatar: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857745/João_Pedro_-_São_Paulo_-_Brasil_inzjna.png",
     text: "Trabalhar e estudar ao mesmo tempo consumia-me. Este setup poupou-me 2 horas diárias. O cálculo é simples: o tempo que recuperei paga o sistema no primeiro dia.",
     type: "racional"
   },
@@ -129,7 +132,7 @@ const TESTIMONIALS = [
     name: "Sofia Rodrigues",
     role: "Mestranda e Pesquisadora",
     location: "Coimbra, Portugal",
-    avatar: "https://drive.google.com/thumbnail?id=1zmsp7FfLOBEizrHjOLjsK_ro2vVEX9C7&sz=w400",
+    avatar: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857745/Sofia_Rodrigues_-_Coimbra_-Portugal_tlbepm.png",
     text: "Adeus abas perdidas e notas soltas. Setup concluído. Zero atrito. Execução imediata.",
     type: "curto"
   },
@@ -137,13 +140,11 @@ const TESTIMONIALS = [
     name: "Beatriz Mendonça",
     role: "Consultora Júnior",
     location: "Maputo, Moçambique",
-    avatar: "https://drive.google.com/thumbnail?id=1vtcYqW_DZSgwc6UExrQnerPYNEtt2shQ&sz=w400",
+    avatar: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857744/Beatriz_Mendoça_-_Maputo_Moçambique_qjsbtm.png",
     text: "Ou montas um ecossistema que funciona por ti ou continuas a perder prazos e a mentir a ti mesma. A metodologia de 24H obrigou-me a executar sem desculpas.",
     type: "agressivo"
   }
 ];
-
-
 
 const FAQ_DATA = [
   {
@@ -251,7 +252,7 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        {/* Identidade de Luxo Minimalista com Logótipo Oficial aumentado 2x para máxima visibilidade */}
+        {/* Identidade de Luxo Minimalista com Logótipo Oficial */}
         <a
           href="#"
           onClick={(e) => {
@@ -264,7 +265,7 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
           <img
             src={CONFIG.productLogo}
             alt="Notion Elite Starter Kit 2026"
-            className="w-14 h-14 sm:w-16 sm:h-16 object-contain group-hover:scale-105 transition-transform drop-shadow-[0_0_15px_rgba(0,229,255,0.3)]"
+            className="w-12 h-12 sm:w-14 sm:h-14 object-contain group-hover:scale-105 transition-transform drop-shadow-[0_0_15px_rgba(0,229,255,0.3)]"
           />
           <div className="flex flex-col">
             <span className="font-bold text-xs sm:text-sm text-white tracking-tight flex items-center gap-1.5">
@@ -301,7 +302,7 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
               Telemetry.emit("header_cta_click");
               onRequestScroll();
             }}
-            className="btn-magnetic-aggressive text-xs px-4 py-2 rounded-md shadow-lg flex items-center gap-1.5 outline-none cursor-pointer text-white"
+            className="btn-magnetic-aggressive text-xs px-4 py-2 rounded-md shadow-lg flex items-center gap-1.5 outline-none cursor-pointer text-white animate-pulse-ring"
           >
             <span>Garantir por $10 agora</span>
             <ArrowRight className="w-3 h-3 text-white" />
@@ -461,7 +462,7 @@ const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marke
         </div>
       </motion.div>
 
-      {/* VSL DE VENDA (Vídeo 1 no Topo sem Autoplay Involuntário) */}
+      {/* VSL DE VENDA (Vídeo 1 no Topo) */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -478,7 +479,7 @@ const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marke
               className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]"
             >
               <img
-                src={CONFIG.laptopOffer}
+                src={CONFIG.notionMockup}
                 alt="Pré-visualização da VSL"
                 className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 transition-opacity duration-400"
                 loading="lazy"
@@ -524,11 +525,19 @@ const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marke
           </div>
         </div>
 
+        {/* Texto de Urgência Angola */}
+        <div className="text-center -mt-2">
+          <span className="text-[10px] text-[#FF007A] font-mono font-bold bg-[#FF007A]/10 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FF007A] animate-pulse" />
+            ⚠️ Apenas 50 licenças disponíveis para o suporte prioritário em Angola
+          </span>
+        </div>
+
         <div className="grid sm:grid-cols-2 gap-4 text-left">
           {/* Botão Internacional */}
           <button
             onClick={() => onExecuteConversion("international")}
-            className="w-full btn-luxury-cyan py-3.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-xl cursor-pointer outline-none tracking-tight text-black"
+            className="w-full btn-luxury-cyan py-3.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-xl cursor-pointer outline-none tracking-tight text-black animate-pulse-ring"
           >
             <CreditCard className="w-4 h-4 text-[#050505] shrink-0" />
             <span>Quero o Kit por $10</span>
@@ -538,7 +547,7 @@ const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marke
           {/* Botão Angola */}
           <button
             onClick={() => onExecuteConversion("angola")}
-            className="w-full btn-magnetic-aggressive py-3.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-xl cursor-pointer outline-none tracking-tight text-white"
+            className="w-full btn-magnetic-aggressive py-3.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-xl cursor-pointer outline-none tracking-tight text-white animate-pulse-ring"
           >
             <MessageCircle className="w-4 h-4 text-white shrink-0 fill-white" />
             <span>Quero por 10.000 AKZ via WhatsApp</span>
@@ -701,7 +710,7 @@ const EngenhariaSection = memo(() => {
                 className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]"
               >
                 <img
-                  src={CONFIG.internalView}
+                  src={CONFIG.antesDepoisMockup}
                   alt="Demonstração Real do Sistema"
                   className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity duration-400"
                   loading="lazy"
@@ -720,10 +729,10 @@ const EngenhariaSection = memo(() => {
               </div>
             ) : (
               <iframe
-                src={CONFIG.videoDemonstracaoReal}
+                src={`${CONFIG.demoVideo}?autoplay=1&rel=0&modestbranding=1`}
                 title="Vídeo Demonstração Real Notion Elite"
                 className="w-full h-full absolute inset-0 border-0"
-                allow="autoplay"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             )}
@@ -842,6 +851,16 @@ const TransformacaoSection = memo(() => {
             Resultado: Domínio absoluto e foco instantâneo.
           </div>
         </div>
+      </div>
+
+      {/* Mockup Antes/Depois Reforço Visual */}
+      <div className="mt-12 rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2 max-w-4xl mx-auto">
+        <img
+          src={CONFIG.antesDepoisMockup}
+          alt="Comparativo Antes e Depois do Sistema"
+          className="w-full h-auto rounded-xl object-cover block"
+          loading="lazy"
+        />
       </div>
     </section>
   );
@@ -990,150 +1009,7 @@ const ComoFuncionaSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ DESTAQUE ISOLADO 1: CONTROLO DE TAREFAS
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-const MapeamentoTaticoSection = memo(() => {
-  return (
-    <section className="py-24 bg-[#050505] border-b border-white/[0.05] px-6 text-center relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#00E5FF]/[0.03] rounded-full blur-[150px] pointer-events-none -z-10" />
-      <div className="max-w-5xl mx-auto">
-        <div className="mb-10 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block mb-3 font-extrabold">
-            Clareza de Tarefas
-          </span>
-          <h2 className="premium-heading text-2xl sm:text-4xl text-white">
-            Planeamento diário simples e visual
-          </h2>
-          <p className="text-xs text-[#A1A1AA] mt-2">
-            Saiba exatamente quais as tarefas urgentes e o que precisa de ser entregue hoje sem se perder em menus secundários.
-          </p>
-        </div>
-
-        <div className="rounded-2xl overflow-hidden border border-[#00E5FF]/20 bg-[#0A0A0A] p-2 sm:p-3 shadow-[0_20px_80px_rgba(0,229,255,0.07)] max-w-4xl mx-auto">
-          <img
-            src={CONFIG.mockupExtra1}
-            alt="Dashboard Visual Prático"
-            className="w-full h-auto rounded-xl object-cover block"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </section>
-  );
-});
-
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ DESTAQUE ISOLADO 2: CENTRAL DE NOTAS
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-const RepositorioNeuralSection = memo(() => {
-  return (
-    <section className="py-24 bg-[#0A0A0A] border-b border-white/[0.05] px-6 text-center relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#FF007A]/[0.02] rounded-full blur-[150px] pointer-events-none -z-10" />
-      <div className="max-w-5xl mx-auto">
-        <div className="mb-10 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-widest text-[#FF007A] uppercase block mb-3 font-extrabold">
-            Apontamentos e Ideias
-          </span>
-          <h2 className="premium-heading text-2xl sm:text-4xl text-white">
-            Central de Notas Pronta a Usar
-          </h2>
-          <p className="text-xs text-[#A1A1AA] mt-2">
-            Guarde aulas, relatórios ou rascunhos de forma organizada, integrando comandos nativos para simplificar textos com um clique.
-          </p>
-        </div>
-
-        <div className="rounded-2xl overflow-hidden border border-[#FF007A]/20 bg-[#050505] p-2 sm:p-3 shadow-[0_20px_80px_rgba(255,0,122,0.08)] max-w-4xl mx-auto custom-badge-glow">
-          <img
-            src={CONFIG.mockupExtra2}
-            alt="Central de Notas e Resumos"
-            className="w-full h-auto rounded-xl object-cover block"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </section>
-  );
-});
-
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ VITRINE DE BÓNUS PRÁTICOS E RÁPIDOS DE CONSUMIR
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-const BonusProgressivosSection = memo(({ onExecuteConversion }: { onExecuteConversion: (seg: "international" | "angola") => void }) => {
-  return (
-    <section id="bonus" className="py-24 bg-[#050505] border-b border-white/[0.05] px-6 text-center">
-      <div className="max-w-5xl mx-auto">
-        <div className="mb-12 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block mb-3 font-bold">
-            Simplicidade e Rapidez
-          </span>
-          <h2 className="premium-heading text-2xl sm:text-3xl text-white">
-            Bónus úteis e prontos a usar
-          </h2>
-          <p className="text-xs text-[#A1A1AA] mt-2">
-            Extras desenhados para que visualize o benefício instantaneamente sem atrito de configuração.
-          </p>
-        </div>
-
-        <div className="space-y-4 text-left max-w-4xl mx-auto">
-          {/* Bónus 1 */}
-          <div className="bg-[#0A0A0A] border border-white/[0.05] p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div>
-              <span className="text-[9px] font-mono bg-white/10 text-white px-2 py-0.5 rounded font-bold uppercase block w-max mb-1.5">Bónus 01</span>
-              <h3 className="text-sm font-bold text-white">Grupo Privado + Atualizações Futuras</h3>
-              <p className="text-xs text-[#A1A1AA] mt-1">Receba futuras melhorias do sistema e acesso à comunidade privada de utilizadores.</p>
-            </div>
-            <div className="text-left sm:text-right shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05] w-full sm:w-auto">
-              <span className="text-xs font-mono text-[#25D366] font-bold block">Incluído gratuitamente</span>
-            </div>
-          </div>
-
-          {/* Bónus 2 */}
-          <div className="bg-[#0A0A0A] border border-white/[0.05] p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div>
-              <span className="text-[9px] font-mono bg-[#00E5FF]/10 text-[#00E5FF] px-2 py-0.5 rounded font-bold uppercase block w-max mb-1.5">Bónus 02</span>
-              <h3 className="text-sm font-bold text-white">Pack de Ícones e Widgets Premium</h3>
-              <p className="text-xs text-[#A1A1AA] mt-1">Elementos visuais prontos para personalizar o workspace e deixar o sistema mais organizado e agradável.</p>
-            </div>
-            <div className="text-left sm:text-right shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05] w-full sm:w-auto">
-              <span className="text-xs font-mono text-[#00E5FF] font-bold block">Incluído gratuitamente</span>
-            </div>
-          </div>
-
-          {/* Bónus 3 */}
-          <div className="bg-[#0A0A0A] border border-white/[0.05] p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div>
-              <span className="text-[9px] font-mono bg-[#FF007A]/10 text-[#FF007A] px-2 py-0.5 rounded font-bold uppercase block w-max mb-1.5">Bónus 03</span>
-              <h3 className="text-sm font-bold text-white">20 Prompts IA para Estudos e Produtividade</h3>
-              <p className="text-xs text-[#A1A1AA] mt-1">Coleção prática de prompts para resumir matérias, organizar tarefas e acelerar o estudo com IA.</p>
-            </div>
-            <div className="text-left sm:text-right shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05] w-full sm:w-auto">
-              <span className="text-xs font-mono text-[#FF007A] font-bold block">Incluído gratuitamente</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Resumo de Valor Transparente e Credível */}
-        <div className="mt-8 bg-[#0E0E0E] border border-white/[0.05] p-5 rounded-xl max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
-          <div>
-            <p className="text-xs text-white font-medium">Mais de <strong className="text-[#00E5FF]">$80 em extras</strong> incluídos na sua licença hoje.</p>
-          </div>
-          <button
-            onClick={() => onExecuteConversion("international")}
-            className="btn-luxury-cyan text-xs px-4 py-2.5 rounded-lg w-full sm:w-auto shrink-0 text-center font-bold text-black"
-          >
-            Começar Meu Segundo Cérebro
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-});
-
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ PERFIL ESTRATÉGICO (GABRIEL SAPALO)
+// ♟️ PERFIL ESTRATÉGICO (GABRIEL SAPALO) - ATUALIZADO
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const AuthoritySection = memo(() => {
@@ -1141,21 +1017,21 @@ const AuthoritySection = memo(() => {
     <section id="autoridade" className="py-24 border-b border-white/[0.05] px-6 max-w-5xl mx-auto">
       <div className="grid md:grid-cols-3 gap-10 items-center text-left">
         <div className="md:col-span-1 text-center md:text-left flex flex-col items-center md:items-start">
-          <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-[#00E5FF] bg-[#101010] shadow-[0_0_25px_rgba(0,229,255,0.2)] relative">
+          <div className="w-40 h-40 rounded-full overflow-hidden border-2 border-[#00E5FF] bg-[#101010] shadow-[0_0_25px_rgba(0,229,255,0.3)] relative">
             <img
               src={CONFIG.authorPhoto}
               alt={CONFIG.authorName}
-              className="w-full h-full object-cover filter grayscale contrast-125"
+              className="w-full h-full object-cover"
               loading="lazy"
             />
           </div>
           <div className="mt-4">
             <h3 className="text-sm font-bold text-white leading-tight">{CONFIG.authorName}</h3>
             <p className="text-[10px] text-[#00E5FF] font-mono mt-0.5 font-bold uppercase tracking-tight block">
-              Estratega & Arquitecto do Sistema
+              {CONFIG.authorTitle}
             </p>
             <span className="text-[10px] bg-[#141414] text-[#A1A1AA] border border-white/[0.05] px-2 py-0.5 rounded font-mono inline-block mt-1.5">
-              ♟️ Campeão de Xadrez 2024
+              ♟️ Campeão Nacional Absoluto de Xadrez de Angola 2024
             </span>
           </div>
         </div>
@@ -1168,7 +1044,7 @@ const AuthoritySection = memo(() => {
             “No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exatamente o mesmo: quem não tem sistema, joga no improviso e falha.”
           </p>
           <p className="text-gray-300">
-            Gabriel Sapalo aplica no Notion a mesma lógica usada no xadrez competitivo:
+            {CONFIG.authorBio}
           </p>
           <ul className="space-y-1.5 pl-2 border-l border-white/[0.05] text-gray-200 font-medium">
             <li>• antecipação estruturada</li>
@@ -1186,7 +1062,7 @@ const AuthoritySection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ SOCIAL PROOF MASSIVA ULTRA PREMIUM (FOCO NO ROSTO SÉNIOR)
+// ♟️ SOCIAL PROOF MASSIVA ULTRA PREMIUM (AVATARES AMPLIADOS)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const SocialProofSection = memo(() => {
@@ -1204,7 +1080,7 @@ const SocialProofSection = memo(() => {
         </p>
       </div>
 
-      {/* Bento Grid Otimizado com Escala de Avatares Duplicada (Mínimo 100x100px) */}
+      {/* Bento Grid com Avatares Ampliados (100x100px+) e Aro Ciano Brilhante */}
       <div className="grid md:grid-cols-3 gap-6 items-stretch text-left mb-12">
         {TESTIMONIALS.map((t, idx) => {
           const isLarge = idx === 0 || idx === 3;
@@ -1216,7 +1092,7 @@ const SocialProofSection = memo(() => {
               }`}
             >
               <div>
-                {/* Posicionamento do Rosto em Grande Destaque à Esquerda / Topo com aro fino em Ciano e brilho */}
+                {/* Avatar em Destaque com Aro Ciano Brilhante e Tamanho Ampliado */}
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4 pb-4 border-b border-white/[0.04]">
                   <div className="w-28 h-28 rounded-full overflow-hidden bg-[#050505] shrink-0 border-2 border-[#00E5FF] shadow-[0_0_20px_rgba(0,229,255,0.4)] relative">
                     <img
@@ -1296,7 +1172,7 @@ const PremiumOfferSection = memo(({ onExecuteConversion }: { onExecuteConversion
           <div className="absolute top-0 right-0 w-32 h-32 bg-[#00E5FF]/[0.05] rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid md:grid-cols-5 gap-8 items-center">
-            {/* Bloco Esquerdo: Preço Enterprise Visualmente Enorme alinhado com a VSL */}
+            {/* Bloco Esquerdo: Preço Enterprise Visualmente Enorme */}
             <div className="md:col-span-2 border-b md:border-b-0 md:border-r border-white/[0.06] pb-6 md:pb-0 md:pr-6">
               <span className="text-[11px] uppercase tracking-[0.25em] text-[#00E5FF] font-extrabold block mb-2">
                 SPECIAL LAUNCH ACCESS
@@ -1337,12 +1213,20 @@ const PremiumOfferSection = memo(({ onExecuteConversion }: { onExecuteConversion
                 ))}
               </div>
 
-              {/* BOTÕES ABSOLUTOS DE CHECKOUT REPETIDOS */}
+              {/* Texto de Urgência Angola */}
+              <div className="text-center py-2">
+                <span className="text-[10px] text-[#FF007A] font-mono font-bold bg-[#FF007A]/10 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FF007A] animate-pulse" />
+                  ⚠️ Apenas 50 licenças disponíveis para o suporte prioritário em Angola
+                </span>
+              </div>
+
+              {/* BOTÕES ABSOLUTOS DE CHECKOUT REPETIDOS COM PULSO */}
               <div className="pt-4 space-y-2.5">
                 <div>
                   <button
                     onClick={() => onExecuteConversion("international")}
-                    className="w-full btn-luxury-cyan py-3 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md cursor-pointer outline-none"
+                    className="w-full btn-luxury-cyan py-3 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md cursor-pointer outline-none animate-pulse-ring"
                   >
                     <span>Começar Meu Segundo Cérebro ($10)</span>
                     <ExternalLink className="w-3 h-3 text-[#050505]" />
@@ -1355,7 +1239,7 @@ const PremiumOfferSection = memo(({ onExecuteConversion }: { onExecuteConversion
                 <div className="pt-2 border-t border-white/[0.04]">
                   <button
                     onClick={() => onExecuteConversion("angola")}
-                    className="w-full btn-magnetic-aggressive py-3 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer outline-none text-white"
+                    className="w-full btn-magnetic-aggressive py-3 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer outline-none text-white animate-pulse-ring"
                   >
                     <span>Organizar Minha Vida em 24h (10k AKZ)</span>
                     <MessageCircle className="w-3 h-3 text-white fill-white" />
@@ -1387,7 +1271,116 @@ const PremiumOfferSection = memo(({ onExecuteConversion }: { onExecuteConversion
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ FAQ (DESTRUIÇÃO DE OBJEÇÕES DE FORMA TÉCNICA)
+// ♟️ BÓNUS PRÁTICOS
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const BonusProgressivosSection = memo(({ onExecuteConversion }: { onExecuteConversion: (seg: "international" | "angola") => void }) => {
+  return (
+    <section id="bonus" className="py-24 bg-[#050505] border-b border-white/[0.05] px-6 text-center">
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-12 max-w-2xl mx-auto">
+          <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block mb-3 font-bold">
+            Simplicidade e Rapidez
+          </span>
+          <h2 className="premium-heading text-2xl sm:text-3xl text-white">
+            Bónus úteis e prontos a usar
+          </h2>
+          <p className="text-xs text-[#A1A1AA] mt-2">
+            Extras desenhados para que visualize o benefício instantaneamente sem atrito de configuração.
+          </p>
+        </div>
+
+        <div className="space-y-4 text-left max-w-4xl mx-auto">
+          {/* Bónus 1 */}
+          <div className="bg-[#0A0A0A] border border-white/[0.05] p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-[9px] font-mono bg-white/10 text-white px-2 py-0.5 rounded font-bold uppercase block w-max mb-1.5">Bónus 01</span>
+              <h3 className="text-sm font-bold text-white">Grupo Privado + Atualizações Futuras</h3>
+              <p className="text-xs text-[#A1A1AA] mt-1">Receba futuras melhorias do sistema e acesso à comunidade privada de utilizadores.</p>
+            </div>
+            <div className="text-left sm:text-right shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05] w-full sm:w-auto">
+              <span className="text-xs font-mono text-[#25D366] font-bold block">Incluído gratuitamente</span>
+            </div>
+          </div>
+
+          {/* Bónus 2 */}
+          <div className="bg-[#0A0A0A] border border-white/[0.05] p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-[9px] font-mono bg-[#00E5FF]/10 text-[#00E5FF] px-2 py-0.5 rounded font-bold uppercase block w-max mb-1.5">Bónus 02</span>
+              <h3 className="text-sm font-bold text-white">Pack de Ícones e Widgets Premium</h3>
+              <p className="text-xs text-[#A1A1AA] mt-1">Elementos visuais prontos para personalizar o workspace e deixar o sistema mais organizado e agradável.</p>
+            </div>
+            <div className="text-left sm:text-right shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05] w-full sm:w-auto">
+              <span className="text-xs font-mono text-[#00E5FF] font-bold block">Incluído gratuitamente</span>
+            </div>
+          </div>
+
+          {/* Bónus 3 */}
+          <div className="bg-[#0A0A0A] border border-white/[0.05] p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-[9px] font-mono bg-[#FF007A]/10 text-[#FF007A] px-2 py-0.5 rounded font-bold uppercase block w-max mb-1.5">Bónus 03</span>
+              <h3 className="text-sm font-bold text-white">20 Prompts IA para Estudos e Produtividade</h3>
+              <p className="text-xs text-[#A1A1AA] mt-1">Coleção prática de prompts para resumir matérias, organizar tarefas e acelerar o estudo com IA.</p>
+            </div>
+            <div className="text-left sm:text-right shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05] w-full sm:w-auto">
+              <span className="text-xs font-mono text-[#FF007A] font-bold block">Incluído gratuitamente</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Resumo de Valor Transparente e Credível */}
+        <div className="mt-8 bg-[#0E0E0E] border border-white/[0.05] p-5 rounded-xl max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
+          <div>
+            <p className="text-xs text-white font-medium">Mais de <strong className="text-[#00E5FF]">$80 em extras</strong> incluídos na sua licença hoje.</p>
+          </div>
+          <button
+            onClick={() => onExecuteConversion("international")}
+            className="btn-luxury-cyan text-xs px-4 py-2.5 rounded-lg w-full sm:w-auto shrink-0 text-center font-bold text-black animate-pulse-ring"
+          >
+            Começar Meu Segundo Cérebro
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+});
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ♟️ DESTAQUE ISOLADO 1: CONTROLO DE TAREFAS
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const MapeamentoTaticoSection = memo(() => {
+  return (
+    <section className="py-24 bg-[#050505] border-b border-white/[0.05] px-6 text-center relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#00E5FF]/[0.03] rounded-full blur-[150px] pointer-events-none -z-10" />
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-10 max-w-2xl mx-auto">
+          <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block mb-3 font-extrabold">
+            Clareza de Tarefas
+          </span>
+          <h2 className="premium-heading text-2xl sm:text-4xl text-white">
+            Planeamento diário simples e visual
+          </h2>
+          <p className="text-xs text-[#A1A1AA] mt-2">
+            Saiba exatamente quais as tarefas urgentes e o que precisa de ser entregue hoje sem se perder em menus secundários.
+          </p>
+        </div>
+
+        <div className="rounded-2xl overflow-hidden border border-[#00E5FF]/20 bg-[#0A0A0A] p-2 sm:p-3 shadow-[0_20px_80px_rgba(0,229,255,0.07)] max-w-4xl mx-auto">
+          <img
+            src={CONFIG.notionMockup}
+            alt="Dashboard Visual Prático"
+            className="w-full h-auto rounded-xl object-cover block"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+  );
+});
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ♟️ FAQ (DESTRUIÇÃO DE OBJEÇÕES)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const FAQSection = memo(() => {
@@ -1477,13 +1470,21 @@ const FinalCTASection = memo(({ onSelectFlow }: { onSelectFlow: (type: "internat
           As vagas remanescentes com 89% de desconto encerram nas próximas horas. Garanta agora a extensão cognitiva que te separa do controle absoluto.
         </p>
 
+        {/* Texto de Urgência Angola */}
+        <div className="text-center">
+          <span className="text-[10px] text-[#FF007A] font-mono font-bold bg-[#FF007A]/10 px-3 py-1.5 rounded-full inline-flex items-center gap-1.5">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FF007A] animate-pulse" />
+            ⚠️ Apenas 50 licenças disponíveis para o suporte prioritário em Angola
+          </span>
+        </div>
+
         <div className="pt-4 max-w-sm mx-auto space-y-3 text-left">
           <button
             onClick={() => {
               Telemetry.emit("final_conversion_cta_click", { flow: "international" });
               onSelectFlow("international");
             }}
-            className="w-full btn-luxury-cyan py-4 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-2xl cursor-pointer outline-none"
+            className="w-full btn-luxury-cyan py-4 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-2xl cursor-pointer outline-none animate-pulse-ring"
           >
             <span>Começar Meu Segundo Cérebro ($10)</span>
             <ArrowRight className="w-4 h-4" />
@@ -1494,7 +1495,7 @@ const FinalCTASection = memo(({ onSelectFlow }: { onSelectFlow: (type: "internat
               Telemetry.emit("final_conversion_cta_click", { flow: "angola" });
               onSelectFlow("angola");
             }}
-            className="w-full btn-magnetic-aggressive py-4 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-2xl cursor-pointer outline-none text-white"
+            className="w-full btn-magnetic-aggressive py-4 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-2xl cursor-pointer outline-none text-white animate-pulse-ring"
           >
             <span>Organizar Minha Vida em 24h (10k AKZ)</span>
             <ArrowRight className="w-4 h-4 text-white" />
@@ -1518,14 +1519,14 @@ const LegalFooter = memo(() => {
     <footer className="border-t border-white/[0.05] bg-[#050505] pt-12 pb-24 px-6 text-xs text-[#A1A1AA]">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/[0.05] text-left">
-          {/* Alinhamento estrito exigido: Logotipo e texto na MESMA LINHA horizontal, alinhados ao centro */}
+          {/* Alinhamento estrito: Logotipo GlowScalePro e texto na MESMA LINHA horizontal */}
           <div className="flex items-center justify-center w-full sm:w-auto gap-3">
             <img
               src={CONFIG.glowscaleLogo}
               alt="GlowScalePro Logótipo"
-              className="w-5 h-5 object-contain filter grayscale contrast-200 select-none pointer-events-none opacity-80"
+              className="w-6 h-6 object-contain select-none pointer-events-none"
             />
-            <span className="font-bold text-white tracking-tight text-xs">GlowScalePro</span>
+            <span className="font-bold text-white tracking-tight text-sm">GlowScalePro</span>
             <span className="text-white/[0.1]">/</span>
             <span className="text-white font-medium text-xs">{CONFIG.authorName}</span>
           </div>
@@ -1670,6 +1671,31 @@ export function App() {
     }
   }, []);
 
+  // Adicionar CSS para animação de pulso nos botões
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes pulse-ring {
+        0% {
+          box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 8px rgba(0, 229, 255, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(0, 229, 255, 0);
+        }
+      }
+      .animate-pulse-ring {
+        animation: pulse-ring 1.5s infinite;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   const productSchemaLD = {
     "@context": "https://schema.org/",
     "@type": "Product",
@@ -1705,12 +1731,15 @@ export function App() {
   return (
     <div className="cinematic-noise min-h-screen bg-[#050505] text-white font-sans relative">
       <Helmet>
-        <title>Notion Elite Kit 2026 — Ecossistema Operacional Premium</title>
-        <meta name="description" content="Domine a sua rotina e organize a sua vida académica/profissional em menos de 24 horas. Arquitetura minimalista de alto desempenho cognitivo." />
+        <title>Notion Elite Kit 2026 — Ecossistema Operacional Premium | Gabriel Sapalo</title>
+        <meta name="description" content="Domine a sua rotina e organize a sua vida académica/profissional em menos de 24 horas. Arquitetura minimalista de alto desempenho cognitivo criada pelo Campeão Nacional de Xadrez de Angola 2024, Gabriel Sapalo." />
         <link rel="canonical" href={window.location.href} />
+        <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858077/favicon.ico_h34ezo.ico" />
+        <link rel="apple-touch-icon" href="https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858077/apple-touch-icon.ico_u8n0b5.ico" />
+        <link rel="icon" type="image/png" sizes="192x192" href="https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858076/android-icon.ico_szwcgx.ico" />
         
         <meta property="og:title" content="Notion Elite Kit 2026 — Ecossistema Operacional Premium" />
-        <meta property="og:description" content="Domine a sua rotina e organize a sua vida académica/profissional em menos de 24 horas." />
+        <meta property="og:description" content="Domine a sua rotina e organize a sua vida académica/profissional em menos de 24 horas. Sistema criado por Gabriel Sapalo, Campeão Nacional de Xadrez de Angola 2024." />
         <meta property="og:image" content={CONFIG.notionMockup} />
         <meta property="og:type" content="product" />
         
@@ -1733,7 +1762,6 @@ export function App() {
       <MomentoUauSection />
       <EngenhariaSection />
       <TransformacaoSection />
-      <RepositorioNeuralSection />
       <OQueExisteSection />
       <SolucaoModulosSection />
       <ComoFuncionaSection />
@@ -1746,7 +1774,7 @@ export function App() {
       <FinalCTASection onSelectFlow={handleFinalChoice} />
       <LegalFooter />
 
-      {/* Notificação Flutuante Simulada de Compra Viral (Overlay estilo SaaS) */}
+      {/* Notificação Flutuante Simulada de Compra Viral */}
       <AnimatePresence>
         {notificationToast && (
           <motion.div
@@ -1767,23 +1795,23 @@ export function App() {
         )}
       </AnimatePresence>
 
-      {/* STICKY CTA MOBILE ELEGANTE (SUAVIZADO PARA NÃO COMPETIR COM A LEITURA) */}
+      {/* STICKY CTA MOBILE ELEGANTE */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0A0A0A]/80 backdrop-blur-xl border-t border-white/[0.05] p-2.5 flex items-center gap-2 shadow-sm">
         <button
           onClick={() => handleFinalChoice("international")}
-          className="flex-1 btn-luxury-cyan py-2 px-2 rounded-lg text-[11px] font-bold text-center block leading-tight truncate"
+          className="flex-1 btn-luxury-cyan py-2 px-2 rounded-lg text-[11px] font-bold text-center block leading-tight truncate animate-pulse-ring"
         >
           Acesso Global ($10)
         </button>
         <button
           onClick={() => handleFinalChoice("angola")}
-          className="flex-1 btn-magnetic-aggressive py-2 px-2 rounded-lg text-[11px] font-bold text-center block leading-tight truncate text-white"
+          className="flex-1 btn-magnetic-aggressive py-2 px-2 rounded-lg text-[11px] font-bold text-center block leading-tight truncate text-white animate-pulse-ring"
         >
           Angola (10k AKZ)
         </button>
       </div>
 
-      {/* Botão WhatsApp Flutuante no canto inferior direito (Suporte Mestre Gabriel) acima do sticky mobile */}
+      {/* Botão WhatsApp Flutuante */}
       <a
         href={CONFIG.whatsappPayment}
         target="_blank"
