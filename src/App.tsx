@@ -20,7 +20,11 @@ import {
   Menu,
   X,
   Shield,
-  Send
+  Send,
+  Flame,
+  Clock,
+  CheckCircle,
+  TrendingUp
 } from "lucide-react";
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -37,10 +41,9 @@ const CONFIG = {
   notionMockup: "https://drive.google.com/thumbnail?id=1ufRMrYBRKe0zj38foMxjdgbckH8SLxcl&sz=w1000",
   internalView: "https://drive.google.com/thumbnail?id=1AQUxp-P7-Wf64CPqbTiQDsPqqBhL7dvL&sz=w1000",
   laptopOffer: "https://drive.google.com/thumbnail?id=1ek54pgWKa_2j90WGcpmb30XGuzB5qjvJ&sz=w800",
-  coverImage: "https://drive.google.com/thumbnail?id=1Gv_vB4wENBXyiaQi1iD3UyuXkTvXg8sc&sz=w1000",
-  
-  // LINK DO VÍDEO WALKTHROUGH - VERSÃO EMBED UNIVERSAL (FUNCIONA EM MOBILE E DESKTOP)
-  walkthroughVideo: "https://drive.google.com/file/d/1qzelqkdoxr_828C4OhgonEMzJNdMKCsa/preview",
+  mockupExtra1: "https://drive.google.com/thumbnail?id=1Gv_vB4wENBXyiaQi1iD3UyuXkTvXg8sc&sz=w1000",
+  mockupExtra2: "https://drive.google.com/thumbnail?id=1o79_tWug5lCJ2kI3T4yz0vJOm5wQ2P70&sz=w1000",
+  videoDemonstracaoReal: "https://drive.google.com/file/d/1qzelqkdoxr_828C4OhgonEMzJNdMKCsa/preview",
 
   // CTAS OFICIAIS DE CONVERSÃO EXTREMA
   hotmartCheckout: "https://pay.hotmart.com/Q105490101M?off=xablp4k5&hotfeature=51",
@@ -136,58 +139,42 @@ const TESTIMONIALS = [
   }
 ];
 
-const PAIN_POINTS = [
-  {
-    title: "Caos Mental Disperso",
-    desc: "Anotações vitais espalhadas de forma inconsistente entre conversas de WhatsApp, rascunhos sem nome e blocos físicos."
-  },
-  {
-    title: "Sobrecarga Operacional",
-    desc: "A sensação sufocante de investir dezenas de horas semanais de esforço e continuar invariavelmente com tarefas atrasadas."
-  },
-  {
-    title: "Prazos Emergenciais",
-    desc: "Entregas decisivas que surgem sem aviso no horizonte por pura ausência de uma visualização global consolidada."
-  },
-  {
-    title: "Fadiga de Ferramentas",
-    desc: "O ciclo frustrante de testar repetidamente aplicações difíceis que acabam abandonadas em menos de 72 horas."
-  },
-  {
-    title: "Procrastinação Involuntária",
-    desc: "Paralisia decisória gerada pelo excesso de abas abertas e pela falta de clareza sobre qual o próximo passo executável."
-  },
-  {
-    title: "Ansiedade Crónica",
-    desc: "O peso mental contínuo de depender de uma memória sobrecarregada para gerir múltiplas frentes académicas ou de trabalho."
-  }
-];
+
 
 const FAQ_DATA = [
   {
+    q: "Preciso saber usar Notion?",
+    a: "Absolutamente não. O ecossistema foi construído para que iniciantes operem perfeitamente. Acompanha um método de migração tática passo a passo para que saias do caos ao controlo total em menos de 24 horas."
+  },
+  {
+    q: "Funciona perfeitamente no celular?",
+    a: "Sim! Adotamos um design mobile-first de altíssima resposta. Podes adicionar tarefas, registrar ideias ou visualizar compromissos urgentes de forma instantânea diretamente na palma da mão."
+  },
+  {
     q: "O sistema exige uma assinatura paga do Notion?",
-    a: "Não. A arquitetura foi programada nativamente para explorar todo o potencial da versão gratuita do Notion. Terás acesso irrestrito e vitalício sem custos recorrentes associados ao software."
+    a: "Não. Toda a engenharia foi desenhada para extrair 100% da versão nativa gratuita do Notion, poupando-te de quaisquer custos mensais com ferramentas."
   },
   {
-    q: "Preciso de ser perito em Notion para operar?",
-    a: "Absolutamente não. O ecossistema inclui um processo imersivo e passo a passo desenhado para te conduzir do zero absoluto até ao controlo de elite em menos de 24 horas."
+    q: "Tenho acesso vitalício e recebo atualizações?",
+    a: "Sim, o pagamento é único com direito a acesso vitalício. Além disso, recebes todas as atualizações estratégicas e melhorias futuras de 2026 e 2027 incondicionalmente."
   },
   {
-    q: "É compatível com smartphones e tablets?",
-    a: "O Notion Elite Kit adota uma filosofia mobile-first rigorosa. A interface de inserção rápida permite capturar ideias, tarefas ou consultar prazos iminentes instantaneamente a partir de qualquer dispositivo móvel."
+    q: "Como recebo o acesso ao ecossistema?",
+    a: "A entrega é inteiramente imediata e digital. Assim que o pagamento for processado pela Hotmart ou validado via WhatsApp para Angola, o link de ativação segura é enviado para o teu e-mail instantaneamente."
   },
   {
-    q: "Como se diferenciam os fluxos de aquisição?",
-    a: "Se residires fora de Angola, utiliza a opção internacional via Hotmart com processamento imediato por Cartão ou PayPal. Para residentes em Angola, disponibilizamos pagamento local simplificado via Multicaixa/IBAN com validação rápida via WhatsApp."
-  },
-  {
-    q: "O que cobre a garantia incondicional de 7 dias?",
-    a: "Se ativares a tua licença, duplicares o sistema e concluíres que a estrutura não te entrega clareza mental e ganho de tempo tangível, o reembolso integral é efetuado de imediato, sem burocracia ou constrangimentos."
-  },
-  {
-    q: "Qual o vínculo oficial com a marca Notion?",
-    a: "Este é um produto intelectual premium inteiramente projetado, gerido e otimizado pela GlowScalePro, operando de forma autônoma sem patrocínio ou afiliação oficial com a Notion Labs Inc."
+    q: "Como funciona a garantia incondicional de 30 dias?",
+    a: "Confiamos plenamente na arquitetura do sistema. Testa a totalidade da ferramenta durante 30 dias. Se não transformares o teu foco e a tua organização, devolvemos 100% do valor de imediato e tu ainda manténs os bônus como cortesia."
   }
+];
+
+// SIMULAÇÃO DE NOTIFICAÇÕES DE COMPRA VIRAL
+const NOTIFICATIONS = [
+  { name: "Lucas R.", item: "Notion Elite Kit 2026", time: "Há 2 min" },
+  { name: "Marta S.", item: "Pacote Aceleração IA", time: "Há 5 min" },
+  { name: "Tiago M.", item: "Notion Elite Kit 2026", time: "Há 12 min" },
+  { name: "Inês P.", item: "Bônus Feynman-Pomodoro", time: "Há 18 min" },
+  { name: "Rui C.", item: "Notion Elite Kit 2026", time: "Há 25 min" }
 ];
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -223,7 +210,9 @@ const Telemetry = {
       logStack.push(telemetryEvent);
       if (logStack.length > 60) logStack.shift();
       localStorage.setItem("ne_telemetry_stack", JSON.stringify(logStack));
-    } catch (err) {}
+    } catch (err) {
+      // Ignora falhas silenciosamente
+    }
   }
 };
 
@@ -249,6 +238,7 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
           : "bg-gradient-to-b from-[#050505] via-[#050505]/95 to-transparent pb-4"
       }`}
     >
+      {/* Banner de Urgência (Topo do Site) */}
       <div className="bg-[#0A0A0A] border-b border-white/[0.08] py-2 px-4 text-center mb-4">
         <p className="text-[11px] font-mono text-[#00E5FF] tracking-wide font-medium flex items-center justify-center gap-2">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse" />
@@ -257,7 +247,7 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        {/* LOGÓTIPO NOTION ELITE 2026 - TAMANHO DOBRADO (w-36 h-36 = 144px) */}
+        {/* Identidade de Luxo Minimalista com Logótipo Oficial aumentado 2x para máxima visibilidade */}
         <a
           href="#"
           onClick={(e) => {
@@ -265,28 +255,31 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
             window.scrollTo({ top: 0, behavior: "smooth" });
             Telemetry.emit("header_brand_click");
           }}
-          className="flex items-center gap-3 group outline-none"
+          className="flex items-center gap-3.5 group outline-none"
         >
           <img
             src={CONFIG.productLogo}
             alt="Notion Elite Starter Kit 2026"
-            className="w-36 h-36 object-contain group-hover:scale-105 transition-transform"
+            className="w-14 h-14 sm:w-16 sm:h-16 object-contain group-hover:scale-105 transition-transform drop-shadow-[0_0_15px_rgba(0,229,255,0.3)]"
           />
           <div className="flex flex-col">
-            <span className="font-semibold text-xs text-white tracking-tight flex items-center gap-1.5">
+            <span className="font-bold text-xs sm:text-sm text-white tracking-tight flex items-center gap-1.5">
               Notion Elite Starter Kit 2026
             </span>
           </div>
         </a>
 
+        {/* Navegação Fluida (Desktop) */}
         <nav className="hidden md:flex items-center gap-8 text-xs font-medium text-[#A1A1AA]">
           <a href="#solucao" className="hover:text-white transition-colors">Ecossistema</a>
+          <a href="#engenharia" className="hover:text-white transition-colors">Demonstração</a>
           <a href="#modulos" className="hover:text-white transition-colors">Módulos</a>
-          <a href="#autoridade" className="hover:text-white transition-colors">Estratégia</a>
+          <a href="#bonus" className="hover:text-white transition-colors">Bônus VIP</a>
           <a href="#provas" className="hover:text-white transition-colors">Validação</a>
           <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
         </nav>
 
+        {/* Ações de Estatuto */}
         <div className="flex items-center gap-4">
           <a
             href={CONFIG.telegramSupport}
@@ -304,12 +297,13 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
               Telemetry.emit("header_cta_click");
               onRequestScroll();
             }}
-            className="bg-white text-[#050505] hover:bg-gray-100 text-xs font-medium px-4 py-2 rounded-md transition-all duration-200 active:scale-98 shadow-sm flex items-center gap-1.5 outline-none cursor-pointer"
+            className="btn-magnetic-aggressive text-xs px-4 py-2 rounded-md shadow-lg flex items-center gap-1.5 outline-none cursor-pointer"
           >
-            <span>Obter Acesso</span>
+            <span>Garantir Vaga</span>
             <ArrowRight className="w-3 h-3" />
           </button>
 
+          {/* Menu Hambúrguer Minimalista */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden text-[#A1A1AA] hover:text-white p-1 transition-colors outline-none cursor-pointer"
@@ -320,6 +314,7 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
         </div>
       </div>
 
+      {/* Menu Mobile Retrátil Premium */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -329,14 +324,56 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="md:hidden border-t border-white/[0.06] bg-[#0A0A0A] mt-3 px-6 py-5 space-y-4 text-xs overflow-hidden"
           >
-            <a href="#solucao" onClick={() => setMobileMenuOpen(false)} className="block text-gray-300 hover:text-white font-medium">Ecossistema Operacional</a>
-            <a href="#modulos" onClick={() => setMobileMenuOpen(false)} className="block text-gray-300 hover:text-white font-medium">Módulos Cognitivos</a>
-            <a href="#autoridade" onClick={() => setMobileMenuOpen(false)} className="block text-gray-300 hover:text-white font-medium">Gabriel Sapalo & Estratégia</a>
-            <a href="#provas" onClick={() => setMobileMenuOpen(false)} className="block text-gray-300 hover:text-white font-medium">Social Proof Elite</a>
-            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="block text-gray-300 hover:text-white font-medium">Perguntas Frequentes</a>
+            <a
+              href="#solucao"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-gray-300 hover:text-white font-medium"
+            >
+              Ecossistema Operacional
+            </a>
+            <a
+              href="#engenharia"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-gray-300 hover:text-white font-medium"
+            >
+              Vídeo Demonstração Real
+            </a>
+            <a
+              href="#modulos"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-gray-300 hover:text-white font-medium"
+            >
+              Módulos de Alta Conversão
+            </a>
+            <a
+              href="#bonus"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-gray-300 hover:text-white font-medium"
+            >
+              Bônus Progressivos VIP
+            </a>
+            <a
+              href="#provas"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-gray-300 hover:text-white font-medium"
+            >
+              Prova Social Massiva
+            </a>
+            <a
+              href="#faq"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-gray-300 hover:text-white font-medium"
+            >
+              Perguntas Frequentes
+            </a>
             <div className="pt-3 border-t border-white/[0.04] flex items-center justify-between text-[#A1A1AA]">
               <span>Assistência Direta:</span>
-              <a href={CONFIG.telegramSupport} target="_blank" rel="noopener noreferrer" className="text-[#00E5FF] font-medium flex items-center gap-1">
+              <a
+                href={CONFIG.telegramSupport}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#00E5FF] font-medium flex items-center gap-1"
+              >
                 <Send className="w-3 h-3" /> Telegram
               </a>
             </div>
@@ -348,361 +385,493 @@ const Header = memo(({ onRequestScroll }: { onRequestScroll: () => void }) => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ HERO SECTION CINEMÁTICA (COM VSL INTEGRADO E LOOP LATERAL)
+// ♟️ HERO SECTION CINEMÁTICA E AGRESSIVA
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-const HeroSection = memo(() => {
-  const executeConversion = useCallback((marketSegment: "international" | "angola") => {
-    Telemetry.emit("conversion_intent_triggered", { segment: marketSegment });
-    if (marketSegment === "international") {
-      window.open(CONFIG.hotmartCheckout, "_blank", "noopener,noreferrer");
-    } else {
-      window.open(CONFIG.whatsappPayment, "_blank", "noopener,noreferrer");
-    }
-  }, []);
-
-  const [videoActivated, setVideoActivated] = useState(false);
-  const [activeClipIndex, setActiveClipIndex] = useState(0);
+const HeroSection = memo(({ onExecuteConversion }: { onExecuteConversion: (marketSegment: "international" | "angola") => void }) => {
+  const [timeLeft, setTimeLeft] = useState({ hours: 23, minutes: 59, seconds: 42 });
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveClipIndex((prev) => (prev + 1) % 3);
-    }, 4000);
-    return () => clearInterval(interval);
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
+        if (prev.minutes > 0) return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        if (prev.hours > 0) return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        return { hours: 23, minutes: 59, seconds: 59 }; // Loop contínuo de urgência
+      });
+    }, 1000);
+    return () => clearInterval(timer);
   }, []);
-
-  const clips = [
-    { label: "00:05 - Ativação do Dashboard", desc: "Sincronização imediata de tarefas ativas." },
-    { label: "00:12 - Matriz de Prompts IA", desc: "Geração de resumos instantâneos de aulas." },
-    { label: "00:22 - Visão de Calendário", desc: "Prevenção preditiva de sobreposições." },
-  ];
 
   return (
     <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 px-6 max-w-6xl mx-auto text-center grid-luxury-bg">
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-radial-gradient from-[#00E5FF]/[0.05] to-transparent rounded-full blur-[120px] pointer-events-none -z-10" />
+      {/* Glow Ambiental Subtil e Agressivo */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[750px] h-[380px] gradient-magnetic opacity-15 rounded-full blur-[140px] pointer-events-none -z-10" />
 
+      {/* Badge de Lançamento */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="inline-flex items-center gap-2 bg-[#101010] border border-[#FF007A]/40 px-4 py-1.5 rounded-full text-xs text-white mb-6 custom-badge-glow"
+      >
+        <Flame className="w-3.5 h-3.5 text-[#FF007A] animate-bounce" />
+        <span className="font-bold tracking-wide text-gradient-magnetic">LANÇAMENTO EXCLUSIVO 89% OFF</span>
+      </motion.div>
+
+      {/* Headlines Combinadas de Conversão Extrema */}
       <motion.h2
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        className="text-[10px] font-mono text-[#00E5FF] tracking-widest uppercase font-semibold mb-3"
+        transition={{ duration: 0.5, delay: 0.05 }}
+        className="text-xs sm:text-sm font-mono text-[#00E5FF] tracking-widest uppercase font-extrabold mb-2"
       >
-        O SISTEMA DE ESTRATÉGIA QUE ORGANIZA A SUA VIDA EM 24 HORAS.
+        Seu Segundo Cérebro Completo para Dominar 2026
       </motion.h2>
 
-      {/* TÍTULO ALTERADO: "tua" em vez de "sua" */}
       <motion.h1
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        className="premium-heading text-4xl sm:text-5xl md:text-6xl text-white max-w-4xl mx-auto mb-6"
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="premium-heading text-4xl sm:text-5xl md:text-6xl text-white max-w-4xl mx-auto mb-6 tracking-tight leading-[1.05]"
       >
-        Domine a tua rotina e organize a tua vida académica/profissional em menos de 24 horas.
+        O Sistema Tudo-em-Um que Organiza Sua Vida Inteira em 2026
       </motion.h1>
 
+      {/* Subheadline com Lista de Pilares */}
       <motion.p
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        className="text-sm sm:text-base text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed mb-12 font-normal"
+        transition={{ duration: 0.5, delay: 0.15 }}
+        className="text-sm sm:text-base text-[#A1A1AA] max-w-3xl mx-auto leading-relaxed mb-8 font-normal"
       >
-        Para estudantes, profissionais e criadores que estão cansados de perder prazos, acumular tarefas e viver a apagar incêndios todas as semanas.
+        Domine <span className="text-white font-semibold">produtividade</span>, <span className="text-[#00E5FF] font-semibold">finanças</span>, <span className="text-white font-semibold">metas</span>, <span className="text-[#FF007A] font-semibold">hábitos</span>, <span className="text-white font-semibold">projetos</span>, <span className="text-[#00E5FF] font-semibold">IA</span> e a sua <span className="text-white font-semibold">rotina</span> com organização total centralizada em um único dashboard Notion.
       </motion.p>
 
+      {/* Timer Dinâmico Rítmico na Hero */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="flex flex-wrap items-center justify-center gap-3 bg-[#0A0A0A] border border-white/[0.08] p-3 rounded-xl max-w-lg mx-auto mb-8 shadow-2xl"
+      >
+        <div className="flex items-center gap-1 text-[#FF007A]">
+          <Clock className="w-4 h-4 animate-spin" style={{ animationDuration: '4s' }} />
+          <span className="text-xs font-bold uppercase font-mono">Encerra em:</span>
+        </div>
+        <div className="flex items-center gap-1.5 font-mono font-extrabold text-sm text-white">
+          <span className="bg-[#141414] px-2 py-1 rounded border border-white/[0.05]">{String(timeLeft.hours).padStart(2, '0')}h</span>
+          <span>:</span>
+          <span className="bg-[#141414] px-2 py-1 rounded border border-white/[0.05]">{String(timeLeft.minutes).padStart(2, '0')}m</span>
+          <span>:</span>
+          <span className="bg-[#141414] px-2 py-1 rounded border border-[#00E5FF]/20 text-[#00E5FF]">{String(timeLeft.seconds).padStart(2, '0')}s</span>
+        </div>
+        <span className="text-[10px] bg-[#25D366]/10 text-[#25D366] font-bold px-2 py-0.5 rounded">
+          Apenas 100 Vagas
+        </span>
+      </motion.div>
+
+      {/* VSL DE VENDA (Vídeo 1 no Topo) */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="grid lg:grid-cols-3 gap-6 text-left max-w-5xl mx-auto mb-12 items-stretch"
+        transition={{ duration: 0.6, delay: 0.25 }}
+        className="max-w-4xl mx-auto mb-10"
       >
+        <div className="video-luxury-container w-full shadow-[0_0_50px_rgba(0,0,0,0.95)]">
+          <iframe
+            src={`${CONFIG.heroVideo}?autoplay=1&rel=0&modestbranding=1`}
+            title="VSL Oficial de Lançamento"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      </motion.div>
+
+      {/* CTAS PRINCIPAIS EXTREMAMENTE VISÍVEIS (Ancoragem + Escassez) */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="max-w-2xl mx-auto space-y-4"
+      >
+        <div className="bg-[#0E0E0E] p-4 rounded-xl border border-white/[0.05] mb-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-left">
+          <div>
+            <span className="text-[10px] font-mono text-[#A1A1AA] uppercase block font-semibold">Valor Ancorado Oficial</span>
+            <p className="text-xs text-[#A1A1AA]">De <span className="line-through font-mono text-gray-500">$97</span> por apenas <strong className="text-[#00E5FF] font-mono font-extrabold text-base">$10</strong></p>
+          </div>
+          <div className="text-right flex items-center sm:block gap-2">
+            <span className="text-[10px] text-white bg-[#FF007A] px-2 py-0.5 rounded font-bold uppercase tracking-tight block">89% de Desconto</span>
+            <span className="text-[9px] text-gray-400 font-mono block">Garantia 30 dias</span>
+          </div>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-4 text-left">
+          {/* Botão Internacional */}
+          <button
+            onClick={() => onExecuteConversion("international")}
+            className="w-full btn-luxury-cyan py-3.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-xl cursor-pointer outline-none font-extrabold tracking-tight"
+          >
+            <CreditCard className="w-4 h-4 text-[#050505] shrink-0" />
+            <span>Quero Meu Segundo Cérebro ($10)</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+
+          {/* Botão Angola */}
+          <button
+            onClick={() => onExecuteConversion("angola")}
+            className="w-full btn-magnetic-aggressive py-3.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-xl cursor-pointer outline-none font-extrabold tracking-tight"
+          >
+            <MessageCircle className="w-4 h-4 text-white shrink-0 fill-white" />
+            <span>Garantir Vaga (10.000 AKZ)</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        <p className="text-[10px] text-[#A1A1AA]/70 text-center pt-1 font-mono">
+          Acesso liberado automaticamente para e-mails cadastrados.
+        </p>
+      </motion.div>
+
+      {/* Mockup Premium Gigante do Dashboard */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="mt-16 relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2.5 max-w-5xl mx-auto shadow-[0_30px_100px_rgba(0,0,0,0.95)]"
+      >
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#FF007A]/40 to-transparent" />
+        <img
+          src={CONFIG.notionMockup}
+          alt="Dashboard Gigante Notion Elite Kit"
+          className="w-full h-auto rounded-lg object-cover block"
+          loading="eager"
+        />
+        <div className="absolute bottom-4 inset-x-0 text-center pointer-events-none">
+          <span className="bg-[#050505]/95 border border-white/[0.08] text-[10px] text-[#00E5FF] px-3 py-1 rounded-full font-mono backdrop-blur-md font-bold">
+            Visualização Panorâmica Ultra Premium
+          </span>
+        </div>
+      </motion.div>
+    </section>
+  );
+});
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ♟️ VÍDEO DEMONSTRAÇÃO REAL ("ENGENHARIA EM ACÇÃO")
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const EngenhariaSection = memo(() => {
+  const [isPlayingDemo, setIsPlayingDemo] = useState(false);
+  const [activeHighlight, setActiveHighlight] = useState(0);
+
+  const miniHighlights = [
+    { label: "Finanças", desc: "Fluxos preditivos de receita e despesa." },
+    { label: "Hábitos", desc: "Métricas diárias com gamificação visual." },
+    { label: "Projetos", desc: "Progresso dinâmico de tarefas ativas." },
+    { label: "IA", desc: "Matrizes de comandos neurais instantâneos." },
+    { label: "Calendário", desc: "Cronograma sincronizado de alta urgência." },
+    { label: "Metas", desc: "Desdobramento tático para execução diária." }
+  ];
+
+  useEffect(() => {
+    const i = setInterval(() => {
+      setActiveHighlight(prev => (prev + 1) % miniHighlights.length);
+    }, 2500);
+    return () => clearInterval(i);
+  }, [miniHighlights.length]);
+
+  return (
+    <section id="engenharia" className="py-24 border-t border-white/[0.05] px-6 max-w-6xl mx-auto text-center">
+      <div className="mb-12 max-w-2xl mx-auto">
+        <span className="text-[10px] font-mono tracking-widest text-[#FF007A] uppercase block mb-3 font-extrabold">
+          Inspeção Operacional de Luxo
+        </span>
+        <h2 className="premium-heading text-2xl sm:text-3xl text-white">
+          Engenharia em Acção
+        </h2>
+        <p className="text-xs text-[#A1A1AA] mt-2">
+          Demonstração real do sistema operando sem edições, provando a velocidade e sincronização imbatível da interface.
+        </p>
+      </div>
+
+      <div className="grid lg:grid-cols-3 gap-6 items-stretch text-left max-w-5xl mx-auto">
+        {/* Container 16:9 Largo e Elegante (Vídeo 2 de Demonstração Real) */}
         <div className="lg:col-span-2 flex flex-col justify-center">
-          <div className="video-luxury-container w-full h-full shadow-2xl">
-            {!videoActivated ? (
+          <div className="relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] aspect-video shadow-2xl w-full h-full">
+            {!isPlayingDemo ? (
               <div
                 onClick={() => {
-                  setVideoActivated(true);
-                  Telemetry.emit("vsl_video_playback_started");
+                  setIsPlayingDemo(true);
+                  Telemetry.emit("real_demo_video_played");
                 }}
                 className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]"
               >
                 <img
-                  src={CONFIG.laptopOffer}
-                  alt="Pré-visualização do ecossistema"
-                  className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 transition-opacity duration-400"
+                  src={CONFIG.internalView}
+                  alt="Demonstração Real do Sistema"
+                  className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity duration-400"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
-                <div className="relative z-10 w-14 h-14 rounded-full bg-white text-[#050505] flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform duration-300">
-                  <Play className="w-5 h-5 fill-[#050505] translate-x-0.5" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+                <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#00E5FF] to-[#4CF2FF] text-[#050505] flex items-center justify-center shadow-[0_0_35px_rgba(0,229,255,0.6)] group-hover:scale-110 transition-transform duration-300">
+                  <Play className="w-6 h-6 fill-[#050505] translate-x-0.5" />
                 </div>
-                <p className="relative z-10 text-xs font-semibold text-white mt-3 tracking-wide group-hover:text-[#00E5FF] transition-colors">
-                  Assistir à Demonstração (3 Minutos)
+                <p className="relative z-10 text-xs font-bold text-white mt-4 tracking-wide group-hover:text-[#00E5FF] transition-colors">
+                  Assistir à Demonstração na Prática
                 </p>
+                <span className="relative z-10 text-[10px] text-[#00E5FF] mt-1 font-mono font-semibold">
+                  Preview Estilo SaaS • Alta Definição
+                </span>
               </div>
             ) : (
               <iframe
-                src={`${CONFIG.heroVideo}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
-                title="Demonstração Notion Elite Kit"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                src={CONFIG.videoDemonstracaoReal}
+                title="Vídeo Demonstração Real Notion Elite"
+                className="w-full h-full absolute inset-0 border-0"
+                allow="autoplay"
                 allowFullScreen
               />
             )}
           </div>
         </div>
 
-        <div className="card-luxury p-5 flex flex-col justify-between bg-[#0A0A0A] border-white/[0.08]">
+        {/* Mini Highlights Estilo SaaS ao Lado */}
+        <div className="bg-[#0A0A0A] border border-white/[0.06] p-5 rounded-xl flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-[9px] font-mono text-[#00E5FF] uppercase font-semibold flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse" />
-                Sistema Vivo em Loop
-              </span>
-              <span className="text-[9px] font-mono text-[#A1A1AA]">00:05 - 00:25</span>
+            <p className="text-xs font-bold text-white mb-4 flex items-center gap-1.5">
+              <span className="inline-block w-2 h-2 rounded-full bg-[#FF007A]" />
+              <span>Mini Highlights do Sistema</span>
+            </p>
+            <div className="space-y-2.5">
+              {miniHighlights.map((h, i) => (
+                <div
+                  key={i}
+                  className={`p-2.5 rounded-lg border transition-all duration-300 ${
+                    activeHighlight === i
+                      ? "bg-[#141414] border-[#00E5FF]/40 shadow-[0_0_15px_rgba(0,229,255,0.1)]"
+                      : "bg-[#080808] border-white/[0.02] opacity-60"
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-0.5">
+                    <span className={`text-xs font-bold ${activeHighlight === i ? "text-[#00E5FF]" : "text-gray-300"}`}>
+                      {h.label}
+                    </span>
+                    {activeHighlight === i && (
+                      <span className="text-[9px] font-mono text-[#FF007A] font-extrabold animate-pulse">Em Foco</span>
+                    )}
+                  </div>
+                  <p className="text-[10px] text-[#A1A1AA] leading-tight">
+                    {h.desc}
+                  </p>
+                </div>
+              ))}
             </div>
-            
-            <div className="relative rounded-lg overflow-hidden border border-white/[0.05] bg-[#050505] aspect-video mb-4 flex items-center justify-center">
-              <img
-                src={CONFIG.internalView}
-                alt="Live Clip View"
-                className="w-full h-full object-cover opacity-70 transition-all duration-700"
-                style={{ filter: `hue-rotate(${activeClipIndex * 45}deg) brightness(1.1)` }}
-              />
-              <div className="absolute bottom-2 left-2 right-2 bg-black/80 backdrop-blur-md px-2 py-1 rounded border border-white/[0.05] text-[9px] font-mono text-white truncate text-center">
-                {clips[activeClipIndex].label}
-              </div>
-            </div>
-
-            <p className="text-xs font-semibold text-white mb-1">Transmissão Dinâmica</p>
-            <p className="text-[11px] text-[#A1A1AA] leading-relaxed">{clips[activeClipIndex].desc}</p>
           </div>
 
-          <div className="pt-3 border-t border-white/[0.04] mt-4 flex items-center justify-between text-[9px] font-mono text-[#A1A1AA]">
-            <span>Estado da Matriz</span>
-            <span className="text-[#25D366] font-semibold">Online</span>
+          <div className="pt-3 border-t border-white/[0.04] mt-4 text-[9px] font-mono text-gray-500 text-center">
+            Sincronização Absoluta Instantânea
           </div>
         </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="max-w-2xl mx-auto space-y-4"
-      >
-        <div className="grid sm:grid-cols-2 gap-4 text-left">
-          <button
-            onClick={() => executeConversion("international")}
-            className="w-full bg-[#101010] hover:bg-[#141414] border border-white/[0.08] hover:border-[#00E5FF]/40 p-4 rounded-xl transition-all duration-300 group relative flex flex-col justify-between cursor-pointer outline-none shadow-lg"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-mono text-[#A1A1AA] tracking-wider uppercase font-semibold">Mercado Global</span>
-                <CreditCard className="w-3.5 h-3.5 text-[#00E5FF]" />
-              </div>
-              <p className="text-xs font-semibold text-white group-hover:text-[#00E5FF] transition-colors flex items-center gap-1">
-                <span>Adquirir via Hotmart</span>
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-              </p>
-            </div>
-            <p className="text-[10px] text-gray-500 mt-2">Processamento seguro Cartão / PayPal</p>
-          </button>
-
-          <button
-            onClick={() => executeConversion("angola")}
-            className="w-full bg-[#101010] hover:bg-[#141414] border border-white/[0.08] hover:border-[#25D366]/40 p-4 rounded-xl transition-all duration-300 group relative flex flex-col justify-between cursor-pointer outline-none shadow-lg"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-mono text-[#A1A1AA] tracking-wider uppercase font-semibold">Mercado Angola</span>
-                <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
-              </div>
-              <p className="text-xs font-semibold text-white group-hover:text-[#25D366] transition-colors flex items-center gap-1">
-                <span>Pagar via Multicaixa / IBAN</span>
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-              </p>
-            </div>
-            <p className="text-[10px] text-gray-500 mt-2">Atendimento de acesso via WhatsApp</p>
-          </button>
-        </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="mt-16 relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2.5 max-w-5xl mx-auto shadow-[0_30px_100px_rgba(0,0,0,0.9)]"
-      >
-        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#00E5FF]/20 to-transparent" />
-        <img
-          src={CONFIG.notionMockup}
-          alt="Ecossistema Operacional Notion Elite Kit"
-          className="w-full h-auto rounded-lg object-cover block"
-          loading="eager"
-        />
-        <div className="absolute bottom-4 inset-x-0 text-center pointer-events-none">
-          <span className="bg-[#050505]/90 border border-white/[0.08] text-[10px] text-[#00E5FF] px-3 py-1 rounded-full font-mono backdrop-blur-md">
-            Cockpit Operacional Centralizado
-          </span>
-        </div>
-      </motion.div>
+      </div>
     </section>
   );
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ ESPAÇO DE REFORÇO (WALKTHROUGH) - VERSÃO CORRIGIDA PARA MOBILE
+// ♟️ SEÇÃO “ANTES VS DEPOIS” (TRANSFORMAÇÃO EMOCIONAL)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-const WalkthroughSection = memo(() => {
-  const [activeWalkthrough, setActiveWalkthrough] = useState(false);
-
+const TransformacaoSection = memo(() => {
   return (
     <section className="py-24 border-t border-white/[0.05] px-6 max-w-5xl mx-auto text-center">
       <div className="mb-12 max-w-2xl mx-auto">
         <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block mb-3 font-semibold">
-          Espaço de Reforço Operacional
+          Virada de Chave Operacional
         </span>
         <h2 className="premium-heading text-2xl sm:text-3xl text-white">
-          Veja a Engenharia em Ação
+          A Transformação Emocional Definitiva
         </h2>
         <p className="text-xs text-[#A1A1AA] mt-2">
-          Inspeção imersiva às bases de dados avançadas e ao funcionamento da inteligência artificial dentro da matriz.
+          Deixe de sobreviver a apagar incêndios e assuma a posição de comando de todas as áreas.
         </p>
       </div>
 
-      <div className="relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] aspect-video shadow-2xl max-w-4xl mx-auto">
-        {!activeWalkthrough ? (
-          <div
-            onClick={() => {
-              setActiveWalkthrough(true);
-              Telemetry.emit("walkthrough_video_triggered");
-            }}
-            className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]"
-          >
-            <img
-              src={CONFIG.internalView}
-              alt="Walkthrough do Ecossistema Interno"
-              className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity duration-500"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-
-            <div className="relative z-10 w-16 h-16 rounded-full bg-[#00E5FF] text-[#050505] flex items-center justify-center shadow-[0_0_30px_rgba(0,229,255,0.4)] group-hover:scale-105 transition-transform duration-300">
-              <Play className="w-6 h-6 fill-[#050505] translate-x-0.5" />
-            </div>
-            <p className="relative z-10 text-xs font-semibold text-white mt-4 tracking-wide group-hover:text-[#00E5FF] transition-colors">
-              Iniciar Navegação Guiada na Base de Dados
-            </p>
-            <span className="relative z-10 text-[10px] text-[#A1A1AA] mt-1 font-mono">
-              Alta Fidelidade • Sem Edições
-            </span>
+      <div className="grid md:grid-cols-2 gap-6 items-stretch text-left">
+        {/* Card ANTES (Caos) */}
+        <div className="bg-gradient-to-b from-[#140505] to-[#0A0505] border border-red-500/20 p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+          <div className="absolute top-0 right-0 bg-red-500/10 text-red-500 font-mono text-[9px] font-bold px-3 py-1 rounded-bl-lg">
+            A Realidade Comum
           </div>
-        ) : (
-          /* IFRAME CORRIGIDO PARA MOBILE - Parâmetros universais */
-          <iframe
-            src={`${CONFIG.walkthroughVideo}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
-            title="Walkthrough Interno do Sistema"
-            className="w-full h-full absolute inset-0 border-0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-            allowFullScreen
-          />
-        )}
+          <div>
+            <p className="text-xs font-mono text-red-500 font-extrabold uppercase mb-1">ANTES DO SISTEMA</p>
+            <h3 className="text-lg font-bold text-white mb-4">O Caos Fragmentado</h3>
+            <ul className="space-y-3">
+              {[
+                "Vida desorganizada e rotinas esmagadoras.",
+                "Procrastinação operacional por excesso de estímulos.",
+                "Tarefas vitais esquecidas e espalhadas por cadernos.",
+                "Prazos que surgem como surpresas gerando pânico."
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2.5 text-xs text-gray-300">
+                  <X className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                  <span className="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mt-6 pt-3 border-t border-red-500/10 text-[10px] text-red-400/80 font-mono">
+            Sintoma: Sobrecarga, estresse e estagnação em 2025.
+          </div>
+        </div>
+
+        {/* Card DEPOIS (Clareza) */}
+        <div className="bg-gradient-to-b from-[#05140A] to-[#050A06] border border-[#25D366]/30 p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden shadow-[0_0_30px_rgba(37,211,102,0.08)]">
+          <div className="absolute top-0 right-0 bg-[#25D366]/10 text-[#25D366] font-mono text-[9px] font-bold px-3 py-1 rounded-bl-lg">
+            A Experiência Elite
+          </div>
+          <div>
+            <p className="text-xs font-mono text-[#25D366] font-extrabold uppercase mb-1">DEPOIS DO KIT ELITE</p>
+            <h3 className="text-lg font-bold text-white mb-4">O Cockpit de Execução</h3>
+            <ul className="space-y-3">
+              {[
+                "Clareza mental absoluta e foco cirúrgico instantâneo.",
+                "Produtividade automatizada com rotinas de 5 minutos.",
+                "Controle total da vida financeira, projetos e metas.",
+                "Tranquilidade psicológica para planejar com antecedência."
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2.5 text-xs text-gray-200 font-medium">
+                  <CheckCircle className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
+                  <span className="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mt-6 pt-3 border-t border-[#25D366]/10 text-[10px] text-[#25D366] font-mono font-bold">
+            Resultado: Domínio e aceleração explosiva em 2026.
+          </div>
+        </div>
       </div>
     </section>
   );
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ SECTION DE DOR (DIAGNÓSTICO DO ATRITO)
+// ♟️ SECTION DE SOLUÇÃO & MÓDULOS DE ALTA CONVERSÃO
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-const PainSection = memo(() => {
+const SolucaoModulosSection = memo(() => {
   return (
-    <section className="py-24 border-t border-white/[0.05] px-6 max-w-5xl mx-auto">
-      <div className="grid md:grid-cols-3 gap-12 items-start">
-        <div className="md:col-span-1">
-          <span className="text-[10px] font-mono tracking-widest text-[#A1A1AA] uppercase block mb-3 font-semibold">
-            O Diagnóstico
-          </span>
-          <h2 className="premium-heading text-2xl sm:text-3xl text-white leading-tight">
-            A paralisia gerada pela dispersão.
-          </h2>
-          <p className="text-xs text-[#A1A1AA] mt-4 leading-relaxed">
-            Trabalhar com extrema intensidade sobre um sistema inexistente gera sobrecarga inevitável e fadiga de decisão.
-          </p>
-        </div>
-
-        <div className="md:col-span-2 grid sm:grid-cols-2 gap-4">
-          {PAIN_POINTS.map((pain, i) => (
-            <div key={i} className="card-luxury p-5 flex flex-col justify-between text-left">
-              <div>
-                <span className="text-[10px] font-mono text-[#A1A1AA]/40 block mb-2 font-semibold">0{i + 1}</span>
-                <h3 className="text-xs font-semibold text-white mb-1.5">{pain.title}</h3>
-                <p className="text-xs text-[#A1A1AA] leading-relaxed">{pain.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-});
-
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ SECTION DE SOLUÇÃO (O COCKPIT DE PRODUTIVIDADE)
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-const SolutionSection = memo(() => {
-  return (
-    <section id="solucao" className="py-24 bg-[#0A0A0A] border-y border-white/[0.05] px-6">
+    <section id="solucao" className="py-24 bg-[#0A0A0A] border-y border-white/[0.05] px-6 text-center">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="mb-12 max-w-2xl mx-auto">
           <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block mb-3 font-semibold">
-            A Extensão Cognitiva
+            O Cockpit de Produtividade
           </span>
           <h2 className="premium-heading text-2xl sm:text-3xl text-white">
-            Um centro de comando concebido para fluidez e velocidade mental.
+            Extensão Cognitiva e Cérebro Digital
           </h2>
-          <p className="text-xs text-[#A1A1AA] mt-3">
-            O Notion Elite Kit não é um aglomerado de templates soltos. É um ecossistema operacional centralizado que funciona como o teu cérebro digital primário.
+          <p className="text-xs text-[#A1A1AA] mt-2">
+            Seis módulos cirurgicamente programados para eliminar distrações e acelerar processos.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-6 text-left">
-            {[
-              {
-                title: "Sistema Operacional Pessoal",
-                desc: "Estrutura imaculada que interliga entregas académicas, projetos profissionais e gestão financeira sem necessidade de alternar interfaces."
-              },
-              {
-                title: "Cockpit de Produtividade",
-                desc: "Visualização panorâmica que elimina fricção diária. Sabes exatamente o que fazer hoje, amanhã e durante a totalidade do semestre."
-              },
-              {
-                title: "Implementação Ultra Rápida",
-                desc: "Acompanhado de uma metodologia cirúrgica para que instales e domines o ecossistema na íntegra em menos de 24 horas."
-              }
-            ].map((sol, idx) => (
-              <div key={idx} className="flex gap-4 items-start">
-                <div className="mt-0.5 w-4 h-4 rounded-full bg-white/[0.06] flex items-center justify-center shrink-0 text-[#00E5FF]">
-                  <Check className="w-2.5 h-2.5" />
-                </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 text-left mb-12">
+          {MODULES.map((mod, idx) => {
+            const LucideIcon = mod.icon;
+            return (
+              <div
+                key={idx}
+                className="card-luxury p-5 flex flex-col justify-between hover:border-[#00E5FF]/40 transition-all duration-300"
+              >
                 <div>
-                  <h4 className="text-xs font-semibold text-white mb-1">{sol.title}</h4>
-                  <p className="text-xs text-[#A1A1AA] leading-relaxed">{sol.desc}</p>
+                  <div className="w-7 h-7 rounded-md bg-white/[0.05] text-[#00E5FF] flex items-center justify-center mb-4 border border-white/[0.05]">
+                    <LucideIcon className="w-3.5 h-3.5" />
+                  </div>
+                  <h3 className="text-xs font-bold text-white mb-1.5">{mod.title}</h3>
+                  <p className="text-xs text-[#A1A1AA] leading-relaxed">{mod.description}</p>
+                </div>
+                <div className="mt-5 pt-3 border-t border-white/[0.04] flex justify-between items-center text-[9px] font-mono text-[#A1A1AA]">
+                  <span>Módulo Inviolável</span>
+                  <span className="text-[#00E5FF] font-extrabold">Liberado</span>
                 </div>
               </div>
-            ))}
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+});
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ♟️ VITRINE DE ENGENHARIA VISUAL (MOCKUPS PREMIUM)
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const ArquiteturaVisualSection = memo(() => {
+  return (
+    <section className="py-24 bg-[#050505] border-b border-white/[0.05] px-6 text-center">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-12 max-w-2xl mx-auto">
+          <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block mb-3 font-extrabold">
+            Inspeção de Telas Nativas
+          </span>
+          <h2 className="premium-heading text-2xl sm:text-3xl text-white">
+            Arquitetura Visual de Alta Fidelidade
+          </h2>
+          <p className="text-xs text-[#A1A1AA] mt-2">
+            Mapeamento cirúrgico de fluxos táticos e painéis modulares otimizados para total imersão e zero atrito cognitivo.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 items-stretch text-left max-w-5xl mx-auto">
+          {/* Mockup Premium 1 */}
+          <div className="bg-[#0A0A0A] border border-white/[0.06] p-4 sm:p-6 rounded-2xl flex flex-col justify-between group hover:border-[#00E5FF]/40 transition-all duration-300 shadow-xl">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[10px] font-mono text-[#00E5FF] font-bold">Mapeamento Tático</span>
+                <span className="text-[9px] bg-white/5 text-gray-400 px-2 py-0.5 rounded font-mono">100% Nativo</span>
+              </div>
+              <div className="rounded-xl overflow-hidden border border-white/[0.04] bg-[#050505] mb-4 group-hover:scale-[1.01] transition-transform duration-500">
+                <img
+                  src={CONFIG.mockupExtra1}
+                  alt="Mockup do Ecossistema Tático"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-white mb-1">Painel Analítico de Decisão</h3>
+              <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
+                Cada componente reativo foi disposto milimetricamente para fornecer panorama imediato de métricas diárias e prioridades intocáveis.
+              </p>
+            </div>
           </div>
 
-          <div className="relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#050505] shadow-2xl">
-            <img
-              src={CONFIG.coverImage}
-              alt="Visão do Ecossistema Interno"
-              className="w-full h-auto object-cover block opacity-95"
-              loading="lazy"
-            />
+          {/* Mockup Premium 2 */}
+          <div className="bg-[#0A0A0A] border border-white/[0.06] p-4 sm:p-6 rounded-2xl flex flex-col justify-between group hover:border-[#FF007A]/40 transition-all duration-300 shadow-xl custom-badge-glow">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[10px] font-mono text-[#FF007A] font-bold">Módulo Cérebro Integrado</span>
+                <span className="text-[9px] bg-white/5 text-gray-400 px-2 py-0.5 rounded font-mono">Sincronizado</span>
+              </div>
+              <div className="rounded-xl overflow-hidden border border-white/[0.04] bg-[#050505] mb-4 group-hover:scale-[1.01] transition-transform duration-500">
+                <img
+                  src={CONFIG.mockupExtra2}
+                  alt="Mockup do Ecossistema Estratégico"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-white mb-1">Repositório Neural de IA</h3>
+              <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
+                Integração fluida concebida para reter anotações densas, acionar atalhos de inteligência artificial e prever sobrecargas antes do colapso.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -711,58 +880,108 @@ const SolutionSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ SECTION DE MÓDULOS PREMIUM
+// ♟️ BÔNUS PROGRESSIVOS VIP (SEÇÃO VISUAL MUITO FORTE)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-const ModulesSection = memo(() => {
+const BonusProgressivosSection = memo(({ onExecuteConversion }: { onExecuteConversion: (seg: "international" | "angola") => void }) => {
   return (
-    <section id="modulos" className="py-24 border-b border-white/[0.05] px-6 max-w-5xl mx-auto">
-      <div className="text-center max-w-2xl mx-auto mb-16">
-        <span className="text-[10px] font-mono tracking-widest text-[#A1A1AA] uppercase block mb-3 font-semibold">
-          Arquitetura do Ecossistema
-        </span>
-        <h2 className="premium-heading text-2xl sm:text-3xl text-white">
-          6 Módulos concebidos com precisão cirúrgica
-        </h2>
-        <p className="text-xs text-[#A1A1AA] mt-2">
-          Cada bloco atua como um acelerador cognitivo para desbloquear execução imediata.
-        </p>
-      </div>
+    <section id="bonus" className="py-24 bg-[#050505] border-b border-white/[0.05] px-6 text-center">
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-12 max-w-2xl mx-auto">
+          <span className="text-[10px] font-mono tracking-widest text-[#FF007A] uppercase block mb-3 font-extrabold">
+            Desbloqueios de Impacto Imediato
+          </span>
+          <h2 className="premium-heading text-2xl sm:text-3xl text-white">
+            Bônus Progressivos VIP de Lançamento
+          </h2>
+          <p className="text-xs text-[#A1A1AA] mt-2">
+            Uma estrutura visual agressiva acumulando ativos de ponta para criar a sensação de oferta irresistivelmente absurda.
+          </p>
+        </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {MODULES.map((mod, idx) => {
-          const LucideIcon = mod.icon;
-          return (
-            <div key={idx} className="card-luxury p-5 flex flex-col justify-between text-left">
-              <div>
-                <div className="w-7 h-7 rounded-md bg-white/[0.05] text-[#00E5FF] flex items-center justify-center mb-4 border border-white/[0.05]">
-                  <LucideIcon className="w-3.5 h-3.5" />
-                </div>
-                <h3 className="text-xs font-semibold text-white mb-1.5">{mod.title}</h3>
-                <p className="text-xs text-[#A1A1AA] leading-relaxed">{mod.description}</p>
-              </div>
-              <div className="mt-5 pt-3 border-t border-white/[0.04] flex justify-between items-center text-[9px] font-mono text-[#A1A1AA]">
-                <span>Módulo de Elite</span>
-                <span className="text-[#00E5FF] font-semibold">Ativo</span>
-              </div>
+        <div className="space-y-5 text-left max-w-4xl mx-auto">
+          {/* Nível Base */}
+          <div className="bg-[#0A0A0A] border border-white/[0.05] p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-[9px] font-mono bg-white/10 text-white px-2 py-0.5 rounded font-bold uppercase">Nível Universal (Todos Recebem)</span>
+              <h3 className="text-sm font-bold text-white mt-2">Atualização Estratégica 2027 + Grupo VIP 60 Dias</h3>
+              <p className="text-xs text-[#A1A1AA] mt-1">Acesso à comunidade fechada e licenciamento perpétuo das futuras versões nativas.</p>
             </div>
-          );
-        })}
+            <div className="text-right shrink-0 w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05]">
+              <span className="text-[10px] text-gray-500 font-mono block">Valor Individual: <strong className="line-through">$47</strong></span>
+              <span className="text-xs font-mono text-[#25D366] font-extrabold">INCLUSO HOJE</span>
+            </div>
+          </div>
+
+          {/* Primeiros 15 */}
+          <div className="bg-[#0E0E0E] border border-[#00E5FF]/20 p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-md">
+            <div>
+              <span className="text-[9px] font-mono bg-[#00E5FF]/10 text-[#00E5FF] px-2 py-0.5 rounded font-bold uppercase">Apenas Primeiros 15 Compradores</span>
+              <h3 className="text-sm font-bold text-white mt-2">Pack de Ícones Premium + Planejamento Estratégico 2026</h3>
+              <p className="text-xs text-[#A1A1AA] mt-1">Acervo exclusivo para personalização visual de elite e matriz tática anual pré-definida.</p>
+            </div>
+            <div className="text-right shrink-0 w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05]">
+              <span className="text-[10px] text-gray-500 font-mono block">Valor Individual: <strong className="line-through">$67</strong></span>
+              <span className="text-xs font-mono text-[#00E5FF] font-extrabold">DESBLOQUEADO</span>
+            </div>
+          </div>
+
+          {/* Primeiros 35 */}
+          <div className="bg-[#120A12] border border-[#FF007A]/30 p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-lg custom-badge-glow">
+            <div>
+              <span className="text-[9px] font-mono bg-[#FF007A]/10 text-[#FF007A] px-2 py-0.5 rounded font-bold uppercase">Apenas Primeiros 35 Compradores</span>
+              <h3 className="text-sm font-bold text-white mt-2">Dashboard Financeiro + Banco de Prompts IA & Revisão Ativa</h3>
+              <p className="text-xs text-[#A1A1AA] mt-1">Contempla o <strong className="text-white">Protocolo de Aceleração IA (Engine 2026)</strong> com 20 comandos neurais, o <strong className="text-white">Framework de Implementação Crítica 24H</strong> e a metodologia <strong className="text-white">Feynman-Pomodoro</strong>.</p>
+            </div>
+            <div className="text-right shrink-0 w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05]">
+              <span className="text-[10px] text-gray-500 font-mono block">Valor Individual: <strong className="line-through">$127</strong></span>
+              <span className="text-xs font-mono text-[#FF007A] font-extrabold">DESBLOQUEADO</span>
+            </div>
+          </div>
+
+          {/* Primeiros 50 */}
+          <div className="bg-[#0A100A] border border-[#25D366]/30 p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
+            <div>
+              <span className="text-[9px] font-mono bg-[#25D366]/10 text-[#25D366] px-2 py-0.5 rounded font-bold uppercase">Apenas Primeiros 50 Compradores</span>
+              <h3 className="text-sm font-bold text-white mt-2">Mini-curso Produtividade Extrema + Mentoria em Grupo Gravada</h3>
+              <p className="text-xs text-[#A1A1AA] mt-1">Acesso irrestrito aos bastidores de execução e fundamentos cognitivos aplicados em vídeo.</p>
+            </div>
+            <div className="text-right shrink-0 w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-white/[0.05]">
+              <span className="text-[10px] text-gray-500 font-mono block">Valor Individual: <strong className="line-through">$197</strong></span>
+              <span className="text-xs font-mono text-[#25D366] font-extrabold">DESBLOQUEADO</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Resumo Absurdo de Valor */}
+        <div className="mt-10 bg-[#0E0E0E] border border-white/[0.08] p-6 rounded-2xl max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
+          <div>
+            <p className="text-[10px] font-mono text-[#A1A1AA] uppercase font-semibold">Somatório Acumulado</p>
+            <p className="text-xs text-white mt-0.5">Valor Total Real dos Bônus: <span className="line-through text-red-500 font-mono font-bold">$438</span></p>
+            <p className="text-xs text-[#00E5FF] font-bold mt-0.5">Teu Custo de Resgate Hoje: <span className="font-mono font-extrabold text-base text-white">$0 (Incluso no Kit)</span></p>
+          </div>
+          <button
+            onClick={() => onExecuteConversion("international")}
+            className="btn-magnetic-aggressive text-xs px-5 py-3 rounded-xl w-full sm:w-auto shrink-0 text-center"
+          >
+            Quero Todos os Bônus
+          </button>
+        </div>
       </div>
     </section>
   );
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ SECTION DE AUTORIDADE (GABRIEL SAPALO)
+// ♟️ PERFIL ESTRATÉGICO (GABRIEL SAPALO)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const AuthoritySection = memo(() => {
   return (
-    <section id="autoridade" className="py-24 border-b border-white/[0.05] px-6 max-w-4xl mx-auto">
-      <div className="grid md:grid-cols-3 gap-10 items-center">
-        <div className="md:col-span-1 text-center md:text-left">
-          <div className="w-36 h-36 rounded-full overflow-hidden border border-white/[0.1] bg-[#101010] mx-auto md:mx-0 shadow-xl">
+    <section id="autoridade" className="py-24 border-b border-white/[0.05] px-6 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-10 items-center text-left">
+        <div className="md:col-span-1 text-center md:text-left flex flex-col items-center md:items-start">
+          <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-[#00E5FF] bg-[#101010] shadow-[0_0_25px_rgba(0,229,255,0.2)] relative">
             <img
               src={CONFIG.authorPhoto}
               alt={CONFIG.authorName}
@@ -771,26 +990,40 @@ const AuthoritySection = memo(() => {
             />
           </div>
           <div className="mt-4">
-            <h3 className="text-xs font-semibold text-white">{CONFIG.authorName}</h3>
-            <p className="text-[10px] text-[#00E5FF] font-mono mt-0.5 font-semibold">Campeão Nacional de Xadrez 2024 • Estratega</p>
+            <h3 className="text-sm font-bold text-white leading-tight">{CONFIG.authorName}</h3>
+            <p className="text-[10px] text-[#00E5FF] font-mono mt-0.5 font-bold uppercase tracking-tight block">
+              Estratega & Arquitecto do Sistema
+            </p>
+            <span className="text-[10px] bg-[#141414] text-[#A1A1AA] border border-white/[0.05] px-2 py-0.5 rounded font-mono inline-block mt-1.5">
+              ♟️ Campeão de Xadrez 2024
+            </span>
           </div>
         </div>
 
-        <div className="md:col-span-2 space-y-4 text-xs text-[#A1A1AA] leading-relaxed text-left">
-          <span className="text-[10px] font-mono tracking-widest text-white uppercase block font-semibold">
-            ━━━━━━━━━━━━━━━━━━━
-            👤 PERFIL ESTRATÉGICO (GABRIEL SAPALO)
-            ━━━━━━━━━━━━━━━━━━━
+        <div className="md:col-span-2 space-y-4 text-xs text-[#A1A1AA] leading-relaxed">
+          <span className="text-[10px] font-mono tracking-widest text-[#FF007A] uppercase block font-extrabold">
+            A Mente por Trás da Matriz
           </span>
-          <p className="text-sm font-semibold text-white">
-            "No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exatamente o mesmo: quem não tem sistema, joga no improviso e falha."
+          <p className="text-sm font-bold text-white italic border-l-2 border-[#00E5FF] pl-3 py-1 bg-white/[0.01]">
+            “No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exatamente o mesmo: quem não tem sistema, joga no improviso e falha.”
           </p>
-          <p>
+          <p className="text-gray-300">
             Gabriel Sapalo, <strong>Campeão Nacional Absoluto de Xadrez de Angola 2024</strong>, consolidou a sua carreira na intersecção entre o Planeamento Estatístico e a Psicologia Analítica.
           </p>
-          <p>
-            Com uma especialização em Contabilidade e Auditoria e vasta experiência na gestão de fluxos de informação, Gabriel utilizou a sua visão de <strong>Estratega</strong> para modelar o <em>Notion Elite Kit</em>. O sistema não é um template; é uma infraestrutura de inteligência de dados desenhada para otimizar fluxos cognitivos complexos, assegurando execução absoluta e zero fricção técnica.
+          <p className="text-gray-300">
+            Com uma especialização em Contabilidade e Auditoria e vasta experiência na gestão de fluxos de informação, Gabriel utilizou a sua visão de Estratega para modelar o <strong>Notion Elite Kit</strong>. O sistema não é um template; é uma infraestrutura de inteligência de dados desenhada para otimizar fluxos cognitivos complexos, assegurando execução absoluta e zero fricção técnica.
           </p>
+          <div className="pt-2 flex flex-wrap items-center gap-2">
+            <span className="text-[9px] font-mono bg-[#00E5FF]/10 text-[#00E5FF] px-2 py-0.5 rounded border border-[#00E5FF]/20 font-bold">
+              ZERO FRICÇÃO
+            </span>
+            <span className="text-[9px] font-mono bg-[#FF007A]/10 text-[#FF007A] px-2 py-0.5 rounded border border-[#FF007A]/20 font-bold">
+              EXECUÇÃO ABSOLUTA
+            </span>
+            <span className="text-[9px] font-mono bg-white/5 text-gray-300 px-2 py-0.5 rounded border border-white/5">
+              INTELIGÊNCIA DE DADOS
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -798,35 +1031,45 @@ const AuthoritySection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ SOCIAL PROOF ULTRA PREMIUM
+// ♟️ SOCIAL PROOF MASSIVA ULTRA PREMIUM (FOCO NO ROSTO SÉNIOR)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const SocialProofSection = memo(() => {
   return (
-    <section id="provas" className="py-24 border-b border-white/[0.05] px-6 max-w-5xl mx-auto">
-      <div className="text-center max-w-2xl mx-auto mb-16">
+    <section id="provas" className="py-24 border-b border-white/[0.05] px-6 max-w-5xl mx-auto text-center">
+      <div className="mb-12 max-w-2xl mx-auto">
         <span className="text-[10px] font-mono tracking-widest text-[#A1A1AA] uppercase block mb-3 font-semibold">
-          Evidências Operacionais
+          Evidências Operacionais e Impacto Viral
         </span>
         <h2 className="premium-heading text-2xl sm:text-3xl text-white">
           Validação por mentes focadas em execução
         </h2>
+        <p className="text-xs text-[#A1A1AA] mt-2">
+          Avaliações 5 estrelas e prints reais comprovando a inevitabilidade de organização com o sistema.
+        </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6 items-stretch">
+      {/* Bento Grid Otimizado com Escala de Avatares Duplicada (Mínimo 100x100px) */}
+      <div className="grid md:grid-cols-3 gap-6 items-stretch text-left mb-12">
         {TESTIMONIALS.map((t, idx) => {
           const isLarge = idx === 0 || idx === 3;
           return (
             <div
               key={idx}
-              className={`card-luxury p-6 flex flex-col justify-between text-left ${
+              className={`card-luxury p-6 flex flex-col justify-between ${
                 isLarge ? "md:col-span-2 bg-[#0E0E0E]" : "md:col-span-1 bg-[#0A0A0A]"
               }`}
             >
               <div>
+                {/* Posicionamento do Rosto em Grande Destaque à Esquerda / Topo com aro fino em Ciano e brilho */}
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4 pb-4 border-b border-white/[0.04]">
                   <div className="w-28 h-28 rounded-full overflow-hidden bg-[#050505] shrink-0 border-2 border-[#00E5FF] shadow-[0_0_20px_rgba(0,229,255,0.4)] relative">
-                    <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" loading="lazy" />
+                    <img
+                      src={t.avatar}
+                      alt={t.name}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1 mb-1">
@@ -839,98 +1082,37 @@ const SocialProofSection = memo(() => {
                     <p className="text-[9px] text-[#A1A1AA] font-mono truncate">{t.location}</p>
                   </div>
                 </div>
-                <p className="text-xs text-[#A1A1AA] leading-relaxed italic">“{t.text}”</p>
+
+                <p className="text-xs text-[#A1A1AA] leading-relaxed italic">
+                  “{t.text}”
+                </p>
               </div>
-              <div className="mt-4 pt-2 text-[9px] font-mono text-gray-600 text-right">Identidade Verificada</div>
+
+              <div className="mt-4 pt-2 text-[9px] font-mono text-gray-600 text-right">
+                Identidade Verificada
+              </div>
             </div>
           );
         })}
       </div>
-    </section>
-  );
-});
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ VITRINE DE BÓNUS DE ELITE
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-const BonusSection = memo(() => {
-  const extraTechModules = [
-    {
-      badge: "Integração Neural",
-      title: "Protocolo de Aceleração IA (Engine 2026)",
-      desc: "Implementação nativa de 20 comandos neurais de elite prontos a desbloquear sínteses, flashcards e planeamentos automáticos.",
-      highlight: true
-    },
-    {
-      badge: "Arquitetura de Transição",
-      title: "Framework de Implementação Crítica 24H",
-      desc: "Metodologia de migração passo a passo projetada para transferires os teus fluxos dispersos para a matriz em tempo recorde.",
-      highlight: true
-    },
-    {
-      badge: "Alta Retenção",
-      title: "Sistema de Revisão Ativa Feynman-Pomodoro",
-      desc: "Estruturas embutidas com base na ciência da aprendizagem para otimização contínua de ciclos de estudo sem saturação mental.",
-      highlight: false
-    }
-  ];
-
-  const coreBonuses = [
-    { title: "Guia Prático de Implementação (PDF)", desc: "Manual de arquitetura tática para aceleração inicial e adoção sem atrito." },
-    { title: "Sistema Anti-Procrastinação 'Porto Seguro'", desc: "Mecanismo neuro-operacional para resgatar e preservar o foco diário." },
-    { title: "Organizador Financeiro de Elite", desc: "Módulo integrado de orçamentação e alocação analítica de recursos." },
-    { title: "Habit Tracker Pro 2026", desc: "Monitorização e analítica preditiva de hábitos com retroalimentação visual." }
-  ];
-
-  return (
-    <section className="py-24 bg-[#050505] border-b border-white/[0.05] px-6 max-w-5xl mx-auto text-left">
-      <div className="text-center mb-12 max-w-2xl mx-auto">
-        <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block mb-3 font-semibold">
-          Camadas de Ativação Cognitiva
-        </span>
-        <h2 className="premium-heading text-2xl sm:text-3xl text-white">
-          Módulos de Tecnologia Extra & Ativos de Aceleração
-        </h2>
-        <p className="text-xs text-[#A1A1AA] mt-2">
-          Extensões operacionais de estatuto sénior incorporadas incondicionalmente na tua licença.
+      {/* Prints de Clientes estilo WhatsApp/Instagram */}
+      <div className="bg-[#0A0A0A] border border-white/[0.05] p-6 rounded-2xl max-w-4xl mx-auto text-left">
+        <p className="text-xs font-bold text-white mb-4 flex items-center gap-1.5">
+          <span className="inline-block w-2 h-2 rounded-full bg-[#25D366]" />
+          <span>Comunidade Ativa & Feedback Imediato</span>
         </p>
-      </div>
-
-      <div className="grid md:grid-cols-3 gap-5 mb-8">
-        {extraTechModules.map((m, idx) => (
-          <div
-            key={idx}
-            className={`p-6 rounded-xl border transition-all relative overflow-hidden flex flex-col justify-between ${
-              m.highlight
-                ? "bg-[#0A0A0A] border-[#00E5FF]/30 shadow-[0_0_20px_rgba(0,229,255,0.05)]"
-                : "bg-[#080808] border-white/[0.08]"
-            }`}
-          >
-            <div>
-              <span className={`text-[9px] font-mono uppercase block mb-2 font-semibold ${m.highlight ? "text-[#00E5FF]" : "text-[#A1A1AA]"}`}>
-                {m.badge}
-              </span>
-              <h3 className="text-xs font-bold text-white mb-2">{m.title}</h3>
-              <p className="text-xs text-[#A1A1AA] leading-relaxed">{m.desc}</p>
-            </div>
-            <div className="mt-4 pt-3 border-t border-white/[0.04] text-[9px] font-mono text-gray-500">Acesso Imediato Integrado</div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="bg-[#050505] p-3.5 rounded-xl border border-white/[0.04]">
+            <p className="text-[10px] font-bold text-gray-400">📱 Mensagem Recebida</p>
+            <p className="text-xs text-white mt-1 italic">"Gente, o módulo de finanças e o Brain Core pouparam a minha mente. Setup feito em 4h cravadas!"</p>
+            <span className="text-[9px] text-[#25D366] font-mono block mt-1">✓ Entregue via WhatsApp</span>
           </div>
-        ))}
-      </div>
-
-      <div className="pt-6 border-t border-white/[0.04]">
-        <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-wider mb-4 text-center font-semibold">
-          Componentes Operacionais Complementares
-        </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {coreBonuses.map((b, i) => (
-            <div key={i} className="bg-[#080808] border border-white/[0.04] p-4 rounded-lg hover:border-white/[0.1] transition-all">
-              <span className="text-[9px] font-mono text-[#00E5FF] block mb-1">Ativo 0{i + 1}</span>
-              <h4 className="text-[11px] font-semibold text-white mb-1">{b.title}</h4>
-              <p className="text-[10px] text-[#A1A1AA] leading-relaxed">{b.desc}</p>
-            </div>
-          ))}
+          <div className="bg-[#050505] p-3.5 rounded-xl border border-white/[0.04]">
+            <p className="text-[10px] font-bold text-gray-400">🔥 Story Mencionado</p>
+            <p className="text-xs text-white mt-1 italic">"Adeus abas perdidas. O Notion Elite Kit 2026 é surrealmente inteligente. Recomendo de olhos fechados."</p>
+            <span className="text-[9px] text-[#00E5FF] font-mono block mt-1">@glowscalepro citado</span>
+          </div>
         </div>
       </div>
     </section>
@@ -938,19 +1120,10 @@ const BonusSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ OFERTA PREMIUM
+// ♟️ OFERTA PREMIUM SÉNIOR (SENSAÇÃO DE SOFTWARE CARO)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-const PremiumOfferSection = memo(() => {
-  const routeToCheckout = useCallback((segment: "international" | "angola") => {
-    Telemetry.emit("offer_checkout_button_click", { segment });
-    if (segment === "international") {
-      window.open(CONFIG.hotmartCheckout, "_blank", "noopener,noreferrer");
-    } else {
-      window.open(CONFIG.whatsappPayment, "_blank", "noopener,noreferrer");
-    }
-  }, []);
-
+const PremiumOfferSection = memo(({ onExecuteConversion }: { onExecuteConversion: (seg: "international" | "angola") => void }) => {
   return (
     <section id="oferta" className="py-24 bg-[#0A0A0A] border-b border-white/[0.05] px-6">
       <div className="max-w-4xl mx-auto text-center">
@@ -964,9 +1137,11 @@ const PremiumOfferSection = memo(() => {
         </div>
 
         <div className="border border-white/[0.08] bg-[#101010] rounded-2xl p-6 sm:p-10 max-w-3xl mx-auto shadow-2xl relative overflow-hidden text-left">
+          {/* Efeito luminoso muito suave de destaque */}
           <div className="absolute top-0 right-0 w-32 h-32 bg-[#00E5FF]/[0.05] rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid md:grid-cols-5 gap-8 items-center">
+            {/* Bloco Esquerdo: Preço e Valor Sénior */}
             <div className="md:col-span-2 border-b md:border-b-0 md:border-r border-white/[0.06] pb-6 md:pb-0 md:pr-6">
               <span className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-wider block mb-1 font-semibold">
                 Investimento Único
@@ -986,13 +1161,16 @@ const PremiumOfferSection = memo(() => {
               </p>
             </div>
 
+            {/* Bloco Direito: Entregáveis */}
             <div className="md:col-span-3 space-y-4">
-              <p className="text-xs font-semibold text-white block">O teu estatuto operacional inclui:</p>
+              <p className="text-xs font-semibold text-white block">
+                O teu estatuto operacional inclui:
+              </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {[
                   "Acesso Vitalício",
                   "Setup Concluído em 24h",
-                  "Garantia de 7 Dias",
+                  "Garantia Estendida 30 Dias",
                   "Suporte Premium",
                   "Acesso à Comunidade",
                   "Atualizações Futuras"
@@ -1004,38 +1182,49 @@ const PremiumOfferSection = memo(() => {
                 ))}
               </div>
 
+              {/* BOTÕES ABSOLUTOS DE CHECKOUT REPETIDOS */}
               <div className="pt-4 space-y-2.5">
                 <div>
                   <button
-                    onClick={() => routeToCheckout("international")}
+                    onClick={() => onExecuteConversion("international")}
                     className="w-full btn-luxury-cyan py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md cursor-pointer outline-none"
                   >
-                    <span>Adquirir via Hotmart (Cartão / PayPal)</span>
+                    <span>Entrar por Apenas $10 (Hotmart)</span>
                     <ExternalLink className="w-3 h-3 text-[#050505]" />
                   </button>
-                  <p className="text-[9px] text-[#A1A1AA]/70 text-center mt-1 font-medium">Processamento global instantâneo</p>
+                  <p className="text-[9px] text-[#A1A1AA]/70 text-center mt-1 font-medium">
+                    Processamento global instantâneo
+                  </p>
                 </div>
 
                 <div className="pt-2 border-t border-white/[0.04]">
                   <button
-                    onClick={() => routeToCheckout("angola")}
-                    className="w-full btn-luxury-dark py-3 px-4 rounded-xl text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer outline-none"
+                    onClick={() => onExecuteConversion("angola")}
+                    className="w-full btn-magnetic-aggressive py-3 px-4 rounded-xl text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer outline-none"
                   >
-                    <span>Pagar via Multicaixa / IBAN (10.000 AKZ)</span>
-                    <MessageCircle className="w-3 h-3 text-[#25D366]" />
+                    <span>Desbloquear Meu Segundo Cérebro (10.000 AKZ)</span>
+                    <MessageCircle className="w-3 h-3 text-white fill-white" />
                   </button>
-                  <p className="text-[9px] text-[#A1A1AA]/70 text-center mt-1 font-medium">Ativação local com encaminhamento via WhatsApp</p>
+                  <p className="text-[9px] text-[#A1A1AA]/70 text-center mt-1 font-medium">
+                    Ativação local com encaminhamento via WhatsApp
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-6 text-center">
-          <p className="text-xs text-[#A1A1AA] flex items-center justify-center gap-1.5">
-            <Shield className="w-3 h-3 text-[#00E5FF]" />
-            <span>Garantia absoluta de 7 dias. Retorno garantido caso o sistema não duplique a tua clareza.</span>
-          </p>
+        {/* Garantia Forte Extremamente Visível com Selo Visual Premium */}
+        <div className="mt-10 bg-[#050505] border-2 border-[#00E5FF]/30 p-6 rounded-2xl max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-4 text-left shadow-[0_0_25px_rgba(0,229,255,0.08)]">
+          <div className="w-12 h-12 rounded-full bg-[#00E5FF]/10 text-[#00E5FF] flex items-center justify-center shrink-0">
+            <Shield className="w-6 h-6" />
+          </div>
+          <div>
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider">Garantia Forte Estendida de 30 Dias</h4>
+            <p className="text-xs text-gray-300 mt-1 leading-relaxed">
+              “Teste por 30 dias. Se não transformar sua organização, devolvemos seu dinheiro — e você ainda fica com os bônus como prova do nosso compromisso.”
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -1043,7 +1232,7 @@ const PremiumOfferSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ FAQ
+// ♟️ FAQ (DESTRUIÇÃO DE OBJEÇÕES DE FORMA TÉCNICA)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const FAQSection = memo(() => {
@@ -1065,14 +1254,19 @@ const FAQSection = memo(() => {
         <span className="text-[10px] font-mono tracking-widest text-[#A1A1AA] uppercase block mb-3 font-semibold">
           Esclarecimentos Base
         </span>
-        <h2 className="premium-heading text-2xl sm:text-3xl text-white">Perguntas Frequentes</h2>
+        <h2 className="premium-heading text-2xl sm:text-3xl text-white">
+          Perguntas Frequentes
+        </h2>
       </div>
 
       <div className="space-y-2.5">
         {FAQ_DATA.map((item, i) => {
           const isOpen = activeFaq === i;
           return (
-            <div key={i} className="bg-[#101010] border border-white/[0.05] rounded-lg overflow-hidden transition-colors text-left">
+            <div
+              key={i}
+              className="bg-[#101010] border border-white/[0.05] rounded-lg overflow-hidden transition-colors text-left"
+            >
               <button
                 onClick={() => handleToggle(i, item.q)}
                 className="w-full text-left p-4 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors outline-none cursor-pointer text-xs font-semibold text-white"
@@ -1090,7 +1284,7 @@ const FAQSection = memo(() => {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.2 }}
                     className="px-4 pb-4 text-xs text-[#A1A1AA] border-t border-white/[0.04] pt-3 leading-relaxed font-normal"
                   >
                     {item.a}
@@ -1106,35 +1300,38 @@ const FAQSection = memo(() => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ CTA FINAL MANDATÓRIO
+// ♟️ FINAL SECTION (FOMO MÁXIMO E IMPULSO EMOCIONAL)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const FinalCTASection = memo(({ onSelectFlow }: { onSelectFlow: (type: "international" | "angola") => void }) => {
   return (
-    <section className="py-24 bg-gradient-to-b from-[#050505] via-[#0A0A0A] to-[#050505] px-6 text-center">
+    <section className="py-24 bg-gradient-to-b from-[#050505] via-[#0A0A0A] to-[#050505] px-6 text-center relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#00E5FF]/5 rounded-full blur-[130px] pointer-events-none -z-10" />
+
       <div className="max-w-2xl mx-auto space-y-6">
-        <span className="text-[10px] font-mono tracking-widest text-[#00E5FF] uppercase block font-semibold">
-          Estatuto de Eficiência
+        <span className="text-[10px] font-mono tracking-widest text-[#FF007A] uppercase block font-bold">
+          A Decisão Inevitável
         </span>
 
-        <h2 className="premium-heading text-3xl sm:text-4xl text-white max-w-xl mx-auto">
-          “Daqui a 6 meses vais desejar ter começado hoje.”
+        {/* Headline Forte Final */}
+        <h2 className="premium-heading text-3xl sm:text-4xl text-white max-w-xl mx-auto leading-tight">
+          “2026 vai acontecer de qualquer forma. A questão é: você vai continuar no caos?”
         </h2>
 
         <p className="text-xs text-[#A1A1AA] max-w-lg mx-auto leading-relaxed">
-          Podes continuar a apagar incêndios todas as semanas ou montar um ecossistema operacional premium que te devolve clareza e execução inevitável.
+          As vagas remanescentes com 89% de desconto encerram nas próximas horas. Garanta agora a extensão cognitiva que te separa do controle absoluto.
         </p>
 
-        <div className="pt-4 max-w-sm mx-auto space-y-2.5 text-left">
+        <div className="pt-4 max-w-sm mx-auto space-y-3 text-left">
           <button
             onClick={() => {
               Telemetry.emit("final_conversion_cta_click", { flow: "international" });
               onSelectFlow("international");
             }}
-            className="w-full bg-white hover:bg-gray-100 text-[#050505] text-xs font-semibold py-3 px-4 rounded-xl transition-all flex items-center justify-between shadow cursor-pointer outline-none"
+            className="w-full btn-luxury-cyan py-4 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-2xl cursor-pointer outline-none"
           >
-            <span>Acesso Global (Hotmart)</span>
-            <ArrowRight className="w-3 h-3" />
+            <span>Quero Meu Sistema Completo ($10)</span>
+            <ArrowRight className="w-4 h-4" />
           </button>
 
           <button
@@ -1142,13 +1339,15 @@ const FinalCTASection = memo(({ onSelectFlow }: { onSelectFlow: (type: "internat
               Telemetry.emit("final_conversion_cta_click", { flow: "angola" });
               onSelectFlow("angola");
             }}
-            className="w-full bg-[#101010] hover:bg-[#141414] border border-white/[0.08] text-white text-xs font-semibold py-3 px-4 rounded-xl transition-all flex items-center justify-between cursor-pointer outline-none"
+            className="w-full btn-magnetic-aggressive py-4 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-2xl cursor-pointer outline-none"
           >
-            <span>Acesso Angola (Multicaixa / IBAN)</span>
-            <ArrowRight className="w-3 h-3 text-[#25D366]" />
+            <span>Garantir Minha Vaga (10.000 AKZ)</span>
+            <ArrowRight className="w-4 h-4 text-white" />
           </button>
 
-          <p className="text-[10px] text-[#A1A1AA]/60 text-center pt-2 font-mono">Investimento único: 10 USD / 10.000 AKZ</p>
+          <p className="text-[10px] text-[#A1A1AA]/60 text-center pt-1 font-mono">
+            Apenas 14 licenças finais liberadas.
+          </p>
         </div>
       </div>
     </section>
@@ -1156,15 +1355,16 @@ const FinalCTASection = memo(({ onSelectFlow }: { onSelectFlow: (type: "internat
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ RODAPÉ LEGAL PREMIUM
+// ♟️ RODAPÉ LEGAL PREMIUM & TRANSPARÊNCIA
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 const LegalFooter = memo(() => {
   return (
-    <footer className="border-t border-white/[0.05] bg-[#050505] pt-12 pb-16 px-6 text-xs text-[#A1A1AA]">
+    <footer className="border-t border-white/[0.05] bg-[#050505] pt-12 pb-24 px-6 text-xs text-[#A1A1AA]">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/[0.05] text-left">
-          <div className="flex items-center gap-3">
+          {/* Alinhamento estrito exigido: Logotipo e texto na MESMA LINHA horizontal, alinhados ao centro */}
+          <div className="flex items-center justify-center w-full sm:w-auto gap-3">
             <img
               src={CONFIG.glowscaleLogo}
               alt="GlowScalePro Logótipo"
@@ -1174,39 +1374,75 @@ const LegalFooter = memo(() => {
             <span className="text-white/[0.1]">/</span>
             <span className="text-white font-medium text-xs">{CONFIG.authorName}</span>
           </div>
-          <p className="text-[10px] text-[#A1A1AA]/60 max-w-md text-center sm:text-right leading-relaxed">
+
+          <p className="text-[10px] text-[#A1A1AA]/60 max-w-md text-center sm:text-right leading-relaxed mt-2 sm:mt-0">
             Arquitetura operacional de alta performance desenvolvida de forma independente. Sem afiliação ou patrocínio institucional da Notion Labs Inc.
           </p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 py-8 text-[11px] text-left">
           <div>
-            <p className="text-[10px] font-mono text-white uppercase tracking-wider mb-3 font-semibold">Conformidade</p>
+            <p className="text-[10px] font-mono text-white uppercase tracking-wider mb-3 font-semibold">
+              Conformidade
+            </p>
             <ul className="space-y-2">
-              <li><a href={CONFIG.termsOfUse} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Termos de Utilização</a></li>
-              <li><a href={CONFIG.privacyPolicy} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Privacidade de Dados</a></li>
-              <li><a href={CONFIG.cookiePolicy} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Política de Cookies</a></li>
+              <li>
+                <a href={CONFIG.termsOfUse} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  Termos de Utilização
+                </a>
+              </li>
+              <li>
+                <a href={CONFIG.privacyPolicy} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  Privacidade de Dados
+                </a>
+              </li>
+              <li>
+                <a href={CONFIG.cookiePolicy} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  Política de Cookies
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <p className="text-[10px] font-mono text-white uppercase tracking-wider mb-3 font-semibold">Atendimento e Canais</p>
+            <p className="text-[10px] font-mono text-white uppercase tracking-wider mb-3 font-semibold">
+              Atendimento e Canais
+            </p>
             <ul className="space-y-2">
-              <li><a href={`mailto:${CONFIG.supportEmail}`} className="hover:text-white transition-colors">Correio Eletrónico</a></li>
-              <li><a href={CONFIG.telegramSupport} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1"><span>Chat Telegram</span><ExternalLink className="w-2.5 h-2.5 text-gray-600" /></a></li>
-              <li><a href={CONFIG.communityLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1"><span>Comunidade WhatsApp</span><ExternalLink className="w-2.5 h-2.5 text-gray-600" /></a></li>
+              <li>
+                <a href={`mailto:${CONFIG.supportEmail}`} className="hover:text-white transition-colors">
+                  Correio Eletrónico
+                </a>
+              </li>
+              <li>
+                <a href={CONFIG.telegramSupport} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
+                  <span>Chat Telegram</span>
+                  <ExternalLink className="w-2.5 h-2.5 text-gray-600" />
+                </a>
+              </li>
+              <li>
+                <a href={CONFIG.communityLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
+                  <span>Comunidade WhatsApp</span>
+                  <ExternalLink className="w-2.5 h-2.5 text-gray-600" />
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <p className="text-[10px] font-mono text-white uppercase tracking-wider mb-3 font-semibold">Especificações Técnicas</p>
-            <p className="text-[#A1A1AA]/80 text-[10px] leading-relaxed">Notion Elite Kit 2026. <br /> Otimizado nativamente sob design responsivo extremo para LCP mínimo e fluidez cognitiva máxima.</p>
+            <p className="text-[10px] font-mono text-white uppercase tracking-wider mb-3 font-semibold">
+              Especificações Técnicas
+            </p>
+            <p className="text-[#A1A1AA]/80 text-[10px] leading-relaxed">
+              Notion Elite Kit 2026. <br />
+              Construído com tráfego otimizado nativamente para maximizar FOMO, prova social e impulsividade de compra sob LCP mínimo.
+            </p>
           </div>
         </div>
 
         <div className="pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row justify-between items-center gap-2 text-[10px] text-[#A1A1AA]/60">
           <p>© 2026 Gabriel Sapalo. Ecossistema licenciado internacionalmente.</p>
-          <p className="font-mono text-[9px]">Black Interface Architecture v4.0</p>
+          <p className="font-mono text-[9px]">SaaS High-Conversion Layer v5.0</p>
         </div>
       </div>
     </footer>
@@ -1218,6 +1454,20 @@ const LegalFooter = memo(() => {
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 export function App() {
+  const [notificationToast, setNotificationToast] = useState<typeof NOTIFICATIONS[0] | null>(null);
+
+  // Orquestrador de Notificações Flutuantes Simulado para prova social viciante
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setNotificationToast(NOTIFICATIONS[index]);
+      index = (index + 1) % NOTIFICATIONS.length;
+      setTimeout(() => setNotificationToast(null), 3500);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Telemetria base
   useEffect(() => {
     Telemetry.emit("page_fully_loaded", { referrer: document.referrer });
 
@@ -1271,7 +1521,10 @@ export function App() {
     "name": "Notion Elite Kit 2026",
     "image": CONFIG.productLogo,
     "description": "Ecossistema operacional premium em Notion concebido para dominar rotinas e gerir frentes profissionais e académicas complexas.",
-    "brand": { "@type": "Brand", "name": "GlowScalePro" },
+    "brand": {
+      "@type": "Brand",
+      "name": "GlowScalePro"
+    },
     "offers": {
       "@type": "Offer",
       "url": CONFIG.hotmartCheckout,
@@ -1287,7 +1540,10 @@ export function App() {
     "mainEntity": FAQ_DATA.map(f => ({
       "@type": "Question",
       "name": f.q,
-      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.a
+      }
     }))
   };
 
@@ -1295,56 +1551,86 @@ export function App() {
     <div className="cinematic-noise min-h-screen bg-[#050505] text-white font-sans relative">
       <Helmet>
         <title>Notion Elite Kit 2026 — Ecossistema Operacional Premium</title>
-        <meta name="description" content="Domine a tua rotina e organize a tua vida académica/profissional em menos de 24 horas. Arquitetura minimalista de alto desempenho cognitivo." />
+        <meta name="description" content="Domine a sua rotina e organize a sua vida académica/profissional em menos de 24 horas. Arquitetura minimalista de alto desempenho cognitivo." />
         <link rel="canonical" href={window.location.href} />
         
-        {/* FAVICONS IMPLEMENTADOS */}
-        <link rel="icon" type="image/x-icon" href="https://drive.google.com/thumbnail?id=14rQjLyO4yBn0J4Xm36JyXhc3uK7B1v1k&sz=64" />
-        <link rel="apple-touch-icon" sizes="180x180" href="https://drive.google.com/thumbnail?id=14ObH6mZWZH-UOVfLxze-6BTMLed9L7IZ&sz=180" />
-        <link rel="icon" type="image/png" sizes="192x192" href="https://drive.google.com/thumbnail?id=1e87UtUWFWZwHlXjOUX8mxEg55rGiePko&sz=192" />
-        
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-title" content="Notion Elite" />
-        <meta name="application-name" content="Notion Elite Kit" />
-        <meta name="theme-color" content="#050505" />
-        <meta name="msapplication-TileColor" content="#050505" />
-        
         <meta property="og:title" content="Notion Elite Kit 2026 — Ecossistema Operacional Premium" />
-        <meta property="og:description" content="Domine a tua rotina e organize a tua vida académica/profissional em menos de 24 horas." />
+        <meta property="og:description" content="Domine a sua rotina e organize a sua vida académica/profissional em menos de 24 horas." />
         <meta property="og:image" content={CONFIG.notionMockup} />
         <meta property="og:type" content="product" />
-        <meta property="og:site_name" content="Notion Elite Kit" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Notion Elite Kit 2026 — Ecossistema Operacional Premium" />
-        <meta name="twitter:description" content="Domine a tua rotina e organize a tua vida académica/profissional em menos de 24 horas." />
+        <meta name="twitter:description" content="Domine a sua rotina e organize a sua vida académica/profissional em menos de 24 horas." />
         <meta name="twitter:image" content={CONFIG.notionMockup} />
 
-        <script type="application/ld+json">{JSON.stringify(productSchemaLD)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchemaLD)}</script>
+        <script type="application/ld+json">
+          {JSON.stringify(productSchemaLD)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchemaLD)}
+        </script>
       </Helmet>
 
+      {/* RENDERIZAÇÃO GERAL DO FUNIL */}
       <Header onRequestScroll={executeScrollToOffer} />
-      <HeroSection />
-      <WalkthroughSection />
-      <PainSection />
-      <SolutionSection />
-      <ModulesSection />
+      <HeroSection onExecuteConversion={handleFinalChoice} />
+      <EngenhariaSection />
+      <TransformacaoSection />
+      <SolucaoModulosSection />
+      <ArquiteturaVisualSection />
+      <BonusProgressivosSection onExecuteConversion={handleFinalChoice} />
       <AuthoritySection />
       <SocialProofSection />
-      <BonusSection />
-      <PremiumOfferSection />
+      <PremiumOfferSection onExecuteConversion={handleFinalChoice} />
       <FAQSection />
       <FinalCTASection onSelectFlow={handleFinalChoice} />
       <LegalFooter />
 
+      {/* Notificação Flutuante Simulada de Compra Viral (Overlay estilo SaaS) */}
+      <AnimatePresence>
+        {notificationToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.9 }}
+            className="fixed bottom-24 left-4 z-50 glass-modal-aggressive p-3 rounded-xl shadow-2xl flex items-center gap-3 max-w-xs border-l-4 border-l-[#00E5FF]"
+          >
+            <div className="w-8 h-8 rounded-full bg-[#00E5FF]/20 flex items-center justify-center shrink-0">
+              <TrendingUp className="w-4 h-4 text-[#00E5FF]" />
+            </div>
+            <div className="text-left min-w-0">
+              <p className="text-[11px] text-white font-bold truncate">🎉 {notificationToast.name} comprou</p>
+              <p className="text-[10px] text-[#00E5FF] font-mono truncate">{notificationToast.item}</p>
+              <span className="text-[9px] text-gray-500 font-mono block">{notificationToast.time}</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* STICKY CTA MOBILE EXTREMAMENTE PERSISTENTE */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0A0A0A]/95 backdrop-blur-md border-t border-white/[0.08] p-3 flex items-center gap-2">
+        <button
+          onClick={() => handleFinalChoice("international")}
+          className="flex-1 btn-luxury-cyan py-2.5 px-2 rounded-lg text-[11px] font-bold text-center block leading-tight truncate"
+        >
+          Acesso Global ($10)
+        </button>
+        <button
+          onClick={() => handleFinalChoice("angola")}
+          className="flex-1 btn-magnetic-aggressive py-2.5 px-2 rounded-lg text-[11px] font-bold text-center block leading-tight truncate text-white"
+        >
+          Angola (10k AKZ)
+        </button>
+      </div>
+
+      {/* Botão WhatsApp Flutuante no canto inferior direito (Suporte Mestre Gabriel) acima do sticky mobile */}
       <a
         href={CONFIG.whatsappPayment}
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => Telemetry.emit("floating_conversion_button_click")}
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba59] text-[#050505] p-3.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 outline-none cursor-pointer flex items-center justify-center group"
+        className="fixed bottom-16 md:bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba59] text-[#050505] p-3.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 outline-none cursor-pointer flex items-center justify-center group"
         aria-label="Suporte Mestre Gabriel via WhatsApp"
       >
         <MessageCircle className="w-6 h-6 text-[#050505] fill-[#050505]" />
