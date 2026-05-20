@@ -6,16 +6,15 @@
     <title>Notion Elite Kit 2026 — O Centro Operacional Pessoal</title>
     <meta name="description" content="Ecossistema digital premium de alta performance. Organize a sua rotina académica e profissional de forma inteligente e elimine o atrito diário." />
     <meta property="og:title" content="Notion Elite Kit 2026 — Centro Operacional Pessoal" />
-    <meta property="og:description" content="Domine a sua rotina e organize a sua vida académica/profissional em menos de 24 horas." />
+    <meta property="og:description" content="Domine a sua rotina e organize a sua vida académica/profissional in menos de 24 horas." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Notion Elite Kit 2026 — O Centro Operacional Pessoal" />
-    <meta name="twitter:description" content="Domine a sua rotina e organize a sua vida académica/profissional em menos de 24 horas." />
+    <meta name="twitter:description" content="Domine a sua rotina e organize a sua vida académica/profissional in menos de 24 horas." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X7EPD8B6H"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -37,7 +36,77 @@
     </style>
   </head>
   <body class="bg-black text-white antialiased selection:bg-[#00E5FF] selection:text-black">
+    
     <div id="root"></div>
+    
     <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      document.addEventListener('click', function(event) {
+        // Encontra o link clicado ou o elemento pai mais próximo que seja um link
+        var targetLink = event.target.closest('a');
+        
+        if (targetLink && targetLink.href) {
+          var url = targetLink.href;
+
+          // 1. Rastreio Dinâmico do WhatsApp (Conversão / Lead)
+          if (url.includes('wa.me') || url.includes('whatsapp.com')) {
+            // Verifica se o botão tem um ID específico para rastreio cirúrgico
+            if (targetLink.id === 'btn-wa-hero') {
+              gtag('event', 'generate_lead', {
+                'event_category': 'Funnel',
+                'event_label': 'Clique WhatsApp - Topo Hero',
+                'value': 1.0
+              });
+            } else if (targetLink.id === 'btn-wa-checkout') {
+              gtag('event', 'generate_lead', {
+                'event_category': 'Funnel',
+                'event_label': 'Clique WhatsApp - Checkout Fundador',
+                'value': 2.0
+              });
+            } else {
+              gtag('event', 'generate_lead', {
+                'event_category': 'Funnel',
+                'event_label': 'Clique WhatsApp - Link Geral',
+                'value': 1.0
+              });
+            }
+          }
+          
+          // 2. Rastreio do Instagram
+          else if (url.includes('instagram.com')) {
+            gtag('event', 'click_social_instagram', {
+              'event_category': 'Social_Engagement',
+              'event_label': 'Visita ao Perfil do Instagram'
+            });
+          }
+          
+          // 3. Rastreio do YouTube
+          else if (url.includes('youtube.com') || url.includes('youtu.be')) {
+            gtag('event', 'click_social_youtube', {
+              'event_category': 'Social_Engagement',
+              'event_label': 'Visita ao Canal do YouTube'
+            });
+          }
+          
+          // 4. Rastreio do Facebook
+          else if (url.includes('facebook.com')) {
+            gtag('event', 'click_social_facebook', {
+              'event_category': 'Social_Engagement',
+              'event_label': 'Visita à Página do Facebook'
+            });
+          }
+          
+          // 5. Rastreio do TikTok
+          else if (url.includes('tiktok.com')) {
+            gtag('event', 'click_social_tiktok', {
+              'event_category': 'Social_Engagement',
+              'event_label': 'Visita ao Perfil do TikTok'
+            });
+          }
+        }
+      });
+    </script>
+
   </body>
 </html>
