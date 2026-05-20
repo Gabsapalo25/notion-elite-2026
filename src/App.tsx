@@ -107,8 +107,7 @@ const MODULES = [
 ];
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ BÓNUS (VALOR PERCEBIDO EXPLOSIVO) — CORRIGIDO
-// Apenas 4 bónus premium. Removidos: Pack de Ícones e Mini-curso.
+// ♟️ BÓNUS (VALOR PERCEBIDO EXPLOSIVO) — APENAS 4
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const BONUSES = [
   {
@@ -395,20 +394,28 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ MARQUEE DE FRASES-ÂNCORA
+// ♟️ MARQUEE DE FRASES-ÂNCORA — CORRIGIDO (TEXTO MÓVEL)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-const MarqueeSection = memo(() => (
-  <section className="relative border-y border-white/[0.05] bg-[#050505] overflow-hidden py-5">
-    <div className="flex animate-marquee whitespace-nowrap gap-12">
-      {[...MANIFESTO_PHRASES, ...MANIFESTO_PHRASES].map((p, i) => (
-        <div key={i} className="flex items-center gap-12 shrink-0">
-          <span className="text-xl md:text-2xl font-serif italic text-white/80">{p}</span>
-          <span className="text-[#D4AF37]">♟</span>
-        </div>
-      ))}
-    </div>
-  </section>
-));
+const MarqueeSection = memo(() => {
+  const phrases = [...MANIFESTO_PHRASES, ...MANIFESTO_PHRASES];
+
+  return (
+    <section className="relative border-y border-white/[0.05] bg-[#050505] overflow-hidden py-5">
+      <motion.div
+        className="flex gap-12 whitespace-nowrap"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+      >
+        {phrases.map((p, i) => (
+          <div key={i} className="flex items-center gap-12 shrink-0">
+            <span className="text-xl md:text-2xl font-serif italic text-white/80">{p}</span>
+            <span className="text-[#D4AF37]">♟</span>
+          </div>
+        ))}
+      </motion.div>
+    </section>
+  );
+});
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // ♟️ MANIFESTO — MOVIMENTO, NÃO MARKETING
