@@ -233,3 +233,132 @@ body {
     transform: translateX(0);
   }
 }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   EDITIONS FOR FOUNDER GOLD BATCH (CUSTOM REPAIR)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Botão Dourado Premium (Founder Batch 01) */
+.btn-founder-gold {
+  background: #E5B842; /* Tom de ouro sofisticado */
+  color: #050505 !important;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-founder-gold:hover {
+  background: #F3C95F;
+  box-shadow: 0 0 25px rgba(229, 184, 66, 0.4);
+  transform: scale(1.02);
+}
+
+/* Moldura do Badge de Acesso Exclusivo */
+.badge-founder-premium {
+  border: 1px solid rgba(229, 184, 66, 0.3);
+  background: rgba(229, 184, 66, 0.03);
+  color: #E5B842;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(4px);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CLASSES ADICIONAIS DE SUPORTE (NECESSÁRIAS)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Animação de pulsar dourado */
+.animate-pulse-gold {
+  animation: pulseGold 2s ease-in-out infinite;
+}
+
+@keyframes pulseGold {
+  0% {
+    box-shadow: 0 0 0 0 rgba(229, 184, 66, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(229, 184, 66, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(229, 184, 66, 0);
+  }
+}
+
+/* Gradiente magnético (texto) */
+.text-gradient-magnetic {
+  background: linear-gradient(135deg, #00E5FF 0%, #E5B842 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Display heading premium */
+.display-heading {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #E5B842 0%, #F3C95F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Divider dourado */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #E5B842, #F3C95F, #E5B842, transparent);
+  width: 100%;
+}
+
+/* Divider com glow */
+.divider-glow {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00E5FF, #4CF2FF, #00E5FF, transparent);
+  width: 100%;
+}
+
+/* Gradiente dourado para fundos */
+.gradient-gold-glow {
+  background: radial-gradient(circle, rgba(229, 184, 66, 0.15) 0%, transparent 70%);
+}
+
+/* Gradiente magnético para fundos */
+.gradient-magnetic {
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.15) 0%, rgba(229, 184, 66, 0.05) 50%, transparent 80%);
+}
+
+/* Borda com gradiente dourado */
+.border-gradient-gold {
+  border: 1px solid transparent;
+  background: linear-gradient(#0A0A0A, #0A0A0A) padding-box,
+              linear-gradient(135deg, #E5B842, #F3C95F, #E5B842) border-box;
+}
+
+/* Chess deco pattern */
+.chess-deco {
+  background-image: radial-gradient(circle at 2px 2px, rgba(229, 184, 66, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Animação shimmer para progress bar */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
