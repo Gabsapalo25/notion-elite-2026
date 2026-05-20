@@ -6,38 +6,37 @@
   :root {
     --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     
-    /* 🌟 COMPATIBILIDADE DE CORES DA ARENA PARA BRILHO MÁXIMO 🌟 */
+    /* 🎨 Cores Ajustadas para Contraste Puro (Sem Efeito Lama) */
     --color-brand-cyan: #00E5FF;
     --color-brand-cyan-hover: #4CF2FF;
     --color-brand-green: #25D366;
-    --color-bg-primary: #050505;
-    --color-bg-secondary: #0A0A0A;
-    --color-bg-card: #101010;
+    --color-bg-primary: #030303;     /* Preto ligeiramente mais profundo para destacar os cards */
+    --color-bg-secondary: #080808;
+    --color-bg-card: #0D0D0D;      /* Ajustado para isolar o card do fundo */
     --color-text-main: #FFFFFF;
     --color-text-muted: #A1A1AA;
-    --color-border-subtle: rgba(255, 255, 255, 0.06);
-    --color-border-hover: rgba(0, 229, 255, 0.25);
+    --color-border-subtle: rgba(255, 255, 255, 0.05);
     
-    /* Cores de Destaque da Arena trazidas com saturação pura */
+    /* Tons Ouro da Arena Premium */
     --gold: #D4AF37;
     --gold-soft: #F4D77A;
-    --pink: #FF007A;
+    --gold-dark: #A8891F;
   }
 }
 
 * {
   box-sizing: border-box;
-  border-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.05);
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #050505;
+  background-color: #030303;
 }
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: #050505;
+  background-color: #030303;
   color: #FFFFFF;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
@@ -46,23 +45,24 @@ body {
   letter-spacing: -0.015em;
 }
 
-/* Linear & Raycast Inspired Pure Architecture */
+/* Typography */
 .premium-heading {
   letter-spacing: -0.035em;
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.1;
 }
 
+/* ✨ Correção: Texto do Cinema focado na elegância do Branco/Prata */
 .gradient-text-cinema {
-  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+  background: linear-gradient(180deg, #FFFFFF 30%, rgba(255, 255, 255, 0.65) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ⚡️ Brilho Arena: Ajustado para usar gradiente multicamada ultra-vivido */
+/* ✨ Correção: Gradiente focado apenas no Ciano de Alta Saturação para dar o choque elétrico */
 .gradient-accent-text {
-  background: linear-gradient(135deg, var(--color-brand-cyan) 0%, var(--color-brand-cyan-hover) 100%);
+  background: linear-gradient(135deg, #00E5FF 0%, #4CF2FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -71,13 +71,13 @@ body {
 /* Luxury Cinematic Accents */
 .ambient-glow-cyan {
   position: absolute;
-  /* ⚡️ Brilho Arena: Subida de opacidade para 0.12 para o glow traseiro destacar os mockups */
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
+/* Cards com separação visual nítida no Mobile */
 .card-luxury {
-  background-color: #101010;
+  background-color: #0D0D0D;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 1rem;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -85,7 +85,6 @@ body {
   overflow: hidden;
 }
 
-/* ⚡️ Brilho Arena: O segredo da borda superior iluminada nos cards */
 .card-luxury::before {
   content: '';
   position: absolute;
@@ -93,15 +92,15 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.25), transparent);
-  opacity: 0;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.3), transparent);
+  opacity: 0.2; /* Visível de forma sutil mesmo sem hover no mobile */
   transition: opacity 0.4s ease;
 }
 
 .card-luxury:hover {
   transform: translateY(-3px);
-  border-color: rgba(0, 229, 255, 0.25);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 229, 255, 0.05);
+  border-color: rgba(0, 229, 255, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 229, 255, 0.06);
 }
 
 .card-luxury:hover::before {
@@ -110,10 +109,10 @@ body {
 
 /* Glassmorphism Ultra Subtle */
 .header-glass {
-  background: rgba(5, 5, 5, 0.75);
-  backdrop-filter: blur(24px) saturate(140%);
-  -webkit-backdrop-filter: blur(24px) saturate(140%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(3, 3, 3, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Cinematic Player Overlay */
@@ -123,9 +122,9 @@ body {
   height: 0;
   overflow: hidden;
   border-radius: 1rem;
-  background: #0A0A0A;
+  background: #080808;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.9), 0 0 40px rgba(0, 229, 255, 0.05);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 40px rgba(0, 229, 255, 0.04);
 }
 
 .video-luxury-container iframe {
@@ -137,14 +136,14 @@ body {
   border: 0;
 }
 
-/* ⚡️ Brilho Arena: Grelha premium de fundo com máscara elíptica para não estourar nas bordas */
+/* Premium Background Grid */
 .grid-luxury-bg {
   background-size: 56px 56px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 90%);
 }
 
 /* Smooth elegant noise */
@@ -158,37 +157,21 @@ body {
 }
 
 /* Custom scrollbars */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #030303; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 999px; }
 
-::-webkit-scrollbar-track {
-  background: #050505;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(0,229,255,0.3), rgba(0,229,255,0.05));
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 229, 255, 0.4);
-}
-
-/* Button Luxury Glow states */
-/* ⚡️ Brilho Arena: Botão Ciano com gradiente dinâmico e efeito de reflexo interno (inset) */
+/* Button Luxury Ciano */
 .btn-luxury-cyan {
   background: linear-gradient(135deg, #00E5FF 0%, #4CF2FF 50%, #00E5FF 100%);
   background-size: 200% 200%;
-  color: #050505;
+  color: #030303;
   font-weight: 700;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
   box-shadow: 
-    0 0 0 1px rgba(0,229,255,0.2),
-    0 10px 30px -10px rgba(0, 229, 255, 0.5),
-    inset 0 1px 0 rgba(255,255,255,0.3);
+    0 0 0 1px rgba(0,229,255,0.25),
+    0 8px 25px -8px rgba(0, 229, 255, 0.6),
+    inset 0 1px 0 rgba(255,255,255,0.35);
 }
 
 .btn-luxury-cyan:hover {
@@ -198,62 +181,28 @@ body {
 }
 
 .btn-luxury-dark {
-  background: #0A0A0A;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: #FFFFFF;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-luxury-dark:hover {
-  background: #101010;
-  border-color: rgba(0, 229, 255, 0.3);
-  color: #00E5FF;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    MARQUEE ANIMATION — ELITE OS
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.marquee-container {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marqueeScroll 35s linear infinite;
-  will-change: transform;
-}
-
-.marquee-container:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-@keyframes marqueeScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
-}
-
-@media (max-width: 768px) {
-  .marquee-track { animation-duration: 25s; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-    transform: translateX(0);
-  }
-}
+.marquee-container { width: 100%; overflow: hidden; position: relative; }
+.marquee-track { display: flex; width: max-content; animation: marqueeScroll 35s linear infinite; will-change: transform; }
+@keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-33.333%); } }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   EDITIONS FOR FOUNDER GOLD BATCH (CUSTOM REPAIR)
+   EDITIONS FOR FOUNDER GOLD BATCH (Ouro Polido Líquido)
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-/* ⚡️ Brilho Arena: Botão Dourado com a iluminação polida e sombra volumétrica da Arena */
+/* Botão Dourado com Contraste Corrigido */
 .btn-founder-gold {
   background: linear-gradient(135deg, #F4D77A 0%, #D4AF37 50%, #A8891F 100%);
-  color: #050505 !important;
+  background-size: 200% 200%;
+  color: #030303 !important;
   font-weight: 700;
   padding: 0.6rem 1.2rem;
   border-radius: 0.5rem;
@@ -262,49 +211,43 @@ body {
   gap: 0.5rem;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 
-    0 0 0 1px rgba(212,175,55,0.3),
-    0 10px 30px -10px rgba(212, 175, 55, 0.5),
+    0 0 0 1px rgba(212,175,55,0.35),
+    0 8px 25px -8px rgba(212, 175, 55, 0.6),
     inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
 .btn-founder-gold:hover {
+  background-position: 100% 100%;
   transform: translateY(-1px);
   box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
 }
 
-/* Moldura do Badge de Acesso Exclusivo */
+/* Badge Fundador Sem Mistura Suja de Cores */
 .badge-founder-premium {
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  background: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  background: rgba(212, 175, 55, 0.06);
   color: #F4D77A;
   padding: 0.4rem 1rem;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.05em;
   backdrop-filter: blur(4px);
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   CLASSES ADICIONAIS DE SUPORTE (MANTIDAS)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-
 /* Animação de pulsar dourado */
-.animate-pulse-gold {
-  animation: pulseGold 2s ease-in-out infinite;
-}
-
+.animate-pulse-gold { animation: pulseGold 2s ease-in-out infinite; }
 @keyframes pulseGold {
-  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.45); }
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
   70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
   100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
 }
 
-/* Gradiente magnético (texto) — Com cores vivas */
+/* ✨ Correção: Gradiente Magnético com transição limpa para títulos de destaque */
 .text-gradient-magnetic {
-  background: linear-gradient(135deg, var(--color-brand-cyan) 0%, #FF007A 50%, var(--gold-soft) 100%);
+  background: linear-gradient(135deg, #00E5FF 0%, #FFFFFF 60%, #F4D77A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -320,50 +263,22 @@ body {
   background-clip: text;
 }
 
-/* Divider dourado */
-.divider-gold {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #D4AF37, #F4D77A, #D4AF37, transparent);
-  width: 100%;
-}
+/* Dividers */
+.divider-gold { height: 1px; background: linear-gradient(90deg, transparent, #D4AF37, #F4D77A, #D4AF37, transparent); width: 100%; }
+.divider-glow { height: 1px; background: linear-gradient(90deg, transparent, #00E5FF, #4CF2FF, #00E5FF, transparent); width: 100%; }
 
-/* Divider com glow */
-.divider-glow {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #00E5FF, #4CF2FF, #00E5FF, transparent);
-  width: 100%;
-}
+.gradient-gold-glow { background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%); }
+.gradient-magnetic { background: radial-gradient(circle, rgba(0, 229, 255, 0.12) 0%, rgba(212, 175, 55, 0.04) 50%, transparent 80%); }
 
-/* Gradiente dourado para fundos */
-.gradient-gold-glow {
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
-}
-
-/* Gradiente magnético para fundos */
-.gradient-magnetic {
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.15) 0%, rgba(212, 175, 55, 0.05) 50%, transparent 80%);
-}
-
-/* Borda com gradiente dourado */
 .border-gradient-gold {
   border: 1px solid transparent;
-  background: linear-gradient(#0A0A0A, #0A0A0A) padding-box,
-              linear-gradient(135deg, #D4AF37, #F4D77A, #D4AF37) border-box;
+  background: linear-gradient(#0D0D0D, #0D0D0D) padding-box, linear-gradient(135deg, #D4AF37, #F4D77A, #D4AF37) border-box;
 }
 
-/* Chess deco pattern polido */
 .chess-deco {
-  background-image: radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.06) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* Animação shimmer para progress bar */
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-.animate-shimmer {
-  animation: shimmer 1.5s infinite;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-}
+@keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+.animate-shimmer { animation: shimmer 1.5s infinite; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); }
