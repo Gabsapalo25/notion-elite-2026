@@ -271,7 +271,7 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <button onClick={() => { Telemetry.emit("header_cta"); onCTA(); }} className="btn-luxury-gold text-xs px-4 py-2 rounded-md flex items-center gap-1.5 cursor-pointer animate-pulse-gold">
+          <button onClick={() => { Telemetry.emit("header_cta"); onCTA(); }} className="btn-founder-gold text-xs px-4 py-2 rounded-md flex items-center gap-1.5 cursor-pointer animate-pulse-gold">
             <span>Founder Batch 01 · $10</span>
             <ArrowRight className="w-3 h-3" />
           </button>
@@ -303,7 +303,7 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
 const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   return (
     <section className="relative pt-40 pb-16 md:pt-48 md:pb-20 px-6 max-w-6xl mx-auto text-center overflow-hidden">
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 badge-founder px-4 py-1.5 rounded-full text-xs font-mono tracking-wider mb-8">
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 badge-founder-premium px-4 py-1.5 rounded-full text-xs font-mono tracking-wider mb-8">
         <Crown className="w-3.5 h-3.5" />
         FASE FOUNDER 2026 — Acesso Exclusivo
       </motion.div>
@@ -780,7 +780,7 @@ const BonusSection = memo(({ onConvert }: { onConvert: (seg: "international" | "
           {BONUSES.map((b, i) => (
             <div key={i} className="p-5 rounded-xl bg-[#0A0A0A] border border-white/[0.05] flex flex-col">
               <div className="flex items-start justify-between mb-3">
-                <span className="text-[9px] font-mono badge-founder px-2 py-0.5 rounded uppercase font-bold tracking-wider">Bónus 0{i + 1}</span>
+                <span className="text-[9px] font-mono badge-founder-premium px-2 py-0.5 rounded uppercase font-bold tracking-wider">Bónus 0{i + 1}</span>
                 <span className="text-xs font-mono text-[#A1A1AA] line-through">${b.value}</span>
               </div>
               <h3 className="text-sm font-bold text-white mb-1.5">{b.title}</h3>
@@ -906,7 +906,7 @@ const AuthoritySection = memo(() => (
           <div className="mt-5">
             <h3 className="text-lg font-bold text-white">{CONFIG.authorName}</h3>
             <p className="text-[10px] text-[#D4AF37] font-mono mt-1 tracking-widest uppercase block">{CONFIG.authorTitle}</p>
-            <span className="inline-flex items-center gap-1.5 mt-3 text-[10px] badge-founder px-3 py-1 rounded-full font-mono font-semibold">
+            <span className="inline-flex items-center gap-1.5 mt-3 text-[10px] badge-founder-premium px-3 py-1 rounded-full font-mono font-semibold">
               ♟ Campeão Nacional Absoluto · Angola 2024
             </span>
           </div>
