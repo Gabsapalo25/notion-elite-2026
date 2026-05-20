@@ -107,7 +107,8 @@ const MODULES = [
 ];
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ BÓNUS (VALOR PERCEBIDO EXPLOSIVO)
+// ♟️ BÓNUS (VALOR PERCEBIDO EXPLOSIVO) — CORRIGIDO
+// Apenas 4 bónus premium. Removidos: Pack de Ícones e Mini-curso.
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const BONUSES = [
   {
@@ -129,16 +130,6 @@ const BONUSES = [
     title: "Setup Guiado em 24h",
     desc: "Vídeo prático de três passos para duplicar e personalizar tudo em menos de um dia.",
     value: 57
-  },
-  {
-    title: "Pack de Ícones & Widgets Premium",
-    desc: "Elementos visuais prontos para tornar o teu workspace esteticamente elite.",
-    value: 47
-  },
-  {
-    title: "Mini-curso Produtividade Estratégica",
-    desc: "Bónus Feynman-Pomodoro para transformar técnica em execução implacável.",
-    value: 50
   }
 ];
 
@@ -254,7 +245,6 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "header-glass py-3" : "bg-gradient-to-b from-[#050505] via-[#050505]/90 to-transparent py-4"}`}>
-      {/* Founder badge */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
       <div className="bg-[#080808] border-b border-white/[0.06] py-2.5 px-4 text-center">
         <p className="text-[11px] font-mono text-[#00E5FF] tracking-wide font-semibold flex items-center justify-center gap-2">
@@ -405,42 +395,20 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ MARQUEE DE FRASES-ÂNCORA (CORRIGIDO)
+// ♟️ MARQUEE DE FRASES-ÂNCORA
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-const MarqueeSection = memo(() => {
-  const items = [
-    { icon: "♟", text: "Clareza é poder." },
-    { icon: "♟", text: "O caos custa caro." },
-    { icon: "♟", text: "Mentes organizadas vencem." },
-    { icon: "♟", text: "Disciplina visual." },
-    { icon: "♟", text: "2026 pertence aos organizados." }
-  ];
-
-  return (
-    <section className="relative overflow-hidden border-y border-white/[0.05] bg-[#050505] py-4">
-      <div className="marquee-container">
-        <div className="marquee-track">
-          {[...Array(3)].map((_, repetitionIndex) => (
-            <div key={repetitionIndex} className="flex items-center gap-12 px-6 shrink-0">
-              {items.map((item, idx) => (
-                <div
-                  key={`${repetitionIndex}-${idx}`}
-                  className="flex items-center gap-3 text-sm md:text-base font-mono uppercase tracking-[0.2em] text-white/80 whitespace-nowrap"
-                >
-                  <span className="text-[#D4AF37] text-base md:text-lg">{item.icon}</span>
-                  <span className="font-medium tracking-wide">{item.text}</span>
-                </div>
-              ))}
-            </div>
-          ))}
+const MarqueeSection = memo(() => (
+  <section className="relative border-y border-white/[0.05] bg-[#050505] overflow-hidden py-5">
+    <div className="flex animate-marquee whitespace-nowrap gap-12">
+      {[...MANIFESTO_PHRASES, ...MANIFESTO_PHRASES].map((p, i) => (
+        <div key={i} className="flex items-center gap-12 shrink-0">
+          <span className="text-xl md:text-2xl font-serif italic text-white/80">{p}</span>
+          <span className="text-[#D4AF37]">♟</span>
         </div>
-      </div>
-
-      <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#050505] to-transparent pointer-events-none z-10" />
-      <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#050505] to-transparent pointer-events-none z-10" />
-    </section>
-  );
-});
+      ))}
+    </div>
+  </section>
+));
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // ♟️ MANIFESTO — MOVIMENTO, NÃO MARKETING
