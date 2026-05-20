@@ -337,7 +337,6 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         Foi feito para criar o teu futuro.
       </motion.p>
 
-      {/* Frase assassina — memorável, screenshotável */}
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -348,7 +347,6 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         Foi operar sem sistema.
       </motion.p>
 
-      {/* Mockup Gigante — Centro das atenções */}
       <motion.div
         initial={{ opacity: 0, scale: 0.96, y: 30 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -366,7 +364,6 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         Sistema em Notion para estudantes e profissionais organizarem tarefas, metas, IA, finanças e execução diária num único cockpit.
       </motion.p>
 
-      {/* Quick win — reduz fricção antes do CTA */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -382,20 +379,17 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
       </motion.div>
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="max-w-xl mx-auto space-y-3">
-        {/* CTA Internacional — Hotmart $10 */}
         <button onClick={() => onConvert("international")} className="w-full btn-luxury-cyan py-4 text-base sm:text-lg font-bold rounded-2xl flex items-center justify-center gap-3 animate-pulse-ring">
           <span>Ativar Reset Operacional · $10 (Internacional)</span>
           <ArrowRight className="w-4 h-4" />
         </button>
 
-        {/* CTA Angola — WhatsApp 10.000 AKZ (prioritário para mercado angolano) */}
         <button onClick={() => onConvert("angola")} className="w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white py-4 text-base sm:text-lg font-bold rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_-10px_rgba(37,211,102,0.5)] transition-all hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.7)] hover:-translate-y-0.5">
           <MessageCircle className="w-5 h-5 fill-white" />
           <span>Angola · 10.000 AKZ via WhatsApp</span>
           <ArrowRight className="w-4 h-4" />
         </button>
 
-        {/* Separador de contexto */}
         <div className="flex items-center justify-center gap-3 pt-1">
           <div className="h-px bg-white/10 flex-1 max-w-[80px]" />
           <span className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-wider">Escolhe o teu método</span>
@@ -403,7 +397,6 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         </div>
       </motion.div>
 
-      {/* Proof anchor subtil */}
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-xs text-[#A1A1AA] mt-6">
         +3.200 utilizadores · 4.9/5 · Criado pelo Campeão Nacional de Xadrez de Angola
       </motion.p>
@@ -412,20 +405,42 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ MARQUEE DE FRASES-ÂNCORA
+// ♟️ MARQUEE DE FRASES-ÂNCORA (CORRIGIDO)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-const MarqueeSection = memo(() => (
-  <section className="relative border-y border-white/[0.05] bg-[#050505] overflow-hidden py-5">
-    <div className="flex animate-marquee whitespace-nowrap gap-12">
-      {[...MANIFESTO_PHRASES, ...MANIFESTO_PHRASES].map((p, i) => (
-        <div key={i} className="flex items-center gap-12 shrink-0">
-          <span className="text-xl md:text-2xl font-serif italic text-white/80">{p}</span>
-          <span className="text-[#D4AF37]">♟</span>
+const MarqueeSection = memo(() => {
+  const items = [
+    { icon: "♟", text: "Clareza é poder." },
+    { icon: "♟", text: "O caos custa caro." },
+    { icon: "♟", text: "Mentes organizadas vencem." },
+    { icon: "♟", text: "Disciplina visual." },
+    { icon: "♟", text: "2026 pertence aos organizados." }
+  ];
+
+  return (
+    <section className="relative overflow-hidden border-y border-white/[0.05] bg-[#050505] py-4">
+      <div className="marquee-container">
+        <div className="marquee-track">
+          {[...Array(3)].map((_, repetitionIndex) => (
+            <div key={repetitionIndex} className="flex items-center gap-12 px-6 shrink-0">
+              {items.map((item, idx) => (
+                <div
+                  key={`${repetitionIndex}-${idx}`}
+                  className="flex items-center gap-3 text-sm md:text-base font-mono uppercase tracking-[0.2em] text-white/80 whitespace-nowrap"
+                >
+                  <span className="text-[#D4AF37] text-base md:text-lg">{item.icon}</span>
+                  <span className="font-medium tracking-wide">{item.text}</span>
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  </section>
-));
+      </div>
+
+      <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#050505] to-transparent pointer-events-none z-10" />
+      <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#050505] to-transparent pointer-events-none z-10" />
+    </section>
+  );
+});
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // ♟️ MANIFESTO — MOVIMENTO, NÃO MARKETING
@@ -450,7 +465,6 @@ const ManifestoSection = memo(() => {
 
         <div className="divider-gold max-w-md mx-auto mb-10" />
 
-        {/* Slogan central — sticky phrase */}
         <div className="mb-12 max-w-xl mx-auto">
           <p className="text-3xl sm:text-4xl md:text-5xl font-serif italic text-white leading-tight mb-3">
             Clareza é <span className="text-gradient-magnetic not-italic font-bold">poder</span>.
@@ -544,7 +558,6 @@ const PainSection = memo(() => {
           })}
         </div>
 
-        {/* Transition line */}
         <div className="mt-14 text-center">
           <div className="divider-glow max-w-md mx-auto mb-6" />
           <p className="text-xs md:text-sm text-white italic max-w-xl mx-auto font-serif">
@@ -648,7 +661,6 @@ const SystemSection = memo(() => {
           })}
         </div>
 
-        {/* Reforço autoritário */}
         <div className="mt-14 max-w-3xl mx-auto text-center">
           <p className="text-xs text-[#A1A1AA] italic font-serif leading-relaxed">
             "Seis módulos cirurgicamente programados para eliminar distrações e acelerar processos. Um ecossistema que funciona em segundo plano, libertando a tua mente para o que importa: <strong className="text-white">pensar com clareza</strong>."
@@ -724,7 +736,6 @@ const TransformationSection = memo(() => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-5 text-left">
-          {/* ANTES */}
           <div className="p-7 rounded-2xl bg-gradient-to-b from-[#140508] to-[#0A0505] border border-[#FF007A]/20 relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-[#FF007A]/10 text-[#FF007A] font-mono text-[9px] font-bold px-3 py-1 rounded-bl-lg">ANTES</div>
             <p className="text-[10px] font-mono text-[#FF007A] font-extrabold uppercase mb-2">A Sobrecarga Diária</p>
@@ -743,7 +754,6 @@ const TransformationSection = memo(() => {
             </div>
           </div>
 
-          {/* DEPOIS */}
           <div className="p-7 rounded-2xl bg-gradient-to-b from-[#05140A] to-[#050A06] border border-[#25D366]/25 relative overflow-hidden shadow-[0_0_40px_rgba(37,211,102,0.08)]">
             <div className="absolute top-0 right-0 bg-[#25D366]/10 text-[#25D366] font-mono text-[9px] font-bold px-3 py-1 rounded-bl-lg">DEPOIS · CLAREZA</div>
             <p className="text-[10px] font-mono text-[#25D366] font-extrabold uppercase mb-2">A Experiência Elite</p>
@@ -808,7 +818,6 @@ const BonusSection = memo(({ onConvert }: { onConvert: (seg: "international" | "
           ))}
         </div>
 
-        {/* Total value callout */}
         <div className="mt-10 max-w-2xl mx-auto p-6 rounded-2xl border-gradient-gold text-center">
           <p className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-widest mb-2 font-bold">Valor Total dos Bónus</p>
           <p className="text-3xl md:text-4xl font-black text-white mb-2">
@@ -885,7 +894,6 @@ const SocialProofSection = memo(() => (
         ))}
       </div>
 
-      {/* UGC callout */}
       <div className="mt-12 max-w-3xl mx-auto text-center p-6 rounded-2xl bg-[#0A0A0A] border border-[#00E5FF]/20">
         <p className="text-xs font-bold text-white mb-2 flex items-center justify-center gap-2">
           <Flame className="w-3.5 h-3.5 text-[#FF007A]" />
@@ -934,12 +942,10 @@ const AuthoritySection = memo(() => (
             "No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exatamente o mesmo: quem não tem sistema, joga no improviso — e falha."
           </p>
 
-          {/* Vulnerabilidade estratégica */}
           <p className="text-[#D4D4D8] bg-[#0A0A0A] border-l-2 border-[#00E5FF]/40 pl-4 py-2 rounded-r italic">
             Eu também vivia perdido entre PDFs, WhatsApp e deadlines. Criei este sistema primeiro para mim — porque precisava dele. Só depois percebi que funcionava para qualquer pessoa que quisesse sair do caos.
           </p>
 
-          {/* Bio em bullets — scannable, denso em valor */}
           <div className="space-y-2">
             {[
               "♟️ Campeão Nacional Absoluto de Xadrez — Angola 2024",
@@ -992,7 +998,6 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
         </h2>
       </div>
 
-      {/* Card central da oferta */}
       <div className="border border-[#00E5FF]/30 bg-[#101010] p-8 sm:p-10 rounded-3xl text-center max-w-2xl mx-auto relative overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
         <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#00E5FF]/[0.06] rounded-full blur-3xl pointer-events-none" />
 
@@ -1003,7 +1008,6 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
           <span className="pb-3 text-lg font-normal text-white/50">ou 10.000 AKZ</span>
         </div>
 
-        {/* Escassez visual — progress bar */}
         <div className="mt-6 max-w-md mx-auto">
           <div className="flex items-center justify-between text-xs mb-2">
             <span className="text-[#A1A1AA] font-mono">Vagas Founder Batch 01</span>
@@ -1020,7 +1024,6 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
           </p>
         </div>
 
-        {/* Estrutura de Preços em Tiers */}
         <div className="mt-6 rounded-2xl border border-[#D4AF37]/20 bg-[#0A0A0A] p-6 text-left max-w-md mx-auto">
           <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-4 font-bold text-center">
             Estrutura de Preço Founder
@@ -1051,7 +1054,6 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
           Acesso vitalício • Garantia de 30 dias
         </p>
 
-        {/* Lista Inclui */}
         <div className="mt-8 text-left max-w-md mx-auto">
           <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-widest mb-3 font-semibold text-center">Inclui:</p>
           <div className="space-y-2 text-sm">
@@ -1321,7 +1323,6 @@ export function App() {
       <FinalCTASection onConvert={convert} />
       <LegalFooter />
 
-      {/* Toast viral */}
       <AnimatePresence>
         {toast && (
           <motion.div
@@ -1342,7 +1343,6 @@ export function App() {
         )}
       </AnimatePresence>
 
-      {/* Sticky mobile — CTAs internacionais e Angola lado a lado */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#050505]/95 backdrop-blur-xl border-t border-white/[0.08] p-2.5 flex items-center gap-2">
         <button onClick={() => convert("international")} className="flex-1 btn-luxury-cyan py-2.5 rounded-lg text-[11px] font-bold cursor-pointer flex items-center justify-center gap-1.5">
           <Crown className="w-3 h-3" />
@@ -1354,7 +1354,6 @@ export function App() {
         </button>
       </div>
 
-      {/* WhatsApp flutuante */}
       <a href={CONFIG.whatsappPayment} target="_blank" rel="noopener noreferrer" onClick={() => Telemetry.emit("wa_float")} className="fixed bottom-20 md:bottom-6 right-5 z-50 bg-[#25D366] hover:bg-[#20ba59] p-3.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all outline-none flex items-center justify-center group">
         <Send className="w-5 h-5 text-white" />
         <span className="absolute right-full mr-2.5 bg-[#050505] text-white text-[10px] font-mono px-2 py-1 rounded border border-white/[0.08] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
