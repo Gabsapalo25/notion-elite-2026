@@ -11,7 +11,6 @@ import {
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // ♟️ ELITE OS — CONFIGURAÇÃO OFICIAL
-// Clareza é poder. O caos custa caro.
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const CONFIG = {
   authorName: "Gabriel Sapalo",
@@ -48,7 +47,7 @@ const CONFIG = {
 };
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ FRASES-ÂNCORA DA MARCA (REPEAT UNTIL CULTURE)
+// ♟️ FRASES-ÂNCORA DA MARCA
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const MANIFESTO_PHRASES = [
   "Clareza é poder.",
@@ -107,7 +106,7 @@ const MODULES = [
 ];
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ BÓNUS (VALOR PERCEBIDO EXPLOSIVO) — APENAS 4
+// ♟️ BÓNUS
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const BONUSES = [
   {
@@ -298,9 +297,11 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ HERO — O MOMENTO DA DECISÃO
+// ♟️ HERO — O MOMENTO DA DECISÃO (COM VSL ADICIONADO ABAIXO DA IMAGEM)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
+  const [showVSL, setShowVSL] = useState(false);
+
   return (
     <section className="relative pt-40 pb-16 md:pt-48 md:pb-20 px-6 max-w-6xl mx-auto text-center overflow-hidden">
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 badge-founder-premium px-4 py-1.5 rounded-full text-xs font-mono tracking-wider mb-8">
@@ -336,6 +337,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         Foi operar sem sistema.
       </motion.p>
 
+      {/* ━━━━━ IMAGEM ORIGINAL (NÃO REMOVIDA - MANTIDA EXATAMENTE COMO ESTAVA) ━━━━━ */}
       <motion.div
         initial={{ opacity: 0, scale: 0.96, y: 30 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -343,6 +345,88 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         className="relative max-w-5xl mx-auto mb-12 rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
       >
         <img src={CONFIG.notionMockup} alt="Cockpit Operacional Elite" className="w-full" loading="eager" />
+      </motion.div>
+
+      {/* ━━━━━ VSL ADICIONADO ABAIXO DA IMAGEM (BORDA ATRATIVA + PLAY CHAMATIVO) ━━━━━ */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.35 }}
+        className="max-w-4xl mx-auto mb-12"
+      >
+        <div className="text-left mb-3 flex items-center justify-between">
+          <span className="text-[11px] font-mono text-[#00E5FF] font-bold flex items-center gap-2">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse"></span>
+            🎬 ASSISTA A VSL COMPLETA (8 min)
+          </span>
+          <span className="text-[9px] text-[#D4AF37] font-mono">🔥 Essencial para entender o sistema</span>
+        </div>
+
+        <div 
+          className="relative rounded-xl overflow-hidden cursor-pointer group"
+          style={{
+            padding: '2px',
+            background: 'linear-gradient(45deg, #D4AF37, #00E5FF, #D4AF37, #00E5FF)',
+            backgroundSize: '300% 300%',
+            borderRadius: '16px',
+            animation: 'gradientShift 3s ease infinite'
+          }}
+        >
+          <style>{`
+            @keyframes gradientShift {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+          `}</style>
+          
+          <div className="relative rounded-[14px] overflow-hidden bg-[#0A0A0A]">
+            {!showVSL ? (
+              <div onClick={() => setShowVSL(true)} className="relative">
+                <img 
+                  src="https://img.youtube.com/vi/UwCl0a-FWp4/maxresdefault.jpg" 
+                  alt="VSL Notion Elite OS 2026"
+                  className="w-full aspect-video object-cover opacity-85 group-hover:opacity-70 transition-opacity duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                
+                {/* Botão de Play Chamativo com Pulsação */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="relative flex items-center justify-center">
+                    <div className="absolute w-16 h-16 rounded-full bg-[#00E5FF] animate-ping opacity-40"></div>
+                    <div className="absolute w-20 h-20 rounded-full bg-[#D4AF37] animate-pulse opacity-30"></div>
+                    <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-[#00E5FF] to-[#D4AF37] flex items-center justify-center shadow-[0_0_30px_rgba(0,229,255,0.8)] group-hover:scale-110 transition-transform duration-300">
+                      <Play className="w-6 h-6 text-black fill-black translate-x-0.5" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Texto chamativo abaixo */}
+                <div className="absolute bottom-4 left-0 right-0 text-center">
+                  <span className="bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-4 py-1.5 rounded-full inline-flex items-center gap-2">
+                    <span className="text-[#00E5FF]">▶</span> CLIQUE PARA ASSISTIR À APRESENTAÇÃO COMPLETA
+                    <span className="text-[#D4AF37]">✨</span>
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <iframe 
+                src={`${CONFIG.heroVideo}?autoplay=1&rel=0&modestbranding=1&showinfo=0`}
+                title="VSL Notion Elite OS 2026"
+                className="w-full aspect-video border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            )}
+          </div>
+        </div>
+
+        {/* Mini badge de incentivo */}
+        <div className="flex items-center justify-center gap-4 mt-3 text-[10px] text-[#A1A1AA]">
+          <span className="flex items-center gap-1">🎯 +3.200 já assistiram</span>
+          <span className="w-1 h-1 rounded-full bg-[#D4AF37]"></span>
+          <span className="flex items-center gap-1">⭐ 4.9/5 de aprovação</span>
+        </div>
       </motion.div>
 
       <motion.p
@@ -356,7 +440,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.35 }}
+        transition={{ delay: 0.45 }}
         className="max-w-md mx-auto mb-8 p-4 rounded-2xl bg-[#0A0A0A] border border-white/[0.06] text-left"
       >
         <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-2 font-bold">Em menos de 15 minutos vais:</p>
@@ -367,7 +451,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         </div>
       </motion.div>
 
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="max-w-xl mx-auto space-y-3">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="max-w-xl mx-auto space-y-3">
         <button onClick={() => onConvert("international")} className="w-full btn-luxury-cyan py-4 text-base sm:text-lg font-bold rounded-2xl flex items-center justify-center gap-3 animate-pulse-ring">
           <span>Ativar Reset Operacional · $10 (Internacional)</span>
           <ArrowRight className="w-4 h-4" />
@@ -386,7 +470,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         </div>
       </motion.div>
 
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-xs text-[#A1A1AA] mt-6">
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="text-xs text-[#A1A1AA] mt-6">
         +3.200 utilizadores · 4.9/5 · Criado pelo Campeão Nacional de Xadrez de Angola
       </motion.p>
     </section>
@@ -394,7 +478,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ♟️ MARQUEE DE FRASES-ÂNCORA — CORRIGIDO (TEXTO MÓVEL)
+// ♟️ MARQUEE DE FRASES-ÂNCORA
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const MarqueeSection = memo(() => {
   const phrases = [...MANIFESTO_PHRASES, ...MANIFESTO_PHRASES];
