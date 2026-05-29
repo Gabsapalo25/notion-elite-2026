@@ -16,13 +16,13 @@ const CONFIG = {
   authorPhoto: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858082/Gabriel_Sapalo_kp0dhm.png",
   heroVideo: "https://www.youtube.com/embed/UwCl0a-FWp4",
   videoDemonstracaoReal: "https://www.youtube.com/embed/qfKGywfh05A",
-  productLogo: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858080/Logotipo_Notion_Elite_2026_qhvyup.png",
-  glowscaleLogo: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858081/Logotipo_da_Glowscalepro_vawgu4.png",
+  productLogo: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1780069896/Logotipo_Notion_Elite_2026_kiwhgx.png",
+  glowscaleLogo: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1780069897/Logotipo_da_Glowscalepro_fusgtw.png",
   notionMockup: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857929/MOCKUP_NOTION_FINAL_1_zc7jj0.png",
   antesDepoisMockup: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857908/Mockup_2_antes_e_depois_nr6xmh.png",
   mockupExtra1: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857908/Mockup_2_antes_e_depois_nr6xmh.png",
   mockupExtra2: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857906/Mockup_3_antes_e_depois_varhb4.png",
-  laptopOffer: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857900/Laptop_e_pre%C3%A7o_de_224_usd_cortado_e_10_usd_ag50o3.jpg",
+  laptopOffer: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1780069897/Laptop_e_pre%C3%A7o_de_224_usd_cortado_e_10_usd_anqf9p.jpg",
   internalView: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857929/MOCKUP_NOTION_FINAL_1_zc7jj0.png",
   productHero: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986988/Notion_Elite_Starter_Kit_2026_20260528_jr4muh.jpg",
   productIntro: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_Intro_jfpgbo.png",
@@ -412,7 +412,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         transition={{ duration: 0.9, delay: 0.35 }}
         className="relative max-w-5xl mx-auto mb-6 rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
       >
-        <img src={CONFIG.productHero} alt="Notion Elite Starter Kit 2026" className="w-full" loading="lazy" />
+        <img src={CONFIG.productHero.replace('/upload/', '/upload/w_800,f_auto,q_auto/')} alt="Notion Elite Starter Kit 2026" className="w-full h-auto" loading="eager" fetchPriority="high" />
       </motion.div>
 
       <motion.p
@@ -1737,7 +1737,7 @@ export function App() {
       <Helmet>
         <title>Notion Elite OS 2026 — Sistema Operacional Pessoal | Gabriel Sapalo</title>
         <meta name="description" content="Cansado de viver no caos? Organiza toda a tua vida num único Notion em menos de 24 horas. Sistema criado para a realidade angolana: offline, internet lenta, apagões." />
-        <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858077/favicon.ico_h34ezo.ico" />
+        <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto,w_32,h_32/v1778858077/favicon.ico_h34ezo.ico" />
         <meta property="og:title" content="Notion Elite OS 2026 — Organiza a tua vida em 24h" />
         <meta property="og:description" content="Para de perder tempo à procura de ficheiros. Sistema operacional pessoal para estudantes e profissionais." />
         <meta property="og:image" content={CONFIG.notionMockup} />
