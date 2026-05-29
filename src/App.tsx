@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 // ─────────────────────────────────────────────
-// CONFIG — todas as imagens no Cloudinary
+// CONFIG — imagens optimizadas no Cloudinary
 // ─────────────────────────────────────────────
 const CONFIG = {
   authorName: "Gabriel Sapalo",
@@ -27,15 +27,15 @@ const CONFIG = {
   mockupExtra2: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857906/Mockup_3_antes_e_depois_varhb4.png",
   laptopOffer: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857900/Laptop_e_pre%C3%A7o_de_224_usd_cortado_e_10_usd_ag50o3.jpg",
   internalView: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857929/MOCKUP_NOTION_FINAL_1_zc7jj0.png",
-  productHero: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1779986988/Notion_Elite_Starter_Kit_2026_20260528_jr4muh.jpg",
-  productIntro: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1779986986/notion_elite_starter_Kit_Intro_jfpgbo.png",
-  productDashboard: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1779986987/notion_elite_starter_Kit_Dashboard_f1wqev.png",
-  productGestorProjeto: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1779986986/notion_elite_starter_Kit_Gestor_de_Projecto_eebyxb.png",
-  productGestorFinanceiro: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1779986986/notion_elite_starter_Kit_Gestor_Financeiro_qoknnt.png",
-  productCerebroDigital: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1779986986/notion_elite_starter_Kit_C%C3%A9rebro_digital_slkjqm.png",
-  productExamesProvas: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1779986986/notion_elite_starter_Kit_Exames_e_Provas_mogbmy.png",
-  productHabitTracker: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1779986986/notion_elite_starter_Kit_Habit_Tracker_teccka.png",
-  fideProof: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1779991681/Campeonato_Nacional_Absoluto_2024_FIDE_results_harpay.png",
+  productHero: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986988/Notion_Elite_Starter_Kit_2026_20260528_jr4muh.jpg",
+  productIntro: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_Intro_jfpgbo.png",
+  productDashboard: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986987/notion_elite_starter_Kit_Dashboard_f1wqev.png",
+  productGestorProjeto: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_Gestor_de_Projecto_eebyxb.png",
+  productGestorFinanceiro: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_Gestor_Financeiro_qoknnt.png",
+  productCerebroDigital: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_C%C3%A9rebro_digital_slkjqm.png",
+  productExamesProvas: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_Exames_e_Provas_mogbmy.png",
+  productHabitTracker: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_Habit_Tracker_teccka.png",
+  fideProof: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779991681/Campeonato_Nacional_Absoluto_2024_FIDE_results_harpay.png",
   hotmartCheckout: "https://pay.hotmart.com/Q105490101M?off=xablp4k5&hotfeature=51",
   whatsappPayment: "https://chat.whatsapp.com/LDV8ORaZgzGC9ljtt3gTLh",
   communityLink: "https://chat.whatsapp.com/LDV8ORaZgzGC9ljtt3gTLh",
@@ -48,8 +48,6 @@ const CONFIG = {
 
 // ─────────────────────────────────────────────
 // HEADLINES DINÂMICOS POR UTM
-// Cada campanha no Meta usa um utm_campaign diferente.
-// A página adapta-se automaticamente sem tocar no código.
 // ─────────────────────────────────────────────
 type HeroContent = {
   tag: string;
@@ -60,17 +58,16 @@ type HeroContent = {
 };
 
 const HERO_CONTENT: Record<string, HeroContent> = {
-  // ── ANGOLA ──────────────────────────────────
   angola_internet: {
     tag: "Para estudantes que estudam com internet lenta ou sem ela",
-    headline: "Sem internet não tens desculpa.",
-    headlineHighlight: "Com sistema, não precisas dela.",
-    subtitle: "O Notion Elite Kit funciona offline, em apagão e com dados limitados. Monta o teu centro operacional em menos de 24 horas.",
+    headline: "Cansado de viver enterrado no caos?",
+    headlineHighlight: "Organiza toda a tua vida num único Notion em menos de 24 horas.",
+    subtitle: "Um sistema operacional pessoal que funciona mesmo com internet lenta, apagões frequentes e rotina desorganizada. Feito para quem quer parar de sobreviver e começar a executar.",
     badge: "Funciona 100% offline · Setup em 24h"
   },
   angola_burnout: {
     tag: "Para estudantes exaustos e sem direção",
-    headline: "Exausto antes do exame?",
+    headline: "Cansado de estudar e não ver resultados?",
     headlineHighlight: "O problema não é esforço — é falta de sistema.",
     subtitle: "Quando tudo está espalhado entre cadernos, WhatsApp e memória, o cansaço vem antes do resultado. Centraliza tudo num único Notion.",
     badge: "Clareza mental · Rotina fluida · 24h"
@@ -82,56 +79,11 @@ const HERO_CONTENT: Record<string, HeroContent> = {
     subtitle: "Não podes dar-te ao luxo de repetir cadeiras. O Notion Elite Kit custa menos que um livro e organiza o semestre inteiro.",
     badge: "Menos que uma refeição · Acesso vitalício"
   },
-  // ── PORTUGAL (futuro) ────────────────────────
-  portugal_desorganizacao: {
-    tag: "Para estudantes universitários em Portugal",
-    headline: "61,5% dos estudantes sentem que não conseguem.",
-    headlineHighlight: "E se o problema for falta de método?",
-    subtitle: "Não és incapaz. Estás sem sistema. Centraliza cadeiras, prazos e metas num só lugar e vê a diferença em 24 horas.",
-    badge: "Setup em 24h · Versão gratuita do Notion suficiente"
-  },
-  portugal_burnout: {
-    tag: "Para estudantes universitários em Portugal",
-    headline: "61,6% dos universitários portugueses estão exaustos.",
-    headlineHighlight: "Clareza reduz ansiedade. Sistema vence força bruta.",
-    subtitle: "Quando tudo está organizado num só lugar, a mente descansa. Para de carregar semestres inteiros na cabeça.",
-    badge: "Clareza mental · Rotina estável · 24h"
-  },
-  portugal_financeiro: {
-    tag: "Para estudantes universitários em Portugal",
-    headline: "Quartos a €350/mês. Bolsas que não chegam.",
-    headlineHighlight: "Cada semestre desperdiçado custa-te o dobro.",
-    subtitle: "Quando viver em Portugal já é caro, perder tempo é um luxo. Organiza-te em 24h e faz o semestre render.",
-    badge: "Custa menos que um café · Acesso vitalício"
-  },
-  // ── BRASIL (futuro) ──────────────────────────
-  brasil_desorganizacao: {
-    tag: "Para universitários brasileiros",
-    headline: "51% dos universitários brasileiros nunca se formam.",
-    headlineHighlight: "Desorganização mata mais carreiras que reprovação.",
-    subtitle: "Você não precisa de mais esforço — precisa de sistema. Monte seu centro operacional em 24h.",
-    badge: "Setup em 24h · Funciona na versão gratuita"
-  },
-  brasil_burnout: {
-    tag: "Para universitários brasileiros",
-    headline: "Trabalhar de dia, estudar de noite,",
-    headlineHighlight: "colapsar de madrugada não é método.",
-    subtitle: "Sistema vence força bruta. O Notion Elite Kit transforma a sobrecarga em passos claros — o que fazer hoje, o que pode esperar.",
-    badge: "Clareza mental · Rotina fluida · 24h"
-  },
-  brasil_financeiro: {
-    tag: "Para universitários brasileiros",
-    headline: "64% dependem de bolsa.",
-    headlineHighlight: "Perder uma cadeira custa caro demais.",
-    subtitle: "Quando o dinheiro é curto, desperdiçar tempo é luxo. Organize-se em 24h e proteja cada real investido na sua formação.",
-    badge: "Menos que um almoço · Acesso vitalício"
-  },
-  // ── DEFAULT (sem UTM ou UTM desconhecido) ────
   default: {
     tag: "Para estudantes e profissionais cansados do caos",
-    headline: "Para de viver no caos.",
+    headline: "Cansado de viver enterrado no caos?",
     headlineHighlight: "Organiza toda a tua vida num único Notion em menos de 24 horas.",
-    subtitle: "Mesmo com internet lenta, apagões ou PDFs espalhados. O sistema operacional pessoal criado pelo Campeão Nacional de Xadrez de Angola.",
+    subtitle: "Um sistema operacional pessoal que funciona mesmo com internet lenta, apagões frequentes e rotina desorganizada. Feito para quem quer parar de sobreviver e começar a executar.",
     badge: "Configura tudo em menos de 24h"
   }
 };
@@ -191,9 +143,7 @@ const FAQ_DATA = [
 ];
 
 // ─────────────────────────────────────────────
-// NOTIFICAÇÕES VIRAL — VERSÃO OPTIMIZADA
-// Cada notificação aparece APENAS UMA VEZ por sessão
-// Timestamps dinâmicos e realistas
+// NOTIFICAÇÕES VIRAL — optimizadas (1x por sessão)
 // ─────────────────────────────────────────────
 const NOTIFICATIONS_POOL = [
   { name: "Lucas R.", item: "Ativou God Mode" },
@@ -210,17 +160,15 @@ const NOTIFICATIONS_POOL = [
   { name: "Sara T.", item: "Reset Operacional" }
 ];
 
-// Embaralhar array para ordem aleatória
 const shuffled = [...NOTIFICATIONS_POOL];
 for (let i = shuffled.length - 1; i > 0; i--) {
   const j = Math.floor(Math.random() * (i + 1));
   [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
 }
 
-// Timestamps decrescentes (mais recente primeiro) com intervalos realistas
 const NOTIFICATIONS = shuffled.map((n, index) => ({
   ...n,
-  time: `${index === 0 ? 1 : index * 4 + 2} min` // 1, 6, 10, 14, 18, 22...
+  time: `${index === 0 ? 1 : index * 4 + 2} min`
 }));
 
 const Telemetry = {
@@ -350,8 +298,7 @@ const HeroVSL = memo(() => {
 });
 
 // ─────────────────────────────────────────────
-// CTAButtons — Angola: WhatsApp em destaque, Hotmart secundário
-// Outros mercados: Hotmart em destaque, WhatsApp secundário
+// CTAButtons — adaptado por país
 // ─────────────────────────────────────────────
 const CTAButtons = memo(({ onConvert, size = "lg" }: {
   onConvert: (seg: "international" | "angola") => void;
@@ -402,6 +349,9 @@ const CTAButtons = memo(({ onConvert, size = "lg" }: {
   );
 });
 
+// ─────────────────────────────────────────────
+// HeroSection — versão agressiva (foco na dor)
+// ─────────────────────────────────────────────
 const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const hero = getHeroContent();
 
@@ -412,21 +362,12 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         FASE FOUNDER 2026 — Acesso Exclusivo
       </motion.div>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.05 }}
-        className="text-[11px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#D4AF37] max-w-2xl mx-auto mb-6"
-      >
-        {hero.tag}
-      </motion.p>
-
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-[-1.5px] leading-[1.02] max-w-5xl mx-auto mb-6 font-bold"
+        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-[-1.6px] leading-[1.02] max-w-5xl mx-auto mb-6 font-bold"
       >
-        {hero.headline}<br />
+        {hero.headline}<br className="hidden md:block" />
         <span className="text-gradient-magnetic">{hero.headlineHighlight}</span>
       </motion.h1>
 
@@ -434,26 +375,22 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="text-base sm:text-lg md:text-xl text-[#A1A1AA] max-w-3xl mx-auto mb-6 leading-relaxed"
+        className="text-base sm:text-lg md:text-xl text-[#A1A1AA] max-w-3xl mx-auto mb-8 leading-relaxed"
       >
         {hero.subtitle}
       </motion.p>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.18 }}
-        className="flex flex-col items-center gap-4 mb-8"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        className="max-w-md mx-auto mb-10 p-5 rounded-2xl bg-[#0A0A0A] border border-white/[0.08] text-left"
       >
-        <p className="text-sm md:text-base text-[#D4AF37] font-mono font-bold max-w-xl tracking-wide">
-          O problema nunca foi falta de inteligência. <br className="hidden sm:block" />
-          Foi operar sem sistema.
-        </p>
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#25D366]/20 bg-[#25D366]/5">
-          <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
-          <span className="text-[11px] font-mono text-[#25D366] font-semibold">
-            {hero.badge}
-          </span>
+        <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-3 font-bold">Em menos de 24 horas vais:</p>
+        <div className="space-y-2.5 text-sm text-[#D4D4D8]">
+          <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span>Parar de perder tempo à procura de ficheiros e notas</span></div>
+          <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span>Saber exactamente o que fazer todos os dias</span></div>
+          <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span>Ter controlo mesmo quando a luz ou internet falha</span></div>
         </div>
       </motion.div>
 
@@ -486,22 +423,8 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         Chega de perder tempo a tentar organizar-se. Com o <strong className="text-white">Notion Elite Starter Kit 2026</strong>, você não gere apenas tarefas — gere a sua carreira e estudos com a precisão de um arquiteto de sistemas.
       </motion.p>
 
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.35 }}
-        className="max-w-md mx-auto mb-10 p-5 rounded-2xl bg-[#0A0A0A] border border-white/[0.08] text-left"
-      >
-        <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-3 font-bold">Em menos de 24 horas vais:</p>
-        <div className="space-y-2.5 text-sm text-[#D4D4D8]">
-          <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span>Ter um sistema completo e funcional</span></div>
-          <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span>Eliminar abas, PDFs e notas perdidas</span></div>
-          <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span>Saber exactamente o que fazer todos os dias</span></div>
-        </div>
-      </motion.div>
-
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-xs text-[#A1A1AA] mt-8 mb-12">
-        +3.200 utilizadores · 4.9/5 · Criado pelo Campeão Nacional de Xadrez de Angola
+        +680 utilizadores · 4.8/5 · Feito para a realidade angolana
       </motion.p>
 
       <motion.div
@@ -707,6 +630,35 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
         </div>
       </div>
     </section>
+  );
+});
+
+// ─────────────────────────────────────────────
+// MID-PAGE CTA (nova secção — retenção)
+// ─────────────────────────────────────────────
+const MidPageCTA = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="my-16 py-10 px-6 bg-gradient-to-br from-[#0A0A0A] to-[#050505] border border-[#D4AF37]/30 rounded-3xl max-w-2xl mx-auto text-center"
+    >
+      <p className="text-lg font-semibold text-white mb-2">
+        O caos só vai piorar se não agires agora.
+      </p>
+      <p className="text-sm text-[#A1A1AA] mb-6">
+        Em menos de 24 horas podes ter tudo organizado.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <button onClick={() => onConvert("international")} className="btn-luxury-cyan py-4 px-8 rounded-2xl font-bold">
+          Quero organizar a minha vida — $10
+        </button>
+        <button onClick={() => onConvert("angola")} className="bg-[#25D366] py-4 px-8 rounded-2xl font-bold text-white">
+          Angola · 10.000 AKZ
+        </button>
+      </div>
+    </motion.div>
   );
 });
 
@@ -1487,71 +1439,173 @@ const LegalFooter = memo(() => (
   </footer>
 ));
 
-const ExitIntentModal = memo(() => {
+// ─────────────────────────────────────────────
+// EXIT INTENT MODAL MELHORADO (mais agressivo)
+// ─────────────────────────────────────────────
+const ExitIntentModal = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const [show, setShow] = useState(false);
   const dismissed = useRef(false);
 
   useEffect(() => {
     if (localStorage.getItem("ne_exit_dismissed") === "1") return;
+
     const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0 && !dismissed.current) {
+      if (e.clientY < 30 && !dismissed.current) {
         setShow(true);
-        Telemetry.emit("exit_intent_shown");
+        Telemetry.emit("exit_intent_triggered");
       }
     };
+
     document.addEventListener("mouseleave", handleMouseLeave);
     return () => document.removeEventListener("mouseleave", handleMouseLeave);
   }, []);
 
-  const handleAction = () => {
+  const handleInternational = () => {
     setShow(false);
-    localStorage.setItem("ne_exit_dismissed", "1");
     dismissed.current = true;
-    Telemetry.emit("exit_intent_action_clicked");
-    document.getElementById("engenharia")?.scrollIntoView({ behavior: "smooth" });
+    localStorage.setItem("ne_exit_dismissed", "1");
+    onConvert("international");
+  };
+
+  const handleAngola = () => {
+    setShow(false);
+    dismissed.current = true;
+    localStorage.setItem("ne_exit_dismissed", "1");
+    onConvert("angola");
   };
 
   const handleClose = () => {
     setShow(false);
-    localStorage.setItem("ne_exit_dismissed", "1");
     dismissed.current = true;
+    localStorage.setItem("ne_exit_dismissed", "1");
     Telemetry.emit("exit_intent_dismissed");
   };
 
+  if (!show) return null;
+
   return (
-    <AnimatePresence>
-      {show && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onClick={handleClose}>
-          <motion.div initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }} className="bg-[#0A0A0A] border border-[#D4AF37]/30 rounded-2xl p-6 md:p-8 max-w-md w-full relative shadow-[0_30px_80px_rgba(0,0,0,0.9)]" onClick={(e) => e.stopPropagation()}>
-            <button onClick={handleClose} className="absolute top-3 right-3 text-[#A1A1AA] hover:text-white p-1"><X className="w-5 h-5" /></button>
-            <div className="text-center mb-5">
-              <span className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-widest font-bold block mb-2">Ainda indeciso?</span>
-              <h3 className="text-xl md:text-2xl font-bold text-white leading-tight mb-4">
-                Não saias sem ver o sistema em <span className="text-[#D4AF37]">ação real</span>.
-              </h3>
-              <p className="text-xs text-[#A1A1AA] leading-relaxed">
-                Lembra-te: o Notion Elite Starter Kit 2026 já inclui o <strong className="text-white">Hub de 20 Prompts IA</strong> para poupares horas de trabalho esta semana.
-              </p>
-              <p className="text-xs text-[#A1A1AA] mt-3 leading-relaxed">
-                Vais continuar a perder tempo a organizar a tua rotina manualmente?
-              </p>
-            </div>
-            <div className="space-y-3">
-              <button onClick={handleAction} className="w-full btn-founder-gold py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 animate-pulse-gold">
-                <Play className="w-4 h-4 fill-current" />
-                <span>Ver o Sistema em Ação</span>
-              </button>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4"
+    >
+      <motion.div 
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        className="bg-[#0A0A0A] border border-[#D4AF37]/50 rounded-3xl p-8 max-w-md text-center relative"
+      >
+        <button onClick={handleClose} className="absolute top-4 right-4 text-[#A1A1AA] hover:text-white">
+          <X className="w-5 h-5" />
+        </button>
+        
+        <Crown className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
+        <h3 className="text-2xl font-bold mb-3">Não percas esta oportunidade</h3>
+        <p className="text-[#A1A1AA] mb-6">
+          O Founder Batch 01 está quase no fim. Depois o preço sobe para $27 e depois $49.
+        </p>
+        
+        <button 
+          onClick={handleInternational}
+          className="w-full btn-luxury-cyan py-4 rounded-2xl font-bold mb-3"
+        >
+          Quero garantir o meu por $10
+        </button>
+        
+        <button 
+          onClick={handleAngola}
+          className="w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white py-4 rounded-2xl font-bold mb-3"
+        >
+          Angola · 10.000 AKZ via WhatsApp
+        </button>
+        
+        <button onClick={handleClose} className="text-sm text-gray-400 hover:text-white">
+          Não, obrigado. Continuar navegando.
+        </button>
+      </motion.div>
+    </motion.div>
   );
 });
 
 // ─────────────────────────────────────────────
-// APP PRINCIPAL
+// STICKY BAR DESKTOP
 // ─────────────────────────────────────────────
+const StickyBar = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 800;
+      setVisible(scrolled);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <div className="hidden md:flex fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-[#0A0A0A] border border-[#D4AF37]/40 rounded-2xl shadow-2xl px-6 py-3 items-center gap-4 backdrop-blur-sm">
+      <span className="text-sm font-medium text-white">Não deixes o caos controlar a tua vida</span>
+      <button 
+        onClick={() => onConvert("international")} 
+        className="btn-luxury-cyan px-6 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2"
+      >
+        <Crown className="w-4 h-4" />
+        Quero o sistema agora — $10
+      </button>
+    </div>
+  );
+});
+
+// ─────────────────────────────────────────────
+// MOBILE STICKY BAR
+// ─────────────────────────────────────────────
+const MobileStickyBar = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 500;
+      setVisible(scrolled);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (!visible) return null;
+
+  const angola = isAngolaCampaign();
+
+  return (
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#050505]/95 backdrop-blur-xl border-t border-white/[0.08] p-3 flex items-center gap-2">
+      {angola ? (
+        <>
+          <button onClick={() => onConvert("angola")} className="flex-1 bg-[#25D366] hover:bg-[#1EBE5A] text-white py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2 shadow-[0_4px_15px_rgba(37,211,102,0.4)]">
+            <MessageCircle className="w-4 h-4 fill-white" />
+            Angola · 10k AKZ
+          </button>
+          <button onClick={() => onConvert("international")} className="flex-1 bg-white/[0.05] border border-white/[0.1] text-white/70 py-3 rounded-xl text-sm font-medium flex items-center justify-center gap-2">
+            <Crown className="w-4 h-4 text-[#D4AF37]" />
+            $10 USD
+          </button>
+        </>
+      ) : (
+        <>
+          <button onClick={() => onConvert("international")} className="flex-1 btn-luxury-cyan py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
+            <Crown className="w-4 h-4" />
+            $10 USD
+          </button>
+          <button onClick={() => onConvert("angola")} className="flex-1 bg-[#25D366] hover:bg-[#1EBE5A] text-white py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
+            <MessageCircle className="w-4 h-4 fill-white" />
+            10k AKZ
+          </button>
+        </>
+      )}
+    </div>
+  );
+});
+
 export function App() {
   const [toast, setToast] = useState<typeof NOTIFICATIONS[0] | null>(null);
   const shownNotifications = useRef<Set<number>>(new Set());
@@ -1560,15 +1614,9 @@ export function App() {
   useEffect(() => {
     Telemetry.emit("page_loaded", { ref: document.referrer });
     
-    // ─────────────────────────────────────────────
-    // NOTIFICAÇÕES VIRAL — CADA UMA APARECE 1X POR SESSÃO
-    // Intervalo realista: 40-60 segundos entre cada notificação
-    // ─────────────────────────────────────────────
     const iv = setInterval(() => {
-      // Evitar mostrar mais notificações do que as disponíveis
       if (shownNotifications.current.size >= NOTIFICATIONS.length) return;
       
-      // Encontrar próxima notificação não exibida
       while (shownNotifications.current.has(notificationIndex.current) && 
              shownNotifications.current.size < NOTIFICATIONS.length) {
         notificationIndex.current = (notificationIndex.current + 1) % NOTIFICATIONS.length;
@@ -1580,7 +1628,7 @@ export function App() {
         notificationIndex.current = (notificationIndex.current + 1) % NOTIFICATIONS.length;
         setTimeout(() => setToast(null), 4500);
       }
-    }, 50000); // 50 segundos entre notificações - realista e não intrusivo
+    }, 50000);
 
     const t30 = setTimeout(() => Telemetry.emit("checkpoint_30s"), 30000);
     const t60 = setTimeout(() => Telemetry.emit("checkpoint_60s"), 60000);
@@ -1642,13 +1690,12 @@ export function App() {
     <div className="cinematic-noise min-h-screen bg-[#050505] text-white font-sans relative">
       <Helmet>
         <title>Notion Elite OS 2026 — Sistema Operacional Pessoal | Gabriel Sapalo</title>
-        <meta name="description" content="O teu cérebro não foi feito para guardar prazos. Foi feito para criar o teu futuro. Sistema operacional mental criado pelo Campeão Nacional de Xadrez de Angola. Clareza, foco e controlo." />
+        <meta name="description" content="Cansado de viver no caos? Organiza toda a tua vida num único Notion em menos de 24 horas. Sistema criado para a realidade angolana: offline, internet lenta, apagões." />
         <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858077/favicon.ico_h34ezo.ico" />
-        <meta property="og:title" content="Notion Elite OS 2026 — Sistema Operacional Pessoal" />
-        <meta property="og:description" content="Clareza é poder. O caos custa caro. Sistema Operacional Pessoal para operar com clareza, foco e controlo." />
+        <meta property="og:title" content="Notion Elite OS 2026 — Organiza a tua vida em 24h" />
+        <meta property="og:description" content="Para de perder tempo à procura de ficheiros. Sistema operacional pessoal para estudantes e profissionais." />
         <meta property="og:image" content={CONFIG.notionMockup} />
         <meta property="og:type" content="product" />
-        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
       <Header onCTA={scrollToOffer} />
@@ -1657,6 +1704,7 @@ export function App() {
       <AngolaContextSection />
       <ProblemSolutionSection />
       <PilaresSection onConvert={convert} />
+      <MidPageCTA onConvert={convert} />
       <ROICalculatorSection />
       <MarqueeSection />
       <TransformationSection />
@@ -1673,7 +1721,9 @@ export function App() {
       <FAQSection />
       <FinalCTASection onConvert={convert} />
       <LegalFooter />
-      <ExitIntentModal />
+      <ExitIntentModal onConvert={convert} />
+      <StickyBar onConvert={convert} />
+      <MobileStickyBar onConvert={convert} />
 
       <AnimatePresence>
         {toast && (
@@ -1689,32 +1739,6 @@ export function App() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#050505]/95 backdrop-blur-xl border-t border-white/[0.08] p-2.5 flex items-center gap-2">
-        {isAngolaCampaign() ? (
-          <>
-            <button onClick={() => convert("angola")} className="flex-1 bg-[#25D366] hover:bg-[#1EBE5A] text-white py-2.5 rounded-lg text-[11px] font-bold cursor-pointer flex items-center justify-center gap-1.5 transition-colors shadow-[0_4px_15px_rgba(37,211,102,0.4)]">
-              <MessageCircle className="w-3 h-3 fill-white" />
-              Angola · 10k AKZ
-            </button>
-            <button onClick={() => convert("international")} className="flex-[0.6] bg-white/[0.05] border border-white/[0.1] text-white/60 py-2.5 rounded-lg text-[10px] font-medium cursor-pointer flex items-center justify-center gap-1 transition-colors">
-              <Crown className="w-3 h-3 text-[#D4AF37]" />
-              $10 USD
-            </button>
-          </>
-        ) : (
-          <>
-            <button onClick={() => convert("international")} className="flex-1 btn-luxury-cyan py-2.5 rounded-lg text-[11px] font-bold cursor-pointer flex items-center justify-center gap-1.5">
-              <Crown className="w-3 h-3" />
-              Internacional · $10
-            </button>
-            <button onClick={() => convert("angola")} className="flex-1 bg-[#25D366] hover:bg-[#1EBE5A] text-white py-2.5 rounded-lg text-[11px] font-bold cursor-pointer flex items-center justify-center gap-1.5 transition-colors">
-              <MessageCircle className="w-3 h-3 fill-white" />
-              Angola · 10k AKZ
-            </button>
-          </>
-        )}
-      </div>
 
       <a href={CONFIG.whatsappPayment} target="_blank" rel="noopener noreferrer" onClick={() => Telemetry.emit("wa_float")} className="fixed bottom-20 md:bottom-6 right-5 z-50 bg-[#25D366] hover:bg-[#20ba59] p-3.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all outline-none flex items-center justify-center group">
         <Send className="w-5 h-5 text-white" />
