@@ -9,6 +9,9 @@ import {
   Quote, Lock
 } from "lucide-react";
 
+// ─────────────────────────────────────────────
+// CONFIG — todas as imagens no Cloudinary
+// ─────────────────────────────────────────────
 const CONFIG = {
   authorName: "Gabriel Sapalo",
   authorTitle: "Estrategista & Especialista em Gestão de Sistemas de Informação",
@@ -20,10 +23,10 @@ const CONFIG = {
   glowscaleLogo: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858081/Logotipo_da_Glowscalepro_vawgu4.png",
   notionMockup: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857929/MOCKUP_NOTION_FINAL_1_zc7jj0.png",
   antesDepoisMockup: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857908/Mockup_2_antes_e_depois_nr6xmh.png",
-  mockupExtra1: "https://drive.google.com/thumbnail?id=1Gv_vB4wENBXyiaQi1iD3UyuXkTvXg8sc&sz=w1000",
-  mockupExtra2: "https://drive.google.com/thumbnail?id=1o79_tWug5lCJ2kI3T4yz0vJOm5wQ2P70&sz=w1000",
-  laptopOffer: "https://drive.google.com/thumbnail?id=1ek54pgWKa_2j90WGcpmb30XGuzB5qjvJ&sz=w800",
-  internalView: "https://drive.google.com/thumbnail?id=1AQUxp-P7-Wf64CPqbTiQDsPqqBhL7dvL&sz=w1000",
+  mockupExtra1: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857908/Mockup_2_antes_e_depois_nr6xmh.png",
+  mockupExtra2: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857906/Mockup_3_antes_e_depois_varhb4.png",
+  laptopOffer: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857900/Laptop_e_pre%C3%A7o_de_224_usd_cortado_e_10_usd_ag50o3.jpg",
+  internalView: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857929/MOCKUP_NOTION_FINAL_1_zc7jj0.png",
   productHero: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1779986988/Notion_Elite_Starter_Kit_2026_20260528_jr4muh.jpg",
   productIntro: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1779986986/notion_elite_starter_Kit_Intro_jfpgbo.png",
   productDashboard: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1779986987/notion_elite_starter_Kit_Dashboard_f1wqev.png",
@@ -42,6 +45,117 @@ const CONFIG = {
   privacyPolicy: "https://drive.google.com/file/d/1yi1D2p_QYdK9tIwCaU8kxlFnol97kGdg/view",
   cookiePolicy: "https://drive.google.com/file/d/1owleKJFrC-MVOjMx7BKMuuqrhroSZqY1/view"
 };
+
+// ─────────────────────────────────────────────
+// HEADLINES DINÂMICOS POR UTM
+// Cada campanha no Meta usa um utm_campaign diferente.
+// A página adapta-se automaticamente sem tocar no código.
+// ─────────────────────────────────────────────
+type HeroContent = {
+  tag: string;
+  headline: string;
+  headlineHighlight: string;
+  subtitle: string;
+  badge: string;
+};
+
+const HERO_CONTENT: Record<string, HeroContent> = {
+  // ── ANGOLA ──────────────────────────────────
+  angola_internet: {
+    tag: "Para estudantes que estudam com internet lenta ou sem ela",
+    headline: "Sem internet não tens desculpa.",
+    headlineHighlight: "Com sistema, não precisas dela.",
+    subtitle: "O Notion Elite Kit funciona offline, em apagão e com dados limitados. Monta o teu centro operacional em menos de 24 horas.",
+    badge: "Funciona 100% offline · Setup em 24h"
+  },
+  angola_burnout: {
+    tag: "Para estudantes exaustos e sem direção",
+    headline: "Exausto antes do exame?",
+    headlineHighlight: "O problema não é esforço — é falta de sistema.",
+    subtitle: "Quando tudo está espalhado entre cadernos, WhatsApp e memória, o cansaço vem antes do resultado. Centraliza tudo num único Notion.",
+    badge: "Clareza mental · Rotina fluida · 24h"
+  },
+  angola_financeiro: {
+    tag: "Para estudantes que não podem desperdiçar tempo nem dinheiro",
+    headline: "Cada kwanza investido na tua formação",
+    headlineHighlight: "tem de valer a pena.",
+    subtitle: "Não podes dar-te ao luxo de repetir cadeiras. O Notion Elite Kit custa menos que um livro e organiza o semestre inteiro.",
+    badge: "Menos que uma refeição · Acesso vitalício"
+  },
+  // ── PORTUGAL (futuro) ────────────────────────
+  portugal_desorganizacao: {
+    tag: "Para estudantes universitários em Portugal",
+    headline: "61,5% dos estudantes sentem que não conseguem.",
+    headlineHighlight: "E se o problema for falta de método?",
+    subtitle: "Não és incapaz. Estás sem sistema. Centraliza cadeiras, prazos e metas num só lugar e vê a diferença em 24 horas.",
+    badge: "Setup em 24h · Versão gratuita do Notion suficiente"
+  },
+  portugal_burnout: {
+    tag: "Para estudantes universitários em Portugal",
+    headline: "61,6% dos universitários portugueses estão exaustos.",
+    headlineHighlight: "Clareza reduz ansiedade. Sistema vence força bruta.",
+    subtitle: "Quando tudo está organizado num só lugar, a mente descansa. Para de carregar semestres inteiros na cabeça.",
+    badge: "Clareza mental · Rotina estável · 24h"
+  },
+  portugal_financeiro: {
+    tag: "Para estudantes universitários em Portugal",
+    headline: "Quartos a €350/mês. Bolsas que não chegam.",
+    headlineHighlight: "Cada semestre desperdiçado custa-te o dobro.",
+    subtitle: "Quando viver em Portugal já é caro, perder tempo é um luxo. Organiza-te em 24h e faz o semestre render.",
+    badge: "Custa menos que um café · Acesso vitalício"
+  },
+  // ── BRASIL (futuro) ──────────────────────────
+  brasil_desorganizacao: {
+    tag: "Para universitários brasileiros",
+    headline: "51% dos universitários brasileiros nunca se formam.",
+    headlineHighlight: "Desorganização mata mais carreiras que reprovação.",
+    subtitle: "Você não precisa de mais esforço — precisa de sistema. Monte seu centro operacional em 24h.",
+    badge: "Setup em 24h · Funciona na versão gratuita"
+  },
+  brasil_burnout: {
+    tag: "Para universitários brasileiros",
+    headline: "Trabalhar de dia, estudar de noite,",
+    headlineHighlight: "colapsar de madrugada não é método.",
+    subtitle: "Sistema vence força bruta. O Notion Elite Kit transforma a sobrecarga em passos claros — o que fazer hoje, o que pode esperar.",
+    badge: "Clareza mental · Rotina fluida · 24h"
+  },
+  brasil_financeiro: {
+    tag: "Para universitários brasileiros",
+    headline: "64% dependem de bolsa.",
+    headlineHighlight: "Perder uma cadeira custa caro demais.",
+    subtitle: "Quando o dinheiro é curto, desperdiçar tempo é luxo. Organize-se em 24h e proteja cada real investido na sua formação.",
+    badge: "Menos que um almoço · Acesso vitalício"
+  },
+  // ── DEFAULT (sem UTM ou UTM desconhecido) ────
+  default: {
+    tag: "Para estudantes e profissionais cansados do caos",
+    headline: "Para de viver no caos.",
+    headlineHighlight: "Organiza toda a tua vida num único Notion em menos de 24 horas.",
+    subtitle: "Mesmo com internet lenta, apagões ou PDFs espalhados. O sistema operacional pessoal criado pelo Campeão Nacional de Xadrez de Angola.",
+    badge: "Configura tudo em menos de 24h"
+  }
+};
+
+function getHeroContent(): HeroContent {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const campaign = params.get("utm_campaign") || "";
+    return HERO_CONTENT[campaign] || HERO_CONTENT["default"];
+  } catch {
+    return HERO_CONTENT["default"];
+  }
+}
+
+function isAngolaCampaign(): boolean {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const campaign = params.get("utm_campaign") || "";
+    const source = params.get("utm_source") || "";
+    return campaign.startsWith("angola") || source === "angola";
+  } catch {
+    return false;
+  }
+}
 
 const MANIFESTO_PHRASES = [
   "Clareza é poder.",
@@ -76,13 +190,38 @@ const FAQ_DATA = [
   { q: "Recebo atualizações futuras?", a: "Sim. Pagamento único, acesso vitalício às versões 2026 e 2027, e novos prompts de IA incluídos gratuitamente." }
 ];
 
-const NOTIFICATIONS = [
-  { name: "Lucas R.", item: "Ativou God Mode", time: "Há 2 min" },
-  { name: "Marta S.", item: "Reset Operacional", time: "Há 5 min" },
-  { name: "Tiago M.", item: "Ativou God Mode", time: "Há 12 min" },
-  { name: "Inês P.", item: "Elite Minds 2026", time: "Há 18 min" },
-  { name: "Rui C.", item: "Ativou God Mode", time: "Há 25 min" }
+// ─────────────────────────────────────────────
+// NOTIFICAÇÕES VIRAL — VERSÃO OPTIMIZADA
+// Cada notificação aparece APENAS UMA VEZ por sessão
+// Timestamps dinâmicos e realistas
+// ─────────────────────────────────────────────
+const NOTIFICATIONS_POOL = [
+  { name: "Lucas R.", item: "Ativou God Mode" },
+  { name: "Marta S.", item: "Reset Operacional" },
+  { name: "Tiago M.", item: "Ativou God Mode" },
+  { name: "Inês P.", item: "Elite Minds 2026" },
+  { name: "Rui C.", item: "Ativou God Mode" },
+  { name: "Ana F.", item: "Comprou Elite Kit" },
+  { name: "Carlos M.", item: "Reset Operacional" },
+  { name: "Fernanda L.", item: "Ativou God Mode" },
+  { name: "José A.", item: "Entrou na Comunidade" },
+  { name: "Paula S.", item: "Comprou Elite Kit" },
+  { name: "Miguel R.", item: "Ativou God Mode" },
+  { name: "Sara T.", item: "Reset Operacional" }
 ];
+
+// Embaralhar array para ordem aleatória
+const shuffled = [...NOTIFICATIONS_POOL];
+for (let i = shuffled.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+}
+
+// Timestamps decrescentes (mais recente primeiro) com intervalos realistas
+const NOTIFICATIONS = shuffled.map((n, index) => ({
+  ...n,
+  time: `${index === 0 ? 1 : index * 4 + 2} min` // 1, 6, 10, 14, 18, 22...
+}));
 
 const Telemetry = {
   emit: (eventAction: string, metadata: Record<string, unknown> = {}) => {
@@ -184,7 +323,7 @@ const HeroVSL = memo(() => {
               src={CONFIG.laptopOffer}
               alt="VSL Preview"
               className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity duration-500"
-              loading="lazy"
+              loading="eager"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/50 to-transparent" />
             <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#F4D77A] text-[#050505] flex items-center justify-center shadow-[0_0_40px_rgba(212,175,55,0.5)] group-hover:scale-110 transition-transform duration-400">
@@ -210,7 +349,62 @@ const HeroVSL = memo(() => {
   );
 });
 
+// ─────────────────────────────────────────────
+// CTAButtons — Angola: WhatsApp em destaque, Hotmart secundário
+// Outros mercados: Hotmart em destaque, WhatsApp secundário
+// ─────────────────────────────────────────────
+const CTAButtons = memo(({ onConvert, size = "lg" }: {
+  onConvert: (seg: "international" | "angola") => void;
+  size?: "sm" | "lg";
+}) => {
+  const angola = isAngolaCampaign();
+  const py = size === "sm" ? "py-3 px-4 text-sm" : "py-4 text-base sm:text-lg";
+
+  if (angola) {
+    return (
+      <div className="w-full space-y-3">
+        <button
+          onClick={() => onConvert("angola")}
+          className={`w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white ${py} font-bold rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_-10px_rgba(37,211,102,0.6)] transition-all hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.8)] animate-pulse-ring`}
+        >
+          <MessageCircle className="w-5 h-5 fill-white" />
+          Angola · 10.000 AKZ via WhatsApp
+        </button>
+        <button
+          onClick={() => onConvert("international")}
+          className={`w-full bg-white/[0.05] hover:bg-white/[0.08] border border-white/[0.12] text-white/70 hover:text-white ${py} font-medium rounded-2xl flex items-center justify-center gap-2 transition-all text-sm`}
+        >
+          <Crown className="w-4 h-4 text-[#D4AF37]" />
+          Pagamento Internacional · $10 USD
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full space-y-3">
+      <button
+        onClick={() => onConvert("international")}
+        className={`w-full btn-luxury-cyan ${py} font-bold rounded-2xl flex items-center justify-center gap-3 animate-pulse-ring`}
+      >
+        <Crown className="w-5 h-5" />
+        Quero organizar a minha vida agora — $10
+        <ArrowRight className="w-4 h-4" />
+      </button>
+      <button
+        onClick={() => onConvert("angola")}
+        className={`w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white ${py} font-bold rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_-10px_rgba(37,211,102,0.5)] transition-all hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.7)]`}
+      >
+        <MessageCircle className="w-5 h-5 fill-white" />
+        Angola · 10.000 AKZ via WhatsApp
+      </button>
+    </div>
+  );
+});
+
 const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
+  const hero = getHeroContent();
+
   return (
     <section className="relative pt-40 pb-16 md:pt-48 md:pb-20 px-6 max-w-6xl mx-auto text-center overflow-hidden">
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 badge-founder-premium px-4 py-1.5 rounded-full text-xs font-mono tracking-wider mb-8">
@@ -224,7 +418,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         transition={{ delay: 0.05 }}
         className="text-[11px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#D4AF37] max-w-2xl mx-auto mb-6"
       >
-        Para estudantes e profissionais cansados do caos
+        {hero.tag}
       </motion.p>
 
       <motion.h1
@@ -232,8 +426,8 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         animate={{ opacity: 1, y: 0 }}
         className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-[-1.5px] leading-[1.02] max-w-5xl mx-auto mb-6 font-bold"
       >
-        Para de viver no caos.<br />
-        <span className="text-gradient-magnetic">Organiza toda a tua vida num único Notion</span> em menos de 24 horas.
+        {hero.headline}<br />
+        <span className="text-gradient-magnetic">{hero.headlineHighlight}</span>
       </motion.h1>
 
       <motion.p
@@ -242,26 +436,34 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         transition={{ delay: 0.1 }}
         className="text-base sm:text-lg md:text-xl text-[#A1A1AA] max-w-3xl mx-auto mb-6 leading-relaxed"
       >
-        Mesmo com internet lenta, apagões ou PDFs espalhados. O sistema operacional pessoal criado pelo <strong className="text-white">Campeão Nacional de Xadrez de Angola</strong>.
+        {hero.subtitle}
       </motion.p>
 
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.18 }}
-        className="flex flex-col items-center gap-4 mb-10"
+        className="flex flex-col items-center gap-4 mb-8"
       >
         <p className="text-sm md:text-base text-[#D4AF37] font-mono font-bold max-w-xl tracking-wide">
           O problema nunca foi falta de inteligência. <br className="hidden sm:block" />
           Foi operar sem sistema.
         </p>
-        
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#25D366]/20 bg-[#25D366]/5">
           <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
           <span className="text-[11px] font-mono text-[#25D366] font-semibold">
-            Configura tudo em menos de 24h
+            {hero.badge}
           </span>
         </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.22 }}
+        className="max-w-xl mx-auto mb-10"
+      >
+        <CTAButtons onConvert={onConvert} size="lg" />
       </motion.div>
 
       <HeroVSL />
@@ -272,8 +474,9 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         transition={{ duration: 0.9, delay: 0.35 }}
         className="relative max-w-5xl mx-auto mb-6 rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
       >
-        <img src={CONFIG.productHero} alt="Notion Elite Starter Kit 2026" className="w-full" loading="eager" />
+        <img src={CONFIG.productHero} alt="Notion Elite Starter Kit 2026" className="w-full" loading="lazy" />
       </motion.div>
+
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -295,19 +498,6 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
           <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span>Eliminar abas, PDFs e notas perdidas</span></div>
           <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span>Saber exactamente o que fazer todos os dias</span></div>
         </div>
-      </motion.div>
-
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="max-w-xl mx-auto space-y-3">
-        <button onClick={() => onConvert("international")} className="w-full btn-luxury-cyan py-4 text-base sm:text-lg font-bold rounded-2xl flex items-center justify-center gap-3 animate-pulse-ring">
-          <Crown className="w-5 h-5" />
-          Quero organizar a minha vida agora — $10
-          <ArrowRight className="w-4 h-4" />
-        </button>
-
-        <button onClick={() => onConvert("angola")} className="w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white py-4 text-base sm:text-lg font-bold rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_-10px_rgba(37,211,102,0.5)] transition-all hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.7)]">
-          <MessageCircle className="w-5 h-5 fill-white" />
-          Angola · 10.000 AKZ via WhatsApp
-        </button>
       </motion.div>
 
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-xs text-[#A1A1AA] mt-8 mb-12">
@@ -389,7 +579,6 @@ const AngolaContextSection = memo(() => {
       <div className="max-w-4xl mx-auto">
         <div className="p-8 md:p-10 rounded-3xl border border-[#25D366]/30 bg-[#050505] relative overflow-hidden shadow-[0_20px_60px_rgba(37,211,102,0.05)]">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#25D366]/[0.03] rounded-full blur-3xl pointer-events-none" />
-          
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="flex-1 text-center md:text-left">
               <span className="inline-flex items-center gap-2 text-[10px] font-mono text-[#25D366] font-bold uppercase tracking-widest mb-4 bg-[#25D366]/10 px-3 py-1.5 rounded-lg border border-[#25D366]/20">
@@ -403,7 +592,6 @@ const AngolaContextSection = memo(() => {
               <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6">
                 Enquanto outros sistemas param quando a net cai, o teu Elite OS continua. O sistema foi desenhado para simplicidade, velocidade e controlo real, independentemente do contexto.
               </p>
-              
               <div className="grid grid-cols-2 gap-3 text-left">
                 {[
                   "Internet lenta",
@@ -420,7 +608,6 @@ const AngolaContextSection = memo(() => {
                 ))}
               </div>
             </div>
-            
             <div className="w-full md:w-1/3 shrink-0 flex justify-center">
               <div className="w-32 h-32 rounded-full border-4 border-[#25D366]/20 flex items-center justify-center bg-[#0A0A0A] relative shadow-[0_0_40px_rgba(37,211,102,0.15)]">
                 <div className="absolute inset-0 rounded-full border border-[#25D366]/40 animate-pulse-ring" />
@@ -438,9 +625,7 @@ const ProblemSolutionSection = memo(() => (
   <section className="py-20 px-6 border-b border-white/[0.05] bg-[#070707]">
     <div className="max-w-5xl mx-auto">
       <div className="text-center mb-10 max-w-2xl mx-auto">
-        <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-3 block">
-          O Diagnóstico
-        </span>
+        <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-3 block">O Diagnóstico</span>
         <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
           Sentes que estudas muito, <br className="hidden md:block" />
           <span className="display-heading text-[#FF007A]">mas não avanças?</span>
@@ -449,14 +634,8 @@ const ProblemSolutionSection = memo(() => (
           O problema não é a tua dedicação. É a falta de um sistema. Este kit elimina a fricção e coloca à tua disposição <strong className="text-white">6 pilares de alta performance</strong>, prontos para uso imediato.
         </p>
       </div>
-
       <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2 shadow-[0_30px_80px_rgba(0,0,0,0.8)]">
-        <img
-          src={CONFIG.productIntro}
-          alt="Notion Elite Kit — Problema vs Solução"
-          className="w-full h-auto rounded-xl object-cover block"
-          loading="lazy"
-        />
+        <img src={CONFIG.productIntro} alt="Notion Elite Kit — Problema vs Solução" className="w-full h-auto rounded-xl object-cover block" loading="lazy" />
       </div>
     </div>
   </section>
@@ -476,16 +655,12 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
     <section id="pilares" className="py-20 px-6 border-b border-white/[0.05] bg-[#050505]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-3 block">
-            Os 6 Pilares de Alta Performance
-          </span>
+          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-3 block">Os 6 Pilares de Alta Performance</span>
           <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
             Prova de funcionalidade. <br />
             <span className="display-heading text-gradient-gold">Sem promessas vazias.</span>
           </h2>
-          <p className="text-sm text-[#A1A1AA] mt-4">
-            Cada pilar foi desenhado para eliminar uma fricção específica da sua rotina. Veja o produto real.
-          </p>
+          <p className="text-sm text-[#A1A1AA] mt-4">Cada pilar foi desenhado para eliminar uma fricção específica da sua rotina. Veja o produto real.</p>
         </div>
 
         <div className="space-y-10">
@@ -501,7 +676,6 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
                 <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
                   <img src={p.img} alt={p.title} className="w-full h-auto rounded-xl object-cover block" loading="lazy" />
                 </div>
-
                 <div className="space-y-3">
                   <span className="text-[10px] font-mono tracking-[0.25em] text-[#D4AF37] uppercase font-bold">{p.label}</span>
                   <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">{p.title}</h3>
@@ -525,16 +699,7 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
                     Não precisas de ver o resto da página.<br />
                     Se estás cansado do caos, este é o momento de agir.
                   </p>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    <button onClick={() => onConvert("international")} className="btn-luxury-cyan py-3 px-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 animate-pulse-ring">
-                      <Crown className="w-4 h-4" />
-                      Internacional · $10
-                    </button>
-                    <button onClick={() => onConvert("angola")} className="bg-[#25D366] hover:bg-[#1EBE5A] text-white py-3 px-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-colors">
-                      <MessageCircle className="w-4 h-4 fill-white" />
-                      Angola · 10k AKZ
-                    </button>
-                  </div>
+                  <CTAButtons onConvert={onConvert} size="sm" />
                 </motion.div>
               )}
             </div>
@@ -557,31 +722,18 @@ const ROICalculatorSection = memo(() => {
     <section className="py-20 px-6 border-b border-white/[0.05] bg-[#070707]">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-10">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-3 block">
-            A Lógica da Compra
-          </span>
+          <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-3 block">A Lógica da Compra</span>
           <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
             Quanto te custa, <span className="display-heading text-[#FF007A]">por ano</span>, continuar desorganizado?
           </h2>
         </div>
-
         <div className="p-6 md:p-8 rounded-3xl bg-[#0A0A0A] border border-white/[0.06]">
-          <label className="block text-xs text-[#A1A1AA] mb-2 font-mono uppercase tracking-wider">
-            Horas perdidas por semana a organizar tarefas
-          </label>
+          <label className="block text-xs text-[#A1A1AA] mb-2 font-mono uppercase tracking-wider">Horas perdidas por semana a organizar tarefas</label>
           <div className="flex items-center gap-4 mb-1">
-            <input
-              type="range"
-              min="1"
-              max="20"
-              value={hoursPerWeek}
-              onChange={(e) => setHoursPerWeek(parseInt(e.target.value, 10))}
-              className="flex-1 h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#00E5FF]"
-            />
+            <input type="range" min="1" max="20" value={hoursPerWeek} onChange={(e) => setHoursPerWeek(parseInt(e.target.value, 10))} className="flex-1 h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#00E5FF]" />
             <span className="text-3xl font-black text-white font-mono min-w-[80px] text-right">{hoursPerWeek}h</span>
           </div>
           <p className="text-[10px] text-[#A1A1AA] mb-6 font-mono">Ajusta o slider consoante a tua realidade.</p>
-
           <div className="grid sm:grid-cols-3 gap-3 pt-5 border-t border-white/[0.05]">
             <div className="p-4 rounded-xl bg-[#050505] border border-[#FF007A]/20 text-center">
               <p className="text-[9px] font-mono text-[#FF007A] uppercase tracking-widest mb-1">Custo anual do caos</p>
@@ -596,10 +748,7 @@ const ROICalculatorSection = memo(() => {
               <p className="text-xl font-black text-[#D4AF37] font-mono">{roi}x</p>
             </div>
           </div>
-
-          <p className="text-center text-xs text-[#A1A1AA] mt-6 italic">
-            Menos que uma saída ao fim de semana. Mais que um semestre inteiro de clareza.
-          </p>
+          <p className="text-center text-xs text-[#A1A1AA] mt-6 italic">Menos que uma saída ao fim de semana. Mais que um semestre inteiro de clareza.</p>
         </div>
       </div>
     </section>
@@ -632,14 +781,11 @@ const TransformationSection = memo(() => {
     <section id="transformacao" className="py-24 px-6 border-b border-white/[0.05]">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-14 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#00E5FF] uppercase font-bold mb-4 block">
-            A Virada de Chave
-          </span>
+          <span className="text-[10px] font-mono tracking-[0.3em] text-[#00E5FF] uppercase font-bold mb-4 block">A Virada de Chave</span>
           <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight">
             Do caos ao <span className="display-heading text-gradient-magnetic">cockpit de execução</span>
           </h2>
         </div>
-
         <div className="grid md:grid-cols-2 gap-5 text-left">
           <div className="p-7 rounded-2xl bg-gradient-to-b from-[#140508] to-[#0A0505] border border-[#FF007A]/20 relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-[#FF007A]/10 text-[#FF007A] font-mono text-[9px] font-bold px-3 py-1 rounded-bl-lg">ANTES</div>
@@ -654,11 +800,8 @@ const TransformationSection = memo(() => {
                 </div>
               ))}
             </div>
-            <div className="mt-5 pt-3 border-t border-[#FF007A]/10 text-[10px] text-[#FF007A]/80 font-mono">
-              Sintoma: stress, hesitação, estagnação.
-            </div>
+            <div className="mt-5 pt-3 border-t border-[#FF007A]/10 text-[10px] text-[#FF007A]/80 font-mono">Sintoma: stress, hesitação, estagnação.</div>
           </div>
-
           <div className="p-7 rounded-2xl bg-gradient-to-b from-[#05140A] to-[#050A06] border border-[#25D366]/25 relative overflow-hidden shadow-[0_0_40px_rgba(37,211,102,0.08)]">
             <div className="absolute top-0 right-0 bg-[#25D366]/10 text-[#25D366] font-mono text-[9px] font-bold px-3 py-1 rounded-bl-lg">DEPOIS · CLAREZA</div>
             <p className="text-[10px] font-mono text-[#25D366] font-extrabold uppercase mb-2">A Experiência Elite</p>
@@ -672,12 +815,9 @@ const TransformationSection = memo(() => {
                 </div>
               ))}
             </div>
-            <div className="mt-5 pt-3 border-t border-[#25D366]/10 text-[10px] text-[#25D366] font-mono font-bold">
-              Resultado: controlo real e foco instantâneo.
-            </div>
+            <div className="mt-5 pt-3 border-t border-[#25D366]/10 text-[10px] text-[#25D366] font-mono font-bold">Resultado: controlo real e foco instantâneo.</div>
           </div>
         </div>
-
         <div className="mt-10 rounded-2xl overflow-hidden border border-white/[0.06] bg-[#0A0A0A] p-2 max-w-4xl mx-auto">
           <img src={CONFIG.antesDepoisMockup} alt="Antes e Depois" className="w-full h-auto rounded-xl object-cover block" loading="lazy" />
         </div>
@@ -686,113 +826,62 @@ const TransformationSection = memo(() => {
   );
 });
 
-const RevealSection = memo(() => {
-  return (
-    <section className="py-20 px-6 border-b border-white/[0.05] bg-[#050505] relative overflow-hidden">
-      <div className="max-w-5xl mx-auto text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4"
-        >
-          ♟ A Virada de Chave
-        </motion.p>
-        <motion.h2
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white mb-10 leading-tight"
-        >
-          Do caos… <span className="display-heading text-gradient-gold">à clareza</span>.
-        </motion.h2>
-
-        <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2 shadow-[0_30px_80px_rgba(0,0,0,0.8)]">
-          <motion.div
-            initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
-            whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-            transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="relative"
-          >
-            <img
-              src={CONFIG.notionMockup}
-              alt="Transição Caos → Controlo"
-              className="w-full h-auto rounded-xl object-cover block"
-              loading="lazy"
-            />
-            <motion.div
-              initial={{ x: "-100%" }}
-              whileInView={{ x: "100%" }}
-              transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }}
-              viewport={{ once: true, amount: 0.3 }}
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00E5FF]/20 to-transparent pointer-events-none"
-            />
-          </motion.div>
-        </div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 1.2 }}
-          className="text-sm text-[#A1A1AA] mt-6 max-w-xl mx-auto italic font-serif"
-        >
-          "Quando o sistema entra, o ruído sai."
-        </motion.p>
+const RevealSection = memo(() => (
+  <section className="py-20 px-6 border-b border-white/[0.05] bg-[#050505] relative overflow-hidden">
+    <div className="max-w-5xl mx-auto text-center">
+      <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4">♟ A Virada de Chave</motion.p>
+      <motion.h2 initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white mb-10 leading-tight">
+        Do caos… <span className="display-heading text-gradient-gold">à clareza</span>.
+      </motion.h2>
+      <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2 shadow-[0_30px_80px_rgba(0,0,0,0.8)]">
+        <motion.div initial={{ clipPath: "inset(0% 100% 0% 0%)" }} whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }} transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }} viewport={{ once: true, amount: 0.3 }} className="relative">
+          <img src={CONFIG.notionMockup} alt="Transição Caos → Controlo" className="w-full h-auto rounded-xl object-cover block" loading="lazy" />
+          <motion.div initial={{ x: "-100%" }} whileInView={{ x: "100%" }} transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }} viewport={{ once: true, amount: 0.3 }} className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00E5FF]/20 to-transparent pointer-events-none" />
+        </motion.div>
       </div>
-    </section>
-  );
-});
+      <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.2 }} className="text-sm text-[#A1A1AA] mt-6 max-w-xl mx-auto italic font-serif">
+        "Quando o sistema entra, o ruído sai."
+      </motion.p>
+    </div>
+  </section>
+));
 
-const ManifestoSection = memo(() => {
-  return (
-    <section id="manifesto" className="relative py-28 px-6 overflow-hidden border-b border-white/[0.05]">
-      <div className="absolute inset-0 chess-deco opacity-30 pointer-events-none" />
-      <div className="max-w-3xl mx-auto text-center relative">
-        <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-6 block">
-          ♟ O Manifesto · Elite OS
+const ManifestoSection = memo(() => (
+  <section id="manifesto" className="relative py-28 px-6 overflow-hidden border-b border-white/[0.05]">
+    <div className="absolute inset-0 chess-deco opacity-30 pointer-events-none" />
+    <div className="max-w-3xl mx-auto text-center relative">
+      <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-6 block">♟ O Manifesto · Elite OS</span>
+      <Quote className="w-8 h-8 text-[#D4AF37]/40 mx-auto mb-4" />
+      <p className="text-2xl sm:text-3xl md:text-4xl text-white leading-[1.15] font-serif italic mb-8">
+        Nós acreditamos que o caos moderno está a destruir mentes brilhantes. <br className="hidden md:block" />
+        <span className="text-gradient-magnetic not-italic font-sans font-bold text-xl sm:text-2xl md:text-3xl block mt-6">
+          Enquanto o mundo vive fragmentado, nós construímos sistemas.
         </span>
-
-        <Quote className="w-8 h-8 text-[#D4AF37]/40 mx-auto mb-4" />
-
-        <p className="text-2xl sm:text-3xl md:text-4xl text-white leading-[1.15] font-serif italic mb-8">
-          Nós acreditamos que o caos moderno está a destruir mentes brilhantes. <br className="hidden md:block" />
-          <span className="text-gradient-magnetic not-italic font-sans font-bold text-xl sm:text-2xl md:text-3xl block mt-6">
-            Enquanto o mundo vive fragmentado, nós construímos sistemas.
-          </span>
+      </p>
+      <div className="divider-gold max-w-md mx-auto mb-10" />
+      <div className="mb-12 max-w-xl mx-auto">
+        <p className="text-3xl sm:text-4xl md:text-5xl font-serif italic text-white leading-tight mb-3">
+          Clareza é <span className="text-gradient-magnetic not-italic font-bold">poder</span>.
         </p>
-
-        <div className="divider-gold max-w-md mx-auto mb-10" />
-
-        <div className="mb-12 max-w-xl mx-auto">
-          <p className="text-3xl sm:text-4xl md:text-5xl font-serif italic text-white leading-tight mb-3">
-            Clareza é <span className="text-gradient-magnetic not-italic font-bold">poder</span>.
-          </p>
-          <div className="divider-gold max-w-[120px] mx-auto mb-3" />
-          <p className="text-xs text-[#A1A1AA] italic">
-            O slogan dos que se recusam a viver no ruído.
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-3 gap-6 text-left max-w-3xl mx-auto">
-          {[
-            { p: "O caos custa futuros.", sub: "Cada dia desorganizado é oportunidade perdida." },
-            { p: "Disciplina visual.", sub: "O que não é visto não é gerido." },
-            { p: "Organizados vencem.", sub: "2026 pertence a quem tem sistema." }
-          ].map((item, i) => (
-            <div key={i} className="p-5 rounded-xl bg-[#0A0A0A] border border-white/[0.05]">
-              <span className="text-[10px] font-mono text-[#D4AF37] block mb-2 tracking-widest">0{i + 1}</span>
-              <p className="text-base font-bold text-white mb-1.5">{item.p}</p>
-              <p className="text-[11px] text-[#A1A1AA] leading-relaxed">{item.sub}</p>
-            </div>
-          ))}
-        </div>
+        <div className="divider-gold max-w-[120px] mx-auto mb-3" />
+        <p className="text-xs text-[#A1A1AA] italic">O slogan dos que se recusam a viver no ruído.</p>
       </div>
-    </section>
-  );
-});
+      <div className="grid sm:grid-cols-3 gap-6 text-left max-w-3xl mx-auto">
+        {[
+          { p: "O caos custa futuros.", sub: "Cada dia desorganizado é oportunidade perdida." },
+          { p: "Disciplina visual.", sub: "O que não é visto não é gerido." },
+          { p: "Organizados vencem.", sub: "2026 pertence a quem tem sistema." }
+        ].map((item, i) => (
+          <div key={i} className="p-5 rounded-xl bg-[#0A0A0A] border border-white/[0.05]">
+            <span className="text-[10px] font-mono text-[#D4AF37] block mb-2 tracking-widest">0{i + 1}</span>
+            <p className="text-base font-bold text-white mb-1.5">{item.p}</p>
+            <p className="text-[11px] text-[#A1A1AA] leading-relaxed">{item.sub}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+));
 
 const PainSection = memo(() => {
   const pains = [
@@ -800,23 +889,17 @@ const PainSection = memo(() => {
     { icon: Brain, title: "Sobrecarga Mental", desc: "Acordas cansado antes de começar. A mente nunca desliga. A ansiedade do domingo à noite virou rotina semanal.", color: "cyan" },
     { icon: Coins, title: "Custo Real", desc: "Cada semestre desperdiçado custa dinheiro, oportunidades e saúde mental. O caos não é gratuito — é o imposto invisível da desorganização.", color: "gold" }
   ];
-
   return (
     <section id="caos" className="relative py-28 px-6 border-b border-white/[0.05] bg-[#070707]">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-14 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-4 block">
-            O Diagnóstico
-          </span>
+          <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-4 block">O Diagnóstico</span>
           <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-[1.05]">
             Estás a estudar… <br />
             ou apenas a <span className="display-heading text-[#FF007A]">sobreviver</span> no caos?
           </h2>
-          <p className="text-sm text-[#A1A1AA] mt-4 leading-relaxed">
-            O problema da maioria não é falta de inteligência. É <strong className="text-white">excesso de ruído</strong>.
-          </p>
+          <p className="text-sm text-[#A1A1AA] mt-4 leading-relaxed">O problema da maioria não é falta de inteligência. É <strong className="text-white">excesso de ruído</strong>.</p>
         </div>
-
         <div className="grid md:grid-cols-3 gap-5">
           {pains.map((p, i) => {
             const Icon = p.icon;
@@ -825,12 +908,11 @@ const PainSection = memo(() => {
               cyan: "from-[#00E5FF]/15 to-transparent border-[#00E5FF]/20 text-[#00E5FF]",
               gold: "from-[#D4AF37]/15 to-transparent border-[#D4AF37]/20 text-[#D4AF37]"
             };
-            const cls = colorMap[p.color];
             return (
-              <div key={i} className={`relative p-6 md:p-8 rounded-2xl bg-gradient-to-b ${cls} border bg-[#050505] flex flex-col`}>
+              <div key={i} className={`relative p-6 md:p-8 rounded-2xl bg-gradient-to-b ${colorMap[p.color]} border bg-[#050505] flex flex-col`}>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[10px] font-mono text-current tracking-widest font-bold uppercase">PROBLEMA 0{i + 1}</span>
-                  <div className={`w-9 h-9 rounded-lg bg-[#0A0A0A] border border-white/[0.06] text-current flex items-center justify-center`}>
+                  <div className="w-9 h-9 rounded-lg bg-[#0A0A0A] border border-white/[0.06] text-current flex items-center justify-center">
                     <Icon className="w-4 h-4" />
                   </div>
                 </div>
@@ -840,15 +922,12 @@ const PainSection = memo(() => {
             );
           })}
         </div>
-
         <div className="mt-14 text-center">
           <div className="divider-glow max-w-md mx-auto mb-6" />
           <p className="text-xs md:text-sm text-white italic max-w-xl mx-auto font-serif">
             "No xadrez, uma jogada errada pode custar o campeonato. Na vida, um prazo esquecido pode custar o semestre inteiro."
           </p>
-          <p className="text-[10px] text-[#D4AF37] font-mono mt-3 tracking-widest uppercase">
-            — Gabriel Sapalo, Campeão Nacional de Xadrez 2024
-          </p>
+          <p className="text-[10px] text-[#D4AF37] font-mono mt-3 tracking-widest uppercase">— Gabriel Sapalo, Campeão Nacional de Xadrez 2024</p>
         </div>
       </div>
     </section>
@@ -862,20 +941,16 @@ const NotTemplateSection = memo(() => {
     { k: "Redução de carga cognitiva", v: "O teu cérebro descansa enquanto o sistema executa em segundo plano." },
     { k: "Execução diária real", v: "Não inspira motivação. Obriga à clareza e à ação concreta todos os dias." }
   ];
-
   return (
     <section className="py-20 px-6 border-b border-white/[0.05] bg-[#070707]">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-4 block">
-            Destruição de Objeção
-          </span>
+          <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-4 block">Destruição de Objeção</span>
           <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight">
             Isto <span className="line-through text-gray-500">não é um template</span>. <br className="hidden sm:block" />
             <span className="display-heading text-gradient-magnetic">É um sistema operacional.</span>
           </h2>
         </div>
-
         <div className="grid sm:grid-cols-2 gap-4">
           {pillars.map((p, i) => (
             <div key={i} className="p-5 rounded-xl bg-[#0A0A0A] border border-white/[0.05] flex gap-3">
@@ -898,36 +973,24 @@ const JourneySection = memo(() => {
     { time: "Minuto 20", title: "Personalização guiada", desc: "Vídeo de setup passo-a-passo para adaptar o sistema à tua vida.", color: "gold" },
     { time: "Dia 1", title: "Execução total", desc: "Acordas com clareza. Sabes exactamente o que fazer. O sistema já trabalha por ti.", color: "green" }
   ];
-
   const colorMap: Record<string, string> = {
     cyan: "text-[#00E5FF] border-[#00E5FF]/30 bg-[#00E5FF]/5",
     gold: "text-[#D4AF37] border-[#D4AF37]/30 bg-[#D4AF37]/5",
     green: "text-[#25D366] border-[#25D366]/30 bg-[#25D366]/5"
   };
-
   return (
     <section className="py-20 px-6 border-b border-white/[0.05]">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-3 block">
-            A Tua Jornada em 3 Etapas
-          </span>
+          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-3 block">A Tua Jornada em 3 Etapas</span>
           <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
             Do pagamento à execução total <br className="hidden md:block" />
             <span className="display-heading text-gradient-gold">em menos de 24 horas.</span>
           </h2>
         </div>
-
         <div className="grid md:grid-cols-3 gap-5 mb-16">
           {steps.map((s, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`p-6 rounded-2xl border ${colorMap[s.color]} relative`}
-            >
+            <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className={`p-6 rounded-2xl border ${colorMap[s.color]} relative`}>
               <span className="text-[10px] font-mono font-bold uppercase tracking-widest block mb-2">{s.time}</span>
               <h3 className="text-base font-bold text-white mb-2">{s.title}</h3>
               <p className="text-xs text-[#A1A1AA] leading-relaxed">{s.desc}</p>
@@ -935,7 +998,6 @@ const JourneySection = memo(() => {
             </motion.div>
           ))}
         </div>
-
         <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
           <div className="p-6 rounded-2xl bg-gradient-to-br from-[#0A0505] to-[#050505] border border-[#FF007A]/20">
             <p className="text-[10px] font-mono text-[#FF007A] font-bold uppercase tracking-widest mb-3">Isto NÃO é para ti se…</p>
@@ -961,21 +1023,17 @@ const JourneySection = memo(() => {
 
 const BonusSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const totalValue = BONUSES.reduce((s, b) => s + b.value, 0);
-
   return (
     <section id="bonus" className="py-24 px-6 border-b border-white/[0.05] bg-[#070707] relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[700px] h-[400px] gradient-gold-glow opacity-50 rounded-full blur-[140px] pointer-events-none -z-10" />
       <div className="max-w-5xl mx-auto relative">
         <div className="text-center mb-12 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">
-            ♟ Tudo Incluído na Fase Founder
-          </span>
+          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ Tudo Incluído na Fase Founder</span>
           <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight">
             Mais do que o sistema. <br />
             <span className="display-heading text-gradient-gold">Tudo o que precisas.</span>
           </h2>
         </div>
-
         <div className="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {BONUSES.map((b, i) => (
             <div key={i} className="p-5 rounded-xl bg-[#0A0A0A] border border-white/[0.05] flex flex-col">
@@ -986,13 +1044,11 @@ const BonusSection = memo(({ onConvert }: { onConvert: (seg: "international" | "
               <h3 className="text-sm font-bold text-white mb-1.5">{b.title}</h3>
               <p className="text-[11px] text-[#A1A1AA] leading-relaxed flex-1">{b.desc}</p>
               <div className="mt-3 pt-3 border-t border-white/[0.04] flex items-center gap-1.5 text-[10px] font-mono text-[#25D366] font-bold">
-                <CheckCircle2 className="w-3 h-3" />
-                <span>INCLUÍDO · $0</span>
+                <CheckCircle2 className="w-3 h-3" /><span>INCLUÍDO · $0</span>
               </div>
             </div>
           ))}
         </div>
-
         <div className="mt-10 max-w-2xl mx-auto p-6 rounded-2xl border-gradient-gold text-center">
           <p className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-widest mb-2 font-bold">Valor Total dos Bónus</p>
           <p className="text-3xl md:text-4xl font-black text-white mb-2">
@@ -1001,17 +1057,8 @@ const BonusSection = memo(({ onConvert }: { onConvert: (seg: "international" | "
           </p>
           <p className="text-xs text-[#A1A1AA]">Tudo incluído na tua licença Founder.</p>
         </div>
-
-        <div className="mt-8 max-w-xl mx-auto space-y-3">
-          <button onClick={() => onConvert("international")} className="w-full btn-luxury-cyan py-3.5 px-6 rounded-xl text-sm font-bold flex items-center justify-center gap-2 cursor-pointer animate-pulse-ring">
-            <Crown className="w-4 h-4" />
-            <span>Internacional · $10 USD</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-          <button onClick={() => onConvert("angola")} className="w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white py-3.5 px-6 rounded-xl text-sm font-bold flex items-center justify-center gap-2 cursor-pointer shadow-[0_10px_30px_-10px_rgba(37,211,102,0.5)] transition-all hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.7)]">
-            <MessageCircle className="w-4 h-4 fill-white" />
-            <span>Angola · 10.000 AKZ via WhatsApp</span>
-          </button>
+        <div className="mt-8 max-w-xl mx-auto">
+          <CTAButtons onConvert={onConvert} size="lg" />
         </div>
       </div>
     </section>
@@ -1024,17 +1071,12 @@ const EngineeringSection = memo(() => {
     <section id="engenharia" className="py-24 px-6 border-b border-white/[0.05] bg-[#070707]">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">
-            Engenharia em Ação
-          </span>
+          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">Engenharia em Ação</span>
           <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white">
             Vê o sistema a funcionar <span className="display-heading text-gradient-magnetic">na prática</span>
           </h2>
-          <p className="text-sm text-[#A1A1AA] mt-3">
-            Navega nas funcionalidades prontas a usar. Sem adivinhar o design. Sem complicação.
-          </p>
+          <p className="text-sm text-[#A1A1AA] mt-3">Navega nas funcionalidades prontas a usar. Sem adivinhar o design. Sem complicação.</p>
         </div>
-
         <div className="video-luxury-container max-w-4xl mx-auto">
           {!playing ? (
             <div onClick={() => { setPlaying(true); Telemetry.emit("demo_played"); }} className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]">
@@ -1059,25 +1101,15 @@ const SocialProofSection = memo(() => (
   <section id="provas" className="py-24 px-6 border-b border-white/[0.05]">
     <div className="max-w-6xl mx-auto">
       <div className="text-center mb-14 max-w-2xl mx-auto">
-        <span className="text-[10px] font-mono tracking-[0.3em] text-[#00E5FF] uppercase font-bold mb-4 block">
-          ♟ Elite Minds · Validação Operacional
-        </span>
+        <span className="text-[10px] font-mono tracking-[0.3em] text-[#00E5FF] uppercase font-bold mb-4 block">♟ Elite Minds · Validação Operacional</span>
         <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight">
           Eles já fizeram o <span className="display-heading text-gradient-magnetic">reset operacional</span>
         </h2>
         <p className="text-sm text-[#A1A1AA] mt-3">+3.200 operadores mentais. Avaliações 5 estrelas. Evidências reais.</p>
       </div>
-
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {TESTIMONIALS.map((t, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: i * 0.04 }}
-            className="card-luxury p-6 flex flex-col"
-          >
+          <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.04 }} className="card-luxury p-6 flex flex-col">
             <div className="flex items-center gap-3 mb-4 pb-4 border-b border-white/[0.05]">
               <div className="w-14 h-14 rounded-full overflow-hidden border border-[#D4AF37]/50 shrink-0 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" loading="lazy" />
@@ -1095,14 +1127,11 @@ const SocialProofSection = memo(() => (
               <div className="flex items-center gap-1 text-[9px] font-mono text-[#25D366]">
                 <CheckCircle2 className="w-3 h-3" /> Identidade Verificada
               </div>
-              <span className="text-[10px] font-mono font-bold text-[#D4AF37] bg-[#D4AF37]/10 px-2 py-0.5 rounded">
-                {t.metric}
-              </span>
+              <span className="text-[10px] font-mono font-bold text-[#D4AF37] bg-[#D4AF37]/10 px-2 py-0.5 rounded">{t.metric}</span>
             </div>
           </motion.div>
         ))}
       </div>
-
       <div className="mt-12 max-w-3xl mx-auto text-center p-6 rounded-2xl bg-[#0A0A0A] border border-[#00E5FF]/20">
         <p className="text-xs font-bold text-white mb-2 flex items-center justify-center gap-2">
           <Flame className="w-3.5 h-3.5 text-[#FF007A]" />
@@ -1121,14 +1150,11 @@ const AuthoritySection = memo(() => (
     <div className="absolute inset-0 chess-deco opacity-20 pointer-events-none" />
     <div className="max-w-5xl mx-auto relative">
       <div className="text-center mb-10 max-w-2xl mx-auto">
-        <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">
-          ♟ A Mente por Trás da Matriz
-        </span>
+        <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ A Mente por Trás da Matriz</span>
         <h2 className="premium-heading text-3xl sm:text-4xl text-white">
           O sistema criado pelo <span className="display-heading text-gradient-gold">Campeão Nacional de Xadrez de Angola</span>
         </h2>
       </div>
-
       <div className="grid md:grid-cols-5 gap-10 items-center">
         <div className="md:col-span-2 flex flex-col gap-6">
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
@@ -1140,7 +1166,6 @@ const AuthoritySection = memo(() => (
               <p className="text-[10px] text-[#D4AF37] font-mono mt-1 tracking-widest uppercase block">{CONFIG.authorTitle}</p>
             </div>
           </div>
-          
           <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] shadow-lg">
             <img src={CONFIG.fideProof} alt="Resultados Oficiais FIDE 2024" className="w-full h-auto object-cover opacity-90" loading="lazy" />
             <div className="p-3 bg-[#050505] border-t border-white/[0.05] flex items-center justify-between">
@@ -1150,16 +1175,13 @@ const AuthoritySection = memo(() => (
             </div>
           </div>
         </div>
-
         <div className="md:col-span-3 space-y-5 text-sm text-[#A1A1AA] leading-relaxed mt-4 md:mt-0">
           <p className="text-lg md:text-xl font-serif italic text-white border-l-2 border-[#D4AF37] pl-5 py-2 bg-white/[0.01] rounded-r">
-            "No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exatamente o mesmo: quem não tem sistema, joga no improviso — e falha."
+            "No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exactamente o mesmo: quem não tem sistema, joga no improviso — e falha."
           </p>
-
           <p className="text-[#D4D4D8] bg-[#0A0A0A] border-l-2 border-[#00E5FF]/40 pl-4 py-2 rounded-r italic">
             Eu também vivia perdido entre PDFs, WhatsApp e deadlines. Criei este sistema primeiro para mim — porque precisava dele. Só depois percebi que funcionava para qualquer pessoa que quisesse sair do caos.
           </p>
-
           <div className="space-y-2">
             {[
               "♟️ Campeão Nacional Absoluto de Xadrez de Angola",
@@ -1173,7 +1195,6 @@ const AuthoritySection = memo(() => (
               </div>
             ))}
           </div>
-
           <div className="grid grid-cols-2 gap-3 pt-4">
             {[
               { icon: Eye, label: "Antecipação estruturada" },
@@ -1200,16 +1221,10 @@ const UrgencyTimer = memo(() => {
   const [timeLeft, setTimeLeft] = useState({ h: 0, m: 0, s: 0 });
 
   useEffect(() => {
-    const STORAGE_KEY = "ne_founder_deadline_v1";
-    let deadline = parseInt(localStorage.getItem(STORAGE_KEY) || "0", 10);
-
-    if (!deadline || deadline < Date.now()) {
-      deadline = Date.now() + 72 * 60 * 60 * 1000;
-      localStorage.setItem(STORAGE_KEY, String(deadline));
-    }
+    const DEADLINE = new Date("2026-06-15T23:59:59").getTime();
 
     const update = () => {
-      const diff = Math.max(0, deadline - Date.now());
+      const diff = Math.max(0, DEADLINE - Date.now());
       const h = Math.floor(diff / (1000 * 60 * 60));
       const m = Math.floor((diff / (1000 * 60)) % 60);
       const s = Math.floor((diff / 1000) % 60);
@@ -1242,29 +1257,20 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
   <section id="oferta" className="py-24 px-6 border-b border-white/[0.05]">
     <div className="max-w-4xl mx-auto text-center">
       <div className="mb-10">
-        <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">
-          ♟ Licenciamento Exclusivo · Fase Founder
-        </span>
+        <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ Licenciamento Exclusivo · Fase Founder</span>
         <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
           O investimento mais inteligente <br className="hidden md:block" />
           que podes fazer em <span className="display-heading text-gradient-gold">ti mesmo</span>
         </h2>
       </div>
-
       <div className="border border-[#00E5FF]/30 bg-[#101010] p-8 sm:p-10 rounded-3xl text-center max-w-2xl mx-auto relative overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
         <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#00E5FF]/[0.06] rounded-full blur-3xl pointer-events-none" />
-
         <p className="text-xs text-white/60 uppercase tracking-widest font-mono">Preço de Lançamento — Founder Batch 01</p>
-
-        <div className="flex justify-center mt-3 mb-4">
-          <UrgencyTimer />
-        </div>
-
+        <div className="flex justify-center mt-3 mb-4"><UrgencyTimer /></div>
         <div className="flex items-end justify-center gap-2 my-5">
           <span className="text-6xl sm:text-7xl font-black text-white tracking-tight">$10</span>
           <span className="pb-3 text-lg font-normal text-white/50">ou 10.000 AKZ</span>
         </div>
-
         <div className="mt-6 max-w-md mx-auto">
           <div className="flex items-center justify-between text-xs mb-2">
             <span className="text-[#A1A1AA] font-mono">Vagas Founder Batch 01</span>
@@ -1280,7 +1286,6 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
             Apenas 14 licenças Founder restantes
           </p>
         </div>
-
         <div className="mt-2 mb-6 bg-red-500/10 border border-red-500/20 text-left p-4 rounded-xl max-w-md mx-auto">
           <p className="text-xs font-bold text-red-400 mb-1 flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
@@ -1290,11 +1295,8 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
             Parabéns, chegaste a tempo. O <strong className="text-white">Founder Batch 01</strong> ainda tem vagas, mas o preço subirá para <strong className="text-white">$49</strong> assim que este lote for fechado.
           </p>
         </div>
-
         <div className="mt-6 rounded-2xl border border-[#D4AF37]/20 bg-[#0A0A0A] p-6 text-left max-w-md mx-auto">
-          <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-4 font-bold text-center">
-            Estrutura de Preço Founder
-          </p>
+          <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-4 font-bold text-center">Estrutura de Preço Founder</p>
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-white font-semibold flex items-center gap-2">
@@ -1312,15 +1314,9 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
               <span className="font-mono text-white">$49</span>
             </div>
           </div>
-          <p className="text-[10px] text-[#A1A1AA] mt-4 text-center italic">
-            Garante o Batch 01 antes que o preço suba.
-          </p>
+          <p className="text-[10px] text-[#A1A1AA] mt-4 text-center italic">Garante o Batch 01 antes que o preço suba.</p>
         </div>
-
-        <p className="text-xs text-[#00E5FF] font-mono font-semibold mt-6">
-          Acesso vitalício • Garantia de 30 dias
-        </p>
-
+        <p className="text-xs text-[#00E5FF] font-mono font-semibold mt-6">Acesso vitalício • Garantia de 30 dias</p>
         <div className="mt-8 text-left max-w-md mx-auto">
           <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-widest mb-3 font-semibold text-center">Inclui:</p>
           <div className="space-y-2 text-sm">
@@ -1339,7 +1335,6 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
               </div>
             ))}
           </div>
-          
           <div className="mt-4 p-3 rounded-xl bg-[#00E5FF]/5 border border-[#00E5FF]/20 flex items-start gap-3">
             <div className="w-6 h-6 rounded-full bg-[#00E5FF]/10 flex items-center justify-center shrink-0 mt-0.5">
               <Sparkles className="w-3.5 h-3.5 text-[#00E5FF]" />
@@ -1352,25 +1347,9 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
             </div>
           </div>
         </div>
-
         <div className="mt-10 space-y-3">
-          <button
-            onClick={() => onConvert("international")}
-            className="w-full btn-luxury-cyan py-4 px-6 rounded-xl text-base font-bold flex items-center justify-center gap-2 cursor-pointer animate-pulse-ring"
-          >
-            <Crown className="w-4 h-4" />
-            Garantir Founder Batch 01 — $10
-          </button>
-
-          <button
-            onClick={() => onConvert("angola")}
-            className="w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white py-4 px-6 rounded-xl text-base font-bold flex items-center justify-center gap-2 cursor-pointer shadow-[0_10px_30px_-10px_rgba(37,211,102,0.5)] transition-all hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.7)]"
-          >
-            <MessageCircle className="w-4 h-4 fill-white" />
-            Angola — 10.000 AKZ via WhatsApp
-          </button>
+          <CTAButtons onConvert={onConvert} size="lg" />
         </div>
-
         <div className="mt-5 pt-5 border-t border-white/[0.05]">
           <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-wider mb-2">Métodos de pagamento aceites</p>
           <div className="flex items-center justify-center gap-3 flex-wrap text-[10px] text-white/70 font-mono">
@@ -1383,7 +1362,6 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
             Comenta <span className="text-[#D4AF37] font-bold">"ELITE"</span> nos nossos vídeos e recebe o link directo por DM.
           </p>
         </div>
-
         <div className="mt-8 pt-6 border-t border-white/[0.05]">
           <div className="flex items-center justify-center gap-2 mb-3">
             <Shield className="w-4 h-4 text-[#D4AF37]" />
@@ -1400,13 +1378,11 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
 
 const FAQSection = memo(() => {
   const [open, setOpen] = useState<number | null>(null);
-
   return (
     <section id="faq" className="py-24 px-6 max-w-3xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="premium-heading text-3xl sm:text-4xl text-white">Perguntas Frequentes</h2>
       </div>
-
       <div className="space-y-2.5">
         {FAQ_DATA.map((item, i) => {
           const isOpen = open === i;
@@ -1435,24 +1411,18 @@ const FinalCTASection = memo(({ onConvert }: { onConvert: (seg: "international" 
   <section className="py-28 px-6 text-center relative overflow-hidden border-b border-white/[0.05] bg-gradient-to-b from-[#050505] via-[#080808] to-[#050505]">
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] gradient-magnetic opacity-20 rounded-full blur-[150px] pointer-events-none -z-10" />
     <div className="absolute top-1/3 left-1/3 w-[400px] h-[300px] gradient-gold-glow opacity-40 rounded-full blur-[120px] pointer-events-none -z-10" />
-
     <div className="max-w-2xl mx-auto relative">
-      <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold block mb-5">
-        ♟ A Decisão Inevitável
-      </span>
-
+      <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold block mb-5">♟ A Decisão Inevitável</span>
       <div className="flex justify-center mb-6">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/5 text-[#D4AF37] text-[10px] font-mono shadow-[0_0_15px_rgba(212,175,55,0.15)]">
           <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
           <strong className="tracking-wide">Founder Batch 01 quase encerrado</strong>
         </div>
       </div>
-
       <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white max-w-2xl mx-auto leading-[1.05] mb-5">
         A elite não espera pelas oportunidades. <br />
         <span className="display-heading text-gradient-gold">Ela cria o seu próprio sistema.</span>
       </h2>
-
       <p className="text-sm text-[#A1A1AA] max-w-xl mx-auto leading-relaxed mb-4">
         O Notion Elite Starter Kit 2026 é o investimento que separa quem apenas deseja de quem realmente executa.
       </p>
@@ -1462,22 +1432,10 @@ const FinalCTASection = memo(({ onConvert }: { onConvert: (seg: "international" 
       <p className="text-[#D4AF37] font-mono font-bold text-xs md:text-sm tracking-wide mb-8 mt-4">
         ♟ Assume o comando da tua vida agora.
       </p>
-
-      <div className="max-w-xl mx-auto mb-6 space-y-3">
-        <button onClick={() => { Telemetry.emit("final_cta_intl"); onConvert("international"); }} className="w-full btn-luxury-cyan py-4 px-6 rounded-xl text-base font-bold flex items-center justify-center gap-2 cursor-pointer animate-pulse-ring">
-          <Crown className="w-4 h-4" />
-          Garantir Founder Batch 01 — $10
-          <ArrowRight className="w-4 h-4" />
-        </button>
-        <button onClick={() => { Telemetry.emit("final_cta_angola"); onConvert("angola"); }} className="w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white py-4 px-6 rounded-xl text-sm font-bold flex items-center justify-center gap-2 cursor-pointer shadow-[0_10px_30px_-10px_rgba(37,211,102,0.5)] transition-all hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.7)]">
-          <MessageCircle className="w-4 h-4 fill-white" />
-          Angola — 10.000 AKZ via WhatsApp
-        </button>
+      <div className="max-w-xl mx-auto mb-6">
+        <CTAButtons onConvert={onConvert} size="lg" />
       </div>
-
-      <p className="text-[10px] text-[#A1A1AA]/60 font-mono">
-        Licenciamento perpétuo · Garantia 30 dias · Acesso imediato
-      </p>
+      <p className="text-[10px] text-[#A1A1AA]/60 font-mono">Licenciamento perpétuo · Garantia 30 dias · Acesso imediato</p>
     </div>
   </section>
 ));
@@ -1496,7 +1454,6 @@ const LegalFooter = memo(() => (
           Arquitetura operacional desenvolvida de forma independente. Sem afiliação ou patrocínio institucional da Notion Labs Inc.
         </p>
       </div>
-
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 py-8 text-[11px]">
         <div>
           <p className="text-[10px] font-mono text-white uppercase tracking-wider mb-3 font-semibold">Conformidade</p>
@@ -1506,7 +1463,6 @@ const LegalFooter = memo(() => (
             <li><a href={CONFIG.cookiePolicy} target="_blank" rel="noopener noreferrer" className="hover:text-white">Política de Cookies</a></li>
           </ul>
         </div>
-
         <div>
           <p className="text-[10px] font-mono text-white uppercase tracking-wider mb-3 font-semibold">Atendimento</p>
           <ul className="space-y-2">
@@ -1515,7 +1471,6 @@ const LegalFooter = memo(() => (
             <li><a href={CONFIG.communityLink} target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-1">WhatsApp <ExternalLink className="w-2.5 h-2.5" /></a></li>
           </ul>
         </div>
-
         <div>
           <p className="text-[10px] font-mono text-white uppercase tracking-wider mb-3 font-semibold">Especificações</p>
           <p className="text-[#A1A1AA]/80 text-[10px] leading-relaxed">
@@ -1524,7 +1479,6 @@ const LegalFooter = memo(() => (
           </p>
         </div>
       </div>
-
       <div className="pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row justify-between items-center gap-2 text-[10px] text-[#A1A1AA]/60">
         <p>© 2026 Gabriel Sapalo. Todos os direitos reservados.</p>
         <p className="font-mono text-[9px]">Clareza é poder · O caos custa caro</p>
@@ -1539,18 +1493,14 @@ const ExitIntentModal = memo(() => {
 
   useEffect(() => {
     if (localStorage.getItem("ne_exit_dismissed") === "1") return;
-
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0 && !dismissed.current) {
         setShow(true);
         Telemetry.emit("exit_intent_shown");
       }
     };
-
     document.addEventListener("mouseleave", handleMouseLeave);
-    return () => {
-      document.removeEventListener("mouseleave", handleMouseLeave);
-    };
+    return () => document.removeEventListener("mouseleave", handleMouseLeave);
   }, []);
 
   const handleAction = () => {
@@ -1571,31 +1521,11 @@ const ExitIntentModal = memo(() => {
   return (
     <AnimatePresence>
       {show && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
-          onClick={handleClose}
-        >
-          <motion.div
-            initial={{ scale: 0.9, y: 20 }}
-            animate={{ scale: 1, y: 0 }}
-            exit={{ scale: 0.9, y: 20 }}
-            className="bg-[#0A0A0A] border border-[#D4AF37]/30 rounded-2xl p-6 md:p-8 max-w-md w-full relative shadow-[0_30px_80px_rgba(0,0,0,0.9)]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={handleClose}
-              className="absolute top-3 right-3 text-[#A1A1AA] hover:text-white p-1"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onClick={handleClose}>
+          <motion.div initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }} className="bg-[#0A0A0A] border border-[#D4AF37]/30 rounded-2xl p-6 md:p-8 max-w-md w-full relative shadow-[0_30px_80px_rgba(0,0,0,0.9)]" onClick={(e) => e.stopPropagation()}>
+            <button onClick={handleClose} className="absolute top-3 right-3 text-[#A1A1AA] hover:text-white p-1"><X className="w-5 h-5" /></button>
             <div className="text-center mb-5">
-              <span className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-widest font-bold block mb-2">
-                Ainda indeciso?
-              </span>
+              <span className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-widest font-bold block mb-2">Ainda indeciso?</span>
               <h3 className="text-xl md:text-2xl font-bold text-white leading-tight mb-4">
                 Não saias sem ver o sistema em <span className="text-[#D4AF37]">ação real</span>.
               </h3>
@@ -1606,12 +1536,8 @@ const ExitIntentModal = memo(() => {
                 Vais continuar a perder tempo a organizar a tua rotina manualmente?
               </p>
             </div>
-
             <div className="space-y-3">
-              <button
-                onClick={handleAction}
-                className="w-full btn-founder-gold py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 animate-pulse-gold"
-              >
+              <button onClick={handleAction} className="w-full btn-founder-gold py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 animate-pulse-gold">
                 <Play className="w-4 h-4 fill-current" />
                 <span>Ver o Sistema em Ação</span>
               </button>
@@ -1623,17 +1549,39 @@ const ExitIntentModal = memo(() => {
   );
 });
 
+// ─────────────────────────────────────────────
+// APP PRINCIPAL
+// ─────────────────────────────────────────────
 export function App() {
   const [toast, setToast] = useState<typeof NOTIFICATIONS[0] | null>(null);
+  const shownNotifications = useRef<Set<number>>(new Set());
+  const notificationIndex = useRef(0);
 
   useEffect(() => {
     Telemetry.emit("page_loaded", { ref: document.referrer });
-    let i = 0;
+    
+    // ─────────────────────────────────────────────
+    // NOTIFICAÇÕES VIRAL — CADA UMA APARECE 1X POR SESSÃO
+    // Intervalo realista: 40-60 segundos entre cada notificação
+    // ─────────────────────────────────────────────
     const iv = setInterval(() => {
-      setToast(NOTIFICATIONS[i]);
-      i = (i + 1) % NOTIFICATIONS.length;
-      setTimeout(() => setToast(null), 3500);
-    }, 14000);
+      // Evitar mostrar mais notificações do que as disponíveis
+      if (shownNotifications.current.size >= NOTIFICATIONS.length) return;
+      
+      // Encontrar próxima notificação não exibida
+      while (shownNotifications.current.has(notificationIndex.current) && 
+             shownNotifications.current.size < NOTIFICATIONS.length) {
+        notificationIndex.current = (notificationIndex.current + 1) % NOTIFICATIONS.length;
+      }
+      
+      if (!shownNotifications.current.has(notificationIndex.current)) {
+        setToast(NOTIFICATIONS[notificationIndex.current]);
+        shownNotifications.current.add(notificationIndex.current);
+        notificationIndex.current = (notificationIndex.current + 1) % NOTIFICATIONS.length;
+        setTimeout(() => setToast(null), 4500);
+      }
+    }, 50000); // 50 segundos entre notificações - realista e não intrusivo
+
     const t30 = setTimeout(() => Telemetry.emit("checkpoint_30s"), 30000);
     const t60 = setTimeout(() => Telemetry.emit("checkpoint_60s"), 60000);
     const marks = new Set<number>();
@@ -1670,13 +1618,21 @@ export function App() {
     if (seg === "international") {
       Telemetry.emit("checkout_hotmart_redirect");
       if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("track", "InitiateCheckout", { value: 10, currency: "USD", content_name: "Notion Elite OS 2026" });
+        (window as any).fbq("track", "InitiateCheckout", {
+          value: 10,
+          currency: "USD",
+          content_name: "Notion Elite OS 2026"
+        });
       }
       window.open(CONFIG.hotmartCheckout, "_blank", "noopener,noreferrer");
     } else {
       Telemetry.emit("checkout_whatsapp_redirect");
       if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("track", "Contact", { content_name: "Notion Elite OS 2026 — Angola" });
+        (window as any).fbq("track", "Lead", {
+          content_name: "Notion Elite OS 2026 — Angola",
+          currency: "AOA",
+          value: 10000
+        });
       }
       window.open(CONFIG.whatsappPayment, "_blank", "noopener,noreferrer");
     }
@@ -1685,10 +1641,10 @@ export function App() {
   return (
     <div className="cinematic-noise min-h-screen bg-[#050505] text-white font-sans relative">
       <Helmet>
-        <title>Notion Elite OS 2026 — Sistema Operacional Mental | Gabriel Sapalo</title>
+        <title>Notion Elite OS 2026 — Sistema Operacional Pessoal | Gabriel Sapalo</title>
         <meta name="description" content="O teu cérebro não foi feito para guardar prazos. Foi feito para criar o teu futuro. Sistema operacional mental criado pelo Campeão Nacional de Xadrez de Angola. Clareza, foco e controlo." />
         <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858077/favicon.ico_h34ezo.ico" />
-        <meta property="og:title" content="Notion Elite OS 2026 — Sistema Operacional Mental" />
+        <meta property="og:title" content="Notion Elite OS 2026 — Sistema Operacional Pessoal" />
         <meta property="og:description" content="Clareza é poder. O caos custa caro. Sistema Operacional Pessoal para operar com clareza, foco e controlo." />
         <meta property="og:image" content={CONFIG.notionMockup} />
         <meta property="og:type" content="product" />
@@ -1721,12 +1677,7 @@ export function App() {
 
       <AnimatePresence>
         {toast && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className="fixed bottom-24 left-4 z-50 glass-modal-aggressive p-3 rounded-xl shadow-2xl flex items-center gap-3 max-w-xs border-l-4 border-l-[#D4AF37]"
-          >
+          <motion.div initial={{ opacity: 0, y: 50, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20, scale: 0.9 }} className="fixed bottom-24 left-4 z-50 glass-modal-aggressive p-3 rounded-xl shadow-2xl flex items-center gap-3 max-w-xs border-l-4 border-l-[#D4AF37]">
             <div className="w-9 h-9 rounded-full bg-[#D4AF37]/15 flex items-center justify-center shrink-0">
               <Crown className="w-4 h-4 text-[#D4AF37]" />
             </div>
@@ -1740,14 +1691,29 @@ export function App() {
       </AnimatePresence>
 
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#050505]/95 backdrop-blur-xl border-t border-white/[0.08] p-2.5 flex items-center gap-2">
-        <button onClick={() => convert("international")} className="flex-1 btn-luxury-cyan py-2.5 rounded-lg text-[11px] font-bold cursor-pointer flex items-center justify-center gap-1.5">
-          <Crown className="w-3 h-3" />
-          Internacional · $10
-        </button>
-        <button onClick={() => convert("angola")} className="flex-1 bg-[#25D366] hover:bg-[#1EBE5A] text-white py-2.5 rounded-lg text-[11px] font-bold cursor-pointer flex items-center justify-center gap-1.5 transition-colors">
-          <MessageCircle className="w-3 h-3 fill-white" />
-          Angola · 10k AKZ
-        </button>
+        {isAngolaCampaign() ? (
+          <>
+            <button onClick={() => convert("angola")} className="flex-1 bg-[#25D366] hover:bg-[#1EBE5A] text-white py-2.5 rounded-lg text-[11px] font-bold cursor-pointer flex items-center justify-center gap-1.5 transition-colors shadow-[0_4px_15px_rgba(37,211,102,0.4)]">
+              <MessageCircle className="w-3 h-3 fill-white" />
+              Angola · 10k AKZ
+            </button>
+            <button onClick={() => convert("international")} className="flex-[0.6] bg-white/[0.05] border border-white/[0.1] text-white/60 py-2.5 rounded-lg text-[10px] font-medium cursor-pointer flex items-center justify-center gap-1 transition-colors">
+              <Crown className="w-3 h-3 text-[#D4AF37]" />
+              $10 USD
+            </button>
+          </>
+        ) : (
+          <>
+            <button onClick={() => convert("international")} className="flex-1 btn-luxury-cyan py-2.5 rounded-lg text-[11px] font-bold cursor-pointer flex items-center justify-center gap-1.5">
+              <Crown className="w-3 h-3" />
+              Internacional · $10
+            </button>
+            <button onClick={() => convert("angola")} className="flex-1 bg-[#25D366] hover:bg-[#1EBE5A] text-white py-2.5 rounded-lg text-[11px] font-bold cursor-pointer flex items-center justify-center gap-1.5 transition-colors">
+              <MessageCircle className="w-3 h-3 fill-white" />
+              Angola · 10k AKZ
+            </button>
+          </>
+        )}
       </div>
 
       <a href={CONFIG.whatsappPayment} target="_blank" rel="noopener noreferrer" onClick={() => Telemetry.emit("wa_float")} className="fixed bottom-20 md:bottom-6 right-5 z-50 bg-[#25D366] hover:bg-[#20ba59] p-3.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all outline-none flex items-center justify-center group">
