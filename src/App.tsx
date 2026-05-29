@@ -9,9 +9,6 @@ import {
   Quote, Lock
 } from "lucide-react";
 
-// ─────────────────────────────────────────────
-// CONFIG — imagens optimizadas no Cloudinary
-// ─────────────────────────────────────────────
 const CONFIG = {
   authorName: "Gabriel Sapalo",
   authorTitle: "Estrategista & Especialista em Gestão de Sistemas de Informação",
@@ -46,9 +43,6 @@ const CONFIG = {
   cookiePolicy: "https://drive.google.com/file/d/1owleKJFrC-MVOjMx7BKMuuqrhroSZqY1/view"
 };
 
-// ─────────────────────────────────────────────
-// HEADLINES DINÂMICOS POR UTM
-// ─────────────────────────────────────────────
 type HeroContent = {
   tag: string;
   headline: string;
@@ -142,9 +136,6 @@ const FAQ_DATA = [
   { q: "Recebo atualizações futuras?", a: "Sim. Pagamento único, acesso vitalício às versões 2026 e 2027, e novos prompts de IA incluídos gratuitamente." }
 ];
 
-// ─────────────────────────────────────────────
-// NOTIFICAÇÕES VIRAL — optimizadas (1x por sessão)
-// ─────────────────────────────────────────────
 const NOTIFICATIONS_POOL = [
   { name: "Lucas R.", item: "Ativou God Mode" },
   { name: "Marta S.", item: "Reset Operacional" },
@@ -297,9 +288,6 @@ const HeroVSL = memo(() => {
   );
 });
 
-// ─────────────────────────────────────────────
-// CTAButtons — adaptado por país
-// ─────────────────────────────────────────────
 const CTAButtons = memo(({ onConvert, size = "lg" }: {
   onConvert: (seg: "international" | "angola") => void;
   size?: "sm" | "lg";
@@ -349,9 +337,6 @@ const CTAButtons = memo(({ onConvert, size = "lg" }: {
   );
 });
 
-// ─────────────────────────────────────────────
-// HeroSection — versão agressiva (foco na dor)
-// ─────────────────────────────────────────────
 const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const hero = getHeroContent();
 
@@ -379,6 +364,22 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
       >
         {hero.subtitle}
       </motion.p>
+
+      {/* MICRO-DEPOIMENTO ESTRATÉGICO (sem "primeiro") */}
+      <motion.div
+        initial={{ opacity: 0, y: 5 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.25 }}
+        className="inline-flex flex-col sm:flex-row items-center gap-3 px-5 py-3 rounded-2xl bg-[#0A0A0A] border border-white/[0.08] mx-auto mb-8"
+      >
+        <CheckCircle2 className="w-5 h-5 text-[#25D366] shrink-0" />
+        <div className="text-left">
+          <p className="text-[12px] text-[#D4D4D8] leading-tight">
+            ⭐ "Gostei muito da Notion. A minha esposa também gostou. Quis logo saber como podia recomendar a outras pessoas."
+          </p>
+          <p className="text-[9px] text-[#A1A1AA] font-mono mt-0.5">— Utilizador verificado, Angola</p>
+        </div>
+      </motion.div>
 
       <motion.div
         initial={{ opacity: 0, y: 10 }}
@@ -633,9 +634,6 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
   );
 });
 
-// ─────────────────────────────────────────────
-// MID-PAGE CTA (nova secção — retenção)
-// ─────────────────────────────────────────────
 const MidPageCTA = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   return (
     <motion.div 
@@ -1097,29 +1095,55 @@ const SocialProofSection = memo(() => (
   </section>
 ));
 
-const AuthoritySection = memo(() => (
-  <section id="autoridade" className="py-24 px-6 border-b border-white/[0.05] bg-[#070707] relative overflow-hidden">
-    <div className="absolute inset-0 chess-deco opacity-20 pointer-events-none" />
-    <div className="max-w-5xl mx-auto relative">
-      <div className="text-center mb-10 max-w-2xl mx-auto">
-        <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ A Mente por Trás da Matriz</span>
-        <h2 className="premium-heading text-3xl sm:text-4xl text-white">
-          O sistema criado pelo <span className="display-heading text-gradient-gold">Campeão Nacional de Xadrez de Angola</span>
-        </h2>
-      </div>
-      <div className="grid md:grid-cols-5 gap-10 items-center">
-        <div className="md:col-span-2 flex flex-col gap-6">
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-[#D4AF37]/60 bg-[#0A0A0A] shadow-[0_0_40px_rgba(212,175,55,0.3)] mb-4">
+const AuthoritySection = memo(() => {
+  const fideProfileLink = "https://ratings.fide.com/report.phtml?event=368341";
+  
+  return (
+    <section id="autoridade" className="py-24 px-6 border-b border-white/[0.05] bg-[#070707] relative overflow-hidden">
+      <div className="absolute inset-0 chess-deco opacity-20 pointer-events-none" />
+      <div className="max-w-5xl mx-auto relative">
+        <div className="text-center mb-10 max-w-2xl mx-auto">
+          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ A Mente por Trás da Matriz</span>
+          <h2 className="premium-heading text-3xl sm:text-4xl text-white">
+            O sistema criado pelo <span className="display-heading text-gradient-gold">Campeão Nacional de Xadrez de Angola</span>
+          </h2>
+        </div>
+
+        {/* Layout Foto + Prova FIDE lado a lado */}
+        <div className="grid md:grid-cols-2 gap-8 items-start">
+          {/* Coluna 1: Foto + Badges */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-4">
+            <div className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-[#D4AF37]/60 bg-[#0A0A0A] shadow-[0_0_40px_rgba(212,175,55,0.3)]">
               <img src={CONFIG.authorPhoto} alt={CONFIG.authorName} className="w-full h-full object-cover" loading="lazy" />
             </div>
             <div>
               <h3 className="text-xl font-bold text-white">{CONFIG.authorName}</h3>
               <p className="text-[10px] text-[#D4AF37] font-mono mt-1 tracking-widest uppercase block">{CONFIG.authorTitle}</p>
             </div>
+            {/* Badges com link FIDE */}
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-2">
+              <span className="badge-founder-premium px-3 py-1 rounded-full font-mono font-semibold text-[10px]">
+                ♟ Campeão Nacional Absoluto · Angola 2024
+              </span>
+              <a
+                href={fideProfileLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1 rounded-full border border-[#00E5FF]/20 text-[#00E5FF] text-[9px] font-mono hover:bg-[#00E5FF]/5 transition-colors inline-flex items-center gap-1"
+              >
+                Ver ranking oficial FIDE ↗
+              </a>
+            </div>
           </div>
+
+          {/* Coluna 2: Prova FIDE (screenshot) */}
           <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] shadow-lg">
-            <img src={CONFIG.fideProof} alt="Resultados Oficiais FIDE 2024" className="w-full h-auto object-cover opacity-90" loading="lazy" />
+            <img 
+              src={CONFIG.fideProof} 
+              alt="Resultado oficial FIDE - Campeonato Nacional Angola 2024" 
+              className="w-full h-auto object-cover"
+              loading="lazy"
+            />
             <div className="p-3 bg-[#050505] border-t border-white/[0.05] flex items-center justify-between">
               <span className="text-[9px] font-mono text-[#25D366] flex items-center gap-1.5">
                 <CheckCircle2 className="w-3 h-3" /> Verificado pela FIDE
@@ -1127,7 +1151,9 @@ const AuthoritySection = memo(() => (
             </div>
           </div>
         </div>
-        <div className="md:col-span-3 space-y-5 text-sm text-[#A1A1AA] leading-relaxed mt-4 md:mt-0">
+
+        {/* Citação e biografia (mantido) */}
+        <div className="mt-10 space-y-5 text-sm text-[#A1A1AA] leading-relaxed">
           <p className="text-lg md:text-xl font-serif italic text-white border-l-2 border-[#D4AF37] pl-5 py-2 bg-white/[0.01] rounded-r">
             "No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exactamente o mesmo: quem não tem sistema, joga no improviso — e falha."
           </p>
@@ -1165,18 +1191,25 @@ const AuthoritySection = memo(() => (
           </div>
         </div>
       </div>
-    </div>
-  </section>
-));
+    </section>
+  );
+});
 
 const UrgencyTimer = memo(() => {
   const [timeLeft, setTimeLeft] = useState({ h: 0, m: 0, s: 0 });
+  const [expired, setExpired] = useState(false);
 
   useEffect(() => {
     const DEADLINE = new Date("2026-06-15T23:59:59").getTime();
 
     const update = () => {
-      const diff = Math.max(0, DEADLINE - Date.now());
+      const diff = DEADLINE - Date.now();
+      
+      if (diff <= 0) {
+        setExpired(true);
+        return;
+      }
+      
       const h = Math.floor(diff / (1000 * 60 * 60));
       const m = Math.floor((diff / (1000 * 60)) % 60);
       const s = Math.floor((diff / 1000) % 60);
@@ -1189,6 +1222,10 @@ const UrgencyTimer = memo(() => {
   }, []);
 
   const pad = (n: number) => String(n).padStart(2, "0");
+
+  if (expired) {
+    return null; // Timer escondido quando expira
+  }
 
   return (
     <div className="inline-flex items-center gap-2 bg-[#0A0A0A] border border-[#FF007A]/30 rounded-lg px-3 py-1.5">
@@ -1205,128 +1242,137 @@ const UrgencyTimer = memo(() => {
   );
 });
 
-const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => (
-  <section id="oferta" className="py-24 px-6 border-b border-white/[0.05]">
-    <div className="max-w-4xl mx-auto text-center">
-      <div className="mb-10">
-        <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ Licenciamento Exclusivo · Fase Founder</span>
-        <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
-          O investimento mais inteligente <br className="hidden md:block" />
-          que podes fazer em <span className="display-heading text-gradient-gold">ti mesmo</span>
-        </h2>
-      </div>
-      <div className="border border-[#00E5FF]/30 bg-[#101010] p-8 sm:p-10 rounded-3xl text-center max-w-2xl mx-auto relative overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
-        <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#00E5FF]/[0.06] rounded-full blur-3xl pointer-events-none" />
-        <p className="text-xs text-white/60 uppercase tracking-widest font-mono">Preço de Lançamento — Founder Batch 01</p>
-        <div className="flex justify-center mt-3 mb-4"><UrgencyTimer /></div>
-        <div className="flex items-end justify-center gap-2 my-5">
-          <span className="text-6xl sm:text-7xl font-black text-white tracking-tight">$10</span>
-          <span className="pb-3 text-lg font-normal text-white/50">ou 10.000 AKZ</span>
+const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
+  const [showTimer, setShowTimer] = useState(true);
+  
+  return (
+    <section id="oferta" className="py-24 px-6 border-b border-white/[0.05]">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="mb-10">
+          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ Licenciamento Exclusivo · Fase Founder</span>
+          <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
+            O investimento mais inteligente <br className="hidden md:block" />
+            que podes fazer em <span className="display-heading text-gradient-gold">ti mesmo</span>
+          </h2>
         </div>
-        <div className="mt-6 max-w-md mx-auto">
-          <div className="flex items-center justify-between text-xs mb-2">
-            <span className="text-[#A1A1AA] font-mono">Vagas Founder Batch 01</span>
-            <span className="text-[#25D366] font-bold font-mono">72% preenchidas</span>
+        <div className="border border-[#00E5FF]/30 bg-[#101010] p-8 sm:p-10 rounded-3xl text-center max-w-2xl mx-auto relative overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
+          <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#00E5FF]/[0.06] rounded-full blur-3xl pointer-events-none" />
+          <p className="text-xs text-white/60 uppercase tracking-widest font-mono">Preço de Lançamento — Founder Batch 01</p>
+          <div className="flex justify-center mt-3 mb-4"><UrgencyTimer /></div>
+          <div className="flex items-end justify-center gap-2 my-5">
+            <span className="text-6xl sm:text-7xl font-black text-white tracking-tight">$10</span>
+            <span className="pb-3 text-lg font-normal text-white/50">ou 10.000 AKZ</span>
           </div>
-          <div className="h-2 bg-[#0A0A0A] rounded-full overflow-hidden border border-white/[0.05]">
-            <div className="h-full bg-gradient-to-r from-[#25D366] to-[#00E5FF] rounded-full relative" style={{ width: '72%' }}>
-              <div className="absolute inset-0 animate-shimmer" />
+          
+          {/* ESCASSEZ REMOVIDA - números específicos tirados */}
+          <div className="mt-6 max-w-md mx-auto">
+            <div className="flex items-center justify-between text-xs mb-2">
+              <span className="text-[#A1A1AA] font-mono">Vagas Founder Batch 01</span>
+              <span className="text-[#25D366] font-bold font-mono">Preferência limitada</span>
             </div>
-          </div>
-          <p className="text-[10px] text-[#FF007A] font-mono font-bold mt-2 flex items-center justify-center gap-1.5">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FF007A] animate-pulse" />
-            Apenas 14 licenças Founder restantes
-          </p>
-        </div>
-        <div className="mt-2 mb-6 bg-red-500/10 border border-red-500/20 text-left p-4 rounded-xl max-w-md mx-auto">
-          <p className="text-xs font-bold text-red-400 mb-1 flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            Viste os nossos anúncios de $10?
-          </p>
-          <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
-            Parabéns, chegaste a tempo. O <strong className="text-white">Founder Batch 01</strong> ainda tem vagas, mas o preço subirá para <strong className="text-white">$49</strong> assim que este lote for fechado.
-          </p>
-        </div>
-        <div className="mt-6 rounded-2xl border border-[#D4AF37]/20 bg-[#0A0A0A] p-6 text-left max-w-md mx-auto">
-          <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-4 font-bold text-center">Estrutura de Preço Founder</p>
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="text-white font-semibold flex items-center gap-2">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
-                Founder Batch 01 <span className="text-[9px] font-mono text-[#25D366] uppercase tracking-wider">(atual)</span>
-              </span>
-              <span className="font-mono text-[#25D366] font-bold">$10</span>
-            </div>
-            <div className="flex items-center justify-between opacity-80">
-              <span className="text-[#A1A1AA]">Próximo lote</span>
-              <span className="font-mono text-white">$27</span>
-            </div>
-            <div className="flex items-center justify-between opacity-70">
-              <span className="text-[#A1A1AA]">Preço final</span>
-              <span className="font-mono text-white">$49</span>
-            </div>
-          </div>
-          <p className="text-[10px] text-[#A1A1AA] mt-4 text-center italic">Garante o Batch 01 antes que o preço suba.</p>
-        </div>
-        <p className="text-xs text-[#00E5FF] font-mono font-semibold mt-6">Acesso vitalício • Garantia de 30 dias</p>
-        <div className="mt-8 text-left max-w-md mx-auto">
-          <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-widest mb-3 font-semibold text-center">Inclui:</p>
-          <div className="space-y-2 text-sm">
-            {[
-              "Sistema Operacional Notion Elite 2026",
-              "Dashboard académico + profissional",
-              "Habit Matrix + Goal Radar",
-              "Finance Command",
-              "Guia de setup em 24h",
-              "Acesso à comunidade Elite Minds",
-              "Atualizações 2026 + 2027"
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-2.5 text-[#D4D4D8]">
-                <Check className="w-3.5 h-3.5 text-[#00E5FF] shrink-0 mt-0.5" />
-                <span>{item}</span>
+            <div className="h-2 bg-[#0A0A0A] rounded-full overflow-hidden border border-white/[0.05]">
+              <div className="h-full bg-gradient-to-r from-[#25D366] to-[#00E5FF] rounded-full relative" style={{ width: '68%' }}>
+                <div className="absolute inset-0 animate-shimmer" />
               </div>
-            ))}
-          </div>
-          <div className="mt-4 p-3 rounded-xl bg-[#00E5FF]/5 border border-[#00E5FF]/20 flex items-start gap-3">
-            <div className="w-6 h-6 rounded-full bg-[#00E5FF]/10 flex items-center justify-center shrink-0 mt-0.5">
-              <Sparkles className="w-3.5 h-3.5 text-[#00E5FF]" />
             </div>
-            <div>
-              <p className="text-xs font-bold text-white mb-0.5">🎁 Bónus Exclusivo Incluído</p>
-              <p className="text-[10px] text-[#A1A1AA] leading-relaxed">
-                Acesso imediato à biblioteca com <strong>20 Prompts de IA Nativos</strong> para acelerar a tua produtividade. Tudo incluído no teu acesso.
-              </p>
+            <p className="text-[10px] text-[#FF007A] font-mono font-bold mt-2 flex items-center justify-center gap-1.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FF007A] animate-pulse" />
+              Vagas limitadas para o Founder Batch 01
+            </p>
+          </div>
+          
+          <div className="mt-2 mb-6 bg-red-500/10 border border-red-500/20 text-left p-4 rounded-xl max-w-md mx-auto">
+            <p className="text-xs font-bold text-red-400 mb-1 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+              Viste os nossos anúncios de $10?
+            </p>
+            <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
+              Parabéns, chegaste a tempo. O <strong className="text-white">Founder Batch 01</strong> ainda tem vagas, mas o preço subirá para <strong className="text-white">$49</strong> assim que este lote for fechado.
+            </p>
+          </div>
+          <div className="mt-6 rounded-2xl border border-[#D4AF37]/20 bg-[#0A0A0A] p-6 text-left max-w-md mx-auto">
+            <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-4 font-bold text-center">Estrutura de Preço Founder</p>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-white font-semibold flex items-center gap-2">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+                  Founder Batch 01 <span className="text-[9px] font-mono text-[#25D366] uppercase tracking-wider">(atual)</span>
+                </span>
+                <span className="font-mono text-[#25D366] font-bold">$10</span>
+              </div>
+              <div className="flex items-center justify-between opacity-80">
+                <span className="text-[#A1A1AA]">Próximo lote</span>
+                <span className="font-mono text-white">$27</span>
+              </div>
+              <div className="flex items-center justify-between opacity-70">
+                <span className="text-[#A1A1AA]">Preço final</span>
+                <span className="font-mono text-white">$49</span>
+              </div>
+            </div>
+            <p className="text-[10px] text-[#A1A1AA] mt-4 text-center italic">Garante o Batch 01 antes que o preço suba.</p>
+          </div>
+          <p className="text-xs text-[#00E5FF] font-mono font-semibold mt-6">Acesso vitalício • Garantia de 30 dias</p>
+          <div className="mt-8 text-left max-w-md mx-auto">
+            <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-widest mb-3 font-semibold text-center">Inclui:</p>
+            <div className="space-y-2 text-sm">
+              {[
+                "Sistema Operacional Notion Elite 2026",
+                "Dashboard académico + profissional",
+                "Habit Matrix + Goal Radar",
+                "Finance Command",
+                "Guia de setup em 24h",
+                "Acesso à comunidade Elite Minds",
+                "Atualizações 2026 + 2027"
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-2.5 text-[#D4D4D8]">
+                  <Check className="w-3.5 h-3.5 text-[#00E5FF] shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 p-3 rounded-xl bg-[#00E5FF]/5 border border-[#00E5FF]/20 flex items-start gap-3">
+              <div className="w-6 h-6 rounded-full bg-[#00E5FF]/10 flex items-center justify-center shrink-0 mt-0.5">
+                <Sparkles className="w-3.5 h-3.5 text-[#00E5FF]" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-white mb-0.5">🎁 Bónus Exclusivo Incluído</p>
+                <p className="text-[10px] text-[#A1A1AA] leading-relaxed">
+                  Acesso imediato à biblioteca com <strong>20 Prompts de IA Nativos</strong> para acelerar a tua produtividade. Tudo incluído no teu acesso.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="mt-10 space-y-3">
-          <CTAButtons onConvert={onConvert} size="lg" />
-        </div>
-        <div className="mt-5 pt-5 border-t border-white/[0.05]">
-          <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-wider mb-2">Métodos de pagamento aceites</p>
-          <div className="flex items-center justify-center gap-3 flex-wrap text-[10px] text-white/70 font-mono">
-            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">💳 Cartão Internacional</span>
-            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">🇦🇴 Multicaixa Express</span>
-            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">📱 Transferência Bancária</span>
-            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">💬 WhatsApp Angola</span>
+          <div className="mt-10 space-y-3">
+            <CTAButtons onConvert={onConvert} size="lg" />
           </div>
-          <p className="text-[10px] text-[#A1A1AA] mt-2 italic">
-            Comenta <span className="text-[#D4AF37] font-bold">"ELITE"</span> nos nossos vídeos e recebe o link directo por DM.
-          </p>
-        </div>
-        <div className="mt-8 pt-6 border-t border-white/[0.05]">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <Shield className="w-4 h-4 text-[#D4AF37]" />
-            <p className="text-xs font-bold text-white uppercase tracking-wider">Garantia de Resultado 30 Dias</p>
+          <div className="mt-5 pt-5 border-t border-white/[0.05]">
+            <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-wider mb-2">Métodos de pagamento aceites</p>
+            <div className="flex items-center justify-center gap-3 flex-wrap text-[10px] text-white/70 font-mono">
+              <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">💳 Cartão Internacional</span>
+              <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">🇦🇴 Multicaixa Express</span>
+              <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">📱 Transferência Bancária</span>
+              <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">💬 WhatsApp Angola</span>
+            </div>
+            <p className="text-[10px] text-[#A1A1AA] mt-2 italic">
+              Comenta <span className="text-[#D4AF37] font-bold">"ELITE"</span> nos nossos vídeos e recebe o link directo por DM.
+            </p>
           </div>
-          <p className="text-sm text-gray-400 max-w-md mx-auto leading-relaxed">
-            Se em 30 dias não tiveres clareza real, devolvemos <strong className="text-white">100% do teu dinheiro</strong> <span className="text-[#D4AF37] font-semibold">e oferecemos uma sessão privada de 30 min com o Gabriel</span> para montarmos o teu sistema do zero. Sem risco.
-          </p>
+          
+          {/* GARANTIA SIMPLIFICADA - sem sessão privada */}
+          <div className="mt-8 pt-6 border-t border-white/[0.05]">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Shield className="w-4 h-4 text-[#D4AF37]" />
+              <p className="text-xs font-bold text-white uppercase tracking-wider">Garantia de Resultado 30 Dias</p>
+            </div>
+            <p className="text-sm text-gray-400 max-w-md mx-auto leading-relaxed">
+              Se o sistema não fizer sentido para ti nos primeiros 30 dias, devolvemos <strong className="text-white">100% do teu dinheiro</strong>.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-));
+    </section>
+  );
+});
 
 const FAQSection = memo(() => {
   const [open, setOpen] = useState<number | null>(null);
@@ -1439,26 +1485,30 @@ const LegalFooter = memo(() => (
   </footer>
 ));
 
-// ─────────────────────────────────────────────
-// EXIT INTENT MODAL MELHORADO (mais agressivo)
-// ─────────────────────────────────────────────
 const ExitIntentModal = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const [show, setShow] = useState(false);
+  const [armed, setArmed] = useState(false);
   const dismissed = useRef(false);
 
   useEffect(() => {
     if (localStorage.getItem("ne_exit_dismissed") === "1") return;
 
+    // Delay de 20 segundos antes de armar o exit intent
+    const armTimer = setTimeout(() => setArmed(true), 20000);
+
     const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY < 30 && !dismissed.current) {
+      if (e.clientY <= 0 && armed && !dismissed.current) {
         setShow(true);
         Telemetry.emit("exit_intent_triggered");
       }
     };
 
     document.addEventListener("mouseleave", handleMouseLeave);
-    return () => document.removeEventListener("mouseleave", handleMouseLeave);
-  }, []);
+    return () => {
+      clearTimeout(armTimer);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, [armed]);
 
   const handleInternational = () => {
     setShow(false);
@@ -1527,9 +1577,6 @@ const ExitIntentModal = memo(({ onConvert }: { onConvert: (seg: "international" 
   );
 });
 
-// ─────────────────────────────────────────────
-// STICKY BAR DESKTOP
-// ─────────────────────────────────────────────
 const StickyBar = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const [visible, setVisible] = useState(false);
 
@@ -1558,9 +1605,6 @@ const StickyBar = memo(({ onConvert }: { onConvert: (seg: "international" | "ang
   );
 });
 
-// ─────────────────────────────────────────────
-// MOBILE STICKY BAR
-// ─────────────────────────────────────────────
 const MobileStickyBar = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const [visible, setVisible] = useState(false);
 
@@ -1672,7 +1716,8 @@ export function App() {
           content_name: "Notion Elite OS 2026"
         });
       }
-      window.open(CONFIG.hotmartCheckout, "_blank", "noopener,noreferrer");
+      // CHECKOUT SEM POPUP - redirecionamento direto
+      window.location.href = CONFIG.hotmartCheckout;
     } else {
       Telemetry.emit("checkout_whatsapp_redirect");
       if (typeof window !== "undefined" && (window as any).fbq) {
@@ -1682,7 +1727,8 @@ export function App() {
           value: 10000
         });
       }
-      window.open(CONFIG.whatsappPayment, "_blank", "noopener,noreferrer");
+      // CHECKOUT SEM POPUP - redirecionamento direto
+      window.location.href = CONFIG.whatsappPayment;
     }
   }, []);
 
