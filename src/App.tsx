@@ -37,8 +37,7 @@ const CONFIG = {
   productHabitTracker: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_Habit_Tracker_teccka.png",
   fideProof: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779991681/Campeonato_Nacional_Absoluto_2024_FIDE_results_harpay.png",
   hotmartCheckout: "https://pay.hotmart.com/Q105490101M?off=xablp4k5&hotfeature=51",
-  // NOVO — WhatsApp apenas para suporte, não para checkout
-  whatsappSupport: "https://chat.whatsapp.com/LDV8ORaZgzGC9ljtt3gTLh",
+  whatsappSupport: "https://wa.me/244923379486?text=Ol%C3%A1%20Gabriel%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20Notion%20Elite%20Kit",
   communityLink: "https://chat.whatsapp.com/LDV8ORaZgzGC9ljtt3gTLh",
   telegramSupport: "https://t.me/+n_hkEVYAeO9lNDIx",
   supportEmail: "suporte@glowscalepro.com",
@@ -46,9 +45,7 @@ const CONFIG = {
   termsOfUse: "https://drive.google.com/file/d/1cpwleZI5mtMGj8oVQ9C-xFkPmW6iJd1c/view",
   privacyPolicy: "https://drive.google.com/file/d/1yi1D2p_QYdK9tIwCaU8kxlFnol97kGdg/view",
   cookiePolicy: "https://drive.google.com/file/d/1owleKJFrC-MVOjMx7BKMuuqrhroSZqY1/view",
-  // NOVO — Apps Script Web App URL (preenche depois de publicar o script)
   appsScriptUrl: "https://script.google.com/macros/s/AKfycbxOso56CGBKX22B9z22WQN8gx6E5rEvdsEfWpMnLZCnEc8fcOLuqvYqHCasfDap6YHs/exec",
-  // NOVO — Link do kit Google Drive
   kitDriveLink: "https://drive.google.com/file/d/1xu-vl4n1iVouFHXTv8Dbhj_H2V3AGSXz/view?usp=sharing",
 };
 
@@ -182,19 +179,17 @@ const NOTIFICATIONS = shuffled.map((n, index) => ({
 }));
 
 // ═══════════════════════════════════════════════════════════
-// TELEMETRY — ACTUALIZADO: envia para GA4 + Meta via window.trackEvent
+// TELEMETRY
 // ═══════════════════════════════════════════════════════════
 const Telemetry = {
   emit: (eventAction: string, metadata: Record<string, unknown> = {}) => {
     try {
-      // 1. Guarda UTMs no localStorage
       const urlParams = new URLSearchParams(window.location.search);
       const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
       utmKeys.forEach(k => {
         if (urlParams.has(k)) localStorage.setItem(`ne_${k}`, urlParams.get(k) || "");
       });
 
-      // 2. Constrói payload com UTMs
       const payload: Record<string, unknown> = {
         action: eventAction,
         ts: new Date().toISOString(),
@@ -202,13 +197,11 @@ const Telemetry = {
       };
       utmKeys.forEach(k => { payload[k] = localStorage.getItem(`ne_${k}`) || ""; });
 
-      // 3. Guarda stack local
       const stack = JSON.parse(localStorage.getItem("ne_stack") || "[]");
       stack.push(payload);
       if (stack.length > 50) stack.shift();
       localStorage.setItem("ne_stack", JSON.stringify(stack));
 
-      // 4. NOVO — envia para GA4 + Meta Pixel via helper do index.html
       if (typeof (window as any).trackEvent === "function") {
         (window as any).trackEvent(eventAction, { ...metadata });
       }
@@ -217,7 +210,7 @@ const Telemetry = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// ANGOLA CHECKOUT PAGE — NOVO COMPONENTE
+// ANGOLA CHECKOUT PAGE — COM BORDA DOURADA + MARQUEE
 // ═══════════════════════════════════════════════════════════
 const AngolaCheckoutPage = memo(() => {
   const [step, setStep] = useState<"form" | "payment">("form");
@@ -239,7 +232,6 @@ const AngolaCheckoutPage = memo(() => {
     const clientRef = generateRef();
     setRef(clientRef);
 
-    // Regista na Google Sheet via Apps Script
     try {
       await fetch(CONFIG.appsScriptUrl, {
         method: "POST",
@@ -255,7 +247,6 @@ const AngolaCheckoutPage = memo(() => {
       });
     } catch { /* silent */ }
 
-    // GA4 + Meta Pixel
     Telemetry.emit("Lead", {
       content_name: "Notion Elite OS 2026 — Angola",
       currency: "AOA",
@@ -272,12 +263,10 @@ const AngolaCheckoutPage = memo(() => {
     setTimeout(() => setCopied(null), 2000);
   };
 
-  // ── STEP: FORMULÁRIO ──
   if (step === "form") {
     return (
       <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center px-6 py-12">
         <div className="w-full max-w-md">
-
           <div className="text-center mb-8">
             <img src={CONFIG.productLogo} alt="Elite OS"
                  className="w-14 h-14 mx-auto mb-4 object-contain" />
@@ -346,7 +335,6 @@ const AngolaCheckoutPage = memo(() => {
     );
   }
 
-  // ── STEP: PAGAMENTO ──
   const paymentDetails = [
     { label: "Banco",      value: "BAI",                                  key: "banco" },
     { label: "Titular",    value: "Gabriel António Armando Sapalo",        key: "titular" },
@@ -355,9 +343,32 @@ const AngolaCheckoutPage = memo(() => {
     { label: "Referência", value: ref,                                     key: "ref" }
   ];
 
+  const marqueeTexts = [
+    "✦ Menos que uma saída ao fim de semana",
+    "✦ Mais que um semestre inteiro de clareza",
+    "✦ Clareza é poder",
+    "✦ O caos custa caro",
+    "✦ 30 dias de garantia incondicional"
+  ];
+
   return (
     <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center px-6 py-12">
       <div className="w-full max-w-md">
+
+        {/* MARQUEE - TEXTO ROLANTE DINÂMICO */}
+        <div className="overflow-hidden whitespace-nowrap mb-4 py-2 bg-[#0A0A0A]/50 rounded-xl border border-[#D4AF37]/20">
+          <motion.div
+            animate={{ x: ["0%", "-100%"] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="inline-flex gap-8"
+          >
+            {[...marqueeTexts, ...marqueeTexts].map((text, idx) => (
+              <span key={idx} className="text-sm font-mono text-[#D4AF37] tracking-wide">
+                {text} <span className="text-white/30 mx-1">♟</span>
+              </span>
+            ))}
+          </motion.div>
+        </div>
 
         <div className="text-center mb-6">
           <div className="w-12 h-12 rounded-full bg-[#25D366]/10 border border-[#25D366]/30
@@ -370,8 +381,22 @@ const AngolaCheckoutPage = memo(() => {
           </p>
         </div>
 
-        {/* Dados bancários */}
-        <div className="bg-[#0A0A0A] border border-white/[0.08] rounded-2xl p-5 mb-4 space-y-3">
+        {/* ÁREA DE PAGAMENTO COM BORDA DOURADA VIVA */}
+        <div className="bg-[#0A0A0A] border-2 border-[#D4AF37] rounded-2xl p-5 mb-4 space-y-3 
+                        shadow-[0_0_15px_rgba(212,175,55,0.3)] hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] 
+                        transition-all duration-300">
+          
+          <div className="text-center mb-3 pb-2 border-b border-[#D4AF37]/30">
+            <span className="text-[11px] font-mono text-[#D4AF37] font-bold uppercase tracking-wider flex items-center justify-center gap-2">
+              <span>💳</span> Pagamento Angola <span>🇦🇴</span>
+              <motion.span
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="inline-block w-1.5 h-1.5 rounded-full bg-[#D4AF37]"
+              />
+            </span>
+          </div>
+          
           {paymentDetails.map((d) => (
             <div key={d.key}
                  className="flex items-center justify-between py-2
@@ -383,7 +408,7 @@ const AngolaCheckoutPage = memo(() => {
                   d.key === "valor" ? "text-[#25D366]"  : "text-white"
                 }`}>{d.value}</span>
                 <button onClick={() => copy(d.value, d.key)}
-                        className="text-[#A1A1AA] hover:text-white transition-colors">
+                        className="text-[#A1A1AA] hover:text-[#D4AF37] transition-colors">
                   {copied === d.key ? (
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366]" />
                   ) : (
@@ -394,6 +419,13 @@ const AngolaCheckoutPage = memo(() => {
               </div>
             </div>
           ))}
+          
+          <div className="mt-3 pt-2 text-center">
+            <span className="text-[9px] font-mono text-[#D4AF37] flex items-center justify-center gap-1">
+              <Shield className="w-3 h-3" />
+              Pagamento 100% seguro via transferência bancária
+            </span>
+          </div>
         </div>
 
         {/* Instrução de envio */}
@@ -469,10 +501,10 @@ const AngolaCheckoutPage = memo(() => {
         </div>
 
         <p className="text-center text-xs text-[#A1A1AA]">
-          Dúvidas?{" "}
+          Tens dúvidas?{" "}
           <a href={CONFIG.whatsappSupport} target="_blank" rel="noopener noreferrer"
              className="text-[#25D366] hover:underline">
-            Fala connosco no WhatsApp
+            Fala directamente com o Gabriel
           </a>
         </p>
       </div>
@@ -481,7 +513,7 @@ const AngolaCheckoutPage = memo(() => {
 });
 
 // ═══════════════════════════════════════════════════════════
-// THANK YOU PAGE — NOVO COMPONENTE
+// THANK YOU PAGE
 // ═══════════════════════════════════════════════════════════
 const ThankYouPage = memo(() => {
   useEffect(() => {
@@ -490,7 +522,6 @@ const ThankYouPage = memo(() => {
     const ref = urlParams.get("ref");
     const raw = sessionStorage.getItem("ne_conversion");
 
-    // Via Angola manual (link enviado pelo Gabriel após confirmação)
     if (!raw && seg === "angola") {
       const convData = {
         value: 10000,
@@ -519,7 +550,6 @@ const ThankYouPage = memo(() => {
       return;
     }
 
-    // Via Hotmart (sessionStorage)
     if (!raw) return;
     try {
       const conv = JSON.parse(raw);
@@ -672,7 +702,7 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
 });
 
 // ═══════════════════════════════════════════════════════════
-// CTA BUTTONS — ACTUALIZADO: Angola vai para /angola
+// CTA BUTTONS
 // ═══════════════════════════════════════════════════════════
 const CTAButtons = memo(({ onConvert, size = "lg" }: {
   onConvert: (seg: "international" | "angola") => void;
@@ -888,7 +918,7 @@ const CountersSection = memo(() => (
 ));
 
 // ═══════════════════════════════════════════════════════════
-// REMAINING SECTIONS (unchanged from original)
+// REMAINING SECTIONS (mantidas originais)
 // ═══════════════════════════════════════════════════════════
 const AngolaContextSection = memo(() => (
   <section className="py-20 px-6 border-b border-white/[0.05] bg-gradient-to-b from-[#050505] to-[#0A0A0A]">
@@ -1723,7 +1753,7 @@ const LegalFooter = memo(() => (
           <ul className="space-y-2">
             <li><a href={`mailto:${CONFIG.supportEmail}`} className="hover:text-white">Correio Eletrónico</a></li>
             <li><a href={CONFIG.telegramSupport} target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-1">Telegram <ExternalLink className="w-2.5 h-2.5" /></a></li>
-            <li><a href={CONFIG.communityLink} target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-1">Comunidade <ExternalLink className="w-2.5 h-2.5" /></a></li>
+            <li><a href={CONFIG.whatsappSupport} target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-1">WhatsApp <ExternalLink className="w-2.5 h-2.5" /></a></li>
           </ul>
         </div>
         <div>
@@ -1789,7 +1819,7 @@ const ExitIntentModal = memo(({ onConvert }: { onConvert: (seg: "international" 
 });
 
 // ═══════════════════════════════════════════════════════════
-// STICKY BARS — ACTUALIZADAS: Angola vai para /angola
+// STICKY BARS
 // ═══════════════════════════════════════════════════════════
 const StickyBar = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const [visible, setVisible] = useState(false);
@@ -1853,14 +1883,14 @@ const MobileStickyBar = memo(({ onConvert }: { onConvert: (seg: "international" 
 });
 
 // ═══════════════════════════════════════════════════════════
-// APP — ROTEAMENTO SIMPLES + CONVERT ACTUALIZADO
+// APP — ROTEAMENTO + BOTÃO WHATSAPP FLUTUANTE CORRIGIDO
 // ═══════════════════════════════════════════════════════════
 export function App() {
   const [toast, setToast] = useState<typeof NOTIFICATIONS[0] | null>(null);
+  const [showWaFloat, setShowWaFloat] = useState(false);
   const shownNotifications = useRef<Set<number>>(new Set());
   const notificationIndex = useRef(0);
 
-  // ── ROTEAMENTO ──
   const path = window.location.pathname;
   if (path === "/angola" || path === "/checkout-angola") {
     return <AngolaCheckoutPage />;
@@ -1871,6 +1901,13 @@ export function App() {
 
   useEffect(() => {
     Telemetry.emit("page_loaded", { ref: document.referrer });
+
+    const handleScroll = () => {
+      const scrolled = window.scrollY + window.innerHeight;
+      const total = document.documentElement.scrollHeight;
+      setShowWaFloat(scrolled >= total - 400);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     const iv = setInterval(() => {
       if (shownNotifications.current.size >= NOTIFICATIONS.length) return;
@@ -1886,14 +1923,16 @@ export function App() {
       }
     }, 50000);
 
-    return () => clearInterval(iv);
+    return () => {
+      clearInterval(iv);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const scrollToOffer = useCallback(() => {
     document.getElementById("oferta")?.scrollIntoView({ behavior: "smooth" });
   }, []);
 
-  // ── CONVERT — ACTUALIZADO ──
   const convert = useCallback((seg: "international" | "angola") => {
     const urlParams = new URLSearchParams(window.location.search);
     const metaClickId = urlParams.get("fbclid") || "";
@@ -1915,7 +1954,6 @@ export function App() {
     });
 
     if (seg === "international") {
-      // Guarda dados para ThankYouPage
       sessionStorage.setItem("ne_conversion", JSON.stringify({
         segment: "international",
         value: 10,
@@ -1930,7 +1968,6 @@ export function App() {
         content_name: "Notion Elite OS 2026"
       });
 
-      // Preserva UTMs + fbclid no link Hotmart
       const utmParams = [
         utmSource   && `utm_source=${utmSource}`,
         utmMedium   && `utm_medium=${utmMedium}`,
@@ -1944,8 +1981,6 @@ export function App() {
         : CONFIG.hotmartCheckout;
 
     } else {
-      // Angola → vai para página de checkout profissional
-      // Preserva UTMs na URL
       const utmParams = [
         utmSource   && `utm_source=${utmSource}`,
         utmCampaign && `utm_campaign=${utmCampaign}`
@@ -1989,15 +2024,34 @@ export function App() {
       <StickyBar onConvert={convert} />
       <MobileStickyBar onConvert={convert} />
 
-      {/* Botão WhatsApp flutuante — SUPORTE apenas, não checkout */}
-      <a href={CONFIG.whatsappSupport} target="_blank" rel="noopener noreferrer"
-         onClick={() => Telemetry.emit("wa_float_support")}
-         className="fixed bottom-20 md:bottom-6 right-5 z-50 bg-[#25D366] hover:bg-[#20ba59] p-3.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all outline-none flex items-center justify-center group">
-        <Send className="w-5 h-5 text-white" />
-        <span className="absolute right-full mr-2.5 bg-[#050505] text-white text-[10px] font-mono px-2 py-1 rounded border border-white/[0.08] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-          Suporte · Falar com o Gabriel
-        </span>
-      </a>
+      <AnimatePresence>
+        {showWaFloat && (
+          <motion.a
+            href={CONFIG.whatsappSupport}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => Telemetry.emit("wa_float_support_click")}
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-6 right-5 z-40 bg-[#25D366] hover:bg-[#20ba59]
+                       p-3.5 rounded-full shadow-2xl hover:scale-105 active:scale-95
+                       transition-all outline-none flex items-center justify-center group"
+          >
+            <Send className="w-5 h-5 text-white" />
+            <span className="absolute right-full mr-3 bottom-1/2 translate-y-1/2
+                             bg-[#050505] text-white text-[10px] font-mono
+                             px-3 py-2 rounded-lg border border-white/[0.08]
+                             opacity-0 group-hover:opacity-100 transition-opacity
+                             pointer-events-none whitespace-nowrap shadow-xl
+                             leading-relaxed text-left">
+              <span className="block font-bold text-[#25D366] mb-0.5">Dúvidas?</span>
+              Fala directamente com o Gabriel
+            </span>
+          </motion.a>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {toast && (
