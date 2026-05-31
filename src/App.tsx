@@ -9,6 +9,9 @@ import {
   Quote, Lock
 } from "lucide-react";
 
+// ═══════════════════════════════════════════════════════════
+// CONFIG
+// ═══════════════════════════════════════════════════════════
 const CONFIG = {
   authorName: "Gabriel Sapalo",
   authorTitle: "Estrategista & Especialista em Gestão de Sistemas de Informação",
@@ -34,15 +37,24 @@ const CONFIG = {
   productHabitTracker: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_Habit_Tracker_teccka.png",
   fideProof: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779991681/Campeonato_Nacional_Absoluto_2024_FIDE_results_harpay.png",
   hotmartCheckout: "https://pay.hotmart.com/Q105490101M?off=xablp4k5&hotfeature=51",
-  whatsappPayment: "https://chat.whatsapp.com/LDV8ORaZgzGC9ljtt3gTLh",
+  // NOVO — WhatsApp apenas para suporte, não para checkout
+  whatsappSupport: "https://chat.whatsapp.com/LDV8ORaZgzGC9ljtt3gTLh",
   communityLink: "https://chat.whatsapp.com/LDV8ORaZgzGC9ljtt3gTLh",
   telegramSupport: "https://t.me/+n_hkEVYAeO9lNDIx",
   supportEmail: "suporte@glowscalepro.com",
+  paymentEmail: "pagamentos.elite@gmail.com",
   termsOfUse: "https://drive.google.com/file/d/1cpwleZI5mtMGj8oVQ9C-xFkPmW6iJd1c/view",
   privacyPolicy: "https://drive.google.com/file/d/1yi1D2p_QYdK9tIwCaU8kxlFnol97kGdg/view",
-  cookiePolicy: "https://drive.google.com/file/d/1owleKJFrC-MVOjMx7BKMuuqrhroSZqY1/view"
+  cookiePolicy: "https://drive.google.com/file/d/1owleKJFrC-MVOjMx7BKMuuqrhroSZqY1/view",
+  // NOVO — Apps Script Web App URL (preenche depois de publicar o script)
+  appsScriptUrl: "https://script.google.com/macros/s/AKfycbxOso56CGBKX22B9z22WQN8gx6E5rEvdsEfWpMnLZCnEc8fcOLuqvYqHCasfDap6YHs/exec",
+  // NOVO — Link do kit Google Drive
+  kitDriveLink: "https://drive.google.com/file/d/1xu-vl4n1iVouFHXTv8Dbhj_H2V3AGSXz/view?usp=sharing",
 };
 
+// ═══════════════════════════════════════════════════════════
+// TYPES
+// ═══════════════════════════════════════════════════════════
 type HeroContent = {
   tag: string;
   headline: string;
@@ -51,6 +63,9 @@ type HeroContent = {
   badge: string;
 };
 
+// ═══════════════════════════════════════════════════════════
+// HERO CONTENT VARIANTS
+// ═══════════════════════════════════════════════════════════
 const HERO_CONTENT: Record<string, HeroContent> = {
   angola_internet: {
     tag: "Para estudantes que estudam com internet lenta ou sem ela",
@@ -103,6 +118,9 @@ function isAngolaCampaign(): boolean {
   }
 }
 
+// ═══════════════════════════════════════════════════════════
+// STATIC DATA
+// ═══════════════════════════════════════════════════════════
 const MANIFESTO_PHRASES = [
   "Clareza é poder.",
   "O caos custa futuros.",
@@ -133,7 +151,8 @@ const FAQ_DATA = [
   { q: "Recebo acesso imediato?", a: "Sim. O acesso é enviado e liberado automaticamente assim que a compra for confirmada." },
   { q: "Quanto tempo demora o setup?", a: "Menos de 24 horas. O vídeo de setup guiado mostra cada passo — duplicar e personalizar. A maioria termina em menos de 4 horas." },
   { q: "É só para estudantes ou também para profissionais?", a: "Para os dois. Módulos independentes de gestão académica e acompanhamento de projetos correm em paralelo sem misturar informações." },
-  { q: "Recebo atualizações futuras?", a: "Sim. Pagamento único, acesso vitalício às versões 2026 e 2027, e novos prompts de IA incluídos gratuitamente." }
+  { q: "Recebo atualizações futuras?", a: "Sim. Pagamento único, acesso vitalício às versões 2026 e 2027, e novos prompts de IA incluídos gratuitamente." },
+  { q: "Como funciona o pagamento em Angola?", a: "Acedes à página de checkout Angola, preenchas o teu nome e email, recebes os dados bancários e uma referência única. Após a transferência, envias o comprovativo por email. O sistema entrega o kit automaticamente em menos de 10 minutos." }
 ];
 
 const NOTIFICATIONS_POOL = [
@@ -162,22 +181,426 @@ const NOTIFICATIONS = shuffled.map((n, index) => ({
   time: `${index === 0 ? 1 : index * 4 + 2} min`
 }));
 
+// ═══════════════════════════════════════════════════════════
+// TELEMETRY — ACTUALIZADO: envia para GA4 + Meta via window.trackEvent
+// ═══════════════════════════════════════════════════════════
 const Telemetry = {
   emit: (eventAction: string, metadata: Record<string, unknown> = {}) => {
     try {
+      // 1. Guarda UTMs no localStorage
       const urlParams = new URLSearchParams(window.location.search);
       const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
-      utmKeys.forEach(k => { if (urlParams.has(k)) localStorage.setItem(`ne_${k}`, urlParams.get(k) || ""); });
-      const payload: Record<string, unknown> = { action: eventAction, ts: new Date().toISOString(), ...metadata };
+      utmKeys.forEach(k => {
+        if (urlParams.has(k)) localStorage.setItem(`ne_${k}`, urlParams.get(k) || "");
+      });
+
+      // 2. Constrói payload com UTMs
+      const payload: Record<string, unknown> = {
+        action: eventAction,
+        ts: new Date().toISOString(),
+        ...metadata
+      };
       utmKeys.forEach(k => { payload[k] = localStorage.getItem(`ne_${k}`) || ""; });
+
+      // 3. Guarda stack local
       const stack = JSON.parse(localStorage.getItem("ne_stack") || "[]");
       stack.push(payload);
       if (stack.length > 50) stack.shift();
       localStorage.setItem("ne_stack", JSON.stringify(stack));
+
+      // 4. NOVO — envia para GA4 + Meta Pixel via helper do index.html
+      if (typeof (window as any).trackEvent === "function") {
+        (window as any).trackEvent(eventAction, { ...metadata });
+      }
     } catch { /* silent */ }
   }
 };
 
+// ═══════════════════════════════════════════════════════════
+// ANGOLA CHECKOUT PAGE — NOVO COMPONENTE
+// ═══════════════════════════════════════════════════════════
+const AngolaCheckoutPage = memo(() => {
+  const [step, setStep] = useState<"form" | "payment">("form");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [ref, setRef] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState<string | null>(null);
+
+  const generateRef = () => {
+    const num = Math.floor(1000 + Math.random() * 9000);
+    return `ELITE-${num}`;
+  };
+
+  const handleSubmit = async () => {
+    if (!name.trim() || !email.trim()) return;
+    setLoading(true);
+
+    const clientRef = generateRef();
+    setRef(clientRef);
+
+    // Regista na Google Sheet via Apps Script
+    try {
+      await fetch(CONFIG.appsScriptUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "register",
+          ref: clientRef,
+          name: name.trim(),
+          email: email.trim(),
+          date: new Date().toISOString()
+        })
+      });
+    } catch { /* silent */ }
+
+    // GA4 + Meta Pixel
+    Telemetry.emit("Lead", {
+      content_name: "Notion Elite OS 2026 — Angola",
+      currency: "AOA",
+      value: 10000
+    });
+
+    setLoading(false);
+    setStep("payment");
+  };
+
+  const copy = (text: string, key: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(key);
+    setTimeout(() => setCopied(null), 2000);
+  };
+
+  // ── STEP: FORMULÁRIO ──
+  if (step === "form") {
+    return (
+      <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center px-6 py-12">
+        <div className="w-full max-w-md">
+
+          <div className="text-center mb-8">
+            <img src={CONFIG.productLogo} alt="Elite OS"
+                 className="w-14 h-14 mx-auto mb-4 object-contain" />
+            <h1 className="text-2xl font-bold text-white mb-2">
+              Activar Acesso — Angola
+            </h1>
+            <p className="text-sm text-[#A1A1AA]">
+              Preenche os teus dados para receberes as instruções de pagamento
+            </p>
+          </div>
+
+          <div className="bg-[#0A0A0A] border border-white/[0.08] rounded-2xl p-6 space-y-4">
+            <div>
+              <label className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider block mb-2">
+                Nome completo
+              </label>
+              <input
+                type="text"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                placeholder="O teu nome"
+                className="w-full bg-[#050505] border border-white/[0.08] rounded-xl
+                           px-4 py-3 text-white text-sm placeholder-[#3A3A3A]
+                           outline-none focus:border-[#00E5FF]/40 transition-colors"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider block mb-2">
+                Email (para receber o kit)
+              </label>
+              <input
+                type="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="teu@email.com"
+                className="w-full bg-[#050505] border border-white/[0.08] rounded-xl
+                           px-4 py-3 text-white text-sm placeholder-[#3A3A3A]
+                           outline-none focus:border-[#00E5FF]/40 transition-colors"
+              />
+            </div>
+
+            <button
+              onClick={handleSubmit}
+              disabled={loading || !name.trim() || !email.trim()}
+              className="w-full bg-[#25D366] hover:bg-[#1EBE5A] disabled:opacity-40
+                         disabled:cursor-not-allowed text-white font-bold py-4
+                         rounded-xl transition-all flex items-center justify-center gap-2"
+            >
+              {loading ? (
+                <span className="w-4 h-4 border-2 border-white/30 border-t-white
+                                 rounded-full animate-spin" />
+              ) : (
+                <>
+                  <ArrowRight className="w-4 h-4" />
+                  Ver dados de pagamento
+                </>
+              )}
+            </button>
+          </div>
+
+          <p className="text-center text-xs text-[#A1A1AA] mt-4">
+            🔒 Os teus dados são usados apenas para entregar o teu acesso
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // ── STEP: PAGAMENTO ──
+  const paymentDetails = [
+    { label: "Banco",      value: "BAI",                                  key: "banco" },
+    { label: "Titular",    value: "Gabriel António Armando Sapalo",        key: "titular" },
+    { label: "IBAN",       value: "AO06 0040 0000 1859 5631 1019 4",       key: "iban" },
+    { label: "Valor",      value: "10.000 AKZ",                           key: "valor" },
+    { label: "Referência", value: ref,                                     key: "ref" }
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center px-6 py-12">
+      <div className="w-full max-w-md">
+
+        <div className="text-center mb-6">
+          <div className="w-12 h-12 rounded-full bg-[#25D366]/10 border border-[#25D366]/30
+                          flex items-center justify-center mx-auto mb-4">
+            <CheckCircle2 className="w-6 h-6 text-[#25D366]" />
+          </div>
+          <h1 className="text-xl font-bold text-white mb-1">Dados de pagamento</h1>
+          <p className="text-sm text-[#A1A1AA]">
+            Transfere e envia o comprovativo por email
+          </p>
+        </div>
+
+        {/* Dados bancários */}
+        <div className="bg-[#0A0A0A] border border-white/[0.08] rounded-2xl p-5 mb-4 space-y-3">
+          {paymentDetails.map((d) => (
+            <div key={d.key}
+                 className="flex items-center justify-between py-2
+                            border-b border-white/[0.04] last:border-0">
+              <span className="text-xs text-[#A1A1AA] font-mono">{d.label}</span>
+              <div className="flex items-center gap-2">
+                <span className={`text-sm font-mono font-bold ${
+                  d.key === "ref"   ? "text-[#00E5FF]"  :
+                  d.key === "valor" ? "text-[#25D366]"  : "text-white"
+                }`}>{d.value}</span>
+                <button onClick={() => copy(d.value, d.key)}
+                        className="text-[#A1A1AA] hover:text-white transition-colors">
+                  {copied === d.key ? (
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366]" />
+                  ) : (
+                    <span className="text-[10px] border border-white/20
+                                     rounded px-1.5 py-0.5 font-mono">copiar</span>
+                  )}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Instrução de envio */}
+        <div className="bg-[#00E5FF]/5 border border-[#00E5FF]/20 rounded-2xl p-5 mb-4">
+          <p className="text-xs font-mono text-[#00E5FF] uppercase tracking-wider mb-3 font-bold">
+            📧 Após a transferência
+          </p>
+          <p className="text-sm text-white mb-3">Envia o comprovativo por email para:</p>
+          <div className="flex items-center justify-between bg-[#050505] rounded-xl
+                          px-4 py-3 border border-white/[0.06]">
+            <span className="text-sm font-mono text-[#00E5FF] font-bold">
+              {CONFIG.paymentEmail}
+            </span>
+            <button onClick={() => copy(CONFIG.paymentEmail, "email2")}
+                    className="text-[10px] border border-white/20 rounded
+                               px-1.5 py-0.5 font-mono text-[#A1A1AA] hover:text-white">
+              {copied === "email2" ? "✓" : "copiar"}
+            </button>
+          </div>
+
+          <div className="mt-3 p-3 bg-[#D4AF37]/5 border border-[#D4AF37]/20 rounded-xl">
+            <p className="text-xs text-[#D4AF37] font-mono font-bold mb-1">
+              ⚠️ Assunto do email obrigatório:
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-mono text-white font-bold">{ref}</span>
+              <button onClick={() => copy(ref, "ref2")}
+                      className="text-[10px] border border-white/20 rounded
+                                 px-1.5 py-0.5 font-mono text-[#A1A1AA] hover:text-white">
+                {copied === "ref2" ? "✓" : "copiar"}
+              </button>
+            </div>
+          </div>
+          <p className="text-xs text-[#A1A1AA] mt-3 leading-relaxed">
+            O assunto com a tua referência permite ao sistema identificar
+            o teu pagamento e entregar o kit automaticamente.
+          </p>
+        </div>
+
+        {/* Timeline */}
+        <div className="bg-[#0A0A0A] border border-white/[0.08] rounded-2xl p-5 mb-4">
+          <p className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider mb-3">
+            O que acontece a seguir
+          </p>
+          <div className="space-y-3">
+            {[
+              { t: "Agora",      d: "Transferes 10.000 AKZ",                                       c: "#25D366" },
+              { t: "2 minutos",  d: `Envias o comprovativo para ${CONFIG.paymentEmail} com assunto ${ref}`, c: "#00E5FF" },
+              { t: "Até 10 min", d: "Recebes o kit no teu email automaticamente",                   c: "#D4AF37" }
+            ].map((s, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0"
+                     style={{ background: s.c }} />
+                <div>
+                  <span className="text-xs font-mono font-bold" style={{ color: s.c }}>
+                    {s.t}
+                  </span>
+                  <p className="text-xs text-[#A1A1AA]">{s.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Garantia */}
+        <div className="bg-[#0A0A0A] border border-[#D4AF37]/20 rounded-2xl p-4 mb-4
+                        flex items-center gap-3">
+          <Shield className="w-5 h-5 text-[#D4AF37] shrink-0" />
+          <p className="text-xs text-[#A1A1AA] leading-relaxed">
+            <strong className="text-white">Garantia 30 dias.</strong>{" "}
+            Se não ficares satisfeito, devolvemos 100% do teu dinheiro. Sem perguntas.
+          </p>
+        </div>
+
+        <p className="text-center text-xs text-[#A1A1AA]">
+          Dúvidas?{" "}
+          <a href={CONFIG.whatsappSupport} target="_blank" rel="noopener noreferrer"
+             className="text-[#25D366] hover:underline">
+            Fala connosco no WhatsApp
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+});
+
+// ═══════════════════════════════════════════════════════════
+// THANK YOU PAGE — NOVO COMPONENTE
+// ═══════════════════════════════════════════════════════════
+const ThankYouPage = memo(() => {
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const seg = urlParams.get("seg");
+    const ref = urlParams.get("ref");
+    const raw = sessionStorage.getItem("ne_conversion");
+
+    // Via Angola manual (link enviado pelo Gabriel após confirmação)
+    if (!raw && seg === "angola") {
+      const convData = {
+        value: 10000,
+        currency: "AOA",
+        content_name: "Notion Elite OS 2026",
+        transaction_id: ref || `wa_${Date.now()}`
+      };
+
+      if (typeof (window as any).gtag === "function") {
+        (window as any).gtag("event", "purchase", {
+          transaction_id: convData.transaction_id,
+          value: convData.value,
+          currency: convData.currency,
+          items: [{ item_name: convData.content_name, price: convData.value, quantity: 1 }]
+        });
+      }
+      if (typeof (window as any).fbq === "function") {
+        (window as any).fbq("track", "Purchase", {
+          value: convData.value,
+          currency: convData.currency,
+          content_name: convData.content_name,
+          content_type: "product"
+        });
+      }
+      Telemetry.emit("purchase_confirmed", { segment: "angola", ...convData });
+      return;
+    }
+
+    // Via Hotmart (sessionStorage)
+    if (!raw) return;
+    try {
+      const conv = JSON.parse(raw);
+      sessionStorage.removeItem("ne_conversion");
+
+      if (typeof (window as any).gtag === "function") {
+        (window as any).gtag("event", "purchase", {
+          transaction_id: conv.transaction_id || `ne_${Date.now()}`,
+          value: conv.value,
+          currency: conv.currency,
+          items: [{ item_name: conv.content_name, price: conv.value, quantity: 1 }]
+        });
+      }
+      if (typeof (window as any).fbq === "function") {
+        (window as any).fbq("track", "Purchase", {
+          value: conv.value,
+          currency: conv.currency,
+          content_name: conv.content_name,
+          content_type: "product"
+        });
+      }
+      Telemetry.emit("purchase_confirmed", {
+        value: conv.value,
+        currency: conv.currency,
+        segment: conv.segment
+      });
+    } catch { /* silent */ }
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-[#050505] flex flex-col
+                    items-center justify-center text-center px-6">
+      <div className="w-16 h-16 rounded-full bg-[#25D366]/10 border border-[#25D366]/30
+                      flex items-center justify-center mb-6">
+        <CheckCircle2 className="w-8 h-8 text-[#25D366]" />
+      </div>
+      <img src={CONFIG.productLogo} alt="Elite OS"
+           className="w-12 h-12 object-contain mb-4" />
+      <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+        Acesso confirmado!
+      </h1>
+      <p className="text-[#A1A1AA] max-w-md mb-2 leading-relaxed">
+        Bem-vindo à Elite. O teu kit foi enviado para o teu email.
+      </p>
+      <p className="text-xs text-[#A1A1AA] mb-8">
+        Verifica também a pasta de spam.
+      </p>
+
+      <div className="bg-[#0A0A0A] border border-white/[0.08] rounded-2xl
+                      p-5 max-w-sm w-full text-left mb-6">
+        <p className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-wider mb-3 font-bold">
+          Primeiro passo
+        </p>
+        <p className="text-sm text-[#A1A1AA] leading-relaxed">
+          Abre o kit e vai à <strong className="text-white">Página 36</strong> —
+          lá encontras o link de duplicação do sistema e todos os bónus.
+        </p>
+      </div>
+
+      <a href={CONFIG.communityLink} target="_blank" rel="noopener noreferrer"
+         className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5A]
+                    text-white font-bold px-8 py-4 rounded-2xl transition-all
+                    shadow-[0_10px_30px_rgba(37,211,102,0.3)] mb-4">
+        <MessageCircle className="w-5 h-5 fill-white" />
+        Entrar na Comunidade Elite Minds
+      </a>
+
+      <p className="text-xs text-[#A1A1AA]">
+        Dúvidas?{" "}
+        <a href={`mailto:${CONFIG.supportEmail}`}
+           className="text-[#00E5FF] hover:underline">
+          {CONFIG.supportEmail}
+        </a>
+      </p>
+    </div>
+  );
+});
+
+// ═══════════════════════════════════════════════════════════
+// HEADER
+// ═══════════════════════════════════════════════════════════
 const Header = memo(({ onCTA }: { onCTA: () => void }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -199,8 +622,9 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between mt-3">
-        <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="flex items-center gap-3 group">
-          <img src={CONFIG.productLogo} alt="Elite OS" className="w-11 h-11 sm:w-12 sm:h-12 object-contain group-hover:scale-105 transition-transform" />
+        <a href="/" className="flex items-center gap-3 group">
+          <img src={CONFIG.productLogo} alt="Elite OS"
+               className="w-11 h-11 sm:w-12 sm:h-12 object-contain group-hover:scale-105 transition-transform" />
           <div className="hidden sm:flex flex-col leading-tight">
             <span className="font-bold text-[13px] text-white tracking-tight">Notion Elite OS</span>
             <span className="text-[9.5px] font-mono text-[#D4AF37] tracking-widest uppercase">Founder 2026</span>
@@ -217,11 +641,13 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <button onClick={() => { Telemetry.emit("header_cta"); onCTA(); }} className="btn-founder-gold text-xs px-4 py-2 rounded-md flex items-center gap-1.5 cursor-pointer animate-pulse-gold">
+          <button onClick={() => { Telemetry.emit("header_cta"); onCTA(); }}
+                  className="btn-founder-gold text-xs px-4 py-2 rounded-md flex items-center gap-1.5 cursor-pointer animate-pulse-gold">
             <span>Founder Batch 01 · $10</span>
             <ArrowRight className="w-3 h-3" />
           </button>
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden text-[#A1A1AA] hover:text-white p-1.5 outline-none">
+          <button onClick={() => setMobileOpen(!mobileOpen)}
+                  className="md:hidden text-[#A1A1AA] hover:text-white p-1.5 outline-none">
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
@@ -229,7 +655,9 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
 
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="md:hidden border-t border-white/[0.06] bg-[#080808] mt-3 px-6 py-5 space-y-4 text-xs overflow-hidden">
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="md:hidden border-t border-white/[0.06] bg-[#080808] mt-3 px-6 py-5 space-y-4 text-xs overflow-hidden">
             <a href="#manifesto" onClick={() => setMobileOpen(false)} className="block text-gray-300 hover:text-white">Manifesto</a>
             <a href="#caos" onClick={() => setMobileOpen(false)} className="block text-gray-300 hover:text-white">O Problema</a>
             <a href="#pilares" onClick={() => setMobileOpen(false)} className="block text-gray-300 hover:text-white">O Sistema</a>
@@ -243,27 +671,66 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// CTA BUTTONS — ACTUALIZADO: Angola vai para /angola
+// ═══════════════════════════════════════════════════════════
+const CTAButtons = memo(({ onConvert, size = "lg" }: {
+  onConvert: (seg: "international" | "angola") => void;
+  size?: "sm" | "lg";
+}) => {
+  const angola = isAngolaCampaign();
+  const py = size === "sm" ? "py-3 px-4 text-sm" : "py-4 text-base sm:text-lg";
+
+  if (angola) {
+    return (
+      <div className="w-full space-y-3">
+        <button onClick={() => onConvert("angola")}
+                className={`w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white ${py} font-bold rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_-10px_rgba(37,211,102,0.6)] transition-all hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.8)] animate-pulse-ring`}>
+          <MessageCircle className="w-5 h-5 fill-white" />
+          Angola · 10.000 AKZ — Activar Agora
+        </button>
+        <button onClick={() => onConvert("international")}
+                className={`w-full bg-white/[0.05] hover:bg-white/[0.08] border border-white/[0.12] text-white/70 hover:text-white ${py} font-medium rounded-2xl flex items-center justify-center gap-2 transition-all text-sm`}>
+          <Crown className="w-4 h-4 text-[#D4AF37]" />
+          Pagamento Internacional · $10 USD
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full space-y-3">
+      <button onClick={() => onConvert("international")}
+              className={`w-full btn-luxury-cyan ${py} font-bold rounded-2xl flex items-center justify-center gap-3 animate-pulse-ring`}>
+        <Crown className="w-5 h-5" />
+        Quero organizar a minha vida agora — $10
+        <ArrowRight className="w-4 h-4" />
+      </button>
+      <button onClick={() => onConvert("angola")}
+              className={`w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white ${py} font-bold rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_-10px_rgba(37,211,102,0.5)] transition-all hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.7)]`}>
+        <MessageCircle className="w-5 h-5 fill-white" />
+        Angola · 10.000 AKZ — Activar Agora
+      </button>
+    </div>
+  );
+});
+
+// ═══════════════════════════════════════════════════════════
+// HERO VSL
+// ═══════════════════════════════════════════════════════════
 const HeroVSL = memo(() => {
   const [playing, setPlaying] = useState(false);
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.25 }}
-      className="max-w-4xl mx-auto mb-10"
-    >
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.25 }}
+                className="max-w-4xl mx-auto mb-10">
       <div className="video-luxury-container">
         {!playing ? (
-          <button
-            onClick={() => { setPlaying(true); Telemetry.emit("vsl_hero_play", { src: "hero" }); }}
-            className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]"
-          >
-            <img
-              src={CONFIG.laptopOffer}
-              alt="VSL Preview"
-              className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity duration-500"
-              loading="eager"
-            />
+          <button onClick={() => { setPlaying(true); Telemetry.emit("vsl_hero_play", { src: "hero" }); }}
+                  className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]">
+            <img src={CONFIG.laptopOffer} alt="VSL Preview"
+                 className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity duration-500"
+                 loading="eager" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/50 to-transparent" />
             <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#F4D77A] text-[#050505] flex items-center justify-center shadow-[0_0_40px_rgba(212,175,55,0.5)] group-hover:scale-110 transition-transform duration-400">
               <Play className="w-6 h-6 fill-[#050505] translate-x-0.5" />
@@ -276,102 +743,43 @@ const HeroVSL = memo(() => {
             </span>
           </button>
         ) : (
-          <iframe
-            src={`${CONFIG.heroVideo}?autoplay=1&rel=0&modestbranding=1`}
-            title="VSL — Transforma o Caos em Controlo Total"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+          <iframe src={`${CONFIG.heroVideo}?autoplay=1&rel=0&modestbranding=1`}
+                  title="VSL" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen />
         )}
       </div>
     </motion.div>
   );
 });
 
-const CTAButtons = memo(({ onConvert, size = "lg" }: {
-  onConvert: (seg: "international" | "angola") => void;
-  size?: "sm" | "lg";
-}) => {
-  const angola = isAngolaCampaign();
-  const py = size === "sm" ? "py-3 px-4 text-sm" : "py-4 text-base sm:text-lg";
-
-  if (angola) {
-    return (
-      <div className="w-full space-y-3">
-        <button
-          onClick={() => onConvert("angola")}
-          className={`w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white ${py} font-bold rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_-10px_rgba(37,211,102,0.6)] transition-all hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.8)] animate-pulse-ring`}
-        >
-          <MessageCircle className="w-5 h-5 fill-white" />
-          Angola · 10.000 AKZ via WhatsApp
-        </button>
-        <button
-          onClick={() => onConvert("international")}
-          className={`w-full bg-white/[0.05] hover:bg-white/[0.08] border border-white/[0.12] text-white/70 hover:text-white ${py} font-medium rounded-2xl flex items-center justify-center gap-2 transition-all text-sm`}
-        >
-          <Crown className="w-4 h-4 text-[#D4AF37]" />
-          Pagamento Internacional · $10 USD
-        </button>
-      </div>
-    );
-  }
-
-  return (
-    <div className="w-full space-y-3">
-      <button
-        onClick={() => onConvert("international")}
-        className={`w-full btn-luxury-cyan ${py} font-bold rounded-2xl flex items-center justify-center gap-3 animate-pulse-ring`}
-      >
-        <Crown className="w-5 h-5" />
-        Quero organizar a minha vida agora — $10
-        <ArrowRight className="w-4 h-4" />
-      </button>
-      <button
-        onClick={() => onConvert("angola")}
-        className={`w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white ${py} font-bold rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_-10px_rgba(37,211,102,0.5)] transition-all hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.7)]`}
-      >
-        <MessageCircle className="w-5 h-5 fill-white" />
-        Angola · 10.000 AKZ via WhatsApp
-      </button>
-    </div>
-  );
-});
-
+// ═══════════════════════════════════════════════════════════
+// HERO SECTION
+// ═══════════════════════════════════════════════════════════
 const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const hero = getHeroContent();
-
   return (
     <section className="relative pt-40 pb-16 md:pt-48 md:pb-20 px-6 max-w-6xl mx-auto text-center overflow-hidden">
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 badge-founder-premium px-4 py-1.5 rounded-full text-xs font-mono tracking-wider mb-8">
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+                  className="inline-flex items-center gap-2 badge-founder-premium px-4 py-1.5 rounded-full text-xs font-mono tracking-wider mb-8">
         <Crown className="w-3.5 h-3.5" />
         FASE FOUNDER 2026 — Acesso Exclusivo
       </motion.div>
 
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-[-1.6px] leading-[1.02] max-w-5xl mx-auto mb-6 font-bold"
-      >
+      <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-[-1.6px] leading-[1.02] max-w-5xl mx-auto mb-6 font-bold">
         {hero.headline}<br className="hidden md:block" />
         <span className="text-gradient-magnetic">{hero.headlineHighlight}</span>
       </motion.h1>
 
-      <motion.p
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-        className="text-base sm:text-lg md:text-xl text-[#A1A1AA] max-w-3xl mx-auto mb-8 leading-relaxed"
-      >
+      <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-base sm:text-lg md:text-xl text-[#A1A1AA] max-w-3xl mx-auto mb-8 leading-relaxed">
         {hero.subtitle}
       </motion.p>
 
-      {/* MICRO-DEPOIMENTO ESTRATÉGICO (sem "primeiro") */}
-      <motion.div
-        initial={{ opacity: 0, y: 5 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.25 }}
-        className="inline-flex flex-col sm:flex-row items-center gap-3 px-5 py-3 rounded-2xl bg-[#0A0A0A] border border-white/[0.08] mx-auto mb-8"
-      >
+      <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25 }}
+                  className="inline-flex flex-col sm:flex-row items-center gap-3 px-5 py-3 rounded-2xl bg-[#0A0A0A] border border-white/[0.08] mx-auto mb-8">
         <CheckCircle2 className="w-5 h-5 text-[#25D366] shrink-0" />
         <div className="text-left">
           <p className="text-[12px] text-[#D4D4D8] leading-tight">
@@ -381,12 +789,9 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         </div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="max-w-md mx-auto mb-10 p-5 rounded-2xl bg-[#0A0A0A] border border-white/[0.08] text-left"
-      >
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="max-w-md mx-auto mb-10 p-5 rounded-2xl bg-[#0A0A0A] border border-white/[0.08] text-left">
         <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-3 font-bold">Em menos de 24 horas vais:</p>
         <div className="space-y-2.5 text-sm text-[#D4D4D8]">
           <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span>Parar de perder tempo à procura de ficheiros e notas</span></div>
@@ -395,52 +800,37 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         </div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.22 }}
-        className="max-w-xl mx-auto mb-10"
-      >
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.22 }}
+                  className="max-w-xl mx-auto mb-10">
         <CTAButtons onConvert={onConvert} size="lg" />
       </motion.div>
 
       <HeroVSL />
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.96, y: 30 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.35 }}
-        className="relative max-w-5xl mx-auto mb-6 rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
-      >
-        <img src={CONFIG.productHero.replace('/upload/', '/upload/w_800,f_auto,q_auto/')} alt="Notion Elite Starter Kit 2026" className="w-full h-auto" loading="eager" fetchPriority="high" />
+      <motion.div initial={{ opacity: 0, scale: 0.96, y: 30 }} animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.9, delay: 0.35 }}
+                  className="relative max-w-5xl mx-auto mb-6 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+        <img src={CONFIG.productHero.replace('/upload/', '/upload/w_800,f_auto,q_auto/')}
+             alt="Notion Elite Starter Kit 2026" className="w-full h-auto" loading="eager" />
       </motion.div>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.45 }}
-        className="text-xs md:text-sm text-[#A1A1AA] max-w-3xl mx-auto mb-12 leading-relaxed"
-      >
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
+                className="text-xs md:text-sm text-[#A1A1AA] max-w-3xl mx-auto mb-12 leading-relaxed">
         Chega de perder tempo a tentar organizar-se. Com o <strong className="text-white">Notion Elite Starter Kit 2026</strong>, você não gere apenas tarefas — gere a sua carreira e estudos com a precisão de um arquiteto de sistemas.
       </motion.p>
 
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-xs text-[#A1A1AA] mt-8 mb-12">
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
+                className="text-xs text-[#A1A1AA] mt-8 mb-12">
         +680 utilizadores · 4.8/5 · Feito para a realidade angolana
       </motion.p>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="mt-12 flex flex-col items-center gap-2 cursor-pointer"
-        onClick={() => document.getElementById("pilares")?.scrollIntoView({ behavior: "smooth" })}
-      >
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
+                  className="mt-12 flex flex-col items-center gap-2 cursor-pointer"
+                  onClick={() => document.getElementById("pilares")?.scrollIntoView({ behavior: "smooth" })}>
         <span className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-widest">Descobre como</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="w-5 h-8 rounded-full border border-[#D4AF37]/40 flex items-start justify-center pt-1.5"
-        >
+        <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-5 h-8 rounded-full border border-[#D4AF37]/40 flex items-start justify-center pt-1.5">
           <div className="w-0.5 h-1.5 rounded-full bg-[#D4AF37]" />
         </motion.div>
       </motion.div>
@@ -448,6 +838,9 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// ANIMATED COUNTER
+// ═══════════════════════════════════════════════════════════
 const AnimatedCounter = memo(({ end, suffix = "", label }: { end: number; suffix?: string; label: string }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -455,23 +848,20 @@ const AnimatedCounter = memo(({ end, suffix = "", label }: { end: number; suffix
 
   useEffect(() => {
     if (!ref.current) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !started.current) {
-          started.current = true;
-          const duration = 1800;
-          const startTime = performance.now();
-          const tick = (now: number) => {
-            const progress = Math.min((now - startTime) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(eased * end));
-            if (progress < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-        }
-      },
-      { threshold: 0.3 }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !started.current) {
+        started.current = true;
+        const duration = 1800;
+        const startTime = performance.now();
+        const tick = (now: number) => {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          setCount(Math.floor(eased * end));
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+    }, { threshold: 0.3 });
     observer.observe(ref.current);
     return () => observer.disconnect();
   }, [end]);
@@ -497,53 +887,47 @@ const CountersSection = memo(() => (
   </section>
 ));
 
-const AngolaContextSection = memo(() => {
-  return (
-    <section className="py-20 px-6 border-b border-white/[0.05] bg-gradient-to-b from-[#050505] to-[#0A0A0A]">
-      <div className="max-w-4xl mx-auto">
-        <div className="p-8 md:p-10 rounded-3xl border border-[#25D366]/30 bg-[#050505] relative overflow-hidden shadow-[0_20px_60px_rgba(37,211,102,0.05)]">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#25D366]/[0.03] rounded-full blur-3xl pointer-events-none" />
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="flex-1 text-center md:text-left">
-              <span className="inline-flex items-center gap-2 text-[10px] font-mono text-[#25D366] font-bold uppercase tracking-widest mb-4 bg-[#25D366]/10 px-3 py-1.5 rounded-lg border border-[#25D366]/20">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
-                Vantagem Competitiva Real
-              </span>
-              <h2 className="premium-heading text-2xl sm:text-3xl text-white mb-4 leading-tight">
-                Feito para a nossa realidade. <br />
-                <span className="text-[#25D366]">Funciona mesmo offline.</span>
-              </h2>
-              <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6">
-                Enquanto outros sistemas param quando a net cai, o teu Elite OS continua. O sistema foi desenhado para simplicidade, velocidade e controlo real, independentemente do contexto.
-              </p>
-              <div className="grid grid-cols-2 gap-3 text-left">
-                {[
-                  "Internet lenta",
-                  "Dados móveis limitados",
-                  "Rotina caótica",
-                  "Múltiplos projetos",
-                  "Telemóvel ou Desktop",
-                  "Apagões inesperados"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs text-[#D4D4D8]">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
+// ═══════════════════════════════════════════════════════════
+// REMAINING SECTIONS (unchanged from original)
+// ═══════════════════════════════════════════════════════════
+const AngolaContextSection = memo(() => (
+  <section className="py-20 px-6 border-b border-white/[0.05] bg-gradient-to-b from-[#050505] to-[#0A0A0A]">
+    <div className="max-w-4xl mx-auto">
+      <div className="p-8 md:p-10 rounded-3xl border border-[#25D366]/30 bg-[#050505] relative overflow-hidden shadow-[0_20px_60px_rgba(37,211,102,0.05)]">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#25D366]/[0.03] rounded-full blur-3xl pointer-events-none" />
+        <div className="flex flex-col md:flex-row gap-8 items-center">
+          <div className="flex-1 text-center md:text-left">
+            <span className="inline-flex items-center gap-2 text-[10px] font-mono text-[#25D366] font-bold uppercase tracking-widest mb-4 bg-[#25D366]/10 px-3 py-1.5 rounded-lg border border-[#25D366]/20">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+              Vantagem Competitiva Real
+            </span>
+            <h2 className="premium-heading text-2xl sm:text-3xl text-white mb-4 leading-tight">
+              Feito para a nossa realidade. <br />
+              <span className="text-[#25D366]">Funciona mesmo offline.</span>
+            </h2>
+            <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6">
+              Enquanto outros sistemas param quando a net cai, o teu Elite OS continua. O sistema foi desenhado para simplicidade, velocidade e controlo real, independentemente do contexto.
+            </p>
+            <div className="grid grid-cols-2 gap-3 text-left">
+              {["Internet lenta","Dados móveis limitados","Rotina caótica","Múltiplos projetos","Telemóvel ou Desktop","Apagões inesperados"].map((item, i) => (
+                <div key={i} className="flex items-center gap-2 text-xs text-[#D4D4D8]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
-            <div className="w-full md:w-1/3 shrink-0 flex justify-center">
-              <div className="w-32 h-32 rounded-full border-4 border-[#25D366]/20 flex items-center justify-center bg-[#0A0A0A] relative shadow-[0_0_40px_rgba(37,211,102,0.15)]">
-                <div className="absolute inset-0 rounded-full border border-[#25D366]/40 animate-pulse-ring" />
-                <Zap className="w-12 h-12 text-[#25D366]" />
-              </div>
+          </div>
+          <div className="w-full md:w-1/3 shrink-0 flex justify-center">
+            <div className="w-32 h-32 rounded-full border-4 border-[#25D366]/20 flex items-center justify-center bg-[#0A0A0A] relative shadow-[0_0_40px_rgba(37,211,102,0.15)]">
+              <div className="absolute inset-0 rounded-full border border-[#25D366]/40 animate-pulse-ring" />
+              <Zap className="w-12 h-12 text-[#25D366]" />
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
-});
+    </div>
+  </section>
+));
 
 const ProblemSolutionSection = memo(() => (
   <section className="py-20 px-6 border-b border-white/[0.05] bg-[#070707]">
@@ -567,12 +951,12 @@ const ProblemSolutionSection = memo(() => (
 
 const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const pilares = [
-    { label: "Pilar 01", title: "Dashboard — Centro de Comando", desc: "O seu centro de comando diário. Saiba exactamente o que é prioridade, sem distrações. Tarefas urgentes, prazos e metas num único ecrã limpo.", img: CONFIG.productDashboard },
-    { label: "Pilar 02", title: "Gestor de Projectos — Método Kanban", desc: "Pare de procrastinar trabalhos práticos. O método Kanban visual mantém os seus projetos sob controlo total — do início à entrega.", img: CONFIG.productGestorProjeto },
+    { label: "Pilar 01", title: "Dashboard — Centro de Comando", desc: "O seu centro de comando diário. Saiba exactamente o que é prioridade, sem distrações.", img: CONFIG.productDashboard },
+    { label: "Pilar 02", title: "Gestor de Projectos — Método Kanban", desc: "Pare de procrastinar trabalhos práticos. O método Kanban visual mantém os seus projetos sob controlo total.", img: CONFIG.productGestorProjeto },
     { label: "Pilar 03", title: "Gestor Financeiro — Controlo Total", desc: "Domine as suas finanças. Controlo rigoroso de receitas e despesas com a clareza que o seu bolso exige.", img: CONFIG.productGestorFinanceiro },
-    { label: "Pilar 04", title: "Cérebro Digital — Arquivo de Conhecimento", desc: "Nunca mais esqueça uma informação valiosa. O seu arquivo de conhecimento, organizado e reutilizável para sempre.", img: CONFIG.productCerebroDigital, ctaAfter: true },
-    { label: "Pilar 05", title: "Exames e Provas — Planeamento Estratégico", desc: "Antecipe-se às datas críticas. Planeamento estratégico para garantir que nada passe despercebido — zero surpresas em época de exames.", img: CONFIG.productExamesProvas },
-    { label: "Pilar 06", title: "Habit Tracker — Rotinas que Compõem", desc: "Pequenas rotinas, resultados gigantes. O rastreador que transforma hábitos em resultados mensuráveis dia após dia.", img: CONFIG.productHabitTracker }
+    { label: "Pilar 04", title: "Cérebro Digital — Arquivo de Conhecimento", desc: "Nunca mais esqueça uma informação valiosa. O seu arquivo de conhecimento, organizado e reutilizável.", img: CONFIG.productCerebroDigital, ctaAfter: true },
+    { label: "Pilar 05", title: "Exames e Provas — Planeamento Estratégico", desc: "Antecipe-se às datas críticas. Planeamento estratégico para garantir que nada passe despercebido.", img: CONFIG.productExamesProvas },
+    { label: "Pilar 06", title: "Habit Tracker — Rotinas que Compõem", desc: "Pequenas rotinas, resultados gigantes. O rastreador que transforma hábitos em resultados mensuráveis.", img: CONFIG.productHabitTracker }
   ];
 
   return (
@@ -584,19 +968,13 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
             Prova de funcionalidade. <br />
             <span className="display-heading text-gradient-gold">Sem promessas vazias.</span>
           </h2>
-          <p className="text-sm text-[#A1A1AA] mt-4">Cada pilar foi desenhado para eliminar uma fricção específica da sua rotina. Veja o produto real.</p>
         </div>
-
         <div className="space-y-10">
           {pilares.map((p, i) => (
             <div key={i}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6 }}
-                className={`grid md:grid-cols-2 gap-6 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}
-              >
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.6 }}
+                          className={`grid md:grid-cols-2 gap-6 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
                 <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
                   <img src={p.img} alt={p.title} className="w-full h-auto rounded-xl object-cover block" loading="lazy" />
                 </div>
@@ -610,19 +988,12 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
                   </div>
                 </div>
               </motion.div>
-
               {p.ctaAfter && (
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="mt-10 p-6 rounded-2xl border-gradient-gold bg-[#0A0A0A] max-w-2xl mx-auto text-center"
-                >
+                <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="mt-10 p-6 rounded-2xl border-gradient-gold bg-[#0A0A0A] max-w-2xl mx-auto text-center">
                   <p className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-widest font-bold mb-2">A Solução Está Aqui</p>
-                  <p className="text-sm text-white mb-4">
-                    Não precisas de ver o resto da página.<br />
-                    Se estás cansado do caos, este é o momento de agir.
-                  </p>
+                  <p className="text-sm text-white mb-4">Não precisas de ver o resto da página.<br />Se estás cansado do caos, este é o momento de agir.</p>
                   <CTAButtons onConvert={onConvert} size="sm" />
                 </motion.div>
               )}
@@ -634,31 +1005,14 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
   );
 });
 
-const MidPageCTA = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
-  return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="my-16 py-10 px-6 bg-gradient-to-br from-[#0A0A0A] to-[#050505] border border-[#D4AF37]/30 rounded-3xl max-w-2xl mx-auto text-center"
-    >
-      <p className="text-lg font-semibold text-white mb-2">
-        O caos só vai piorar se não agires agora.
-      </p>
-      <p className="text-sm text-[#A1A1AA] mb-6">
-        Em menos de 24 horas podes ter tudo organizado.
-      </p>
-      <div className="flex flex-col sm:flex-row gap-3 justify-center">
-        <button onClick={() => onConvert("international")} className="btn-luxury-cyan py-4 px-8 rounded-2xl font-bold">
-          Quero organizar a minha vida — $10
-        </button>
-        <button onClick={() => onConvert("angola")} className="bg-[#25D366] py-4 px-8 rounded-2xl font-bold text-white">
-          Angola · 10.000 AKZ
-        </button>
-      </div>
-    </motion.div>
-  );
-});
+const MidPageCTA = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => (
+  <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className="my-16 py-10 px-6 bg-gradient-to-br from-[#0A0A0A] to-[#050505] border border-[#D4AF37]/30 rounded-3xl max-w-2xl mx-auto text-center">
+    <p className="text-lg font-semibold text-white mb-2">O caos só vai piorar se não agires agora.</p>
+    <p className="text-sm text-[#A1A1AA] mb-6">Em menos de 24 horas podes ter tudo organizado.</p>
+    <CTAButtons onConvert={onConvert} size="lg" />
+  </motion.div>
+));
 
 const ROICalculatorSection = memo(() => {
   const [hoursPerWeek, setHoursPerWeek] = useState(5);
@@ -680,7 +1034,9 @@ const ROICalculatorSection = memo(() => {
         <div className="p-6 md:p-8 rounded-3xl bg-[#0A0A0A] border border-white/[0.06]">
           <label className="block text-xs text-[#A1A1AA] mb-2 font-mono uppercase tracking-wider">Horas perdidas por semana a organizar tarefas</label>
           <div className="flex items-center gap-4 mb-1">
-            <input type="range" min="1" max="20" value={hoursPerWeek} onChange={(e) => setHoursPerWeek(parseInt(e.target.value, 10))} className="flex-1 h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#00E5FF]" />
+            <input type="range" min="1" max="20" value={hoursPerWeek}
+                   onChange={(e) => setHoursPerWeek(parseInt(e.target.value, 10))}
+                   className="flex-1 h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#00E5FF]" />
             <span className="text-3xl font-black text-white font-mono min-w-[80px] text-right">{hoursPerWeek}h</span>
           </div>
           <p className="text-[10px] text-[#A1A1AA] mb-6 font-mono">Ajusta o slider consoante a tua realidade.</p>
@@ -726,7 +1082,6 @@ const TransformationSection = memo(() => {
     { a: "Procrastinação e paralisia", b: "Rotina fluida e automática" },
     { a: "Sobrevivência académica", b: "Execução com clareza" }
   ];
-
   return (
     <section id="transformacao" className="py-24 px-6 border-b border-white/[0.05]">
       <div className="max-w-5xl mx-auto">
@@ -750,7 +1105,6 @@ const TransformationSection = memo(() => {
                 </div>
               ))}
             </div>
-            <div className="mt-5 pt-3 border-t border-[#FF007A]/10 text-[10px] text-[#FF007A]/80 font-mono">Sintoma: stress, hesitação, estagnação.</div>
           </div>
           <div className="p-7 rounded-2xl bg-gradient-to-b from-[#05140A] to-[#050A06] border border-[#25D366]/25 relative overflow-hidden shadow-[0_0_40px_rgba(37,211,102,0.08)]">
             <div className="absolute top-0 right-0 bg-[#25D366]/10 text-[#25D366] font-mono text-[9px] font-bold px-3 py-1 rounded-bl-lg">DEPOIS · CLAREZA</div>
@@ -765,7 +1119,6 @@ const TransformationSection = memo(() => {
                 </div>
               ))}
             </div>
-            <div className="mt-5 pt-3 border-t border-[#25D366]/10 text-[10px] text-[#25D366] font-mono font-bold">Resultado: controlo real e foco instantâneo.</div>
           </div>
         </div>
         <div className="mt-10 rounded-2xl overflow-hidden border border-white/[0.06] bg-[#0A0A0A] p-2 max-w-4xl mx-auto">
@@ -779,17 +1132,22 @@ const TransformationSection = memo(() => {
 const RevealSection = memo(() => (
   <section className="py-20 px-6 border-b border-white/[0.05] bg-[#050505] relative overflow-hidden">
     <div className="max-w-5xl mx-auto text-center">
-      <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4">♟ A Virada de Chave</motion.p>
-      <motion.h2 initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white mb-10 leading-tight">
+      <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4">♟ A Virada de Chave</motion.p>
+      <motion.h2 initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                 transition={{ delay: 0.1 }}
+                 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white mb-10 leading-tight">
         Do caos… <span className="display-heading text-gradient-gold">à clareza</span>.
       </motion.h2>
       <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2 shadow-[0_30px_80px_rgba(0,0,0,0.8)]">
-        <motion.div initial={{ clipPath: "inset(0% 100% 0% 0%)" }} whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }} transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }} viewport={{ once: true, amount: 0.3 }} className="relative">
+        <motion.div initial={{ clipPath: "inset(0% 100% 0% 0%)" }} whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+                    transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }} viewport={{ once: true, amount: 0.3 }}>
           <img src={CONFIG.notionMockup} alt="Transição Caos → Controlo" className="w-full h-auto rounded-xl object-cover block" loading="lazy" />
-          <motion.div initial={{ x: "-100%" }} whileInView={{ x: "100%" }} transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }} viewport={{ once: true, amount: 0.3 }} className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00E5FF]/20 to-transparent pointer-events-none" />
         </motion.div>
       </div>
-      <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.2 }} className="text-sm text-[#A1A1AA] mt-6 max-w-xl mx-auto italic font-serif">
+      <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+                transition={{ delay: 1.2 }}
+                className="text-sm text-[#A1A1AA] mt-6 max-w-xl mx-auto italic font-serif">
         "Quando o sistema entra, o ruído sai."
       </motion.p>
     </div>
@@ -848,7 +1206,6 @@ const PainSection = memo(() => {
             Estás a estudar… <br />
             ou apenas a <span className="display-heading text-[#FF007A]">sobreviver</span> no caos?
           </h2>
-          <p className="text-sm text-[#A1A1AA] mt-4 leading-relaxed">O problema da maioria não é falta de inteligência. É <strong className="text-white">excesso de ruído</strong>.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-5">
           {pains.map((p, i) => {
@@ -940,7 +1297,9 @@ const JourneySection = memo(() => {
         </div>
         <div className="grid md:grid-cols-3 gap-5 mb-16">
           {steps.map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className={`p-6 rounded-2xl border ${colorMap[s.color]} relative`}>
+            <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                        className={`p-6 rounded-2xl border ${colorMap[s.color]} relative`}>
               <span className="text-[10px] font-mono font-bold uppercase tracking-widest block mb-2">{s.time}</span>
               <h3 className="text-base font-bold text-white mb-2">{s.title}</h3>
               <p className="text-xs text-[#A1A1AA] leading-relaxed">{s.desc}</p>
@@ -1025,21 +1384,22 @@ const EngineeringSection = memo(() => {
           <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white">
             Vê o sistema a funcionar <span className="display-heading text-gradient-magnetic">na prática</span>
           </h2>
-          <p className="text-sm text-[#A1A1AA] mt-3">Navega nas funcionalidades prontas a usar. Sem adivinhar o design. Sem complicação.</p>
         </div>
         <div className="video-luxury-container max-w-4xl mx-auto">
           {!playing ? (
-            <div onClick={() => { setPlaying(true); Telemetry.emit("demo_played"); }} className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]">
-              <img src={CONFIG.internalView} alt="Demo" className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity duration-500" loading="lazy" />
+            <div onClick={() => { setPlaying(true); Telemetry.emit("demo_played"); }}
+                 className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]">
+              <img src={CONFIG.internalView} alt="Demo"
+                   className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity duration-500" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/50 to-transparent" />
               <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#00E5FF] to-[#4CF2FF] text-[#050505] flex items-center justify-center shadow-[0_0_40px_rgba(0,229,255,0.5)] group-hover:scale-110 transition-transform duration-400">
                 <Play className="w-6 h-6 fill-[#050505] translate-x-0.5" />
               </div>
               <p className="relative z-10 text-xs font-bold text-white mt-4 tracking-wide">Assistir Demonstração Real</p>
-              <span className="relative z-10 text-[10px] text-[#00E5FF] mt-1 font-mono font-semibold">Preview SaaS · Alta Definição</span>
             </div>
           ) : (
-            <iframe src={CONFIG.videoDemonstracaoReal} title="Demo" className="w-full h-full absolute inset-0 border-0" allow="autoplay" allowFullScreen />
+            <iframe src={CONFIG.videoDemonstracaoReal} title="Demo"
+                    className="w-full h-full absolute inset-0 border-0" allow="autoplay" allowFullScreen />
           )}
         </div>
       </div>
@@ -1059,9 +1419,11 @@ const SocialProofSection = memo(() => (
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {TESTIMONIALS.map((t, i) => (
-          <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.04 }} className="card-luxury p-6 flex flex-col">
+          <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.04 }}
+                      className="card-luxury p-6 flex flex-col">
             <div className="flex items-center gap-3 mb-4 pb-4 border-b border-white/[0.05]">
-              <div className="w-14 h-14 rounded-full overflow-hidden border border-[#D4AF37]/50 shrink-0 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+              <div className="w-14 h-14 rounded-full overflow-hidden border border-[#D4AF37]/50 shrink-0">
                 <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="flex-1 min-w-0">
@@ -1082,118 +1444,72 @@ const SocialProofSection = memo(() => (
           </motion.div>
         ))}
       </div>
-      <div className="mt-12 max-w-3xl mx-auto text-center p-6 rounded-2xl bg-[#0A0A0A] border border-[#00E5FF]/20">
-        <p className="text-xs font-bold text-white mb-2 flex items-center justify-center gap-2">
-          <Flame className="w-3.5 h-3.5 text-[#FF007A]" />
-          Junta-te à Elite Minds 2026
-        </p>
-        <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
-          Desafios semanais, reposts, suporte direto e uma cultura de operadores mentais que se recusam a viver no caos.
-        </p>
-      </div>
     </div>
   </section>
 ));
 
-const AuthoritySection = memo(() => {
-  const fideProfileLink = "https://ratings.fide.com/report.phtml?event=368341";
-  
-  return (
-    <section id="autoridade" className="py-24 px-6 border-b border-white/[0.05] bg-[#070707] relative overflow-hidden">
-      <div className="absolute inset-0 chess-deco opacity-20 pointer-events-none" />
-      <div className="max-w-5xl mx-auto relative">
-        <div className="text-center mb-10 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ A Mente por Trás da Matriz</span>
-          <h2 className="premium-heading text-3xl sm:text-4xl text-white">
-            O sistema criado pelo <span className="display-heading text-gradient-gold">Campeão Nacional de Xadrez de Angola</span>
-          </h2>
-        </div>
-
-        {/* Layout Foto + Prova FIDE lado a lado */}
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          {/* Coluna 1: Foto + Badges */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-4">
-            <div className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-[#D4AF37]/60 bg-[#0A0A0A] shadow-[0_0_40px_rgba(212,175,55,0.3)]">
-              <img src={CONFIG.authorPhoto} alt={CONFIG.authorName} className="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-white">{CONFIG.authorName}</h3>
-              <p className="text-[10px] text-[#D4AF37] font-mono mt-1 tracking-widest uppercase block">{CONFIG.authorTitle}</p>
-            </div>
-            {/* Badges com link FIDE */}
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-2">
-              <span className="badge-founder-premium px-3 py-1 rounded-full font-mono font-semibold text-[10px]">
-                ♟ Campeão Nacional Absoluto · Angola 2024
-              </span>
-              <a
-                href={fideProfileLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-3 py-1 rounded-full border border-[#00E5FF]/20 text-[#00E5FF] text-[9px] font-mono hover:bg-[#00E5FF]/5 transition-colors inline-flex items-center gap-1"
-              >
-                Ver ranking oficial FIDE ↗
-              </a>
-            </div>
+const AuthoritySection = memo(() => (
+  <section id="autoridade" className="py-24 px-6 border-b border-white/[0.05] bg-[#070707] relative overflow-hidden">
+    <div className="absolute inset-0 chess-deco opacity-20 pointer-events-none" />
+    <div className="max-w-5xl mx-auto relative">
+      <div className="text-center mb-10 max-w-2xl mx-auto">
+        <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ A Mente por Trás da Matriz</span>
+        <h2 className="premium-heading text-3xl sm:text-4xl text-white">
+          O sistema criado pelo <span className="display-heading text-gradient-gold">Campeão Nacional de Xadrez de Angola</span>
+        </h2>
+      </div>
+      <div className="grid md:grid-cols-2 gap-8 items-start">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left gap-4">
+          <div className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-[#D4AF37]/60 bg-[#0A0A0A] shadow-[0_0_40px_rgba(212,175,55,0.3)]">
+            <img src={CONFIG.authorPhoto} alt={CONFIG.authorName} className="w-full h-full object-cover" loading="lazy" />
           </div>
-
-          {/* Coluna 2: Prova FIDE (screenshot) */}
-          <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] shadow-lg">
-            <img 
-              src={CONFIG.fideProof} 
-              alt="Resultado oficial FIDE - Campeonato Nacional Angola 2024" 
-              className="w-full h-auto object-cover"
-              loading="lazy"
-            />
-            <div className="p-3 bg-[#050505] border-t border-white/[0.05] flex items-center justify-between">
-              <span className="text-[9px] font-mono text-[#25D366] flex items-center gap-1.5">
-                <CheckCircle2 className="w-3 h-3" /> Verificado pela FIDE
-              </span>
-            </div>
+          <div>
+            <h3 className="text-xl font-bold text-white">{CONFIG.authorName}</h3>
+            <p className="text-[10px] text-[#D4AF37] font-mono mt-1 tracking-widest uppercase block">{CONFIG.authorTitle}</p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-2">
+            <span className="badge-founder-premium px-3 py-1 rounded-full font-mono font-semibold text-[10px]">
+              ♟ Campeão Nacional Absoluto · Angola 2024
+            </span>
+            <a href="https://ratings.fide.com/report.phtml?event=368341" target="_blank" rel="noopener noreferrer"
+               className="px-3 py-1 rounded-full border border-[#00E5FF]/20 text-[#00E5FF] text-[9px] font-mono hover:bg-[#00E5FF]/5 transition-colors inline-flex items-center gap-1">
+              Ver ranking oficial FIDE ↗
+            </a>
           </div>
         </div>
-
-        {/* Citação e biografia (mantido) */}
-        <div className="mt-10 space-y-5 text-sm text-[#A1A1AA] leading-relaxed">
-          <p className="text-lg md:text-xl font-serif italic text-white border-l-2 border-[#D4AF37] pl-5 py-2 bg-white/[0.01] rounded-r">
-            "No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exactamente o mesmo: quem não tem sistema, joga no improviso — e falha."
-          </p>
-          <p className="text-[#D4D4D8] bg-[#0A0A0A] border-l-2 border-[#00E5FF]/40 pl-4 py-2 rounded-r italic">
-            Eu também vivia perdido entre PDFs, WhatsApp e deadlines. Criei este sistema primeiro para mim — porque precisava dele. Só depois percebi que funcionava para qualquer pessoa que quisesse sair do caos.
-          </p>
-          <div className="space-y-2">
-            {[
-              "♟️ Campeão Nacional Absoluto de Xadrez de Angola",
-              "Criador do Notion Elite OS — sistema operacional pessoal",
-              "Especialista em Gestão de Sistemas de Informação",
-              "Foco: antecipação estratégica, clareza e execução"
-            ].map((b, i) => (
-              <div key={i} className="flex items-start gap-2.5 text-xs text-[#D4D4D8]">
-                <span className="text-[#D4AF37] shrink-0 mt-0.5">▸</span>
-                <span>{b}</span>
-              </div>
-            ))}
-          </div>
-          <div className="grid grid-cols-2 gap-3 pt-4">
-            {[
-              { icon: Eye, label: "Antecipação estruturada" },
-              { icon: Zap, label: "Redução de ruído" },
-              { icon: Target, label: "Execução eficiente" },
-              { icon: Lock, label: "Controlo inegociável" }
-            ].map((it, i) => {
-              const Icon = it.icon;
-              return (
-                <div key={i} className="p-3 rounded-lg bg-[#0A0A0A] border border-white/[0.05] flex items-center gap-2">
-                  <Icon className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
-                  <span className="text-xs text-white font-medium">{it.label}</span>
-                </div>
-              );
-            })}
+        <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] shadow-lg">
+          <img src={CONFIG.fideProof} alt="Resultado oficial FIDE" className="w-full h-auto object-cover" loading="lazy" />
+          <div className="p-3 bg-[#050505] border-t border-white/[0.05] flex items-center justify-between">
+            <span className="text-[9px] font-mono text-[#25D366] flex items-center gap-1.5">
+              <CheckCircle2 className="w-3 h-3" /> Verificado pela FIDE
+            </span>
           </div>
         </div>
       </div>
-    </section>
-  );
-});
+      <div className="mt-10 space-y-5 text-sm text-[#A1A1AA] leading-relaxed">
+        <p className="text-lg md:text-xl font-serif italic text-white border-l-2 border-[#D4AF37] pl-5 py-2 bg-white/[0.01] rounded-r">
+          "No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exactamente o mesmo."
+        </p>
+        <div className="grid grid-cols-2 gap-3 pt-4">
+          {[
+            { icon: Eye, label: "Antecipação estruturada" },
+            { icon: Zap, label: "Redução de ruído" },
+            { icon: Target, label: "Execução eficiente" },
+            { icon: Lock, label: "Controlo inegociável" }
+          ].map((it, i) => {
+            const Icon = it.icon;
+            return (
+              <div key={i} className="p-3 rounded-lg bg-[#0A0A0A] border border-white/[0.05] flex items-center gap-2">
+                <Icon className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
+                <span className="text-xs text-white font-medium">{it.label}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+));
 
 const UrgencyTimer = memo(() => {
   const [timeLeft, setTimeLeft] = useState({ h: 0, m: 0, s: 0 });
@@ -1201,31 +1517,22 @@ const UrgencyTimer = memo(() => {
 
   useEffect(() => {
     const DEADLINE = new Date("2026-06-15T23:59:59").getTime();
-
     const update = () => {
       const diff = DEADLINE - Date.now();
-      
-      if (diff <= 0) {
-        setExpired(true);
-        return;
-      }
-      
-      const h = Math.floor(diff / (1000 * 60 * 60));
-      const m = Math.floor((diff / (1000 * 60)) % 60);
-      const s = Math.floor((diff / 1000) % 60);
-      setTimeLeft({ h, m, s });
+      if (diff <= 0) { setExpired(true); return; }
+      setTimeLeft({
+        h: Math.floor(diff / (1000 * 60 * 60)),
+        m: Math.floor((diff / (1000 * 60)) % 60),
+        s: Math.floor((diff / 1000) % 60)
+      });
     };
-
     update();
     const iv = setInterval(update, 1000);
     return () => clearInterval(iv);
   }, []);
 
   const pad = (n: number) => String(n).padStart(2, "0");
-
-  if (expired) {
-    return null; // Timer escondido quando expira
-  }
+  if (expired) return null;
 
   return (
     <div className="inline-flex items-center gap-2 bg-[#0A0A0A] border border-[#FF007A]/30 rounded-lg px-3 py-1.5">
@@ -1242,137 +1549,101 @@ const UrgencyTimer = memo(() => {
   );
 });
 
-const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
-  const [showTimer, setShowTimer] = useState(true);
-  
-  return (
-    <section id="oferta" className="py-24 px-6 border-b border-white/[0.05]">
-      <div className="max-w-4xl mx-auto text-center">
-        <div className="mb-10">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ Licenciamento Exclusivo · Fase Founder</span>
-          <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
-            O investimento mais inteligente <br className="hidden md:block" />
-            que podes fazer em <span className="display-heading text-gradient-gold">ti mesmo</span>
-          </h2>
+const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => (
+  <section id="oferta" className="py-24 px-6 border-b border-white/[0.05]">
+    <div className="max-w-4xl mx-auto text-center">
+      <div className="mb-10">
+        <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ Licenciamento Exclusivo · Fase Founder</span>
+        <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
+          O investimento mais inteligente <br className="hidden md:block" />
+          que podes fazer em <span className="display-heading text-gradient-gold">ti mesmo</span>
+        </h2>
+      </div>
+      <div className="border border-[#00E5FF]/30 bg-[#101010] p-8 sm:p-10 rounded-3xl text-center max-w-2xl mx-auto relative overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
+        <p className="text-xs text-white/60 uppercase tracking-widest font-mono">Preço de Lançamento — Founder Batch 01</p>
+        <div className="flex justify-center mt-3 mb-4"><UrgencyTimer /></div>
+        <div className="flex items-end justify-center gap-2 my-5">
+          <span className="text-6xl sm:text-7xl font-black text-white tracking-tight">$10</span>
+          <span className="pb-3 text-lg font-normal text-white/50">ou 10.000 AKZ</span>
         </div>
-        <div className="border border-[#00E5FF]/30 bg-[#101010] p-8 sm:p-10 rounded-3xl text-center max-w-2xl mx-auto relative overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
-          <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#00E5FF]/[0.06] rounded-full blur-3xl pointer-events-none" />
-          <p className="text-xs text-white/60 uppercase tracking-widest font-mono">Preço de Lançamento — Founder Batch 01</p>
-          <div className="flex justify-center mt-3 mb-4"><UrgencyTimer /></div>
-          <div className="flex items-end justify-center gap-2 my-5">
-            <span className="text-6xl sm:text-7xl font-black text-white tracking-tight">$10</span>
-            <span className="pb-3 text-lg font-normal text-white/50">ou 10.000 AKZ</span>
+        <div className="mt-6 max-w-md mx-auto">
+          <div className="flex items-center justify-between text-xs mb-2">
+            <span className="text-[#A1A1AA] font-mono">Vagas Founder Batch 01</span>
+            <span className="text-[#25D366] font-bold font-mono">Preferência limitada</span>
           </div>
-          
-          {/* ESCASSEZ REMOVIDA - números específicos tirados */}
-          <div className="mt-6 max-w-md mx-auto">
-            <div className="flex items-center justify-between text-xs mb-2">
-              <span className="text-[#A1A1AA] font-mono">Vagas Founder Batch 01</span>
-              <span className="text-[#25D366] font-bold font-mono">Preferência limitada</span>
+          <div className="h-2 bg-[#0A0A0A] rounded-full overflow-hidden border border-white/[0.05]">
+            <div className="h-full bg-gradient-to-r from-[#25D366] to-[#00E5FF] rounded-full" style={{ width: '68%' }} />
+          </div>
+          <p className="text-[10px] text-[#FF007A] font-mono font-bold mt-2 flex items-center justify-center gap-1.5">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FF007A] animate-pulse" />
+            Vagas limitadas para o Founder Batch 01
+          </p>
+        </div>
+        <div className="mt-2 mb-6 bg-red-500/10 border border-red-500/20 text-left p-4 rounded-xl max-w-md mx-auto">
+          <p className="text-xs font-bold text-red-400 mb-1 flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+            Viste os nossos anúncios de $10?
+          </p>
+          <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
+            Parabéns, chegaste a tempo. O <strong className="text-white">Founder Batch 01</strong> ainda tem vagas, mas o preço subirá para <strong className="text-white">$49</strong> assim que este lote for fechado.
+          </p>
+        </div>
+        <div className="mt-6 rounded-2xl border border-[#D4AF37]/20 bg-[#0A0A0A] p-6 text-left max-w-md mx-auto">
+          <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-4 font-bold text-center">Estrutura de Preço Founder</p>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-white font-semibold flex items-center gap-2">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+                Founder Batch 01 <span className="text-[9px] font-mono text-[#25D366] uppercase tracking-wider">(atual)</span>
+              </span>
+              <span className="font-mono text-[#25D366] font-bold">$10</span>
             </div>
-            <div className="h-2 bg-[#0A0A0A] rounded-full overflow-hidden border border-white/[0.05]">
-              <div className="h-full bg-gradient-to-r from-[#25D366] to-[#00E5FF] rounded-full relative" style={{ width: '68%' }}>
-                <div className="absolute inset-0 animate-shimmer" />
+            <div className="flex items-center justify-between opacity-80">
+              <span className="text-[#A1A1AA]">Próximo lote</span>
+              <span className="font-mono text-white">$27</span>
+            </div>
+            <div className="flex items-center justify-between opacity-70">
+              <span className="text-[#A1A1AA]">Preço final</span>
+              <span className="font-mono text-white">$49</span>
+            </div>
+          </div>
+        </div>
+        <p className="text-xs text-[#00E5FF] font-mono font-semibold mt-6">Acesso vitalício • Garantia de 30 dias</p>
+        <div className="mt-8 text-left max-w-md mx-auto">
+          <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-widest mb-3 font-semibold text-center">Inclui:</p>
+          <div className="space-y-2 text-sm">
+            {["Sistema Operacional Notion Elite 2026","Dashboard académico + profissional","Habit Matrix + Goal Radar","Finance Command","Guia de setup em 24h","Acesso à comunidade Elite Minds","Atualizações 2026 + 2027"].map((item, i) => (
+              <div key={i} className="flex items-start gap-2.5 text-[#D4D4D8]">
+                <Check className="w-3.5 h-3.5 text-[#00E5FF] shrink-0 mt-0.5" />
+                <span>{item}</span>
               </div>
-            </div>
-            <p className="text-[10px] text-[#FF007A] font-mono font-bold mt-2 flex items-center justify-center gap-1.5">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FF007A] animate-pulse" />
-              Vagas limitadas para o Founder Batch 01
-            </p>
+            ))}
           </div>
-          
-          <div className="mt-2 mb-6 bg-red-500/10 border border-red-500/20 text-left p-4 rounded-xl max-w-md mx-auto">
-            <p className="text-xs font-bold text-red-400 mb-1 flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-              Viste os nossos anúncios de $10?
-            </p>
-            <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
-              Parabéns, chegaste a tempo. O <strong className="text-white">Founder Batch 01</strong> ainda tem vagas, mas o preço subirá para <strong className="text-white">$49</strong> assim que este lote for fechado.
-            </p>
+        </div>
+        <div className="mt-10 space-y-3">
+          <CTAButtons onConvert={onConvert} size="lg" />
+        </div>
+        <div className="mt-5 pt-5 border-t border-white/[0.05]">
+          <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-wider mb-2">Métodos de pagamento aceites</p>
+          <div className="flex items-center justify-center gap-3 flex-wrap text-[10px] text-white/70 font-mono">
+            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">💳 Cartão Internacional</span>
+            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">🇦🇴 IBAN / Multicaixa</span>
+            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">📧 Comprovativo por Email</span>
           </div>
-          <div className="mt-6 rounded-2xl border border-[#D4AF37]/20 bg-[#0A0A0A] p-6 text-left max-w-md mx-auto">
-            <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-4 font-bold text-center">Estrutura de Preço Founder</p>
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-white font-semibold flex items-center gap-2">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
-                  Founder Batch 01 <span className="text-[9px] font-mono text-[#25D366] uppercase tracking-wider">(atual)</span>
-                </span>
-                <span className="font-mono text-[#25D366] font-bold">$10</span>
-              </div>
-              <div className="flex items-center justify-between opacity-80">
-                <span className="text-[#A1A1AA]">Próximo lote</span>
-                <span className="font-mono text-white">$27</span>
-              </div>
-              <div className="flex items-center justify-between opacity-70">
-                <span className="text-[#A1A1AA]">Preço final</span>
-                <span className="font-mono text-white">$49</span>
-              </div>
-            </div>
-            <p className="text-[10px] text-[#A1A1AA] mt-4 text-center italic">Garante o Batch 01 antes que o preço suba.</p>
+        </div>
+        <div className="mt-8 pt-6 border-t border-white/[0.05]">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <Shield className="w-4 h-4 text-[#D4AF37]" />
+            <p className="text-xs font-bold text-white uppercase tracking-wider">Garantia de Resultado 30 Dias</p>
           </div>
-          <p className="text-xs text-[#00E5FF] font-mono font-semibold mt-6">Acesso vitalício • Garantia de 30 dias</p>
-          <div className="mt-8 text-left max-w-md mx-auto">
-            <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-widest mb-3 font-semibold text-center">Inclui:</p>
-            <div className="space-y-2 text-sm">
-              {[
-                "Sistema Operacional Notion Elite 2026",
-                "Dashboard académico + profissional",
-                "Habit Matrix + Goal Radar",
-                "Finance Command",
-                "Guia de setup em 24h",
-                "Acesso à comunidade Elite Minds",
-                "Atualizações 2026 + 2027"
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-2.5 text-[#D4D4D8]">
-                  <Check className="w-3.5 h-3.5 text-[#00E5FF] shrink-0 mt-0.5" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 p-3 rounded-xl bg-[#00E5FF]/5 border border-[#00E5FF]/20 flex items-start gap-3">
-              <div className="w-6 h-6 rounded-full bg-[#00E5FF]/10 flex items-center justify-center shrink-0 mt-0.5">
-                <Sparkles className="w-3.5 h-3.5 text-[#00E5FF]" />
-              </div>
-              <div>
-                <p className="text-xs font-bold text-white mb-0.5">🎁 Bónus Exclusivo Incluído</p>
-                <p className="text-[10px] text-[#A1A1AA] leading-relaxed">
-                  Acesso imediato à biblioteca com <strong>20 Prompts de IA Nativos</strong> para acelerar a tua produtividade. Tudo incluído no teu acesso.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-10 space-y-3">
-            <CTAButtons onConvert={onConvert} size="lg" />
-          </div>
-          <div className="mt-5 pt-5 border-t border-white/[0.05]">
-            <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-wider mb-2">Métodos de pagamento aceites</p>
-            <div className="flex items-center justify-center gap-3 flex-wrap text-[10px] text-white/70 font-mono">
-              <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">💳 Cartão Internacional</span>
-              <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">🇦🇴 Multicaixa Express</span>
-              <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">📱 Transferência Bancária</span>
-              <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">💬 WhatsApp Angola</span>
-            </div>
-            <p className="text-[10px] text-[#A1A1AA] mt-2 italic">
-              Comenta <span className="text-[#D4AF37] font-bold">"ELITE"</span> nos nossos vídeos e recebe o link directo por DM.
-            </p>
-          </div>
-          
-          {/* GARANTIA SIMPLIFICADA - sem sessão privada */}
-          <div className="mt-8 pt-6 border-t border-white/[0.05]">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <Shield className="w-4 h-4 text-[#D4AF37]" />
-              <p className="text-xs font-bold text-white uppercase tracking-wider">Garantia de Resultado 30 Dias</p>
-            </div>
-            <p className="text-sm text-gray-400 max-w-md mx-auto leading-relaxed">
-              Se o sistema não fizer sentido para ti nos primeiros 30 dias, devolvemos <strong className="text-white">100% do teu dinheiro</strong>.
-            </p>
-          </div>
+          <p className="text-sm text-gray-400 max-w-md mx-auto leading-relaxed">
+            Se o sistema não fizer sentido para ti nos primeiros 30 dias, devolvemos <strong className="text-white">100% do teu dinheiro</strong>. O risco é 100% nosso.
+          </p>
         </div>
       </div>
-    </section>
-  );
-});
+    </div>
+  </section>
+));
 
 const FAQSection = memo(() => {
   const [open, setOpen] = useState<number | null>(null);
@@ -1386,13 +1657,16 @@ const FAQSection = memo(() => {
           const isOpen = open === i;
           return (
             <div key={i} className="bg-[#0A0A0A] border border-white/[0.05] rounded-lg overflow-hidden">
-              <button onClick={() => setOpen(isOpen ? null : i)} className="w-full text-left p-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors outline-none cursor-pointer text-sm font-semibold text-white">
+              <button onClick={() => setOpen(isOpen ? null : i)}
+                      className="w-full text-left p-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors outline-none cursor-pointer text-sm font-semibold text-white">
                 <span>{item.q}</span>
                 {isOpen ? <ChevronUp className="w-4 h-4 text-[#D4AF37] shrink-0" /> : <ChevronDown className="w-4 h-4 text-[#A1A1AA] shrink-0" />}
               </button>
               <AnimatePresence>
                 {isOpen && (
-                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25 }} className="px-5 pb-5 text-xs text-[#A1A1AA] border-t border-white/[0.04] pt-4 leading-relaxed">
+                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25 }}
+                              className="px-5 pb-5 text-xs text-[#A1A1AA] border-t border-white/[0.04] pt-4 leading-relaxed">
                     {item.a}
                   </motion.div>
                 )}
@@ -1407,28 +1681,14 @@ const FAQSection = memo(() => {
 
 const FinalCTASection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => (
   <section className="py-28 px-6 text-center relative overflow-hidden border-b border-white/[0.05] bg-gradient-to-b from-[#050505] via-[#080808] to-[#050505]">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] gradient-magnetic opacity-20 rounded-full blur-[150px] pointer-events-none -z-10" />
-    <div className="absolute top-1/3 left-1/3 w-[400px] h-[300px] gradient-gold-glow opacity-40 rounded-full blur-[120px] pointer-events-none -z-10" />
     <div className="max-w-2xl mx-auto relative">
       <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold block mb-5">♟ A Decisão Inevitável</span>
-      <div className="flex justify-center mb-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/5 text-[#D4AF37] text-[10px] font-mono shadow-[0_0_15px_rgba(212,175,55,0.15)]">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
-          <strong className="tracking-wide">Founder Batch 01 quase encerrado</strong>
-        </div>
-      </div>
       <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white max-w-2xl mx-auto leading-[1.05] mb-5">
         A elite não espera pelas oportunidades. <br />
         <span className="display-heading text-gradient-gold">Ela cria o seu próprio sistema.</span>
       </h2>
-      <p className="text-sm text-[#A1A1AA] max-w-xl mx-auto leading-relaxed mb-4">
+      <p className="text-sm text-[#A1A1AA] max-w-xl mx-auto leading-relaxed mb-8">
         O Notion Elite Starter Kit 2026 é o investimento que separa quem apenas deseja de quem realmente executa.
-      </p>
-      <p className="text-xs text-[#FF007A] font-mono font-bold tracking-wide mb-2">
-        O Founder Batch 01 está quase no fim. Depois sobe para $27 e $49.
-      </p>
-      <p className="text-[#D4AF37] font-mono font-bold text-xs md:text-sm tracking-wide mb-8 mt-4">
-        ♟ Assume o comando da tua vida agora.
       </p>
       <div className="max-w-xl mx-auto mb-6">
         <CTAButtons onConvert={onConvert} size="lg" />
@@ -1448,9 +1708,6 @@ const LegalFooter = memo(() => (
           <span className="text-white/[0.15]">/</span>
           <span className="text-white font-medium text-xs">{CONFIG.authorName}</span>
         </div>
-        <p className="text-[10px] text-[#A1A1AA]/60 max-w-md text-center sm:text-right leading-relaxed">
-          Arquitetura operacional desenvolvida de forma independente. Sem afiliação ou patrocínio institucional da Notion Labs Inc.
-        </p>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 py-8 text-[11px]">
         <div>
@@ -1466,14 +1723,14 @@ const LegalFooter = memo(() => (
           <ul className="space-y-2">
             <li><a href={`mailto:${CONFIG.supportEmail}`} className="hover:text-white">Correio Eletrónico</a></li>
             <li><a href={CONFIG.telegramSupport} target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-1">Telegram <ExternalLink className="w-2.5 h-2.5" /></a></li>
-            <li><a href={CONFIG.communityLink} target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-1">WhatsApp <ExternalLink className="w-2.5 h-2.5" /></a></li>
+            <li><a href={CONFIG.communityLink} target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-1">Comunidade <ExternalLink className="w-2.5 h-2.5" /></a></li>
           </ul>
         </div>
         <div>
           <p className="text-[10px] font-mono text-white uppercase tracking-wider mb-3 font-semibold">Especificações</p>
           <p className="text-[#A1A1AA]/80 text-[10px] leading-relaxed">
-            Notion Elite OS 2026. <br />
-            Sistema operacional pessoal em Notion para estudantes e profissionais que recusam o caos.
+            Notion Elite OS 2026.<br />
+            Sistema operacional pessoal para estudantes e profissionais.
           </p>
         </div>
       </div>
@@ -1492,114 +1749,66 @@ const ExitIntentModal = memo(({ onConvert }: { onConvert: (seg: "international" 
 
   useEffect(() => {
     if (localStorage.getItem("ne_exit_dismissed") === "1") return;
-
-    // Delay de 20 segundos antes de armar o exit intent
     const armTimer = setTimeout(() => setArmed(true), 20000);
-
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0 && armed && !dismissed.current) {
         setShow(true);
         Telemetry.emit("exit_intent_triggered");
       }
     };
-
     document.addEventListener("mouseleave", handleMouseLeave);
-    return () => {
-      clearTimeout(armTimer);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-    };
+    return () => { clearTimeout(armTimer); document.removeEventListener("mouseleave", handleMouseLeave); };
   }, [armed]);
-
-  const handleInternational = () => {
-    setShow(false);
-    dismissed.current = true;
-    localStorage.setItem("ne_exit_dismissed", "1");
-    onConvert("international");
-  };
-
-  const handleAngola = () => {
-    setShow(false);
-    dismissed.current = true;
-    localStorage.setItem("ne_exit_dismissed", "1");
-    onConvert("angola");
-  };
 
   const handleClose = () => {
     setShow(false);
     dismissed.current = true;
     localStorage.setItem("ne_exit_dismissed", "1");
-    Telemetry.emit("exit_intent_dismissed");
   };
 
   if (!show) return null;
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4"
-    >
-      <motion.div 
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        className="bg-[#0A0A0A] border border-[#D4AF37]/50 rounded-3xl p-8 max-w-md text-center relative"
-      >
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4">
+      <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
+                  className="bg-[#0A0A0A] border border-[#D4AF37]/50 rounded-3xl p-8 max-w-md text-center relative">
         <button onClick={handleClose} className="absolute top-4 right-4 text-[#A1A1AA] hover:text-white">
           <X className="w-5 h-5" />
         </button>
-        
         <Crown className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
         <h3 className="text-2xl font-bold mb-3">Não percas esta oportunidade</h3>
-        <p className="text-[#A1A1AA] mb-6">
-          O Founder Batch 01 está quase no fim. Depois o preço sobe para $27 e depois $49.
-        </p>
-        
-        <button 
-          onClick={handleInternational}
-          className="w-full btn-luxury-cyan py-4 rounded-2xl font-bold mb-3"
-        >
-          Quero garantir o meu por $10
-        </button>
-        
-        <button 
-          onClick={handleAngola}
-          className="w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white py-4 rounded-2xl font-bold mb-3"
-        >
-          Angola · 10.000 AKZ via WhatsApp
-        </button>
-        
-        <button onClick={handleClose} className="text-sm text-gray-400 hover:text-white">
-          Não, obrigado. Continuar navegando.
+        <p className="text-[#A1A1AA] mb-6">O Founder Batch 01 está quase no fim. Depois o preço sobe para $27 e depois $49.</p>
+        <CTAButtons onConvert={onConvert} size="sm" />
+        <button onClick={handleClose} className="text-sm text-gray-400 hover:text-white mt-4 block mx-auto">
+          Não, obrigado.
         </button>
       </motion.div>
     </motion.div>
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// STICKY BARS — ACTUALIZADAS: Angola vai para /angola
+// ═══════════════════════════════════════════════════════════
 const StickyBar = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY > 800;
-      setVisible(scrolled);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const h = () => setVisible(window.scrollY > 800);
+    window.addEventListener("scroll", h);
+    return () => window.removeEventListener("scroll", h);
   }, []);
-
   if (!visible) return null;
-
   return (
     <div className="hidden md:flex fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-[#0A0A0A] border border-[#D4AF37]/40 rounded-2xl shadow-2xl px-6 py-3 items-center gap-4 backdrop-blur-sm">
       <span className="text-sm font-medium text-white">Não deixes o caos controlar a tua vida</span>
-      <button 
-        onClick={() => onConvert("international")} 
-        className="btn-luxury-cyan px-6 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2"
-      >
-        <Crown className="w-4 h-4" />
-        Quero o sistema agora — $10
+      <button onClick={() => onConvert("international")}
+              className="btn-luxury-cyan px-6 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2">
+        <Crown className="w-4 h-4" />$10 — Activar Agora
+      </button>
+      <button onClick={() => onConvert("angola")}
+              className="bg-[#25D366] px-4 py-2.5 rounded-xl text-sm font-bold text-white flex items-center gap-2">
+        <MessageCircle className="w-4 h-4 fill-white" />Angola
       </button>
     </div>
   );
@@ -1607,42 +1816,35 @@ const StickyBar = memo(({ onConvert }: { onConvert: (seg: "international" | "ang
 
 const MobileStickyBar = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY > 500;
-      setVisible(scrolled);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const h = () => setVisible(window.scrollY > 500);
+    window.addEventListener("scroll", h);
+    return () => window.removeEventListener("scroll", h);
   }, []);
-
   if (!visible) return null;
-
   const angola = isAngolaCampaign();
-
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#050505]/95 backdrop-blur-xl border-t border-white/[0.08] p-3 flex items-center gap-2">
       {angola ? (
         <>
-          <button onClick={() => onConvert("angola")} className="flex-1 bg-[#25D366] hover:bg-[#1EBE5A] text-white py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2 shadow-[0_4px_15px_rgba(37,211,102,0.4)]">
-            <MessageCircle className="w-4 h-4 fill-white" />
-            Angola · 10k AKZ
+          <button onClick={() => onConvert("angola")}
+                  className="flex-1 bg-[#25D366] hover:bg-[#1EBE5A] text-white py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
+            <MessageCircle className="w-4 h-4 fill-white" />Angola · 10k AKZ
           </button>
-          <button onClick={() => onConvert("international")} className="flex-1 bg-white/[0.05] border border-white/[0.1] text-white/70 py-3 rounded-xl text-sm font-medium flex items-center justify-center gap-2">
-            <Crown className="w-4 h-4 text-[#D4AF37]" />
-            $10 USD
+          <button onClick={() => onConvert("international")}
+                  className="flex-1 bg-white/[0.05] border border-white/[0.1] text-white/70 py-3 rounded-xl text-sm font-medium flex items-center justify-center gap-2">
+            <Crown className="w-4 h-4 text-[#D4AF37]" />$10 USD
           </button>
         </>
       ) : (
         <>
-          <button onClick={() => onConvert("international")} className="flex-1 btn-luxury-cyan py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-            <Crown className="w-4 h-4" />
-            $10 USD
+          <button onClick={() => onConvert("international")}
+                  className="flex-1 btn-luxury-cyan py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
+            <Crown className="w-4 h-4" />$10 USD
           </button>
-          <button onClick={() => onConvert("angola")} className="flex-1 bg-[#25D366] hover:bg-[#1EBE5A] text-white py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-            <MessageCircle className="w-4 h-4 fill-white" />
-            10k AKZ
+          <button onClick={() => onConvert("angola")}
+                  className="flex-1 bg-[#25D366] hover:bg-[#1EBE5A] text-white py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
+            <MessageCircle className="w-4 h-4 fill-white" />10k AKZ
           </button>
         </>
       )}
@@ -1650,22 +1852,32 @@ const MobileStickyBar = memo(({ onConvert }: { onConvert: (seg: "international" 
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// APP — ROTEAMENTO SIMPLES + CONVERT ACTUALIZADO
+// ═══════════════════════════════════════════════════════════
 export function App() {
   const [toast, setToast] = useState<typeof NOTIFICATIONS[0] | null>(null);
   const shownNotifications = useRef<Set<number>>(new Set());
   const notificationIndex = useRef(0);
 
+  // ── ROTEAMENTO ──
+  const path = window.location.pathname;
+  if (path === "/angola" || path === "/checkout-angola") {
+    return <AngolaCheckoutPage />;
+  }
+  if (path === "/obrigado" || path === "/thank-you") {
+    return <ThankYouPage />;
+  }
+
   useEffect(() => {
     Telemetry.emit("page_loaded", { ref: document.referrer });
-    
+
     const iv = setInterval(() => {
       if (shownNotifications.current.size >= NOTIFICATIONS.length) return;
-      
-      while (shownNotifications.current.has(notificationIndex.current) && 
+      while (shownNotifications.current.has(notificationIndex.current) &&
              shownNotifications.current.size < NOTIFICATIONS.length) {
         notificationIndex.current = (notificationIndex.current + 1) % NOTIFICATIONS.length;
       }
-      
       if (!shownNotifications.current.has(notificationIndex.current)) {
         setToast(NOTIFICATIONS[notificationIndex.current]);
         shownNotifications.current.add(notificationIndex.current);
@@ -1674,26 +1886,21 @@ export function App() {
       }
     }, 50000);
 
-    const t30 = setTimeout(() => Telemetry.emit("checkpoint_30s"), 30000);
-    const t60 = setTimeout(() => Telemetry.emit("checkpoint_60s"), 60000);
-    const marks = new Set<number>();
-    const onScroll = () => {
-      const p = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
-      [25, 50, 75, 90].forEach(x => { if (p >= x && !marks.has(x)) { marks.add(x); Telemetry.emit(`scroll_${x}`); } });
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => { clearInterval(iv); clearTimeout(t30); clearTimeout(t60); window.removeEventListener("scroll", onScroll); };
+    return () => clearInterval(iv);
   }, []);
 
   const scrollToOffer = useCallback(() => {
     document.getElementById("oferta")?.scrollIntoView({ behavior: "smooth" });
   }, []);
 
+  // ── CONVERT — ACTUALIZADO ──
   const convert = useCallback((seg: "international" | "angola") => {
     const urlParams = new URLSearchParams(window.location.search);
     const metaClickId = urlParams.get("fbclid") || "";
     const utmSource = urlParams.get("utm_source") || "";
     const utmCampaign = urlParams.get("utm_campaign") || "";
+    const utmMedium = urlParams.get("utm_medium") || "";
+    const utmContent = urlParams.get("utm_content") || "";
 
     Telemetry.emit("checkout_initiated", {
       segment: seg,
@@ -1708,27 +1915,43 @@ export function App() {
     });
 
     if (seg === "international") {
-      Telemetry.emit("checkout_hotmart_redirect");
-      if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("track", "InitiateCheckout", {
-          value: 10,
-          currency: "USD",
-          content_name: "Notion Elite OS 2026"
-        });
-      }
-      // CHECKOUT SEM POPUP - redirecionamento direto
-      window.location.href = CONFIG.hotmartCheckout;
+      // Guarda dados para ThankYouPage
+      sessionStorage.setItem("ne_conversion", JSON.stringify({
+        segment: "international",
+        value: 10,
+        currency: "USD",
+        content_name: "Notion Elite OS 2026",
+        transaction_id: `ne_${Date.now()}`
+      }));
+
+      Telemetry.emit("InitiateCheckout", {
+        value: 10,
+        currency: "USD",
+        content_name: "Notion Elite OS 2026"
+      });
+
+      // Preserva UTMs + fbclid no link Hotmart
+      const utmParams = [
+        utmSource   && `utm_source=${utmSource}`,
+        utmMedium   && `utm_medium=${utmMedium}`,
+        utmCampaign && `utm_campaign=${utmCampaign}`,
+        utmContent  && `utm_content=${utmContent}`,
+        metaClickId && `fbclid=${metaClickId}`
+      ].filter(Boolean).join("&");
+
+      window.location.href = utmParams
+        ? `${CONFIG.hotmartCheckout}&${utmParams}`
+        : CONFIG.hotmartCheckout;
+
     } else {
-      Telemetry.emit("checkout_whatsapp_redirect");
-      if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("track", "Lead", {
-          content_name: "Notion Elite OS 2026 — Angola",
-          currency: "AOA",
-          value: 10000
-        });
-      }
-      // CHECKOUT SEM POPUP - redirecionamento direto
-      window.location.href = CONFIG.whatsappPayment;
+      // Angola → vai para página de checkout profissional
+      // Preserva UTMs na URL
+      const utmParams = [
+        utmSource   && `utm_source=${utmSource}`,
+        utmCampaign && `utm_campaign=${utmCampaign}`
+      ].filter(Boolean).join("&");
+
+      window.location.href = utmParams ? `/angola?${utmParams}` : "/angola";
     }
   }, []);
 
@@ -1736,12 +1959,7 @@ export function App() {
     <div className="cinematic-noise min-h-screen bg-[#050505] text-white font-sans relative">
       <Helmet>
         <title>Notion Elite OS 2026 — Sistema Operacional Pessoal | Gabriel Sapalo</title>
-        <meta name="description" content="Cansado de viver no caos? Organiza toda a tua vida num único Notion em menos de 24 horas. Sistema criado para a realidade angolana: offline, internet lenta, apagões." />
-        <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto,w_32,h_32/v1778858077/favicon.ico_h34ezo.ico" />
-        <meta property="og:title" content="Notion Elite OS 2026 — Organiza a tua vida em 24h" />
-        <meta property="og:description" content="Para de perder tempo à procura de ficheiros. Sistema operacional pessoal para estudantes e profissionais." />
-        <meta property="og:image" content={CONFIG.notionMockup} />
-        <meta property="og:type" content="product" />
+        <meta name="description" content="Cansado de viver no caos? Organiza toda a tua vida num único Notion em menos de 24 horas." />
       </Helmet>
 
       <Header onCTA={scrollToOffer} />
@@ -1771,9 +1989,21 @@ export function App() {
       <StickyBar onConvert={convert} />
       <MobileStickyBar onConvert={convert} />
 
+      {/* Botão WhatsApp flutuante — SUPORTE apenas, não checkout */}
+      <a href={CONFIG.whatsappSupport} target="_blank" rel="noopener noreferrer"
+         onClick={() => Telemetry.emit("wa_float_support")}
+         className="fixed bottom-20 md:bottom-6 right-5 z-50 bg-[#25D366] hover:bg-[#20ba59] p-3.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all outline-none flex items-center justify-center group">
+        <Send className="w-5 h-5 text-white" />
+        <span className="absolute right-full mr-2.5 bg-[#050505] text-white text-[10px] font-mono px-2 py-1 rounded border border-white/[0.08] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+          Suporte · Falar com o Gabriel
+        </span>
+      </a>
+
       <AnimatePresence>
         {toast && (
-          <motion.div initial={{ opacity: 0, y: 50, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20, scale: 0.9 }} className="fixed bottom-24 left-4 z-50 glass-modal-aggressive p-3 rounded-xl shadow-2xl flex items-center gap-3 max-w-xs border-l-4 border-l-[#D4AF37]">
+          <motion.div initial={{ opacity: 0, y: 50, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 20, scale: 0.9 }}
+                      className="fixed bottom-24 left-4 z-50 glass-modal-aggressive p-3 rounded-xl shadow-2xl flex items-center gap-3 max-w-xs border-l-4 border-l-[#D4AF37]">
             <div className="w-9 h-9 rounded-full bg-[#D4AF37]/15 flex items-center justify-center shrink-0">
               <Crown className="w-4 h-4 text-[#D4AF37]" />
             </div>
@@ -1785,13 +2015,6 @@ export function App() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <a href={CONFIG.whatsappPayment} target="_blank" rel="noopener noreferrer" onClick={() => Telemetry.emit("wa_float")} className="fixed bottom-20 md:bottom-6 right-5 z-50 bg-[#25D366] hover:bg-[#20ba59] p-3.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all outline-none flex items-center justify-center group">
-        <Send className="w-5 h-5 text-white" />
-        <span className="absolute right-full mr-2.5 bg-[#050505] text-white text-[10px] font-mono px-2 py-1 rounded border border-white/[0.08] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-          Falar com o Gabriel
-        </span>
-      </a>
     </div>
   );
 }

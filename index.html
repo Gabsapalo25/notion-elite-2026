@@ -4,40 +4,153 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notion Elite Kit 2026 — O Centro Operacional Pessoal</title>
-    <!-- ... other head elements ... -->
-    
+ 
+    <!-- ═══════════════════════════════════════════════
+         META PIXEL — dispara PageView imediato
+         ID: 1651648692992631
+    ═══════════════════════════════════════════════ -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=true;
+      n.queue=[];t=b.createElement(e);t.async=!0;
       t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '1651648692992631');
       fbq('track', 'PageView');
     </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1651648692992631&ev=PageView&noscript=1"/>
+    </noscript>
+ 
+    <!-- ═══════════════════════════════════════════════
+         GOOGLE ANALYTICS 4 — carrega antes do React
+         ID: G-2RC890ZE3S
+    ═══════════════════════════════════════════════ -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2RC890ZE3S"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-2RC890ZE3S');
+ 
+      // Configuração base GA4
+      gtag('config', 'G-2RC890ZE3S', {
+        send_page_view: true,
+        cookie_flags: 'SameSite=None;Secure'
+      });
+ 
+      // Helper global — usado pelo App.tsx via window.trackEvent()
+      window.trackEvent = function(eventName, params) {
+        try {
+          // GA4
+          if (typeof gtag === 'function') {
+            gtag('event', eventName, params || {});
+          }
+          // Meta Pixel
+          if (typeof fbq === 'function') {
+            // Eventos padrão Meta
+            var metaStandard = [
+              'PageView','ViewContent','AddToCart',
+              'InitiateCheckout','Purchase','Lead',
+              'CompleteRegistration','Search','Contact'
+            ];
+            if (metaStandard.indexOf(eventName) !== -1) {
+              fbq('track', eventName, params || {});
+            } else {
+              fbq('trackCustom', eventName, params || {});
+            }
+          }
+        } catch(e) { /* silent */ }
+      };
+ 
+      // Rastreia scroll depth automaticamente para GA4
+      var _scrollMarks = {};
+      window.addEventListener('scroll', function() {
+        var scrollPct = Math.round(
+          (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+        );
+        [25, 50, 75, 90].forEach(function(mark) {
+          if (scrollPct >= mark && !_scrollMarks[mark]) {
+            _scrollMarks[mark] = true;
+            gtag('event', 'scroll_depth', { depth: mark });
+          }
+        });
+      }, { passive: true });
+ 
+      // Rastreia tempo na página (30s e 60s)
+      setTimeout(function() {
+        gtag('event', 'time_on_page', { seconds: 30 });
+      }, 30000);
+      setTimeout(function() {
+        gtag('event', 'time_on_page', { seconds: 60 });
+      }, 60000);
     </script>
+ 
+    <!-- ═══════════════════════════════════════════════
+         SEO & SOCIAL META TAGS
+    ═══════════════════════════════════════════════ -->
+    <meta name="description" content="Cansado de viver no caos? Organiza toda a tua vida num único Notion em menos de 24 horas. Sistema criado para a realidade angolana: offline, internet lenta, apagões." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://notionelitekit.glowscalepro.com/" />
+ 
+    <!-- Open Graph -->
+    <meta property="og:type" content="product" />
+    <meta property="og:title" content="Notion Elite OS 2026 — Organiza a tua vida em 24h" />
+    <meta property="og:description" content="Para de perder tempo à procura de ficheiros. Sistema operacional pessoal para estudantes e profissionais." />
+    <meta property="og:image" content="https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857929/MOCKUP_NOTION_FINAL_1_zc7jj0.png" />
+    <meta property="og:url" content="https://notionelitekit.glowscalepro.com/" />
+    <meta property="og:site_name" content="GlowScalePro" />
+ 
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Notion Elite OS 2026" />
+    <meta name="twitter:description" content="Organiza toda a tua vida num único Notion em menos de 24 horas." />
+    <meta name="twitter:image" content="https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857929/MOCKUP_NOTION_FINAL_1_zc7jj0.png" />
+ 
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon"
+      href="https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto,w_32,h_32/v1778858077/favicon.ico_h34ezo.ico" />
+ 
+    <!-- ═══════════════════════════════════════════════
+         PERFORMANCE — preconnect a origens críticas
+    ═══════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="preconnect" href="https://connect.facebook.net" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+ 
+    <!-- ═══════════════════════════════════════════════
+         BASE STYLES — evita flash de fundo branco
+    ═══════════════════════════════════════════════ -->
     <style>
-      body {
-        background-color: #000000;
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body {
+        background-color: #050505;
         margin: 0;
         padding: 0;
+        min-height: 100vh;
       }
+      /* Spinner enquanto o React carrega */
+      #root:empty::after {
+        content: '';
+        position: fixed;
+        top: 50%; left: 50%;
+        width: 32px; height: 32px;
+        margin: -16px 0 0 -16px;
+        border: 2px solid rgba(0,229,255,0.15);
+        border-top-color: #00E5FF;
+        border-radius: 50%;
+        animation: _spin 0.7s linear infinite;
+      }
+      @keyframes _spin { to { transform: rotate(360deg); } }
     </style>
   </head>
+ 
   <body class="bg-black text-white antialiased selection:bg-[#00E5FF] selection:text-black">
     <div id="root"></div>
-    <noscript>
-      <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1651648692992631&ev=PageView&noscript=1">
-    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
