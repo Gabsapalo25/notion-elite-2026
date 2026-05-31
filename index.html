@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="pt-PT" class="dark">
+<html lang="pt-PT" class="dark" style="overflow-x: hidden; max-width: 100%;">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes" />
     <title>Notion Elite Kit 2026 — O Centro Operacional Pessoal</title>
  
     <!-- ═══════════════════════════════════════════════
@@ -123,16 +123,33 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" />
  
     <!-- ═══════════════════════════════════════════════
-         BASE STYLES — evita flash de fundo branco
+         BASE STYLES + CORRECÇÃO DEFINITIVA PARA TEXTO FIXO
     ═══════════════════════════════════════════════ -->
     <style>
-      *, *::before, *::after { box-sizing: border-box; }
+      *, *::before, *::after { 
+        box-sizing: border-box; 
+        max-width: 100%;
+      }
+      
       html, body {
         background-color: #050505;
         margin: 0;
         padding: 0;
         min-height: 100vh;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden !important;
+        position: relative;
       }
+      
+      /* CORRECÇÃO DEFINITIVA - força quebra de texto em todos os elementos */
+      body, p, h1, h2, h3, h4, h5, h6, span, a, div, section, article {
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+      }
+      
       /* Spinner enquanto o React carrega */
       #root:empty::after {
         content: '';
@@ -145,11 +162,12 @@
         border-radius: 50%;
         animation: _spin 0.7s linear infinite;
       }
+      
       @keyframes _spin { to { transform: rotate(360deg); } }
     </style>
   </head>
  
-  <body class="bg-black text-white antialiased selection:bg-[#00E5FF] selection:text-black">
+  <body class="bg-black text-white antialiased selection:bg-[#00E5FF] selection:text-black" style="overflow-x: hidden; width: 100%; max-width: 100%;">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
