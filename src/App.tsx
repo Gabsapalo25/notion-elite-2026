@@ -500,13 +500,7 @@ const AngolaCheckoutPage = memo(() => {
           </p>
         </div>
 
-        <p className="text-center text-xs text-[#A1A1AA]">
-          Tens dúvidas?{" "}
-          <a href={CONFIG.whatsappSupport} target="_blank" rel="noopener noreferrer"
-             className="text-[#25D366] hover:underline">
-            Fala directamente com o Gabriel
-          </a>
-        </p>
+        {/* WHATSAPP REMOVIDO DA PÁGINA DE CHECKOUT */}
       </div>
     </div>
   );
@@ -645,13 +639,13 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "header-glass py-3" : "bg-gradient-to-b from-[#050505] via-[#050505]/90 to-transparent py-4"}`}>
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
       <div className="bg-[#080808] border-b border-white/[0.06] py-2.5 px-4 text-center">
-        <p className="text-[11px] font-mono text-[#00E5FF] tracking-wide font-semibold flex items-center justify-center gap-2">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse" />
+        <p className="text-[11px] font-mono text-[#00E5FF] tracking-wide font-semibold flex items-center justify-center gap-2 flex-wrap break-words whitespace-normal">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse shrink-0" />
           🔥 FASE FOUNDER 2026 — Apenas $10 / 10.000 AKZ (preço sobe para $49 em breve)
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between mt-3">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between mt-3">
         <a href="/" className="flex items-center gap-3 group">
           <img src={CONFIG.productLogo} alt="Elite OS"
                className="w-11 h-11 sm:w-12 sm:h-12 object-contain group-hover:scale-105 transition-transform" />
@@ -788,7 +782,7 @@ const HeroVSL = memo(() => {
 const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const hero = getHeroContent();
   return (
-    <section className="relative pt-40 pb-16 md:pt-48 md:pb-20 px-6 max-w-6xl mx-auto text-center overflow-hidden">
+    <section className="relative pt-40 pb-16 md:pt-48 md:pb-20 px-4 sm:px-6 max-w-6xl mx-auto text-center overflow-x-hidden">
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                   className="inline-flex items-center gap-2 badge-founder-premium px-4 py-1.5 rounded-full text-xs font-mono tracking-wider mb-8">
         <Crown className="w-3.5 h-3.5" />
@@ -796,14 +790,14 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
       </motion.div>
 
       <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-[-1.6px] leading-[1.02] max-w-5xl mx-auto mb-6 font-bold">
+                 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-[-1.6px] leading-[1.02] max-w-5xl mx-auto mb-6 font-bold break-words whitespace-normal">
         {hero.headline}<br className="hidden md:block" />
         <span className="text-gradient-magnetic">{hero.headlineHighlight}</span>
       </motion.h1>
 
       <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-base sm:text-lg md:text-xl text-[#A1A1AA] max-w-3xl mx-auto mb-8 leading-relaxed">
+                className="text-base sm:text-lg md:text-xl text-[#A1A1AA] max-w-3xl mx-auto mb-8 leading-relaxed break-words whitespace-normal">
         {hero.subtitle}
       </motion.p>
 
@@ -812,7 +806,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
                   className="inline-flex flex-col sm:flex-row items-center gap-3 px-5 py-3 rounded-2xl bg-[#0A0A0A] border border-white/[0.08] mx-auto mb-8">
         <CheckCircle2 className="w-5 h-5 text-[#25D366] shrink-0" />
         <div className="text-left">
-          <p className="text-[12px] text-[#D4D4D8] leading-tight">
+          <p className="text-[12px] text-[#D4D4D8] leading-tight break-words whitespace-normal">
             ⭐ "Gostei muito da Notion. A minha esposa também gostou. Quis logo saber como podia recomendar a outras pessoas."
           </p>
           <p className="text-[9px] text-[#A1A1AA] font-mono mt-0.5">— Utilizador verificado, Angola</p>
@@ -822,11 +816,11 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                   className="max-w-md mx-auto mb-10 p-5 rounded-2xl bg-[#0A0A0A] border border-white/[0.08] text-left">
-        <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-3 font-bold">Em menos de 24 horas vais:</p>
+        <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-3 font-bold break-words whitespace-normal">Em menos de 24 horas vais:</p>
         <div className="space-y-2.5 text-sm text-[#D4D4D8]">
-          <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span>Parar de perder tempo à procura de ficheiros e notas</span></div>
-          <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span>Saber exactamente o que fazer todos os dias</span></div>
-          <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span>Ter controlo mesmo quando a luz ou internet falha</span></div>
+          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Parar de perder tempo à procura de ficheiros e notas</span></div>
+          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Saber exactamente o que fazer todos os dias</span></div>
+          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Ter controlo mesmo quando a luz ou internet falha</span></div>
         </div>
       </motion.div>
 
@@ -846,7 +840,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
       </motion.div>
 
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
-                className="text-xs md:text-sm text-[#A1A1AA] max-w-3xl mx-auto mb-12 leading-relaxed">
+                className="text-xs md:text-sm text-[#A1A1AA] max-w-3xl mx-auto mb-12 leading-relaxed break-words whitespace-normal">
         Chega de perder tempo a tentar organizar-se. Com o <strong className="text-white">Notion Elite Starter Kit 2026</strong>, você não gere apenas tarefas — gere a sua carreira e estudos com a precisão de um arquiteto de sistemas.
       </motion.p>
 
@@ -907,7 +901,7 @@ const AnimatedCounter = memo(({ end, suffix = "", label }: { end: number; suffix
 });
 
 const CountersSection = memo(() => (
-  <section className="py-16 px-6 border-b border-white/[0.05] bg-[#070707]">
+  <section className="py-16 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
     <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
       <AnimatedCounter end={3247} suffix="+" label="Avaliações Verificadas" />
       <AnimatedCounter end={12} label="Países CPLP" />
@@ -918,12 +912,12 @@ const CountersSection = memo(() => (
 ));
 
 // ═══════════════════════════════════════════════════════════
-// REMAINING SECTIONS (mantidas originais)
+// ANGOLA CONTEXT SECTION
 // ═══════════════════════════════════════════════════════════
 const AngolaContextSection = memo(() => (
-  <section className="py-20 px-6 border-b border-white/[0.05] bg-gradient-to-b from-[#050505] to-[#0A0A0A]">
+  <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-gradient-to-b from-[#050505] to-[#0A0A0A]">
     <div className="max-w-4xl mx-auto">
-      <div className="p-8 md:p-10 rounded-3xl border border-[#25D366]/30 bg-[#050505] relative overflow-hidden shadow-[0_20px_60px_rgba(37,211,102,0.05)]">
+      <div className="p-6 md:p-10 rounded-3xl border border-[#25D366]/30 bg-[#050505] relative overflow-hidden shadow-[0_20px_60px_rgba(37,211,102,0.05)]">
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#25D366]/[0.03] rounded-full blur-3xl pointer-events-none" />
         <div className="flex flex-col md:flex-row gap-8 items-center">
           <div className="flex-1 text-center md:text-left">
@@ -931,18 +925,18 @@ const AngolaContextSection = memo(() => (
               <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
               Vantagem Competitiva Real
             </span>
-            <h2 className="premium-heading text-2xl sm:text-3xl text-white mb-4 leading-tight">
+            <h2 className="premium-heading text-2xl sm:text-3xl text-white mb-4 leading-tight break-words whitespace-normal">
               Feito para a nossa realidade. <br />
               <span className="text-[#25D366]">Funciona mesmo offline.</span>
             </h2>
-            <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6">
+            <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6 break-words whitespace-normal">
               Enquanto outros sistemas param quando a net cai, o teu Elite OS continua. O sistema foi desenhado para simplicidade, velocidade e controlo real, independentemente do contexto.
             </p>
             <div className="grid grid-cols-2 gap-3 text-left">
               {["Internet lenta","Dados móveis limitados","Rotina caótica","Múltiplos projetos","Telemóvel ou Desktop","Apagões inesperados"].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-xs text-[#D4D4D8]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
-                  <span>{item}</span>
+                  <span className="break-words whitespace-normal">{item}</span>
                 </div>
               ))}
             </div>
@@ -960,15 +954,15 @@ const AngolaContextSection = memo(() => (
 ));
 
 const ProblemSolutionSection = memo(() => (
-  <section className="py-20 px-6 border-b border-white/[0.05] bg-[#070707]">
+  <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
     <div className="max-w-5xl mx-auto">
       <div className="text-center mb-10 max-w-2xl mx-auto">
         <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-3 block">O Diagnóstico</span>
-        <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
+        <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white leading-tight break-words whitespace-normal">
           Sentes que estudas muito, <br className="hidden md:block" />
           <span className="display-heading text-[#FF007A]">mas não avanças?</span>
         </h2>
-        <p className="text-sm text-[#A1A1AA] mt-4 leading-relaxed">
+        <p className="text-sm text-[#A1A1AA] mt-4 leading-relaxed break-words whitespace-normal">
           O problema não é a tua dedicação. É a falta de um sistema. Este kit elimina a fricção e coloca à tua disposição <strong className="text-white">6 pilares de alta performance</strong>, prontos para uso imediato.
         </p>
       </div>
@@ -990,11 +984,11 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
   ];
 
   return (
-    <section id="pilares" className="py-20 px-6 border-b border-white/[0.05] bg-[#050505]">
+    <section id="pilares" className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-[#050505]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14 max-w-2xl mx-auto">
           <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-3 block">Os 6 Pilares de Alta Performance</span>
-          <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
+          <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-tight break-words whitespace-normal">
             Prova de funcionalidade. <br />
             <span className="display-heading text-gradient-gold">Sem promessas vazias.</span>
           </h2>
@@ -1010,8 +1004,8 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
                 </div>
                 <div className="space-y-3">
                   <span className="text-[10px] font-mono tracking-[0.25em] text-[#D4AF37] uppercase font-bold">{p.label}</span>
-                  <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">{p.title}</h3>
-                  <p className="text-sm text-[#A1A1AA] leading-relaxed">{p.desc}</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-white leading-tight break-words whitespace-normal">{p.title}</h3>
+                  <p className="text-sm text-[#A1A1AA] leading-relaxed break-words whitespace-normal">{p.desc}</p>
                   <div className="flex items-center gap-2 pt-2">
                     <Check className="w-3.5 h-3.5 text-[#25D366]" />
                     <span className="text-xs text-[#D4D4D8] font-mono">Incluído no Founder Batch 01</span>
@@ -1023,7 +1017,7 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
                             viewport={{ once: true }}
                             className="mt-10 p-6 rounded-2xl border-gradient-gold bg-[#0A0A0A] max-w-2xl mx-auto text-center">
                   <p className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-widest font-bold mb-2">A Solução Está Aqui</p>
-                  <p className="text-sm text-white mb-4">Não precisas de ver o resto da página.<br />Se estás cansado do caos, este é o momento de agir.</p>
+                  <p className="text-sm text-white mb-4 break-words whitespace-normal">Não precisas de ver o resto da página.<br />Se estás cansado do caos, este é o momento de agir.</p>
                   <CTAButtons onConvert={onConvert} size="sm" />
                 </motion.div>
               )}
@@ -1038,8 +1032,8 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
 const MidPageCTA = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => (
   <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="my-16 py-10 px-6 bg-gradient-to-br from-[#0A0A0A] to-[#050505] border border-[#D4AF37]/30 rounded-3xl max-w-2xl mx-auto text-center">
-    <p className="text-lg font-semibold text-white mb-2">O caos só vai piorar se não agires agora.</p>
-    <p className="text-sm text-[#A1A1AA] mb-6">Em menos de 24 horas podes ter tudo organizado.</p>
+    <p className="text-lg font-semibold text-white mb-2 break-words whitespace-normal">O caos só vai piorar se não agires agora.</p>
+    <p className="text-sm text-[#A1A1AA] mb-6 break-words whitespace-normal">Em menos de 24 horas podes ter tudo organizado.</p>
     <CTAButtons onConvert={onConvert} size="lg" />
   </motion.div>
 ));
@@ -1053,11 +1047,11 @@ const ROICalculatorSection = memo(() => {
   const roi = Math.round(annualLoss / kitPrice);
 
   return (
-    <section className="py-20 px-6 border-b border-white/[0.05] bg-[#070707]">
+    <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-10">
           <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-3 block">A Lógica da Compra</span>
-          <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
+          <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white leading-tight break-words whitespace-normal">
             Quanto te custa, <span className="display-heading text-[#FF007A]">por ano</span>, continuar desorganizado?
           </h2>
         </div>
@@ -1084,7 +1078,7 @@ const ROICalculatorSection = memo(() => {
               <p className="text-xl font-black text-[#D4AF37] font-mono">{roi}x</p>
             </div>
           </div>
-          <p className="text-center text-xs text-[#A1A1AA] mt-6 italic">Menos que uma saída ao fim de semana. Mais que um semestre inteiro de clareza.</p>
+          <p className="text-center text-xs text-[#A1A1AA] mt-6 italic break-words whitespace-normal">Menos que uma saída ao fim de semana. Mais que um semestre inteiro de clareza.</p>
         </div>
       </div>
     </section>
@@ -1096,7 +1090,7 @@ const MarqueeSection = memo(() => (
     <div className="flex animate-marquee whitespace-nowrap gap-12">
       {[...MANIFESTO_PHRASES, ...MANIFESTO_PHRASES].map((p, i) => (
         <div key={i} className="flex items-center gap-12 shrink-0">
-          <span className="text-xl md:text-2xl font-serif italic text-white/80">{p}</span>
+          <span className="text-xl md:text-2xl font-serif italic text-white/80 whitespace-nowrap">{p}</span>
           <span className="text-[#D4AF37]">♟</span>
         </div>
       ))}
@@ -1113,25 +1107,25 @@ const TransformationSection = memo(() => {
     { a: "Sobrevivência académica", b: "Execução com clareza" }
   ];
   return (
-    <section id="transformacao" className="py-24 px-6 border-b border-white/[0.05]">
+    <section id="transformacao" className="py-24 px-4 sm:px-6 border-b border-white/[0.05]">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-14 max-w-2xl mx-auto">
           <span className="text-[10px] font-mono tracking-[0.3em] text-[#00E5FF] uppercase font-bold mb-4 block">A Virada de Chave</span>
-          <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight">
-            Do caos ao <span className="display-heading text-gradient-magnetic">cockpit de execução</span>
+          <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight break-words whitespace-normal">
+            Do caos ao <span className="display-heading text-gradient-magnetic whitespace-normal">cockpit de execução</span>
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-5 text-left">
           <div className="p-7 rounded-2xl bg-gradient-to-b from-[#140508] to-[#0A0505] border border-[#FF007A]/20 relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-[#FF007A]/10 text-[#FF007A] font-mono text-[9px] font-bold px-3 py-1 rounded-bl-lg">ANTES</div>
             <p className="text-[10px] font-mono text-[#FF007A] font-extrabold uppercase mb-2">A Sobrecarga Diária</p>
-            <h3 className="text-xl font-bold text-white mb-2">Sobreviver ao semestre.</h3>
-            <p className="text-xs text-gray-500 mb-5 italic">WhatsApp, PDFs, caos, stress.</p>
+            <h3 className="text-xl font-bold text-white mb-2 break-words whitespace-normal">Sobreviver ao semestre.</h3>
+            <p className="text-xs text-gray-500 mb-5 italic break-words whitespace-normal">WhatsApp, PDFs, caos, stress.</p>
             <div className="space-y-3">
               {rows.map((r, i) => (
                 <div key={i} className="flex items-start gap-2.5 text-xs text-gray-400 border-b border-[#FF007A]/[0.08] pb-3">
                   <X className="w-4 h-4 text-[#FF007A] shrink-0 mt-0.5" />
-                  <span className="line-through">{r.a}</span>
+                  <span className="line-through break-words whitespace-normal">{r.a}</span>
                 </div>
               ))}
             </div>
@@ -1139,13 +1133,13 @@ const TransformationSection = memo(() => {
           <div className="p-7 rounded-2xl bg-gradient-to-b from-[#05140A] to-[#050A06] border border-[#25D366]/25 relative overflow-hidden shadow-[0_0_40px_rgba(37,211,102,0.08)]">
             <div className="absolute top-0 right-0 bg-[#25D366]/10 text-[#25D366] font-mono text-[9px] font-bold px-3 py-1 rounded-bl-lg">DEPOIS · CLAREZA</div>
             <p className="text-[10px] font-mono text-[#25D366] font-extrabold uppercase mb-2">A Experiência Elite</p>
-            <h3 className="text-xl font-bold text-white mb-2">Operar com clareza.</h3>
-            <p className="text-xs text-[#A1A1AA] mb-5 italic">Dashboard, calendário, foco, silêncio.</p>
+            <h3 className="text-xl font-bold text-white mb-2 break-words whitespace-normal">Operar com clareza.</h3>
+            <p className="text-xs text-[#A1A1AA] mb-5 italic break-words whitespace-normal">Dashboard, calendário, foco, silêncio.</p>
             <div className="space-y-3">
               {rows.map((r, i) => (
                 <div key={i} className="flex items-start gap-2.5 text-xs text-white font-semibold border-b border-[#25D366]/[0.08] pb-3">
                   <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
-                  <span className="text-[#00E5FF]">{r.b}</span>
+                  <span className="text-[#00E5FF] break-words whitespace-normal">{r.b}</span>
                 </div>
               ))}
             </div>
@@ -1160,13 +1154,13 @@ const TransformationSection = memo(() => {
 });
 
 const RevealSection = memo(() => (
-  <section className="py-20 px-6 border-b border-white/[0.05] bg-[#050505] relative overflow-hidden">
+  <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-[#050505] relative overflow-hidden">
     <div className="max-w-5xl mx-auto text-center">
       <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4">♟ A Virada de Chave</motion.p>
       <motion.h2 initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                  transition={{ delay: 0.1 }}
-                 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white mb-10 leading-tight">
+                 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white mb-10 leading-tight break-words whitespace-normal">
         Do caos… <span className="display-heading text-gradient-gold">à clareza</span>.
       </motion.h2>
       <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2 shadow-[0_30px_80px_rgba(0,0,0,0.8)]">
@@ -1177,32 +1171,36 @@ const RevealSection = memo(() => (
       </div>
       <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
                 transition={{ delay: 1.2 }}
-                className="text-sm text-[#A1A1AA] mt-6 max-w-xl mx-auto italic font-serif">
+                className="text-sm text-[#A1A1AA] mt-6 max-w-xl mx-auto italic font-serif break-words whitespace-normal">
         "Quando o sistema entra, o ruído sai."
       </motion.p>
     </div>
   </section>
 ));
 
+// MANIFESTO SECTION CORRIGIDO COM BREAK-WORDS
 const ManifestoSection = memo(() => (
-  <section id="manifesto" className="relative py-28 px-6 overflow-hidden border-b border-white/[0.05]">
+  <section id="manifesto" className="relative py-28 px-4 sm:px-6 overflow-hidden border-b border-white/[0.05]">
     <div className="absolute inset-0 chess-deco opacity-30 pointer-events-none" />
     <div className="max-w-3xl mx-auto text-center relative">
       <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-6 block">♟ O Manifesto · Elite OS</span>
       <Quote className="w-8 h-8 text-[#D4AF37]/40 mx-auto mb-4" />
-      <p className="text-2xl sm:text-3xl md:text-4xl text-white leading-[1.15] font-serif italic mb-8">
+      <p className="text-2xl sm:text-3xl md:text-4xl text-white leading-[1.15] font-serif italic mb-8 break-words whitespace-normal">
         Nós acreditamos que o caos moderno está a destruir mentes brilhantes. <br className="hidden md:block" />
-        <span className="text-gradient-magnetic not-italic font-sans font-bold text-xl sm:text-2xl md:text-3xl block mt-6">
+        <span className="text-gradient-magnetic not-italic font-sans font-bold text-xl sm:text-2xl md:text-3xl block mt-6 break-words whitespace-normal">
           Enquanto o mundo vive fragmentado, nós construímos sistemas.
         </span>
       </p>
       <div className="divider-gold max-w-md mx-auto mb-10" />
       <div className="mb-12 max-w-xl mx-auto">
-        <p className="text-3xl sm:text-4xl md:text-5xl font-serif italic text-white leading-tight mb-3">
-          Clareza é <span className="text-gradient-magnetic not-italic font-bold">poder</span>.
+        <p className="text-3xl sm:text-4xl md:text-5xl font-serif italic text-white leading-tight mb-3 break-words whitespace-normal">
+          Clareza é <span className="text-gradient-magnetic not-italic font-bold whitespace-normal">poder</span>.
         </p>
-        <div className="divider-gold max-w-[120px] mx-auto mb-3" />
-        <p className="text-xs text-[#A1A1AA] italic">O slogan dos que se recusam a viver no ruído.</p>
+        <p className="text-sm sm:text-base text-[#A1A1AA] italic break-words whitespace-normal">
+          O slogan dos que se recusam a viver no ruído.
+        </p>
+        <div className="divider-gold max-w-[120px] mx-auto mb-3 mt-4" />
+        <p className="text-xs text-[#A1A1AA] italic break-words whitespace-normal">"O caos custa caro."</p>
       </div>
       <div className="grid sm:grid-cols-3 gap-6 text-left max-w-3xl mx-auto">
         {[
@@ -1212,8 +1210,8 @@ const ManifestoSection = memo(() => (
         ].map((item, i) => (
           <div key={i} className="p-5 rounded-xl bg-[#0A0A0A] border border-white/[0.05]">
             <span className="text-[10px] font-mono text-[#D4AF37] block mb-2 tracking-widest">0{i + 1}</span>
-            <p className="text-base font-bold text-white mb-1.5">{item.p}</p>
-            <p className="text-[11px] text-[#A1A1AA] leading-relaxed">{item.sub}</p>
+            <p className="text-base font-bold text-white mb-1.5 break-words whitespace-normal">{item.p}</p>
+            <p className="text-[11px] text-[#A1A1AA] leading-relaxed break-words whitespace-normal">{item.sub}</p>
           </div>
         ))}
       </div>
@@ -1228,11 +1226,11 @@ const PainSection = memo(() => {
     { icon: Coins, title: "Custo Real", desc: "Cada semestre desperdiçado custa dinheiro, oportunidades e saúde mental. O caos não é gratuito — é o imposto invisível da desorganização.", color: "gold" }
   ];
   return (
-    <section id="caos" className="relative py-28 px-6 border-b border-white/[0.05] bg-[#070707]">
+    <section id="caos" className="relative py-28 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-14 max-w-2xl mx-auto">
           <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-4 block">O Diagnóstico</span>
-          <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-[1.05]">
+          <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-[1.05] break-words whitespace-normal">
             Estás a estudar… <br />
             ou apenas a <span className="display-heading text-[#FF007A]">sobreviver</span> no caos?
           </h2>
@@ -1253,18 +1251,18 @@ const PainSection = memo(() => {
                     <Icon className="w-4 h-4" />
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3">{p.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{p.desc}</p>
+                <h3 className="text-lg font-semibold text-white mb-3 break-words whitespace-normal">{p.title}</h3>
+                <p className="text-sm text-gray-400 leading-relaxed break-words whitespace-normal">{p.desc}</p>
               </div>
             );
           })}
         </div>
         <div className="mt-14 text-center">
           <div className="divider-glow max-w-md mx-auto mb-6" />
-          <p className="text-xs md:text-sm text-white italic max-w-xl mx-auto font-serif">
+          <p className="text-xs md:text-sm text-white italic max-w-xl mx-auto font-serif break-words whitespace-normal">
             "No xadrez, uma jogada errada pode custar o campeonato. Na vida, um prazo esquecido pode custar o semestre inteiro."
           </p>
-          <p className="text-[10px] text-[#D4AF37] font-mono mt-3 tracking-widest uppercase">— Gabriel Sapalo, Campeão Nacional de Xadrez 2024</p>
+          <p className="text-[10px] text-[#D4AF37] font-mono mt-3 tracking-widest uppercase break-words whitespace-normal">— Gabriel Sapalo, Campeão Nacional de Xadrez 2024</p>
         </div>
       </div>
     </section>
@@ -1279,11 +1277,11 @@ const NotTemplateSection = memo(() => {
     { k: "Execução diária real", v: "Não inspira motivação. Obriga à clareza e à ação concreta todos os dias." }
   ];
   return (
-    <section className="py-20 px-6 border-b border-white/[0.05] bg-[#070707]">
+    <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12 max-w-2xl mx-auto">
           <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-4 block">Destruição de Objeção</span>
-          <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight">
+          <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight break-words whitespace-normal">
             Isto <span className="line-through text-gray-500">não é um template</span>. <br className="hidden sm:block" />
             <span className="display-heading text-gradient-magnetic">É um sistema operacional.</span>
           </h2>
@@ -1293,8 +1291,8 @@ const NotTemplateSection = memo(() => {
             <div key={i} className="p-5 rounded-xl bg-[#0A0A0A] border border-white/[0.05] flex gap-3">
               <span className="text-[10px] font-mono text-[#00E5FF] shrink-0 mt-1">0{i + 1}</span>
               <div>
-                <p className="text-sm font-bold text-white mb-1">{p.k}</p>
-                <p className="text-xs text-[#A1A1AA] leading-relaxed">{p.v}</p>
+                <p className="text-sm font-bold text-white mb-1 break-words whitespace-normal">{p.k}</p>
+                <p className="text-xs text-[#A1A1AA] leading-relaxed break-words whitespace-normal">{p.v}</p>
               </div>
             </div>
           ))}
@@ -1316,11 +1314,11 @@ const JourneySection = memo(() => {
     green: "text-[#25D366] border-[#25D366]/30 bg-[#25D366]/5"
   };
   return (
-    <section className="py-20 px-6 border-b border-white/[0.05]">
+    <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05]">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12 max-w-2xl mx-auto">
           <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-3 block">A Tua Jornada em 3 Etapas</span>
-          <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
+          <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white leading-tight break-words whitespace-normal">
             Do pagamento à execução total <br className="hidden md:block" />
             <span className="display-heading text-gradient-gold">em menos de 24 horas.</span>
           </h2>
@@ -1331,8 +1329,8 @@ const JourneySection = memo(() => {
                         viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                         className={`p-6 rounded-2xl border ${colorMap[s.color]} relative`}>
               <span className="text-[10px] font-mono font-bold uppercase tracking-widest block mb-2">{s.time}</span>
-              <h3 className="text-base font-bold text-white mb-2">{s.title}</h3>
-              <p className="text-xs text-[#A1A1AA] leading-relaxed">{s.desc}</p>
+              <h3 className="text-base font-bold text-white mb-2 break-words whitespace-normal">{s.title}</h3>
+              <p className="text-xs text-[#A1A1AA] leading-relaxed break-words whitespace-normal">{s.desc}</p>
               <span className="absolute top-4 right-4 text-3xl font-black text-white/[0.04]">0{i + 1}</span>
             </motion.div>
           ))}
@@ -1341,17 +1339,17 @@ const JourneySection = memo(() => {
           <div className="p-6 rounded-2xl bg-gradient-to-br from-[#0A0505] to-[#050505] border border-[#FF007A]/20">
             <p className="text-[10px] font-mono text-[#FF007A] font-bold uppercase tracking-widest mb-3">Isto NÃO é para ti se…</p>
             <ul className="space-y-2 text-xs text-[#A1A1AA]">
-              <li className="flex items-start gap-2"><X className="w-3 h-3 text-[#FF007A] shrink-0 mt-0.5" /> Procuras motivação mágica ou atalhos</li>
-              <li className="flex items-start gap-2"><X className="w-3 h-3 text-[#FF007A] shrink-0 mt-0.5" /> Queres um template "bonito" só para mostrar</li>
-              <li className="flex items-start gap-2"><X className="w-3 h-3 text-[#FF007A] shrink-0 mt-0.5" /> Não estás disposto a investir 20 minutos no setup</li>
+              <li className="flex items-start gap-2"><X className="w-3 h-3 text-[#FF007A] shrink-0 mt-0.5" /><span className="break-words whitespace-normal">Procuras motivação mágica ou atalhos</span></li>
+              <li className="flex items-start gap-2"><X className="w-3 h-3 text-[#FF007A] shrink-0 mt-0.5" /><span className="break-words whitespace-normal">Queres um template "bonito" só para mostrar</span></li>
+              <li className="flex items-start gap-2"><X className="w-3 h-3 text-[#FF007A] shrink-0 mt-0.5" /><span className="break-words whitespace-normal">Não estás disposto a investir 20 minutos no setup</span></li>
             </ul>
           </div>
           <div className="p-6 rounded-2xl bg-gradient-to-br from-[#05140A] to-[#050A06] border border-[#25D366]/25">
             <p className="text-[10px] font-mono text-[#25D366] font-bold uppercase tracking-widest mb-3">Isto É para ti se…</p>
             <ul className="space-y-2 text-xs text-[#D4D4D8]">
-              <li className="flex items-start gap-2"><Check className="w-3 h-3 text-[#25D366] shrink-0 mt-0.5" /> Queres operar com clareza todos os dias</li>
-              <li className="flex items-start gap-2"><Check className="w-3 h-3 text-[#25D366] shrink-0 mt-0.5" /> Estás pronto para executar e não só planear</li>
-              <li className="flex items-start gap-2"><Check className="w-3 h-3 text-[#25D366] shrink-0 mt-0.5" /> Valorizas sistema acima de inspiração</li>
+              <li className="flex items-start gap-2"><Check className="w-3 h-3 text-[#25D366] shrink-0 mt-0.5" /><span className="break-words whitespace-normal">Queres operar com clareza todos os dias</span></li>
+              <li className="flex items-start gap-2"><Check className="w-3 h-3 text-[#25D366] shrink-0 mt-0.5" /><span className="break-words whitespace-normal">Estás pronto para executar e não só planear</span></li>
+              <li className="flex items-start gap-2"><Check className="w-3 h-3 text-[#25D366] shrink-0 mt-0.5" /><span className="break-words whitespace-normal">Valorizas sistema acima de inspiração</span></li>
             </ul>
           </div>
         </div>
@@ -1363,12 +1361,12 @@ const JourneySection = memo(() => {
 const BonusSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const totalValue = BONUSES.reduce((s, b) => s + b.value, 0);
   return (
-    <section id="bonus" className="py-24 px-6 border-b border-white/[0.05] bg-[#070707] relative overflow-hidden">
+    <section id="bonus" className="py-24 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707] relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[700px] h-[400px] gradient-gold-glow opacity-50 rounded-full blur-[140px] pointer-events-none -z-10" />
       <div className="max-w-5xl mx-auto relative">
         <div className="text-center mb-12 max-w-2xl mx-auto">
           <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ Tudo Incluído na Fase Founder</span>
-          <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight">
+          <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight break-words whitespace-normal">
             Mais do que o sistema. <br />
             <span className="display-heading text-gradient-gold">Tudo o que precisas.</span>
           </h2>
@@ -1380,8 +1378,8 @@ const BonusSection = memo(({ onConvert }: { onConvert: (seg: "international" | "
                 <span className="text-[9px] font-mono badge-founder-premium px-2 py-0.5 rounded uppercase font-bold tracking-wider">Bónus 0{i + 1}</span>
                 <span className="text-xs font-mono text-[#A1A1AA] line-through">${b.value}</span>
               </div>
-              <h3 className="text-sm font-bold text-white mb-1.5">{b.title}</h3>
-              <p className="text-[11px] text-[#A1A1AA] leading-relaxed flex-1">{b.desc}</p>
+              <h3 className="text-sm font-bold text-white mb-1.5 break-words whitespace-normal">{b.title}</h3>
+              <p className="text-[11px] text-[#A1A1AA] leading-relaxed flex-1 break-words whitespace-normal">{b.desc}</p>
               <div className="mt-3 pt-3 border-t border-white/[0.04] flex items-center gap-1.5 text-[10px] font-mono text-[#25D366] font-bold">
                 <CheckCircle2 className="w-3 h-3" /><span>INCLUÍDO · $0</span>
               </div>
@@ -1407,11 +1405,11 @@ const BonusSection = memo(({ onConvert }: { onConvert: (seg: "international" | "
 const EngineeringSection = memo(() => {
   const [playing, setPlaying] = useState(false);
   return (
-    <section id="engenharia" className="py-24 px-6 border-b border-white/[0.05] bg-[#070707]">
+    <section id="engenharia" className="py-24 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10 max-w-2xl mx-auto">
           <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">Engenharia em Ação</span>
-          <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white">
+          <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white break-words whitespace-normal">
             Vê o sistema a funcionar <span className="display-heading text-gradient-magnetic">na prática</span>
           </h2>
         </div>
@@ -1438,14 +1436,14 @@ const EngineeringSection = memo(() => {
 });
 
 const SocialProofSection = memo(() => (
-  <section id="provas" className="py-24 px-6 border-b border-white/[0.05]">
+  <section id="provas" className="py-24 px-4 sm:px-6 border-b border-white/[0.05]">
     <div className="max-w-6xl mx-auto">
       <div className="text-center mb-14 max-w-2xl mx-auto">
         <span className="text-[10px] font-mono tracking-[0.3em] text-[#00E5FF] uppercase font-bold mb-4 block">♟ Elite Minds · Validação Operacional</span>
-        <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight">
+        <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight break-words whitespace-normal">
           Eles já fizeram o <span className="display-heading text-gradient-magnetic">reset operacional</span>
         </h2>
-        <p className="text-sm text-[#A1A1AA] mt-3">+3.200 operadores mentais. Avaliações 5 estrelas. Evidências reais.</p>
+        <p className="text-sm text-[#A1A1AA] mt-3 break-words whitespace-normal">+3.200 operadores mentais. Avaliações 5 estrelas. Evidências reais.</p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {TESTIMONIALS.map((t, i) => (
@@ -1464,7 +1462,7 @@ const SocialProofSection = memo(() => (
                 <p className="text-[10px] text-[#A1A1AA] font-mono truncate">{t.role} · {t.location}</p>
               </div>
             </div>
-            <p className="text-xs text-[#A1A1AA] leading-relaxed italic flex-1">"{t.text}"</p>
+            <p className="text-xs text-[#A1A1AA] leading-relaxed italic flex-1 break-words whitespace-normal">"{t.text}"</p>
             <div className="mt-4 pt-3 border-t border-white/[0.04] flex items-center justify-between">
               <div className="flex items-center gap-1 text-[9px] font-mono text-[#25D366]">
                 <CheckCircle2 className="w-3 h-3" /> Identidade Verificada
@@ -1479,12 +1477,12 @@ const SocialProofSection = memo(() => (
 ));
 
 const AuthoritySection = memo(() => (
-  <section id="autoridade" className="py-24 px-6 border-b border-white/[0.05] bg-[#070707] relative overflow-hidden">
+  <section id="autoridade" className="py-24 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707] relative overflow-hidden">
     <div className="absolute inset-0 chess-deco opacity-20 pointer-events-none" />
     <div className="max-w-5xl mx-auto relative">
       <div className="text-center mb-10 max-w-2xl mx-auto">
         <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ A Mente por Trás da Matriz</span>
-        <h2 className="premium-heading text-3xl sm:text-4xl text-white">
+        <h2 className="premium-heading text-3xl sm:text-4xl text-white break-words whitespace-normal">
           O sistema criado pelo <span className="display-heading text-gradient-gold">Campeão Nacional de Xadrez de Angola</span>
         </h2>
       </div>
@@ -1494,8 +1492,8 @@ const AuthoritySection = memo(() => (
             <img src={CONFIG.authorPhoto} alt={CONFIG.authorName} className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-white">{CONFIG.authorName}</h3>
-            <p className="text-[10px] text-[#D4AF37] font-mono mt-1 tracking-widest uppercase block">{CONFIG.authorTitle}</p>
+            <h3 className="text-xl font-bold text-white break-words whitespace-normal">{CONFIG.authorName}</h3>
+            <p className="text-[10px] text-[#D4AF37] font-mono mt-1 tracking-widest uppercase block break-words whitespace-normal">{CONFIG.authorTitle}</p>
           </div>
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-2">
             <span className="badge-founder-premium px-3 py-1 rounded-full font-mono font-semibold text-[10px]">
@@ -1517,7 +1515,7 @@ const AuthoritySection = memo(() => (
         </div>
       </div>
       <div className="mt-10 space-y-5 text-sm text-[#A1A1AA] leading-relaxed">
-        <p className="text-lg md:text-xl font-serif italic text-white border-l-2 border-[#D4AF37] pl-5 py-2 bg-white/[0.01] rounded-r">
+        <p className="text-lg md:text-xl font-serif italic text-white border-l-2 border-[#D4AF37] pl-5 py-2 bg-white/[0.01] rounded-r break-words whitespace-normal">
           "No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exactamente o mesmo."
         </p>
         <div className="grid grid-cols-2 gap-3 pt-4">
@@ -1531,7 +1529,7 @@ const AuthoritySection = memo(() => (
             return (
               <div key={i} className="p-3 rounded-lg bg-[#0A0A0A] border border-white/[0.05] flex items-center gap-2">
                 <Icon className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
-                <span className="text-xs text-white font-medium">{it.label}</span>
+                <span className="text-xs text-white font-medium break-words whitespace-normal">{it.label}</span>
               </div>
             );
           })}
@@ -1580,21 +1578,21 @@ const UrgencyTimer = memo(() => {
 });
 
 const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => (
-  <section id="oferta" className="py-24 px-6 border-b border-white/[0.05]">
+  <section id="oferta" className="py-24 px-4 sm:px-6 border-b border-white/[0.05]">
     <div className="max-w-4xl mx-auto text-center">
       <div className="mb-10">
         <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ Licenciamento Exclusivo · Fase Founder</span>
-        <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
+        <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-tight break-words whitespace-normal">
           O investimento mais inteligente <br className="hidden md:block" />
           que podes fazer em <span className="display-heading text-gradient-gold">ti mesmo</span>
         </h2>
       </div>
-      <div className="border border-[#00E5FF]/30 bg-[#101010] p-8 sm:p-10 rounded-3xl text-center max-w-2xl mx-auto relative overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
+      <div className="border border-[#00E5FF]/30 bg-[#101010] p-5 sm:p-8 md:p-10 rounded-3xl text-center max-w-2xl mx-auto relative overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.7)] w-full">
         <p className="text-xs text-white/60 uppercase tracking-widest font-mono">Preço de Lançamento — Founder Batch 01</p>
         <div className="flex justify-center mt-3 mb-4"><UrgencyTimer /></div>
-        <div className="flex items-end justify-center gap-2 my-5">
-          <span className="text-6xl sm:text-7xl font-black text-white tracking-tight">$10</span>
-          <span className="pb-3 text-lg font-normal text-white/50">ou 10.000 AKZ</span>
+        <div className="flex items-end justify-center gap-2 my-5 flex-wrap">
+          <span className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight">$10</span>
+          <span className="text-base sm:text-lg font-normal text-white/50 pb-1">ou 10.000 AKZ</span>
         </div>
         <div className="mt-6 max-w-md mx-auto">
           <div className="flex items-center justify-between text-xs mb-2">
@@ -1614,7 +1612,7 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
             Viste os nossos anúncios de $10?
           </p>
-          <p className="text-[11px] text-[#A1A1AA] leading-relaxed">
+          <p className="text-[11px] text-[#A1A1AA] leading-relaxed break-words whitespace-normal">
             Parabéns, chegaste a tempo. O <strong className="text-white">Founder Batch 01</strong> ainda tem vagas, mas o preço subirá para <strong className="text-white">$49</strong> assim que este lote for fechado.
           </p>
         </div>
@@ -1645,7 +1643,7 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
             {["Sistema Operacional Notion Elite 2026","Dashboard académico + profissional","Habit Matrix + Goal Radar","Finance Command","Guia de setup em 24h","Acesso à comunidade Elite Minds","Atualizações 2026 + 2027"].map((item, i) => (
               <div key={i} className="flex items-start gap-2.5 text-[#D4D4D8]">
                 <Check className="w-3.5 h-3.5 text-[#00E5FF] shrink-0 mt-0.5" />
-                <span>{item}</span>
+                <span className="break-words whitespace-normal">{item}</span>
               </div>
             ))}
           </div>
@@ -1666,7 +1664,7 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
             <Shield className="w-4 h-4 text-[#D4AF37]" />
             <p className="text-xs font-bold text-white uppercase tracking-wider">Garantia de Resultado 30 Dias</p>
           </div>
-          <p className="text-sm text-gray-400 max-w-md mx-auto leading-relaxed">
+          <p className="text-sm text-gray-400 max-w-md mx-auto leading-relaxed break-words whitespace-normal">
             Se o sistema não fizer sentido para ti nos primeiros 30 dias, devolvemos <strong className="text-white">100% do teu dinheiro</strong>. O risco é 100% nosso.
           </p>
         </div>
@@ -1678,9 +1676,9 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
 const FAQSection = memo(() => {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <section id="faq" className="py-24 px-6 max-w-3xl mx-auto">
+    <section id="faq" className="py-24 px-4 sm:px-6 max-w-3xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="premium-heading text-3xl sm:text-4xl text-white">Perguntas Frequentes</h2>
+        <h2 className="premium-heading text-3xl sm:text-4xl text-white break-words whitespace-normal">Perguntas Frequentes</h2>
       </div>
       <div className="space-y-2.5">
         {FAQ_DATA.map((item, i) => {
@@ -1689,14 +1687,14 @@ const FAQSection = memo(() => {
             <div key={i} className="bg-[#0A0A0A] border border-white/[0.05] rounded-lg overflow-hidden">
               <button onClick={() => setOpen(isOpen ? null : i)}
                       className="w-full text-left p-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors outline-none cursor-pointer text-sm font-semibold text-white">
-                <span>{item.q}</span>
+                <span className="break-words whitespace-normal text-left">{item.q}</span>
                 {isOpen ? <ChevronUp className="w-4 h-4 text-[#D4AF37] shrink-0" /> : <ChevronDown className="w-4 h-4 text-[#A1A1AA] shrink-0" />}
               </button>
               <AnimatePresence>
                 {isOpen && (
                   <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25 }}
-                              className="px-5 pb-5 text-xs text-[#A1A1AA] border-t border-white/[0.04] pt-4 leading-relaxed">
+                              className="px-5 pb-5 text-xs text-[#A1A1AA] border-t border-white/[0.04] pt-4 leading-relaxed break-words whitespace-normal">
                     {item.a}
                   </motion.div>
                 )}
@@ -1710,14 +1708,14 @@ const FAQSection = memo(() => {
 });
 
 const FinalCTASection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => (
-  <section className="py-28 px-6 text-center relative overflow-hidden border-b border-white/[0.05] bg-gradient-to-b from-[#050505] via-[#080808] to-[#050505]">
+  <section className="py-28 px-4 sm:px-6 text-center relative overflow-hidden border-b border-white/[0.05] bg-gradient-to-b from-[#050505] via-[#080808] to-[#050505]">
     <div className="max-w-2xl mx-auto relative">
       <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold block mb-5">♟ A Decisão Inevitável</span>
-      <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white max-w-2xl mx-auto leading-[1.05] mb-5">
+      <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white max-w-2xl mx-auto leading-[1.05] mb-5 break-words whitespace-normal">
         A elite não espera pelas oportunidades. <br />
         <span className="display-heading text-gradient-gold">Ela cria o seu próprio sistema.</span>
       </h2>
-      <p className="text-sm text-[#A1A1AA] max-w-xl mx-auto leading-relaxed mb-8">
+      <p className="text-sm text-[#A1A1AA] max-w-xl mx-auto leading-relaxed mb-8 break-words whitespace-normal">
         O Notion Elite Starter Kit 2026 é o investimento que separa quem apenas deseja de quem realmente executa.
       </p>
       <div className="max-w-xl mx-auto mb-6">
@@ -1729,7 +1727,7 @@ const FinalCTASection = memo(({ onConvert }: { onConvert: (seg: "international" 
 ));
 
 const LegalFooter = memo(() => (
-  <footer className="border-t border-white/[0.05] bg-[#050505] pt-14 pb-28 px-6 text-xs text-[#A1A1AA]">
+  <footer className="border-t border-white/[0.05] bg-[#050505] pt-14 pb-28 px-4 sm:px-6 text-xs text-[#A1A1AA]">
     <div className="max-w-6xl mx-auto">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/[0.05]">
         <div className="flex items-center gap-3">
@@ -1758,7 +1756,7 @@ const LegalFooter = memo(() => (
         </div>
         <div>
           <p className="text-[10px] font-mono text-white uppercase tracking-wider mb-3 font-semibold">Especificações</p>
-          <p className="text-[#A1A1AA]/80 text-[10px] leading-relaxed">
+          <p className="text-[#A1A1AA]/80 text-[10px] leading-relaxed break-words whitespace-normal">
             Notion Elite OS 2026.<br />
             Sistema operacional pessoal para estudantes e profissionais.
           </p>
@@ -1807,8 +1805,8 @@ const ExitIntentModal = memo(({ onConvert }: { onConvert: (seg: "international" 
           <X className="w-5 h-5" />
         </button>
         <Crown className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
-        <h3 className="text-2xl font-bold mb-3">Não percas esta oportunidade</h3>
-        <p className="text-[#A1A1AA] mb-6">O Founder Batch 01 está quase no fim. Depois o preço sobe para $27 e depois $49.</p>
+        <h3 className="text-2xl font-bold mb-3 break-words whitespace-normal">Não percas esta oportunidade</h3>
+        <p className="text-[#A1A1AA] mb-6 break-words whitespace-normal">O Founder Batch 01 está quase no fim. Depois o preço sobe para $27 e depois $49.</p>
         <CTAButtons onConvert={onConvert} size="sm" />
         <button onClick={handleClose} className="text-sm text-gray-400 hover:text-white mt-4 block mx-auto">
           Não, obrigado.
@@ -1991,10 +1989,11 @@ export function App() {
   }, []);
 
   return (
-    <div className="cinematic-noise min-h-screen bg-[#050505] text-white font-sans relative">
+    <div className="cinematic-noise min-h-screen bg-[#050505] text-white font-sans relative overflow-x-hidden">
       <Helmet>
         <title>Notion Elite OS 2026 — Sistema Operacional Pessoal | Gabriel Sapalo</title>
         <meta name="description" content="Cansado de viver no caos? Organiza toda a tua vida num único Notion em menos de 24 horas." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
       </Helmet>
 
       <Header onCTA={scrollToOffer} />
@@ -2024,8 +2023,9 @@ export function App() {
       <StickyBar onConvert={convert} />
       <MobileStickyBar onConvert={convert} />
 
+      {/* WHATSAPP FLUTUANTE - APENAS NO RODAPÉ, NUNCA NO CHECKOUT */}
       <AnimatePresence>
-        {showWaFloat && (
+        {showWaFloat && path !== "/angola" && path !== "/checkout-angola" && (
           <motion.a
             href={CONFIG.whatsappSupport}
             target="_blank"
