@@ -61,36 +61,36 @@ type HeroContent = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// HERO CONTENT VARIANTS
+// HERO CONTENT VARIANTS — ACTUALIZADO
 // ═══════════════════════════════════════════════════════════
 const HERO_CONTENT: Record<string, HeroContent> = {
   angola_internet: {
     tag: "Para estudantes que estudam com internet lenta ou sem ela",
-    headline: "Cansado de viver enterrado no caos?",
-    headlineHighlight: "Organiza toda a tua vida num único Notion em menos de 24 horas.",
-    subtitle: "Um sistema operacional pessoal que funciona mesmo com internet lenta, apagões frequentes e rotina desorganizada. Feito para quem quer parar de sobreviver e começar a executar.",
-    badge: "Funciona 100% offline · Setup em 24h"
+    headline: "Cada semestre desorganizado custa-te mais tempo e notas do que imaginas.",
+    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por $10.",
+    subtitle: "O Notion Elite Kit já vem pronto a usar. Dashboard, calendário, gestor de tarefas, planificador de exames e IA integrada. Tudo configurado em menos de 24 horas. Apenas $10 agora — o preço sobe para $27 em breve.",
+    badge: "⚡ $10 agora · Sobe para $27 em breve · Setup em 24h"
   },
   angola_burnout: {
     tag: "Para estudantes exaustos e sem direção",
-    headline: "Cansado de estudar e não ver resultados?",
-    headlineHighlight: "O problema não é esforço — é falta de sistema.",
-    subtitle: "Quando tudo está espalhado entre cadernos, WhatsApp e memória, o cansaço vem antes do resultado. Centraliza tudo num único Notion.",
-    badge: "Clareza mental · Rotina fluida · 24h"
+    headline: "Cada semestre desorganizado custa-te mais tempo e notas do que imaginas.",
+    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por $10.",
+    subtitle: "O Notion Elite Kit já vem pronto a usar. Dashboard, calendário, gestor de tarefas, planificador de exames e IA integrada. Tudo configurado em menos de 24 horas. Apenas $10 agora — o preço sobe para $27 em breve.",
+    badge: "⚡ $10 agora · Sobe para $27 em breve · Setup em 24h"
   },
   angola_financeiro: {
-    tag: "Para estudantes que não podem desperdiçar tempo nem dinheiro",
-    headline: "Cada kwanza investido na tua formação",
-    headlineHighlight: "tem de valer a pena.",
-    subtitle: "Não podes dar-te ao luxo de repetir cadeiras. O Notion Elite Kit custa menos que um livro e organiza o semestre inteiro.",
-    badge: "Menos que uma refeição · Acesso vitalício"
+    tag: "Para estudantes que não podem desperdiçar tempo nem notas",
+    headline: "Cada semestre desorganizado custa-te mais tempo e notas do que imaginas.",
+    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por $10.",
+    subtitle: "O Notion Elite Kit já vem pronto a usar. Em menos de 24 horas tens dashboard, calendário, gestor de tarefas e planificador de exames configurados. Apenas $10 hoje — sobe para $27 em breve.",
+    badge: "⚡ $10 agora · Sobe para $27 em breve · Setup em 24h"
   },
   default: {
-    tag: "Para estudantes e profissionais cansados do caos",
-    headline: "Cansado de viver enterrado no caos?",
-    headlineHighlight: "Organiza toda a tua vida num único Notion em menos de 24 horas.",
-    subtitle: "Um sistema operacional pessoal que funciona mesmo com internet lenta, apagões frequentes e rotina desorganizada. Feito para quem quer parar de sobreviver e começar a executar.",
-    badge: "Configura tudo em menos de 24h"
+    tag: "Para estudantes universitários que querem parar de sobreviver",
+    headline: "Cada semestre desorganizado custa-te mais tempo e notas do que imaginas.",
+    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por $10.",
+    subtitle: "O Notion Elite Kit já vem pronto a usar. Dashboard, calendário, gestor de tarefas, planificador de exames e IA integrada. Tudo configurado em menos de 24 horas. Apenas $10 agora — o preço sobe para $27 em breve.",
+    badge: "⚡ $10 agora · Sobe para $27 em breve · Setup em 24h"
   }
 };
 
@@ -623,7 +623,7 @@ const ThankYouPage = memo(() => {
 });
 
 // ═══════════════════════════════════════════════════════════
-// HEADER
+// HEADER — COM BARRA DE URGÊNCIA ACTUALIZADA
 // ═══════════════════════════════════════════════════════════
 const Header = memo(({ onCTA }: { onCTA: () => void }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -641,7 +641,7 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
       <div className="bg-[#080808] border-b border-white/[0.06] py-2.5 px-4 text-center">
         <p className="text-[11px] font-mono text-[#00E5FF] tracking-wide font-semibold flex items-center justify-center gap-2 flex-wrap break-words whitespace-normal">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse shrink-0" />
-          🔥 FASE FOUNDER 2026 — Apenas $10 / 10.000 AKZ (preço sobe para $49 em breve)
+          ⚡ ATENÇÃO: O preço sobe de $10 para $27 esta semana — Garante o teu acesso agora
         </p>
       </div>
 
@@ -777,7 +777,7 @@ const HeroVSL = memo(() => {
 });
 
 // ═══════════════════════════════════════════════════════════
-// HERO SECTION
+// HERO SECTION — COM NOVOS BENEFÍCIOS
 // ═══════════════════════════════════════════════════════════
 const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const hero = getHeroContent();
@@ -786,7 +786,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                   className="inline-flex items-center gap-2 badge-founder-premium px-4 py-1.5 rounded-full text-xs font-mono tracking-wider mb-8">
         <Crown className="w-3.5 h-3.5" />
-        FASE FOUNDER 2026 — Acesso Exclusivo
+        {hero.tag}
       </motion.div>
 
       <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
@@ -818,9 +818,9 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
                   className="max-w-md mx-auto mb-10 p-5 rounded-2xl bg-[#0A0A0A] border border-white/[0.08] text-left">
         <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-3 font-bold break-words whitespace-normal">Em menos de 24 horas vais:</p>
         <div className="space-y-2.5 text-sm text-[#D4D4D8]">
-          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Parar de perder tempo à procura de ficheiros e notas</span></div>
-          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Saber exactamente o que fazer todos os dias</span></div>
-          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Ter controlo mesmo quando a luz ou internet falha</span></div>
+          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Parar de perder prazos e reprovar por falta de organização</span></div>
+          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Ter um sistema completo pronto em menos de 24 horas</span></div>
+          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Poupar dinheiro — $10 agora antes que suba para $27</span></div>
         </div>
       </motion.div>
 
@@ -1613,7 +1613,7 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
             Viste os nossos anúncios de $10?
           </p>
           <p className="text-[11px] text-[#A1A1AA] leading-relaxed break-words whitespace-normal">
-            Parabéns, chegaste a tempo. O <strong className="text-white">Founder Batch 01</strong> ainda tem vagas, mas o preço subirá para <strong className="text-white">$49</strong> assim que este lote for fechado.
+            Parabéns, chegaste a tempo. O <strong className="text-white">Founder Batch 01</strong> ainda tem vagas, mas o preço subirá para <strong className="text-white">$27</strong> esta semana.
           </p>
         </div>
         <div className="mt-6 rounded-2xl border border-[#D4AF37]/20 bg-[#0A0A0A] p-6 text-left max-w-md mx-auto">
@@ -1992,7 +1992,7 @@ export function App() {
     <div className="cinematic-noise min-h-screen bg-[#050505] text-white font-sans relative overflow-x-hidden">
       <Helmet>
         <title>Notion Elite OS 2026 — Sistema Operacional Pessoal | Gabriel Sapalo</title>
-        <meta name="description" content="Cansado de viver no caos? Organiza toda a tua vida num único Notion em menos de 24 horas." />
+        <meta name="description" content="Organiza toda a tua vida académica em 24 horas. Sistema pronto para estudantes. $10 agora, sobe para $27." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
       </Helmet>
 
