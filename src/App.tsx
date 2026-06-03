@@ -210,7 +210,7 @@ const Telemetry = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// ANGOLA CHECKOUT PAGE — COM BORDA DOURADA + MARQUEE
+// ANGOLA CHECKOUT PAGE — COM BORDA DOURADA + MARQUEE CORRIGIDO
 // ═══════════════════════════════════════════════════════════
 const AngolaCheckoutPage = memo(() => {
   const [step, setStep] = useState<"form" | "payment">("form");
@@ -355,15 +355,16 @@ const AngolaCheckoutPage = memo(() => {
     <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center px-6 py-12">
       <div className="w-full max-w-md">
 
-        {/* MARQUEE - TEXTO ROLANTE DINÂMICO */}
-        <div className="overflow-hidden whitespace-nowrap mb-4 py-2 bg-[#0A0A0A]/50 rounded-xl border border-[#D4AF37]/20">
+        {/* MARQUEE - TEXTO ROLANTE DINÂMICO (CORRIGIDO) */}
+        <div className="overflow-hidden mb-4 py-2 bg-[#0A0A0A]/50 rounded-xl border border-[#D4AF37]/20">
           <motion.div
-            animate={{ x: ["0%", "-100%"] }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="inline-flex gap-8"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="flex whitespace-nowrap"
+            style={{ width: "fit-content" }}
           >
             {[...marqueeTexts, ...marqueeTexts].map((text, idx) => (
-              <span key={idx} className="text-sm font-mono text-[#D4AF37] tracking-wide">
+              <span key={idx} className="text-sm font-mono text-[#D4AF37] tracking-wide mx-4 shrink-0">
                 {text} <span className="text-white/30 mx-1">♟</span>
               </span>
             ))}
