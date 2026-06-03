@@ -41,7 +41,7 @@ const CONFIG = {
   communityLink: "https://chat.whatsapp.com/LDV8ORaZgzGC9ljtt3gTLh",
   telegramSupport: "https://t.me/+n_hkEVYAeO9lNDIx",
   supportEmail: "suporte@glowscalepro.com",
-  paymentEmail: "pagamentos.elite@gmail.com",
+  paymentEmail: "glowscalepro@gmail.com",
   termsOfUse: "https://drive.google.com/file/d/1cpwleZI5mtMGj8oVQ9C-xFkPmW6iJd1c/view",
   privacyPolicy: "https://drive.google.com/file/d/1yi1D2p_QYdK9tIwCaU8kxlFnol97kGdg/view",
   cookiePolicy: "https://drive.google.com/file/d/1owleKJFrC-MVOjMx7BKMuuqrhroSZqY1/view",
@@ -474,8 +474,8 @@ const AngolaCheckoutPage = memo(() => {
           <div className="space-y-3">
             {[
               { t: "Agora",      d: "Transferes 10.000 AKZ",                                       c: "#25D366" },
-              { t: "2 minutos",  d: `Envias o comprovativo para ${CONFIG.paymentEmail} com assunto ${ref}`, c: "#00E5FF" },
-              { t: "Até 10 min", d: "Recebes o kit no teu email automaticamente",                   c: "#D4AF37" }
+              { t: "2 minutos",  d: `Envias o comprovativo para ${CONFIG.paymentEmail} com assunto ${ref} — kit entregue automaticamente em menos de 10 min. WhatsApp +244 923 379 486 também disponível, mas a entrega depende de confirmação manualmanual.` },
+              { t: "Até 10 min", d: "Recebes o link do kit no teu email em menos de 10 minutos",                   c: "#D4AF37" }
             ].map((s, i) => (
               <div key={i} className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0"
@@ -522,7 +522,7 @@ const ThankYouPage = memo(() => {
         value: 10000,
         currency: "AOA",
         content_name: "Notion Elite OS 2026",
-        transaction_id: ref || `wa_${Date.now()}`
+        transaction_id: ref || `wa_${Date.now()}`,
       };
 
       if (typeof (window as any).gtag === "function") {
