@@ -6,47 +6,137 @@ import {
   Check, ChevronDown, ChevronUp, Star, MessageCircle,
   ExternalLink, Menu, X, Shield, Send, CheckCircle2,
   Crown, Eye, Activity, Coins, Flame,
-  Quote, Lock
+  Quote, Lock, Copy
 } from "lucide-react";
 
 // ═══════════════════════════════════════════════════════════
-// CONFIG
+// IMPORTAÇÃO DO CHATBOT
+// ═══════════════════════════════════════════════════════════
+import SalesChatBot from './components/ui/SalesChatBot';
+
+// ═══════════════════════════════════════════════════════════
+// CONFIG — COM IMAGENS LOCAIS (public/images/)
 // ═══════════════════════════════════════════════════════════
 const CONFIG = {
   authorName: "Gabriel Sapalo",
   authorTitle: "Estrategista & Especialista em Gestão de Sistemas de Informação",
   authorBio: "Campeão Nacional Absoluto de Xadrez de Angola 2024. Consolidou a sua carreira na intersecção entre o Planeamento Estatístico e a Psicologia Analítica. Com especialização em Contabilidade e Auditoria, Gabriel utilizou a sua visão de Estrategista para modelar o Notion Elite Kit como uma infraestrutura de inteligência de dados para fluxos cognitivos complexos.",
-  authorPhoto: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778858082/Gabriel_Sapalo_kp0dhm.png",
+  
+  // ═════════════════════════════════════════════════════════
+  // IMAGENS LOCAIS — public/images/
+  // ═════════════════════════════════════════════════════════
+  
+  // Autores e Logos
+  authorPhoto: "/images/Gabriel_Sapalo_kp0dhm.png",
+  productLogo: "/images/Logotipo_Notion_Elite_2026_kiwhgx.png",
+  glowscaleLogo: "/images/Logotipo_da_Glowscalepro_fusgtw.png",
+  
+  // Mockups
+  notionMockup: "/images/MOCKUP_NOTION_FINAL_1_zc7jj0.png",
+  antesDepoisMockup: "/images/Mockup_2_antes_e_depois_nr6xmh.png",
+  mockupExtra1: "/images/Imagem_interna_do_notion_20260507_jutslr.png",
+  mockupExtra2: "/images/Mockup_3_antes_e_depois_varhb4.png",
+  internalView: "/images/MOCKUP_NOTION_FINAL_1_zc7jj0.png",
+  
+  // Produto — CAPA DO VSL CORRETA (NÃO MEXER!)
+  laptopOffer: "/images/Laptop_e_preço_de_224_usd_cortado_t8cyvj.png",
+  productHero: "/images/Notion_Elite_Starter_Kit_2026_20260528_1_lo4ytu.png",
+  productIntro: "/images/notion_elite_starter_Kit_Intro_1_gh5aaa.png",
+  productDashboard: "/images/notion_elite_starter_Kit_Dashboard_1_ooj75k.png",
+  productGestorProjeto: "/images/notion_elite_starter_Kit_Gestor_de_Projecto_1_gxg4ev.png",
+  productGestorFinanceiro: "/images/notion_elite_starter_Kit_Gestor_Financeiro_1_z1ztb3.png",
+  productCerebroDigital: "/images/notion_elite_starter_Kit_Cerebro_digital.png",
+  productExamesProvas: "/images/notion_elite_starter_Kit_Exames_e_Provas_1_bxhic1.png",
+  productHabitTracker: "/images/notion_elite_starter_Kit_Habit_Tracker_1_hb4xtx.png",
+  
+  // Prova social
+  fideProof: "/images/Campeonato_Nacional_Absoluto_2024_FIDE_results_1_ocbkq5.png",
+  
+  // ═════════════════════════════════════════════════════════
+  // VÍDEOS
+  // ═════════════════════════════════════════════════════════
   heroVideo: "https://www.youtube.com/embed/UwCl0a-FWp4",
   videoDemonstracaoReal: "https://www.youtube.com/embed/qfKGywfh05A",
-  productLogo: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1780069896/Logotipo_Notion_Elite_2026_kiwhgx.png",
-  glowscaleLogo: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1780069897/Logotipo_da_Glowscalepro_fusgtw.png",
-  notionMockup: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857929/MOCKUP_NOTION_FINAL_1_zc7jj0.png",
-  antesDepoisMockup: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857908/Mockup_2_antes_e_depois_nr6xmh.png",
-  mockupExtra1: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857908/Mockup_2_antes_e_depois_nr6xmh.png",
-  mockupExtra2: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857906/Mockup_3_antes_e_depois_varhb4.png",
-  laptopOffer: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1780069897/Laptop_e_pre%C3%A7o_de_224_usd_cortado_e_10_usd_anqf9p.jpg",
-  internalView: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857929/MOCKUP_NOTION_FINAL_1_zc7jj0.png",
-  productHero: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986988/Notion_Elite_Starter_Kit_2026_20260528_jr4muh.jpg",
-  productIntro: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_Intro_jfpgbo.png",
-  productDashboard: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986987/notion_elite_starter_Kit_Dashboard_f1wqev.png",
-  productGestorProjeto: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_Gestor_de_Projecto_eebyxb.png",
-  productGestorFinanceiro: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_Gestor_Financeiro_qoknnt.png",
-  productCerebroDigital: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_C%C3%A9rebro_digital_slkjqm.png",
-  productExamesProvas: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_Exames_e_Provas_mogbmy.png",
-  productHabitTracker: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779986986/notion_elite_starter_Kit_Habit_Tracker_teccka.png",
-  fideProof: "https://res.cloudinary.com/dyerjg6mf/image/upload/f_auto,q_auto/v1779991681/Campeonato_Nacional_Absoluto_2024_FIDE_results_harpay.png",
+  
+  // ═════════════════════════════════════════════════════════
+  // LINKS
+  // ═════════════════════════════════════════════════════════
   hotmartCheckout: "https://pay.hotmart.com/Q105490101M?off=xablp4k5&hotfeature=51",
   whatsappSupport: "https://wa.me/244923379486?text=Ol%C3%A1%20Gabriel%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20Notion%20Elite%20Kit",
   communityLink: "https://chat.whatsapp.com/LDV8ORaZgzGC9ljtt3gTLh",
   telegramSupport: "https://t.me/+n_hkEVYAeO9lNDIx",
   supportEmail: "suporte@glowscalepro.com",
   paymentEmail: "glowscalepro@gmail.com",
+  expressPhone: "+244 923 379 486",
+  expressName: "Gabriel António Armando Sapalo",
   termsOfUse: "https://drive.google.com/file/d/1cpwleZI5mtMGj8oVQ9C-xFkPmW6iJd1c/view",
   privacyPolicy: "https://drive.google.com/file/d/1yi1D2p_QYdK9tIwCaU8kxlFnol97kGdg/view",
   cookiePolicy: "https://drive.google.com/file/d/1owleKJFrC-MVOjMx7BKMuuqrhroSZqY1/view",
   appsScriptUrl: "https://script.google.com/macros/s/AKfycbxOso56CGBKX22B9z22WQN8gx6E5rEvdsEfWpMnLZCnEc8fcOLuqvYqHCasfDap6YHs/exec",
   kitDriveLink: "https://drive.google.com/file/d/1xu-vl4n1iVouFHXTv8Dbhj_H2V3AGSXz/view?usp=sharing",
+};
+
+// ═══════════════════════════════════════════════════════════
+// TESTIMONIALS — COM AVATARES LOCAIS
+// ═══════════════════════════════════════════════════════════
+const TESTIMONIALS = [
+  { 
+    name: "Tomás Ferreira", 
+    role: "Dupla Licenciatura", 
+    location: "Porto, Portugal", 
+    avatar: "/images/Tomás_Ferreira_-Porto_-_Portugal_goriez.png", 
+    text: "Mano... consegui finalmente organizar tudo. Faço dupla licenciatura e trabalho num café. Antes vivia em pânico a dormir 4 horas. Agora planeio a semana toda em 10 min ao domingo. Surreal.", 
+    metric: "10 min/sem" 
+  },
+  { 
+    name: "Mariana Costa", 
+    role: "Estudante Universitária", 
+    location: "Lisboa, Portugal", 
+    avatar: "/images/Mariana_-_Lisboa_Portugal_uerhir.png", 
+    text: "Passei de média de 12 para 15 em dois meses. O cérebro digital devolveu-me o foco e tirou o peso de ter anotações perdidas. Sinto que tenho o controlo de volta.", 
+    metric: "12 → 15" 
+  },
+  { 
+    name: "Ana Luísa Mendes", 
+    role: "Gestora de Projetos", 
+    location: "Luanda, Angola", 
+    avatar: "/images/Ana_Luisa_-_Luanda_Angola_vae6mt.png", 
+    text: "A integração das matrizes relacionais e os atalhos de bases de dados funcionam sem qualquer latência. Extremamente sólido. Um verdadeiro cockpit.", 
+    metric: "0 latência" 
+  },
+  { 
+    name: "João Pedro Silva", 
+    role: "Profissional & Estudante", 
+    location: "São Paulo, Brasil", 
+    avatar: "/images/João_Pedro_-_São_Paulo_-_Brasil_inzjna.png", 
+    text: "Trabalhar e estudar ao mesmo tempo consumia-me. Este setup poupou-me 2 horas diárias. O tempo que recuperei paga o sistema no primeiro dia.", 
+    metric: "2h/dia poupas" 
+  },
+  { 
+    name: "Sofia Rodrigues", 
+    role: "Mestranda e Pesquisadora", 
+    location: "Coimbra, Portugal", 
+    avatar: "/images/Sofia_Rodrigues_-_Coimbra_-Portugal_tlbepm.png", 
+    text: "Adeus abas perdidas e notas soltas. Setup concluído. Zero atrito. Execução imediata. É God Mode.", 
+    metric: "17 abas → 1 sistema" 
+  },
+  { 
+    name: "Beatriz Mendonça", 
+    role: "Consultora Júnior", 
+    location: "Maputo, Moçambique", 
+    avatar: "/images/Beatriz_Mendoça_-_Maputo_Moçambique_qjsbtm.png", 
+    text: "Ou montas um ecossistema que funciona por ti ou continuas a perder prazos e a mentir a ti mesma. A metodologia de 24H obrigou-me a executar sem desculpas.", 
+    metric: "Setup em 4h" 
+  }
+];
+
+// ═══════════════════════════════════════════════════════════
+// FONTE ÚNICA DE VERDADE PARA PROVA SOCIAL E FEATURE FLAGS
+// ═══════════════════════════════════════════════════════════
+const SOCIAL_PROOF_COUNT = 3247;
+
+const FEATURE_FLAGS = {
+  enableActivityNotifications: false,
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -61,36 +151,36 @@ type HeroContent = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// HERO CONTENT VARIANTS — ACTUALIZADO
+// HERO CONTENT VARIANTS — ACTUALIZADO (PREÇO $49)
 // ═══════════════════════════════════════════════════════════
 const HERO_CONTENT: Record<string, HeroContent> = {
   angola_internet: {
     tag: "Para estudantes que estudam com internet lenta ou sem ela",
     headline: "Cada semestre desorganizado custa-te mais tempo e notas do que imaginas.",
-    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por $10.",
-    subtitle: "O Notion Elite Kit já vem pronto a usar. Dashboard, calendário, gestor de tarefas, planificador de exames e IA integrada. Tudo configurado em menos de 24 horas. Apenas $10 agora — o preço sobe para $27 em breve.",
-    badge: "⚡ $10 agora · Sobe para $27 em breve · Setup em 24h"
+    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por <span class='text-[#25D366] font-bold'>$10</span>.",
+    subtitle: "O Notion Elite Kit já vem pronto a usar. Dashboard, calendário, gestor de tarefas, planificador de exames e IA integrada. Tudo configurado em menos de 24 horas. Apenas $10 agora — o preço sobe para $49 em breve.",
+    badge: "⚡ $10 agora · Sobe para $49 em breve · Setup em 24h"
   },
   angola_burnout: {
     tag: "Para estudantes exaustos e sem direção",
     headline: "Cada semestre desorganizado custa-te mais tempo e notas do que imaginas.",
-    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por $10.",
-    subtitle: "O Notion Elite Kit já vem pronto a usar. Dashboard, calendário, gestor de tarefas, planificador de exames e IA integrada. Tudo configurado em menos de 24 horas. Apenas $10 agora — o preço sobe para $27 em breve.",
-    badge: "⚡ $10 agora · Sobe para $27 em breve · Setup em 24h"
+    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por <span class='text-[#25D366] font-bold'>$10</span>.",
+    subtitle: "O Notion Elite Kit já vem pronto a usar. Dashboard, calendário, gestor de tarefas, planificador de exames e IA integrada. Tudo configurado em menos de 24 horas. Apenas $10 agora — o preço sobe para $49 em breve.",
+    badge: "⚡ $10 agora · Sobe para $49 em breve · Setup em 24h"
   },
   angola_financeiro: {
     tag: "Para estudantes que não podem desperdiçar tempo nem notas",
     headline: "Cada semestre desorganizado custa-te mais tempo e notas do que imaginas.",
-    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por $10.",
-    subtitle: "O Notion Elite Kit já vem pronto a usar. Em menos de 24 horas tens dashboard, calendário, gestor de tarefas e planificador de exames configurados. Apenas $10 hoje — sobe para $27 em breve.",
-    badge: "⚡ $10 agora · Sobe para $27 em breve · Setup em 24h"
+    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por <span class='text-[#25D366] font-bold'>$10</span>.",
+    subtitle: "O Notion Elite Kit já vem pronto a usar. Em menos de 24 horas tens dashboard, calendário, gestor de tarefas e planificador de exames configurados. Apenas $10 hoje — sobe para $49 em breve.",
+    badge: "⚡ $10 agora · Sobe para $49 em breve · Setup em 24h"
   },
   default: {
     tag: "Para estudantes universitários que querem parar de sobreviver",
     headline: "Cada semestre desorganizado custa-te mais tempo e notas do que imaginas.",
-    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por $10.",
-    subtitle: "O Notion Elite Kit já vem pronto a usar. Dashboard, calendário, gestor de tarefas, planificador de exames e IA integrada. Tudo configurado em menos de 24 horas. Apenas $10 agora — o preço sobe para $27 em breve.",
-    badge: "⚡ $10 agora · Sobe para $27 em breve · Setup em 24h"
+    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por <span class='text-[#25D366] font-bold'>$10</span>.",
+    subtitle: "O Notion Elite Kit já vem pronto a usar. Dashboard, calendário, gestor de tarefas, planificador de exames e IA integrada. Tudo configurado em menos de 24 horas. Apenas $10 agora — o preço sobe para $49 em breve.",
+    badge: "⚡ $10 agora · Sobe para $49 em breve · Setup em 24h"
   }
 };
 
@@ -130,15 +220,6 @@ const BONUSES = [
   { title: "Hub de Prompts de IA (20+)", desc: "Prompts testados para resumir, criar e acelerar estudos com IA nativa do Notion.", value: 67 },
   { title: "Atualizações Vitalícias 2026/2027", desc: "Novas versões e módulos adicionados sem custo extra. Acesso perpétuo.", value: 120 },
   { title: "Setup Guiado em 24h", desc: "Vídeo prático de três passos para duplicar e personalizar tudo em menos de um dia.", value: 57 }
-];
-
-const TESTIMONIALS = [
-  { name: "Tomás Ferreira", role: "Dupla Licenciatura", location: "Porto, Portugal", avatar: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857744/Tomás_Ferreira_-Porto_-_Portugal_goriez.png", text: "Mano... consegui finalmente organizar tudo. Faço dupla licenciatura e trabalho num café. Antes vivia em pânico a dormir 4 horas. Agora planeio a semana toda em 10 min ao domingo. Surreal.", metric: "10 min/sem" },
-  { name: "Mariana Costa", role: "Estudante Universitária", location: "Lisboa, Portugal", avatar: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857744/Mariana_-_Lisboa_Portugal_uerhir.png", text: "Passei de média de 12 para 15 em dois meses. O cérebro digital devolveu-me o foco e tirou o peso de ter anotações perdidas. Sinto que tenho o controlo de volta.", metric: "12 → 15" },
-  { name: "Ana Luísa Mendes", role: "Gestora de Projetos", location: "Luanda, Angola", avatar: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857745/Ana_Luisa_-_Luanda_Angola_vae6mt.png", text: "A integração das matrizes relacionais e os atalhos de bases de dados funcionam sem qualquer latência. Extremamente sólido. Um verdadeiro cockpit.", metric: "0 latência" },
-  { name: "João Pedro Silva", role: "Profissional & Estudante", location: "São Paulo, Brasil", avatar: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857745/João_Pedro_-_São_Paulo_-_Brasil_inzjna.png", text: "Trabalhar e estudar ao mesmo tempo consumia-me. Este setup poupou-me 2 horas diárias. O tempo que recuperei paga o sistema no primeiro dia.", metric: "2h/dia poupas" },
-  { name: "Sofia Rodrigues", role: "Mestranda e Pesquisadora", location: "Coimbra, Portugal", avatar: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857745/Sofia_Rodrigues_-_Coimbra_-Portugal_tlbepm.png", text: "Adeus abas perdidas e notas soltas. Setup concluído. Zero atrito. Execução imediata. É God Mode.", metric: "17 abas → 1 sistema" },
-  { name: "Beatriz Mendonça", role: "Consultora Júnior", location: "Maputo, Moçambique", avatar: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1778857744/Beatriz_Mendoça_-_Maputo_Moçambique_qjsbtm.png", text: "Ou montas um ecossistema que funciona por ti ou continuas a perder prazos e a mentir a ti mesma. A metodologia de 24H obrigou-me a executar sem desculpas.", metric: "Setup em 4h" }
 ];
 
 const FAQ_DATA = [
@@ -183,6 +264,7 @@ const NOTIFICATIONS = shuffled.map((n, index) => ({
 // ═══════════════════════════════════════════════════════════
 const Telemetry = {
   emit: (eventAction: string, metadata: Record<string, unknown> = {}) => {
+    if (typeof window === "undefined") return;
     try {
       const urlParams = new URLSearchParams(window.location.search);
       const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
@@ -210,7 +292,7 @@ const Telemetry = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// ANGOLA CHECKOUT PAGE — COM BORDA DOURADA + MARQUEE CORRIGIDO
+// ANGOLA CHECKOUT PAGE
 // ═══════════════════════════════════════════════════════════
 const AngolaCheckoutPage = memo(() => {
   const [step, setStep] = useState<"form" | "payment">("form");
@@ -245,7 +327,9 @@ const AngolaCheckoutPage = memo(() => {
           date: new Date().toISOString()
         })
       });
-    } catch { /* silent */ }
+    } catch {
+      Telemetry.emit("lead_registration_failed", { ref: clientRef });
+    }
 
     Telemetry.emit("Lead", {
       content_name: "Notion Elite OS 2026 — Angola",
@@ -265,7 +349,7 @@ const AngolaCheckoutPage = memo(() => {
 
   if (step === "form") {
     return (
-      <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center px-6 py-12">
+      <div className="min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center px-6 py-12">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <img src={CONFIG.productLogo} alt="Elite OS"
@@ -278,7 +362,7 @@ const AngolaCheckoutPage = memo(() => {
             </p>
           </div>
 
-          <div className="bg-[#0A0A0A] border border-white/[0.08] rounded-2xl p-6 space-y-4">
+          <div className="bg-[#141414] border border-white/[0.08] rounded-2xl p-6 space-y-4">
             <div>
               <label className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider block mb-2">
                 Nome completo
@@ -288,9 +372,9 @@ const AngolaCheckoutPage = memo(() => {
                 value={name}
                 onChange={e => setName(e.target.value)}
                 placeholder="O teu nome"
-                className="w-full bg-[#050505] border border-white/[0.08] rounded-xl
-                           px-4 py-3 text-white text-sm placeholder-[#3A3A3A]
-                           outline-none focus:border-[#00E5FF]/40 transition-colors"
+                className="w-full bg-[#1A1A1A] border border-white/[0.08] rounded-xl
+                           px-4 py-3 text-white text-base placeholder-[#555]
+                           outline-none focus:border-[#D4AF37]/40 transition-colors"
               />
             </div>
             <div>
@@ -302,9 +386,9 @@ const AngolaCheckoutPage = memo(() => {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 placeholder="teu@email.com"
-                className="w-full bg-[#050505] border border-white/[0.08] rounded-xl
-                           px-4 py-3 text-white text-sm placeholder-[#3A3A3A]
-                           outline-none focus:border-[#00E5FF]/40 transition-colors"
+                className="w-full bg-[#1A1A1A] border border-white/[0.08] rounded-xl
+                           px-4 py-3 text-white text-base placeholder-[#555]
+                           outline-none focus:border-[#D4AF37]/40 transition-colors"
               />
             </div>
 
@@ -313,7 +397,8 @@ const AngolaCheckoutPage = memo(() => {
               disabled={loading || !name.trim() || !email.trim()}
               className="w-full bg-[#25D366] hover:bg-[#1EBE5A] disabled:opacity-40
                          disabled:cursor-not-allowed text-white font-bold py-4
-                         rounded-xl transition-all flex items-center justify-center gap-2"
+                         rounded-xl transition-all flex items-center justify-center gap-2
+                         shadow-[0_10px_30px_-10px_rgba(37,211,102,0.5)] text-base"
             >
               {loading ? (
                 <span className="w-4 h-4 border-2 border-white/30 border-t-white
@@ -335,12 +420,19 @@ const AngolaCheckoutPage = memo(() => {
     );
   }
 
-  const paymentDetails = [
-    { label: "Banco",      value: "BAI",                                  key: "banco" },
-    { label: "Titular",    value: "Gabriel António Armando Sapalo",        key: "titular" },
-    { label: "IBAN",       value: "AO06 0040 0000 1859 5631 1019 4",       key: "iban" },
-    { label: "Valor",      value: "10.000 AKZ",                           key: "valor" },
-    { label: "Referência", value: ref,                                     key: "ref" }
+  const expressDetails = [
+    { label: "Multicaixa Express", value: CONFIG.expressPhone, key: "express_phone" },
+    { label: "Titular", value: CONFIG.expressName, key: "express_titular" },
+    { label: "Valor", value: "10.000 AKZ", key: "valor" },
+    { label: "Referência", value: ref, key: "ref" }
+  ];
+
+  const bankDetails = [
+    { label: "Banco", value: "BAI", key: "banco" },
+    { label: "Titular", value: "Gabriel António Armando Sapalo", key: "titular" },
+    { label: "IBAN", value: "AO06 0040 0000 1859 5631 1019 4", key: "iban" },
+    { label: "Valor", value: "10.000 AKZ", key: "valor" },
+    { label: "Referência", value: ref, key: "ref" }
   ];
 
   const marqueeTexts = [
@@ -352,10 +444,8 @@ const AngolaCheckoutPage = memo(() => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center px-6 py-12">
+    <div className="min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center px-6 py-12">
       <div className="w-full max-w-md">
-
-        {/* MARQUEE - TEXTO ROLANTE DINÂMICO (CORRIGIDO) */}
         <div className="overflow-hidden mb-4 py-2 bg-[#0A0A0A]/50 rounded-xl border border-[#D4AF37]/20">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
@@ -382,23 +472,17 @@ const AngolaCheckoutPage = memo(() => {
           </p>
         </div>
 
-        {/* ÁREA DE PAGAMENTO COM BORDA DOURADA VIVA */}
-        <div className="bg-[#0A0A0A] border-2 border-[#D4AF37] rounded-2xl p-5 mb-4 space-y-3 
-                        shadow-[0_0_15px_rgba(212,175,55,0.3)] hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] 
+        <div className="bg-[#141414] border-2 border-[#00E5FF] rounded-2xl p-5 mb-4 
+                        shadow-[0_0_20px_rgba(0,229,255,0.15)] hover:shadow-[0_0_30px_rgba(0,229,255,0.25)] 
                         transition-all duration-300">
           
-          <div className="text-center mb-3 pb-2 border-b border-[#D4AF37]/30">
-            <span className="text-[11px] font-mono text-[#D4AF37] font-bold uppercase tracking-wider flex items-center justify-center gap-2">
-              <span>💳</span> Pagamento Angola <span>🇦🇴</span>
-              <motion.span
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="inline-block w-1.5 h-1.5 rounded-full bg-[#D4AF37]"
-              />
+          <div className="text-center mb-3 pb-2 border-b border-[#00E5FF]/30">
+            <span className="text-[11px] font-mono text-[#00E5FF] font-bold uppercase tracking-wider flex items-center justify-center gap-2">
+              <span>⚡</span> Multicaixa Express <span className="text-[#25D366] text-[9px] bg-[#25D366]/10 px-2 py-0.5 rounded-full">RECOMENDADO</span>
             </span>
           </div>
           
-          {paymentDetails.map((d) => (
+          {expressDetails.map((d) => (
             <div key={d.key}
                  className="flex items-center justify-between py-2
                             border-b border-white/[0.04] last:border-0">
@@ -421,21 +505,48 @@ const AngolaCheckoutPage = memo(() => {
             </div>
           ))}
           
-          <div className="mt-3 pt-2 text-center">
-            <span className="text-[9px] font-mono text-[#D4AF37] flex items-center justify-center gap-1">
-              <Shield className="w-3 h-3" />
-              Pagamento 100% seguro via transferência bancária
+          <div className="mt-3 pt-2 text-center border-t border-[#00E5FF]/20">
+            <span className="text-[9px] font-mono text-[#25D366] flex items-center justify-center gap-1">
+              ✅ Pagamento imediato, sem esperas bancárias
             </span>
           </div>
         </div>
 
-        {/* Instrução de envio */}
+        <div className="bg-[#141414] border border-white/[0.08] rounded-2xl p-4 mb-4">
+          <div className="text-center mb-2 pb-2 border-b border-white/[0.05]">
+            <span className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-wider">🏦 Transferência IBAN</span>
+          </div>
+          
+          {bankDetails.map((d) => (
+            <div key={d.key}
+                 className="flex items-center justify-between py-2
+                            border-b border-white/[0.04] last:border-0">
+              <span className="text-xs text-[#A1A1AA] font-mono">{d.label}</span>
+              <div className="flex items-center gap-2">
+                <span className={`text-sm font-mono font-bold ${
+                  d.key === "ref"   ? "text-[#00E5FF]"  :
+                  d.key === "valor" ? "text-[#25D366]"  : "text-white"
+                }`}>{d.value}</span>
+                <button onClick={() => copy(d.value, d.key)}
+                        className="text-[#A1A1AA] hover:text-[#D4AF37] transition-colors">
+                  {copied === d.key ? (
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366]" />
+                  ) : (
+                    <span className="text-[10px] border border-white/20
+                                     rounded px-1.5 py-0.5 font-mono">copiar</span>
+                  )}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
         <div className="bg-[#00E5FF]/5 border border-[#00E5FF]/20 rounded-2xl p-5 mb-4">
           <p className="text-xs font-mono text-[#00E5FF] uppercase tracking-wider mb-3 font-bold">
             📧 Após a transferência
           </p>
           <p className="text-sm text-white mb-3">Envia o comprovativo por email para:</p>
-          <div className="flex items-center justify-between bg-[#050505] rounded-xl
+          <div className="flex items-center justify-between bg-[#1A1A1A] rounded-xl
                           px-4 py-3 border border-white/[0.06]">
             <span className="text-sm font-mono text-[#00E5FF] font-bold">
               {CONFIG.paymentEmail}
@@ -466,16 +577,15 @@ const AngolaCheckoutPage = memo(() => {
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="bg-[#0A0A0A] border border-white/[0.08] rounded-2xl p-5 mb-4">
+        <div className="bg-[#141414] border border-white/[0.08] rounded-2xl p-5 mb-4">
           <p className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider mb-3">
             O que acontece a seguir
           </p>
           <div className="space-y-3">
             {[
-              { t: "Agora",      d: "Transferes 10.000 AKZ",                                       c: "#25D366" },
-              { t: "2 minutos",  d: `Envias o comprovativo para ${CONFIG.paymentEmail} com assunto ${ref} — kit entregue automaticamente em menos de 10 min. WhatsApp +244 923 379 486 também disponível, mas a entrega depende de confirmação manualmanual.` },
-              { t: "Até 10 min", d: "Recebes o link do kit no teu email em menos de 10 minutos",                   c: "#D4AF37" }
+              { t: "Agora",      d: "Transferes 10.000 AKZ via Multicaixa Express ou IBAN", c: "#25D366" },
+              { t: "2 minutos",  d: `Envias o comprovativo para ${CONFIG.paymentEmail} com assunto ${ref} — kit entregue automaticamente em menos de 10 min. WhatsApp +244 923 379 486 também disponível.`, c: "#00E5FF" },
+              { t: "Até 10 min", d: "Recebes o link do kit no teu email em menos de 10 minutos", c: "#D4AF37" }
             ].map((s, i) => (
               <div key={i} className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0"
@@ -491,8 +601,7 @@ const AngolaCheckoutPage = memo(() => {
           </div>
         </div>
 
-        {/* Garantia */}
-        <div className="bg-[#0A0A0A] border border-[#D4AF37]/20 rounded-2xl p-4 mb-4
+        <div className="bg-[#141414] border border-[#D4AF37]/20 rounded-2xl p-4
                         flex items-center gap-3">
           <Shield className="w-5 h-5 text-[#D4AF37] shrink-0" />
           <p className="text-xs text-[#A1A1AA] leading-relaxed">
@@ -500,8 +609,6 @@ const AngolaCheckoutPage = memo(() => {
             Se não ficares satisfeito, devolvemos 100% do teu dinheiro. Sem perguntas.
           </p>
         </div>
-
-        {/* WHATSAPP REMOVIDO DA PÁGINA DE CHECKOUT */}
       </div>
     </div>
   );
@@ -517,12 +624,17 @@ const ThankYouPage = memo(() => {
     const ref = urlParams.get("ref");
     const raw = sessionStorage.getItem("ne_conversion");
 
+    const firedKey = `ne_purchase_fired_${ref || seg || "unknown"}`;
+    if (sessionStorage.getItem(firedKey)) return;
+
     if (!raw && seg === "angola") {
+      if (!ref) return;
+
       const convData = {
         value: 10000,
         currency: "AOA",
         content_name: "Notion Elite OS 2026",
-        transaction_id: ref || `wa_${Date.now()}`,
+        transaction_id: ref,
       };
 
       if (typeof (window as any).gtag === "function") {
@@ -541,6 +653,7 @@ const ThankYouPage = memo(() => {
           content_type: "product"
         });
       }
+      sessionStorage.setItem(firedKey, "1");
       Telemetry.emit("purchase_confirmed", { segment: "angola", ...convData });
       return;
     }
@@ -566,6 +679,7 @@ const ThankYouPage = memo(() => {
           content_type: "product"
         });
       }
+      sessionStorage.setItem(firedKey, "1");
       Telemetry.emit("purchase_confirmed", {
         value: conv.value,
         currency: conv.currency,
@@ -624,7 +738,7 @@ const ThankYouPage = memo(() => {
 });
 
 // ═══════════════════════════════════════════════════════════
-// HEADER — COM BARRA DE URGÊNCIA ACTUALIZADA
+// HEADER — COM BARRA DE URGÊNCIA EM TICKER MÓVEL COM NÚMEROS DOURADOS
 // ═══════════════════════════════════════════════════════════
 const Header = memo(({ onCTA }: { onCTA: () => void }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -637,15 +751,46 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "header-glass py-3" : "bg-gradient-to-b from-[#050505] via-[#050505]/90 to-transparent py-4"}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "header-glass py-3" : "bg-[#050505] py-4"}`}>
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
-      <div className="bg-[#080808] border-b border-white/[0.06] py-2.5 px-4 text-center">
-        <p className="text-[11px] font-mono text-[#00E5FF] tracking-wide font-semibold flex items-center justify-center gap-2 flex-wrap break-words whitespace-normal">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse shrink-0" />
-          ⚡ ATENÇÃO: O preço sobe de $10 para $27 esta semana — Garante o teu acesso agora
-        </p>
+      
+      {/* ── BARRA DE URGÊNCIA — TICKER MÓVEL COM NÚMEROS DOURADOS ── */}
+      <div className="bg-[#080808] border-b border-white/[0.06] overflow-hidden">
+        <div
+          className="marquee-track py-2.5"
+          style={{ animation: "marqueeScroll 20s linear infinite" }}
+        >
+          {[
+            "⚡ ÚLTIMAS VAGAS · $10 agora — sobe para $49 em breve",
+            "🔥 Founder Batch 01 · Preço sobe para $49 em breve",
+            "⚡ Garante o teu acesso agora por $10",
+            "♟ Clareza é poder · $10 agora — $49 em breve",
+            "⚡ ÚLTIMAS VAGAS · $10 agora — sobe para $49 em breve",
+            "🔥 Founder Batch 01 · Preço sobe para $49 em breve",
+            "⚡ Garante o teu acesso agora por $10",
+            "♟ Clareza é poder · $10 agora — $49 em breve",
+            "⚡ ÚLTIMAS VAGAS · $10 agora — sobe para $49 em breve",
+            "🔥 Founder Batch 01 · Preço sobe para $49 em breve",
+            "⚡ Garante o teu acesso agora por $10",
+            "♟ Clareza é poder · $10 agora — $49 em breve",
+          ].map((text, i) => {
+            // Substitui $10 e $49 por versões com cor dourada
+            const formattedText = text
+              .replace(/\$10/g, '<span class="text-[#D4AF37] font-bold">$10</span>')
+              .replace(/\$49/g, '<span class="text-[#D4AF37] font-bold">$49</span>');
+            
+            return (
+              <span 
+                key={i} 
+                className="text-[11px] font-mono text-[#FF007A] font-semibold tracking-wide shrink-0 px-8 whitespace-nowrap"
+                dangerouslySetInnerHTML={{ __html: `⚡ ${formattedText}` }}
+              />
+            );
+          })}
+        </div>
       </div>
 
+      {/* ── BARRA DE NAVEGAÇÃO ── */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between mt-3">
         <a href="/" className="flex items-center gap-3 group">
           <img src={CONFIG.productLogo} alt="Elite OS"
@@ -741,7 +886,7 @@ const CTAButtons = memo(({ onConvert, size = "lg" }: {
 });
 
 // ═══════════════════════════════════════════════════════════
-// HERO VSL
+// HERO VSL — CAPA CORRETA (NÃO MEXER!)
 // ═══════════════════════════════════════════════════════════
 const HeroVSL = memo(() => {
   const [playing, setPlaying] = useState(false);
@@ -753,17 +898,23 @@ const HeroVSL = memo(() => {
         {!playing ? (
           <button onClick={() => { setPlaying(true); Telemetry.emit("vsl_hero_play", { src: "hero" }); }}
                   className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]">
-            <img src={CONFIG.laptopOffer} alt="VSL Preview"
-                 className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity duration-500"
-                 loading="eager" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/50 to-transparent" />
+            <img src={CONFIG.laptopOffer}
+                 alt="VSL Preview"
+                 className="absolute inset-0 w-full h-full object-cover"
+                 loading="eager"
+                 onError={(e) => {
+                   console.error('❌ laptopOffer não carregou:', CONFIG.laptopOffer);
+                   (e.target as HTMLImageElement).style.border = '3px solid red';
+                 }}
+                 onLoad={() => console.log('✅ laptopOffer carregou:', CONFIG.laptopOffer)} />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/40 to-transparent" />
             <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#F4D77A] text-[#050505] flex items-center justify-center shadow-[0_0_40px_rgba(212,175,55,0.5)] group-hover:scale-110 transition-transform duration-400">
               <Play className="w-6 h-6 fill-[#050505] translate-x-0.5" />
             </div>
-            <p className="relative z-10 text-xs font-bold text-white mt-4 tracking-wide group-hover:text-[#D4AF37] transition-colors">
+            <p className="relative z-10 text-xs font-bold text-white mt-4 tracking-wide group-hover:text-[#D4AF37] transition-colors drop-shadow-lg">
               ▶ Assistir Apresentação Estratégica (3 Min)
             </p>
-            <span className="relative z-10 text-[10px] text-[#D4AF37] mt-1 font-mono font-semibold">
+            <span className="relative z-10 text-[10px] text-[#D4AF37] mt-1 font-mono font-semibold drop-shadow-lg">
               Recomendado com áudio ativado
             </span>
           </button>
@@ -778,12 +929,12 @@ const HeroVSL = memo(() => {
 });
 
 // ═══════════════════════════════════════════════════════════
-// HERO SECTION — COM NOVOS BENEFÍCIOS
+// HERO SECTION — COM pt-52 PARA COMPENSAR A BARRA DE URGÊNCIA
 // ═══════════════════════════════════════════════════════════
 const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const hero = getHeroContent();
   return (
-    <section className="relative pt-40 pb-16 md:pt-48 md:pb-20 px-4 sm:px-6 max-w-6xl mx-auto text-center overflow-x-hidden">
+    <section id="hero-section" className="relative pt-52 pb-16 md:pt-56 md:pb-20 px-4 sm:px-6 max-w-6xl mx-auto text-center overflow-x-hidden">
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                   className="inline-flex items-center gap-2 badge-founder-premium px-4 py-1.5 rounded-full text-xs font-mono tracking-wider mb-8">
         <Crown className="w-3.5 h-3.5" />
@@ -793,7 +944,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
       <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
                  className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-[-1.6px] leading-[1.02] max-w-5xl mx-auto mb-6 font-bold break-words whitespace-normal">
         {hero.headline}<br className="hidden md:block" />
-        <span className="text-gradient-magnetic">{hero.headlineHighlight}</span>
+        <span className="text-gradient-magnetic" dangerouslySetInnerHTML={{ __html: hero.headlineHighlight }} />
       </motion.h1>
 
       <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }}
@@ -821,7 +972,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
         <div className="space-y-2.5 text-sm text-[#D4D4D8]">
           <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Parar de perder prazos e reprovar por falta de organização</span></div>
           <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Ter um sistema completo pronto em menos de 24 horas</span></div>
-          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Poupar dinheiro — $10 agora antes que suba para $27</span></div>
+          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Poupar dinheiro — $10 agora antes que suba para $49</span></div>
         </div>
       </motion.div>
 
@@ -847,7 +998,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
 
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
                 className="text-xs text-[#A1A1AA] mt-8 mb-12">
-        +680 utilizadores · 4.8/5 · Feito para a realidade angolana
+        +{SOCIAL_PROOF_COUNT.toLocaleString("pt-PT")} utilizadores · 4.8/5 · Feito para a realidade angolana
       </motion.p>
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
@@ -901,11 +1052,14 @@ const AnimatedCounter = memo(({ end, suffix = "", label }: { end: number; suffix
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// COUNTERS SECTION
+// ═══════════════════════════════════════════════════════════
 const CountersSection = memo(() => (
   <section className="py-16 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
     <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-      <AnimatedCounter end={3247} suffix="+" label="Avaliações Verificadas" />
-      <AnimatedCounter end={12} label="Países CPLP" />
+      <AnimatedCounter end={SOCIAL_PROOF_COUNT} suffix="+" label="Avaliações Verificadas" />
+      <AnimatedCounter end={9} label="Países CPLP" />
       <AnimatedCounter end={24} suffix="h" label="Setup Médio" />
       <AnimatedCounter end={98} suffix="%" label="Taxa de Retenção" />
     </div>
@@ -954,6 +1108,9 @@ const AngolaContextSection = memo(() => (
   </section>
 ));
 
+// ═══════════════════════════════════════════════════════════
+// PROBLEM SOLUTION SECTION
+// ═══════════════════════════════════════════════════════════
 const ProblemSolutionSection = memo(() => (
   <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
     <div className="max-w-5xl mx-auto">
@@ -974,6 +1131,9 @@ const ProblemSolutionSection = memo(() => (
   </section>
 ));
 
+// ═══════════════════════════════════════════════════════════
+// PILARES SECTION
+// ═══════════════════════════════════════════════════════════
 const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const pilares = [
     { label: "Pilar 01", title: "Dashboard — Centro de Comando", desc: "O seu centro de comando diário. Saiba exactamente o que é prioridade, sem distrações.", img: CONFIG.productDashboard },
@@ -1030,6 +1190,9 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// MID PAGE CTA
+// ═══════════════════════════════════════════════════════════
 const MidPageCTA = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => (
   <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="my-16 py-10 px-6 bg-gradient-to-br from-[#0A0A0A] to-[#050505] border border-[#D4AF37]/30 rounded-3xl max-w-2xl mx-auto text-center">
@@ -1039,6 +1202,9 @@ const MidPageCTA = memo(({ onConvert }: { onConvert: (seg: "international" | "an
   </motion.div>
 ));
 
+// ═══════════════════════════════════════════════════════════
+// ROI CALCULATOR
+// ═══════════════════════════════════════════════════════════
 const ROICalculatorSection = memo(() => {
   const [hoursPerWeek, setHoursPerWeek] = useState(5);
   const hourlyValue = 800;
@@ -1064,7 +1230,7 @@ const ROICalculatorSection = memo(() => {
                    className="flex-1 h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#00E5FF]" />
             <span className="text-3xl font-black text-white font-mono min-w-[80px] text-right">{hoursPerWeek}h</span>
           </div>
-          <p className="text-[10px] text-[#A1A1AA] mb-6 font-mono">Ajusta o slider consoante a tua realidade.</p>
+          <p className="text-[10px] text-[#A1A1AA] mb-6 font-mono">Ajusta o slider consoante a tua realidade. Estimativa baseada em {hourlyValue} AKZ/hora.</p>
           <div className="grid sm:grid-cols-3 gap-3 pt-5 border-t border-white/[0.05]">
             <div className="p-4 rounded-xl bg-[#050505] border border-[#FF007A]/20 text-center">
               <p className="text-[9px] font-mono text-[#FF007A] uppercase tracking-widest mb-1">Custo anual do caos</p>
@@ -1086,11 +1252,14 @@ const ROICalculatorSection = memo(() => {
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// MARQUEE SECTION — COM ANIMAÇÃO TAILWIND
+// ═══════════════════════════════════════════════════════════
 const MarqueeSection = memo(() => (
-  <section className="relative border-y border-white/[0.05] bg-[#050505] overflow-hidden py-5">
-    <div className="flex animate-marquee whitespace-nowrap gap-12">
-      {[...MANIFESTO_PHRASES, ...MANIFESTO_PHRASES].map((p, i) => (
-        <div key={i} className="flex items-center gap-12 shrink-0">
+  <section className="relative border-y border-white/[0.05] bg-[#050505] marquee-container py-5">
+    <div className="marquee-track">
+      {[...MANIFESTO_PHRASES, ...MANIFESTO_PHRASES, ...MANIFESTO_PHRASES].map((p, i) => (
+        <div key={i} className="flex items-center gap-12 shrink-0 px-8">
           <span className="text-xl md:text-2xl font-serif italic text-white/80 whitespace-nowrap">{p}</span>
           <span className="text-[#D4AF37]">♟</span>
         </div>
@@ -1099,6 +1268,9 @@ const MarqueeSection = memo(() => (
   </section>
 ));
 
+// ═══════════════════════════════════════════════════════════
+// TRANSFORMATION SECTION
+// ═══════════════════════════════════════════════════════════
 const TransformationSection = memo(() => {
   const rows = [
     { a: "Abas perdidas e dispersão", b: "Sistema centralizado" },
@@ -1154,32 +1326,63 @@ const TransformationSection = memo(() => {
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// REVEAL SECTION
+// ═══════════════════════════════════════════════════════════
 const RevealSection = memo(() => (
   <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-[#050505] relative overflow-hidden">
     <div className="max-w-5xl mx-auto text-center">
-      <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4">♟ A Virada de Chave</motion.p>
-      <motion.h2 initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                 transition={{ delay: 0.1 }}
-                 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white mb-10 leading-tight break-words whitespace-normal">
+      <motion.p 
+        initial={{ opacity: 0, y: 10 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        viewport={{ once: true }}
+        className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4"
+      >
+        ♟ A Virada de Chave
+      </motion.p>
+      
+      <motion.h2 
+        initial={{ opacity: 0, y: 15 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        viewport={{ once: true }}
+        transition={{ delay: 0.1 }}
+        className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white mb-10 leading-tight break-words whitespace-normal"
+      >
         Do caos… <span className="display-heading text-gradient-gold">à clareza</span>.
       </motion.h2>
+      
       <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2 shadow-[0_30px_80px_rgba(0,0,0,0.8)]">
-        <motion.div initial={{ clipPath: "inset(0% 100% 0% 0%)" }} whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                    transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }} viewport={{ once: true, amount: 0.3 }}>
-          <img src={CONFIG.notionMockup} alt="Transição Caos → Controlo" className="w-full h-auto rounded-xl object-cover block" loading="lazy" />
+        <motion.div 
+          initial={{ opacity: 0, scale: 1.02 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <img 
+            src={CONFIG.notionMockup} 
+            alt="Transição Caos → Controlo" 
+            className="w-full h-auto rounded-xl object-cover block" 
+            loading="lazy"
+          />
         </motion.div>
       </div>
-      <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-                transition={{ delay: 1.2 }}
-                className="text-sm text-[#A1A1AA] mt-6 max-w-xl mx-auto italic font-serif break-words whitespace-normal">
+      
+      <motion.p 
+        initial={{ opacity: 0 }} 
+        whileInView={{ opacity: 1 }} 
+        viewport={{ once: true }}
+        transition={{ delay: 1.2 }}
+        className="text-sm text-[#A1A1AA] mt-6 max-w-xl mx-auto italic font-serif break-words whitespace-normal"
+      >
         "Quando o sistema entra, o ruído sai."
       </motion.p>
     </div>
   </section>
 ));
 
-// MANIFESTO SECTION CORRIGIDO COM BREAK-WORDS
+// ═══════════════════════════════════════════════════════════
+// MANIFESTO SECTION
+// ═══════════════════════════════════════════════════════════
 const ManifestoSection = memo(() => (
   <section id="manifesto" className="relative py-28 px-4 sm:px-6 overflow-hidden border-b border-white/[0.05]">
     <div className="absolute inset-0 chess-deco opacity-30 pointer-events-none" />
@@ -1220,6 +1423,9 @@ const ManifestoSection = memo(() => (
   </section>
 ));
 
+// ═══════════════════════════════════════════════════════════
+// PAIN SECTION
+// ═══════════════════════════════════════════════════════════
 const PainSection = memo(() => {
   const pains = [
     { icon: Activity, title: "Fragmentação Digital", desc: "PDFs perdidos. Apontamentos no WhatsApp. Prazos que te apanham de surpresa. O teu cérebro virou um browser com 47 abas abertas.", color: "pink" },
@@ -1270,6 +1476,9 @@ const PainSection = memo(() => {
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// NOT TEMPLATE SECTION
+// ═══════════════════════════════════════════════════════════
 const NotTemplateSection = memo(() => {
   const pillars = [
     { k: "Sistema operacional", v: "Infraestrutura mental que pensa por ti, não decoração bonita." },
@@ -1303,6 +1512,9 @@ const NotTemplateSection = memo(() => {
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// JOURNEY SECTION
+// ═══════════════════════════════════════════════════════════
 const JourneySection = memo(() => {
   const steps = [
     { time: "Minuto 0", title: "Acesso instantâneo", desc: "Recebes o link de duplicação imediatamente após o pagamento.", color: "cyan" },
@@ -1359,6 +1571,9 @@ const JourneySection = memo(() => {
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// BONUS SECTION
+// ═══════════════════════════════════════════════════════════
 const BonusSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const totalValue = BONUSES.reduce((s, b) => s + b.value, 0);
   return (
@@ -1403,6 +1618,9 @@ const BonusSection = memo(({ onConvert }: { onConvert: (seg: "international" | "
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// ENGINEERING SECTION
+// ═══════════════════════════════════════════════════════════
 const EngineeringSection = memo(() => {
   const [playing, setPlaying] = useState(false);
   return (
@@ -1436,6 +1654,9 @@ const EngineeringSection = memo(() => {
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// SOCIAL PROOF SECTION
+// ═══════════════════════════════════════════════════════════
 const SocialProofSection = memo(() => (
   <section id="provas" className="py-24 px-4 sm:px-6 border-b border-white/[0.05]">
     <div className="max-w-6xl mx-auto">
@@ -1444,7 +1665,7 @@ const SocialProofSection = memo(() => (
         <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight break-words whitespace-normal">
           Eles já fizeram o <span className="display-heading text-gradient-magnetic">reset operacional</span>
         </h2>
-        <p className="text-sm text-[#A1A1AA] mt-3 break-words whitespace-normal">+3.200 operadores mentais. Avaliações 5 estrelas. Evidências reais.</p>
+        <p className="text-sm text-[#A1A1AA] mt-3 break-words whitespace-normal">+{SOCIAL_PROOF_COUNT.toLocaleString("pt-PT")} operadores mentais. Avaliações 5 estrelas. Evidências reais.</p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {TESTIMONIALS.map((t, i) => (
@@ -1477,6 +1698,9 @@ const SocialProofSection = memo(() => (
   </section>
 ));
 
+// ═══════════════════════════════════════════════════════════
+// AUTHORITY SECTION
+// ═══════════════════════════════════════════════════════════
 const AuthoritySection = memo(() => (
   <section id="autoridade" className="py-24 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707] relative overflow-hidden">
     <div className="absolute inset-0 chess-deco opacity-20 pointer-events-none" />
@@ -1540,14 +1764,25 @@ const AuthoritySection = memo(() => (
   </section>
 ));
 
+// ═══════════════════════════════════════════════════════════
+// URGENCY TIMER
+// ═══════════════════════════════════════════════════════════
 const UrgencyTimer = memo(() => {
   const [timeLeft, setTimeLeft] = useState({ h: 0, m: 0, s: 0 });
   const [expired, setExpired] = useState(false);
 
   useEffect(() => {
-    const DEADLINE = new Date("2026-06-15T23:59:59").getTime();
+    const WINDOW_HOURS = 48;
+    const STORAGE_KEY = "ne_offer_deadline";
+
+    let deadline = Number(localStorage.getItem(STORAGE_KEY));
+    if (!deadline || Number.isNaN(deadline) || deadline < Date.now()) {
+      deadline = Date.now() + WINDOW_HOURS * 60 * 60 * 1000;
+      localStorage.setItem(STORAGE_KEY, String(deadline));
+    }
+
     const update = () => {
-      const diff = DEADLINE - Date.now();
+      const diff = deadline - Date.now();
       if (diff <= 0) { setExpired(true); return; }
       setTimeLeft({
         h: Math.floor(diff / (1000 * 60 * 60)),
@@ -1578,6 +1813,9 @@ const UrgencyTimer = memo(() => {
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// PREMIUM OFFER SECTION — COM MULTICAIXA EXPRESS
+// ═══════════════════════════════════════════════════════════
 const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => (
   <section id="oferta" className="py-24 px-4 sm:px-6 border-b border-white/[0.05]">
     <div className="max-w-4xl mx-auto text-center">
@@ -1593,7 +1831,7 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
         <div className="flex justify-center mt-3 mb-4"><UrgencyTimer /></div>
         <div className="flex items-end justify-center gap-2 my-5 flex-wrap">
           <span className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight">$10</span>
-          <span className="text-base sm:text-lg font-normal text-white/50 pb-1">ou 10.000 AKZ</span>
+          <span className="text-base sm:text-lg font-normal text-white/50 pb-1">ou <span className="text-[#25D366] font-bold">10.000 AKZ</span></span>
         </div>
         <div className="mt-6 max-w-md mx-auto">
           <div className="flex items-center justify-between text-xs mb-2">
@@ -1614,7 +1852,7 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
             Viste os nossos anúncios de $10?
           </p>
           <p className="text-[11px] text-[#A1A1AA] leading-relaxed break-words whitespace-normal">
-            Parabéns, chegaste a tempo. O <strong className="text-white">Founder Batch 01</strong> ainda tem vagas, mas o preço subirá para <strong className="text-white">$27</strong> esta semana.
+            Parabéns, chegaste a tempo. O <strong className="text-white">Founder Batch 01</strong> ainda tem vagas, mas o preço subirá para <strong className="text-white">$49</strong> em breve.
           </p>
         </div>
         <div className="mt-6 rounded-2xl border border-[#D4AF37]/20 bg-[#0A0A0A] p-6 text-left max-w-md mx-auto">
@@ -1629,11 +1867,11 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
             </div>
             <div className="flex items-center justify-between opacity-80">
               <span className="text-[#A1A1AA]">Próximo lote</span>
-              <span className="font-mono text-white">$27</span>
+              <span className="font-mono text-white">$49</span>
             </div>
             <div className="flex items-center justify-between opacity-70">
               <span className="text-[#A1A1AA]">Preço final</span>
-              <span className="font-mono text-white">$49</span>
+              <span className="font-mono text-white">$97</span>
             </div>
           </div>
         </div>
@@ -1652,11 +1890,13 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
         <div className="mt-10 space-y-3">
           <CTAButtons onConvert={onConvert} size="lg" />
         </div>
+        {/* ═══ MÉTODOS DE PAGAMENTO COM MULTICAIXA EXPRESS ═══ */}
         <div className="mt-5 pt-5 border-t border-white/[0.05]">
           <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-wider mb-2">Métodos de pagamento aceites</p>
           <div className="flex items-center justify-center gap-3 flex-wrap text-[10px] text-white/70 font-mono">
             <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">💳 Cartão Internacional</span>
-            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">🇦🇴 IBAN / Multicaixa</span>
+            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05] bg-[#00E5FF]/5 border-[#00E5FF]/30 text-[#00E5FF]">⚡ Multicaixa Express</span>
+            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">🏦 IBAN</span>
             <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">📧 Comprovativo por Email</span>
           </div>
         </div>
@@ -1674,6 +1914,9 @@ const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "internation
   </section>
 ));
 
+// ═══════════════════════════════════════════════════════════
+// FAQ SECTION
+// ═══════════════════════════════════════════════════════════
 const FAQSection = memo(() => {
   const [open, setOpen] = useState<number | null>(null);
   return (
@@ -1708,6 +1951,9 @@ const FAQSection = memo(() => {
   );
 });
 
+// ═══════════════════════════════════════════════════════════
+// FINAL CTA SECTION
+// ═══════════════════════════════════════════════════════════
 const FinalCTASection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => (
   <section className="py-28 px-4 sm:px-6 text-center relative overflow-hidden border-b border-white/[0.05] bg-gradient-to-b from-[#050505] via-[#080808] to-[#050505]">
     <div className="max-w-2xl mx-auto relative">
@@ -1727,6 +1973,9 @@ const FinalCTASection = memo(({ onConvert }: { onConvert: (seg: "international" 
   </section>
 ));
 
+// ═══════════════════════════════════════════════════════════
+// LEGAL FOOTER
+// ═══════════════════════════════════════════════════════════
 const LegalFooter = memo(() => (
   <footer className="border-t border-white/[0.05] bg-[#050505] pt-14 pb-28 px-4 sm:px-6 text-xs text-[#A1A1AA]">
     <div className="max-w-6xl mx-auto">
@@ -1771,6 +2020,9 @@ const LegalFooter = memo(() => (
   </footer>
 ));
 
+// ═══════════════════════════════════════════════════════════
+// EXIT INTENT MODAL
+// ═══════════════════════════════════════════════════════════
 const ExitIntentModal = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const [show, setShow] = useState(false);
   const [armed, setArmed] = useState(false);
@@ -1807,7 +2059,7 @@ const ExitIntentModal = memo(({ onConvert }: { onConvert: (seg: "international" 
         </button>
         <Crown className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
         <h3 className="text-2xl font-bold mb-3 break-words whitespace-normal">Não percas esta oportunidade</h3>
-        <p className="text-[#A1A1AA] mb-6 break-words whitespace-normal">O Founder Batch 01 está quase no fim. Depois o preço sobe para $27 e depois $49.</p>
+        <p className="text-[#A1A1AA] mb-6 break-words whitespace-normal">O Founder Batch 01 está quase no fim. Depois o preço sobe para <strong className="text-white">$49</strong>.</p>
         <CTAButtons onConvert={onConvert} size="sm" />
         <button onClick={handleClose} className="text-sm text-gray-400 hover:text-white mt-4 block mx-auto">
           Não, obrigado.
@@ -1882,21 +2134,13 @@ const MobileStickyBar = memo(({ onConvert }: { onConvert: (seg: "international" 
 });
 
 // ═══════════════════════════════════════════════════════════
-// APP — ROTEAMENTO + BOTÃO WHATSAPP FLUTUANTE CORRIGIDO
+// APP
 // ═══════════════════════════════════════════════════════════
 export function App() {
   const [toast, setToast] = useState<typeof NOTIFICATIONS[0] | null>(null);
   const [showWaFloat, setShowWaFloat] = useState(false);
   const shownNotifications = useRef<Set<number>>(new Set());
   const notificationIndex = useRef(0);
-
-  const path = window.location.pathname;
-  if (path === "/angola" || path === "/checkout-angola") {
-    return <AngolaCheckoutPage />;
-  }
-  if (path === "/obrigado" || path === "/thank-you") {
-    return <ThankYouPage />;
-  }
 
   useEffect(() => {
     Telemetry.emit("page_loaded", { ref: document.referrer });
@@ -1909,6 +2153,7 @@ export function App() {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     const iv = setInterval(() => {
+      if (!FEATURE_FLAGS.enableActivityNotifications) return;
       if (shownNotifications.current.size >= NOTIFICATIONS.length) return;
       while (shownNotifications.current.has(notificationIndex.current) &&
              shownNotifications.current.size < NOTIFICATIONS.length) {
@@ -1989,11 +2234,19 @@ export function App() {
     }
   }, []);
 
+  const path = window.location.pathname;
+  if (path === "/angola" || path === "/checkout-angola") {
+    return <AngolaCheckoutPage />;
+  }
+  if (path === "/obrigado" || path === "/thank-you") {
+    return <ThankYouPage />;
+  }
+
   return (
     <div className="cinematic-noise min-h-screen bg-[#050505] text-white font-sans relative overflow-x-hidden">
       <Helmet>
         <title>Notion Elite OS 2026 — Sistema Operacional Pessoal | Gabriel Sapalo</title>
-        <meta name="description" content="Organiza toda a tua vida académica em 24 horas. Sistema pronto para estudantes. $10 agora, sobe para $27." />
+        <meta name="description" content="Organiza toda a tua vida académica em 24 horas. Sistema pronto para estudantes. $10 agora, sobe para $49." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
       </Helmet>
 
@@ -2024,7 +2277,8 @@ export function App() {
       <StickyBar onConvert={convert} />
       <MobileStickyBar onConvert={convert} />
 
-      {/* WHATSAPP FLUTUANTE - APENAS NO RODAPÉ, NUNCA NO CHECKOUT */}
+      <SalesChatBot />
+
       <AnimatePresence>
         {showWaFloat && path !== "/angola" && path !== "/checkout-angola" && (
           <motion.a

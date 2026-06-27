@@ -1,0 +1,15 @@
+export const CONFIG = {
+  authorName: "Gabriel Sapalo",
+  authorTitle: "Estrategista & Especialista em Gestão de Sistemas de Informação",
+  productLogo: "https://res.cloudinary.com/dyerjg6mf/image/upload/v1780069896/Logotipo_Notion_Elite_2026_kiwhgx.png",
+  hotmartCheckout: "https://pay.hotmart.com/Q105490101M?off=xablp4k5&hotfeature=51",
+  whatsappSupport: "https://wa.me/244923379486?text=Ol%C3%A1%20Gabriel%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20Notion%20Elite%20Kit",
+  communityLink: "https://chat.whatsapp.com/LDV8ORaZgzGC9ljtt3gTLh",
+  supportEmail: "suporte@glowscalepro.com",
+  paymentEmail: "glowscalepro@gmail.com",
+  expressPhone: "+244 923 379 486",
+  expressName: "Gabriel António Armando Sapalo",
+  termsOfUse: "https://drive.google.com/file/d/1cpwleZI5mtMGj8oVQ9C-xFkPmW6iJd1c/view",
+  privacyPolicy: "https://drive.google.com/file/d/1yi1D2p_QYdK9tIwCaU8kxlFnol97kGdg/view",
+  cookiePolicy: "https://drive.google.com/file/d/1owleKJFrC-MVOjMx7BKMuuqrhroSZqY1/view",
+};

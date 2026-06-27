@@ -137,7 +137,7 @@ body {
   right: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.3), transparent);
-  opacity: 0.15; /* Garante o reflexo de luz no mobile onde não há hover físico */
+  opacity: 0.15;
   transition: opacity 0.4s ease;
 }
 
@@ -293,21 +293,88 @@ body {
   background-size: 24px 24px;
 }
 
-.marquee-container { width: 100%; overflow: hidden; position: relative; }
-.marquee-track { display: flex; width: max-content; animation: marqueeScroll 35s linear infinite; will-change: transform; }
-@keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-33.333%); } }
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MARQUEE INFINITO — DA DIREITA PARA ESQUERDA
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
+/* Container: esconde o overflow e define a largura total */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Track: linha única de itens que se move continuamente */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+  will-change: transform;
+}
+
+/* Keyframe principal — move exatamente 1/3 (porque triplicamos os itens) */
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+/* Alias para compatibilidade com qualquer style inline que use "marquee-ltr" */
+@keyframes marquee-ltr {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+/* ━━━ PULSE ANIMATIONS ━━━ */
 .animate-pulse-gold { animation: pulseGold 2s ease-in-out infinite; }
 @keyframes pulseGold {
-  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.45); }
-  70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.45); }
+  70%  { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
   100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
 }
 
-@keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+.animate-pulse-ring { animation: pulseRing 2s ease-in-out infinite; }
+@keyframes pulseRing {
+  0%   { transform: scale(1); opacity: 1; }
+  50%  { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
 .animate-shimmer { animation: shimmer 1.5s infinite; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); }
 
-/* Custom Scrollbar */
+/* ━━━ FADE ANIMATIONS ━━━ */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+@keyframes fadeInUp {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ━━━ CUSTOM SCROLLBAR ━━━ */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--ink); }
 ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* ━━━ RESPONSIVE TWEAKS ━━━ */
+@media (max-width: 640px) {
+  .premium-heading {
+    letter-spacing: -0.02em;
+  }
+  .video-luxury-container {
+    border-radius: 0.75rem;
+  }
+  .card-luxury {
+    border-radius: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-luxury {
+    border-radius: 1.25rem;
+  }
+}
