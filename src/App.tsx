@@ -15,52 +15,38 @@ import {
 import SalesChatBot from './components/ui/SalesChatBot';
 
 // ═══════════════════════════════════════════════════════════
-// CONFIG — COM IMAGENS LOCAIS (public/images/)
+// CONFIG
 // ═══════════════════════════════════════════════════════════
 const CONFIG = {
   authorName: "Gabriel Sapalo",
   authorTitle: "Estrategista & Especialista em Gestão de Sistemas de Informação",
-  authorBio: "Campeão Nacional Absoluto de Xadrez de Angola 2024. Consolidou a sua carreira na intersecção entre o Planeamento Estatístico e a Psicologia Analítica. Com especialização em Contabilidade e Auditoria, Gabriel utilizou a sua visão de Estrategista para modelar o Notion Elite Kit como uma infraestrutura de inteligência de dados para fluxos cognitivos complexos.",
+  authorBio: "Campeão Nacional Absoluto de Xadrez de Angola 2024.",
   
-  // ═════════════════════════════════════════════════════════
-  // IMAGENS LOCAIS — public/images/
-  // ═════════════════════════════════════════════════════════
-  
-  // Autores e Logos
   authorPhoto: "/images/Gabriel_Sapalo_kp0dhm.png",
   productLogo: "/images/Logotipo_Notion_Elite_2026_kiwhgx.png",
   glowscaleLogo: "/images/Logotipo_da_Glowscalepro_fusgtw.png",
   
-  // Mockups
   notionMockup: "/images/MOCKUP_NOTION_FINAL_1_zc7jj0.png",
   antesDepoisMockup: "/images/Mockup_2_antes_e_depois_nr6xmh.png",
   mockupExtra1: "/images/Imagem_interna_do_notion_20260507_jutslr.png",
   mockupExtra2: "/images/Mockup_3_antes_e_depois_varhb4.png",
   internalView: "/images/MOCKUP_NOTION_FINAL_1_zc7jj0.png",
   
-  // Produto — CAPA DO VSL CORRETA (NÃO MEXER!)
   laptopOffer: "/images/Laptop_e_preço_de_224_usd_cortado_t8cyvj.png",
   productHero: "/images/Notion_Elite_Starter_Kit_2026_20260528_1_lo4ytu.png",
   productIntro: "/images/notion_elite_starter_Kit_Intro_1_gh5aaa.png",
   productDashboard: "/images/notion_elite_starter_Kit_Dashboard_1_ooj75k.png",
   productGestorProjeto: "/images/notion_elite_starter_Kit_Gestor_de_Projecto_1_gxg4ev.png",
   productGestorFinanceiro: "/images/notion_elite_starter_Kit_Gestor_Financeiro_1_z1ztb3.png",
-  productCerebroDigital: "/images/notion_elite_starter_Kit_Cerebro_digital.png",
+  productCerebroDigital: "/images/notion_elite_starter_Kit_Cérebro_digital.png",
   productExamesProvas: "/images/notion_elite_starter_Kit_Exames_e_Provas_1_bxhic1.png",
   productHabitTracker: "/images/notion_elite_starter_Kit_Habit_Tracker_1_hb4xtx.png",
   
-  // Prova social
-  fideProof: "/images/Campeonato_Nacional_Absoluto_2024_FIDE_results_1_ocbkq5.png",
+  fideProof: "/images/Campeonato_Nacional_Absoluto_2024_FIDE_results.png",
   
-  // ═════════════════════════════════════════════════════════
-  // VÍDEOS
-  // ═════════════════════════════════════════════════════════
   heroVideo: "https://www.youtube.com/embed/UwCl0a-FWp4",
   videoDemonstracaoReal: "https://www.youtube.com/embed/qfKGywfh05A",
   
-  // ═════════════════════════════════════════════════════════
-  // LINKS
-  // ═════════════════════════════════════════════════════════
   hotmartCheckout: "https://pay.hotmart.com/Q105490101M?off=xablp4k5&hotfeature=51",
   whatsappSupport: "https://wa.me/244923379486?text=Ol%C3%A1%20Gabriel%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20Notion%20Elite%20Kit",
   communityLink: "https://chat.whatsapp.com/LDV8ORaZgzGC9ljtt3gTLh",
@@ -77,7 +63,7 @@ const CONFIG = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// TESTIMONIALS — COM AVATARES LOCAIS
+// TESTEMUNHOS
 // ═══════════════════════════════════════════════════════════
 const TESTIMONIALS = [
   { 
@@ -85,7 +71,7 @@ const TESTIMONIALS = [
     role: "Dupla Licenciatura", 
     location: "Porto, Portugal", 
     avatar: "/images/Tomás_Ferreira_-Porto_-_Portugal_goriez.png", 
-    text: "Mano... consegui finalmente organizar tudo. Faço dupla licenciatura e trabalho num café. Antes vivia em pânico a dormir 4 horas. Agora planeio a semana toda em 10 min ao domingo. Surreal.", 
+    text: "Mano, nem eu acredito. Faço dupla licenciatura e ainda trabalho num café. Antes vivia em pânico, a dormir 4 horas por noite e a apagar incêndios todos os dias. Agora sento-me 10 minutos ao domingo, planeio a semana toda, e já não penso mais nisso até domingo seguinte. Isto devolveu-me a vida.", 
     metric: "10 min/sem" 
   },
   { 
@@ -93,7 +79,7 @@ const TESTIMONIALS = [
     role: "Estudante Universitária", 
     location: "Lisboa, Portugal", 
     avatar: "/images/Mariana_-_Lisboa_Portugal_uerhir.png", 
-    text: "Passei de média de 12 para 15 em dois meses. O cérebro digital devolveu-me o foco e tirou o peso de ter anotações perdidas. Sinto que tenho o controlo de volta.", 
+    text: "Média de 12 para 15 em dois meses — e sem estudar mais horas, só melhor. O cérebro digital tirou-me aquele peso constante de ter apontamentos perdidos por todo o lado. Sinto que finalmente tenho o controlo de volta.", 
     metric: "12 → 15" 
   },
   { 
@@ -101,7 +87,7 @@ const TESTIMONIALS = [
     role: "Gestora de Projetos", 
     location: "Luanda, Angola", 
     avatar: "/images/Ana_Luisa_-_Luanda_Angola_vae6mt.png", 
-    text: "A integração das matrizes relacionais e os atalhos de bases de dados funcionam sem qualquer latência. Extremamente sólido. Um verdadeiro cockpit.", 
+    text: "Já usei uma dezena de sistemas de produtividade. Nenhum aguentava a minha rotina real. Este aguenta. As matrizes relacionais e os atalhos de base de dados funcionam sem qualquer latência, mesmo em dias cheios. É um verdadeiro cockpit de comando, não um brinquedo bonito.", 
     metric: "0 latência" 
   },
   { 
@@ -109,15 +95,15 @@ const TESTIMONIALS = [
     role: "Profissional & Estudante", 
     location: "São Paulo, Brasil", 
     avatar: "/images/João_Pedro_-_São_Paulo_-_Brasil_inzjna.png", 
-    text: "Trabalhar e estudar ao mesmo tempo consumia-me. Este setup poupou-me 2 horas diárias. O tempo que recuperei paga o sistema no primeiro dia.", 
-    metric: "2h/dia poupas" 
+    text: "Trabalhar e estudar ao mesmo tempo estava a consumir-me por dentro. Este setup devolveu-me 2 horas por dia — tempo que hoje uso para dormir, treinar, respirar. Pagou-se a si mesmo logo no primeiro dia.", 
+    metric: "2h/dia" 
   },
   { 
     name: "Sofia Rodrigues", 
     role: "Mestranda e Pesquisadora", 
     location: "Coimbra, Portugal", 
     avatar: "/images/Sofia_Rodrigues_-_Coimbra_-Portugal_tlbepm.png", 
-    text: "Adeus abas perdidas e notas soltas. Setup concluído. Zero atrito. Execução imediata. É God Mode.", 
+    text: "Adeus 17 separadores abertos e notas soltas em cinco apps diferentes. Setup concluído numa tarde, zero atrito, execução imediata. Sinceramente? É God Mode para quem escreve tese.", 
     metric: "17 abas → 1 sistema" 
   },
   { 
@@ -125,13 +111,47 @@ const TESTIMONIALS = [
     role: "Consultora Júnior", 
     location: "Maputo, Moçambique", 
     avatar: "/images/Beatriz_Mendoça_-_Maputo_Moçambique_qjsbtm.png", 
-    text: "Ou montas um ecossistema que funciona por ti ou continuas a perder prazos e a mentir a ti mesma. A metodologia de 24H obrigou-me a executar sem desculpas.", 
+    text: "A verdade dói: ou montas um ecossistema que trabalha por ti, ou continuas a perder prazos e a mentir a ti mesma sobre 'amanhã eu organizo-me'. A metodologia de 24h obrigou-me a executar, sem desculpas nem adiamentos.", 
     metric: "Setup em 4h" 
   }
 ];
 
 // ═══════════════════════════════════════════════════════════
-// FONTE ÚNICA DE VERDADE PARA PROVA SOCIAL E FEATURE FLAGS
+// FAQ
+// ═══════════════════════════════════════════════════════════
+const FAQ_DATA = [
+  { 
+    q: "Nunca usei o Notion. Consigo usar este kit?", 
+    a: "Sim — e é exactamente para isso que o kit foi feito. Não precisas de saber absolutamente nada de Notion antes de começar: o vídeo de setup guiado leva-te pela mão, passo a passo, até teres tudo a funcionar em menos de 24 horas. Milhares de pessoas que nunca tinham aberto o Notion na vida usam hoje este sistema todos os dias." 
+  },
+  { 
+    q: "Funciona bem em telemóvel e com internet lenta?", 
+    a: "Sim, sem excepções. O sistema foi construído e testado para funcionar bem mesmo com ligações instáveis, em qualquer telemóvel. Consultas os teus prazos e tarefas onde quer que estejas — mesmo sem wifi por perto." 
+  },
+  { 
+    q: "Preciso pagar mensalidade ao Notion?", 
+    a: "Não, nunca. A versão gratuita do Notion é mais do que suficiente para correr o sistema inteiro. Pagas uma única vez pelo kit — e mais nada, para sempre." 
+  },
+  { 
+    q: "Quanto tempo demora o setup?", 
+    a: "A maioria das pessoas termina entre 3 a 6 horas, seguindo o vídeo passo a passo. Já vimos pessoas sem qualquer experiência prévia terminar tudo num único domingo à tarde." 
+  },
+  { 
+    q: "É só para estudantes ou também serve para profissionais e professores?", 
+    a: "Serve perfeitamente para os três — e é usado hoje por estudantes, profissionais e também professores que gerem turmas, avaliações e materiais ao mesmo tempo. Tens módulos separados para a vida académica e para os projetos pessoais ou profissionais, sem nunca misturares as informações." 
+  },
+  { 
+    q: "E se não gostar? Posso pedir reembolso?", 
+    a: "Claro. Tens 30 dias de garantia total. Se sentires que, por qualquer razão, não é para ti, devolvemos-te 100% do valor — sem perguntas, sem complicações, sem letras pequenas." 
+  },
+  { 
+    q: "Como funciona o pagamento?", 
+    a: "Escolhes a tua opção no checkout e recebes de imediato os dados para transferência ou pagamento com cartão. Assim que confirmamos o pagamento, o kit chega ao teu email automaticamente, em poucos minutos." 
+  }
+];
+
+// ═══════════════════════════════════════════════════════════
+// CONTAGEM DE PROVA SOCIAL
 // ═══════════════════════════════════════════════════════════
 const SOCIAL_PROOF_COUNT = 3247;
 
@@ -140,7 +160,7 @@ const FEATURE_FLAGS = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// TYPES
+// TIPOS
 // ═══════════════════════════════════════════════════════════
 type HeroContent = {
   tag: string;
@@ -151,49 +171,84 @@ type HeroContent = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// HERO CONTENT VARIANTS — ACTUALIZADO (PREÇO $49)
+// CONTEÚDO DO HERO — SISTEMA VITALÍCIO ADAPTATIVO
 // ═══════════════════════════════════════════════════════════
-const HERO_CONTENT: Record<string, HeroContent> = {
-  angola_internet: {
-    tag: "Para estudantes que estudam com internet lenta ou sem ela",
-    headline: "Cada semestre desorganizado custa-te mais tempo e notas do que imaginas.",
-    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por <span class='text-[#25D366] font-bold'>$10</span>.",
-    subtitle: "O Notion Elite Kit já vem pronto a usar. Dashboard, calendário, gestor de tarefas, planificador de exames e IA integrada. Tudo configurado em menos de 24 horas. Apenas $10 agora — o preço sobe para $49 em breve.",
-    badge: "⚡ $10 agora · Sobe para $49 em breve · Setup em 24h"
-  },
-  angola_burnout: {
-    tag: "Para estudantes exaustos e sem direção",
-    headline: "Cada semestre desorganizado custa-te mais tempo e notas do que imaginas.",
-    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por <span class='text-[#25D366] font-bold'>$10</span>.",
-    subtitle: "O Notion Elite Kit já vem pronto a usar. Dashboard, calendário, gestor de tarefas, planificador de exames e IA integrada. Tudo configurado em menos de 24 horas. Apenas $10 agora — o preço sobe para $49 em breve.",
-    badge: "⚡ $10 agora · Sobe para $49 em breve · Setup em 24h"
-  },
-  angola_financeiro: {
-    tag: "Para estudantes que não podem desperdiçar tempo nem notas",
-    headline: "Cada semestre desorganizado custa-te mais tempo e notas do que imaginas.",
-    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por <span class='text-[#25D366] font-bold'>$10</span>.",
-    subtitle: "O Notion Elite Kit já vem pronto a usar. Em menos de 24 horas tens dashboard, calendário, gestor de tarefas e planificador de exames configurados. Apenas $10 hoje — sobe para $49 em breve.",
-    badge: "⚡ $10 agora · Sobe para $49 em breve · Setup em 24h"
-  },
-  default: {
-    tag: "Para estudantes universitários que querem parar de sobreviver",
-    headline: "Cada semestre desorganizado custa-te mais tempo e notas do que imaginas.",
-    headlineHighlight: "Organiza toda a tua vida académica em 24 horas — por <span class='text-[#25D366] font-bold'>$10</span>.",
-    subtitle: "O Notion Elite Kit já vem pronto a usar. Dashboard, calendário, gestor de tarefas, planificador de exames e IA integrada. Tudo configurado em menos de 24 horas. Apenas $10 agora — o preço sobe para $49 em breve.",
-    badge: "⚡ $10 agora · Sobe para $49 em breve · Setup em 24h"
+const getHeroContent = (): HeroContent => {
+  try {
+    const now = new Date();
+    const month = now.getMonth();
+    const params = new URLSearchParams(window.location.search);
+    const campaign = params.get("utm_campaign") || "";
+
+    if (campaign.startsWith("angola")) {
+      return {
+        tag: "🇦🇴 Feito para estudantes angolanos que recusam ficar para trás",
+        headline: "Julho de 2026. A época de exames já começou a apertar o cerco.",
+        headlineHighlight: "A pergunta é: vais entrar preparado — ou vais improvisar mais uma vez e torcer para dar certo?",
+        subtitle: "Imagina abrir o telemóvel e veres, num único ecrã, tudo o que precisas de estudar hoje, os prazos que se aproximam e as revisões já organizadas por prioridade. Sem procurar. Sem adivinhar. Sem pânico às 23h da véspera. O Notion Elite Kit já transformou mais de 3.247 estudantes sobrecarregados em estudantes que entram em cada exame sabendo exactamente o que fazer. Configuras tudo em menos de 24 horas — e nunca mais voltas ao caos.",
+        badge: "⚡ Setup em 24h · +3.247 estudantes já mudaram de vida"
+      };
+    }
+
+    if (month === 0 || month === 1) {
+      return {
+        tag: "🎯 Início de Ano — o Momento em Que Tudo se Decide",
+        headline: "Janeiro de 2026. Fizeste as promessas do costume.",
+        headlineHighlight: "A questão é: este ano vais mesmo cumpri-las — ou vais deixar o caos vencer outra vez, como sempre?",
+        subtitle: "Sabes bem como a história acaba se nada mudar: as boas intenções de Janeiro dissolvem-se em Março, e em Junho estás outra vez a apagar incêndios. Desta vez pode ser diferente. Um sistema silencioso, no fundo do teu telemóvel, que organiza o calendário, as tarefas, os prazos e as revisões por ti — para que o teu foco vá apenas para uma coisa: avançar. Isto é o Notion Elite Kit. E está prestes a mudar o teu ano inteiro.",
+        badge: "⚡ Setup em 24h · +3.247 estudantes já mudaram de vida"
+      };
+    } 
+    else if (month >= 2 && month <= 4) {
+      return {
+        tag: "⚠️ Estamos a Meio do Semestre",
+        headline: "Estamos a meio do semestre.",
+        headlineHighlight: "E o caos já bateu à tua porta, não foi?",
+        subtitle: "Trabalhos empilhados, provas a aproximarem-se sem aviso, e aquela sensação incómoda de estar sempre um passo atrás. Não é falta de capacidade — é falta de sistema. O Notion Elite Kit devolve-te o controlo em poucas horas: organiza tudo num único lugar e mostra-te exactamente por onde começar amanhã de manhã.",
+        badge: "⚡ Recupera o foco em 24h · +3.247 estudantes já mudaram de vida"
+      };
+    } 
+    else if (month >= 5 && month <= 7) {
+      return {
+        tag: "🔥 Época de Exames — o Momento Que Decide o Semestre",
+        headline: "Julho de 2026. Os exames já não estão a chegar — estão à tua porta.",
+        headlineHighlight: "A única pergunta que importa agora: vais entrar preparado, ou vais improvisar mais uma vez?",
+        subtitle: "Este é o momento mais importante do teu semestre — e não há tempo para tentativa e erro. O Notion Elite Kit organiza as tuas revisões, os teus prazos e as tuas provas com uma clareza que só quem já usou entende de facto. Milhares de estudantes lusófonos já trocaram o pânico da véspera pela confiança de saber exactamente o que estudar, quando e porquê.",
+        badge: "⚡ Ideal para exames · +3.247 estudantes já mudaram de vida"
+      };
+    } 
+    else if (month === 8 || month === 9) {
+      return {
+        tag: "🌱 Novo Ciclo — a Página Está em Branco",
+        headline: "Setembro de 2026. Um novo ciclo começa — e a folha está em branco.",
+        headlineHighlight: "A pergunta não é se vais repetir os erros do semestre passado. É: vais deixar?",
+        subtitle: "Tens agora, neste exacto momento, a oportunidade mais barata de todas: implementar o sistema antes de o caos voltar a instalar-se. O Notion Elite Kit prepara-te para um semestre onde organizas tudo em minutos, não em noites perdidas.",
+        badge: "⚡ Recomeço organizado · +3.247 estudantes já mudaram de vida"
+      };
+    } 
+    else {
+      return {
+        tag: "📊 Fecho de Ano — a Hora da Verdade",
+        headline: "Novembro de 2026. Antes de fechares o ano, responde a uma pergunta.",
+        headlineHighlight: "O que fizeste realmente com este semestre — e o que queres que seja diferente no próximo?",
+        subtitle: "Antes de virares a página, organiza tudo o que ainda está solto. O Notion Elite Kit ajuda-te a fazer um balanço honesto do ano e a entrar no próximo já com vantagem sobre quem vai continuar a improvisar.",
+        badge: "⚡ Fecho estratégico · +3.247 estudantes já mudaram de vida"
+      };
+    }
+  } catch {
+    return {
+      tag: "Para Estudantes e Profissionais Lusófonos",
+      headline: "Cansado de viver a apagar incêndios académicos?",
+      headlineHighlight: "Tens um segundo cérebro à tua espera — e ele já ajudou mais de 3.247 pessoas como tu.",
+      subtitle: "O Notion Elite Kit 2026 organiza toda a tua vida académica e profissional num só lugar, para deixares de reagir ao caos e começares a controlá-lo.",
+      badge: "⚡ Setup em 24h · +3.247 estudantes já mudaram de vida"
+    };
   }
 };
 
-function getHeroContent(): HeroContent {
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const campaign = params.get("utm_campaign") || "";
-    return HERO_CONTENT[campaign] || HERO_CONTENT["default"];
-  } catch {
-    return HERO_CONTENT["default"];
-  }
-}
-
+// ═══════════════════════════════════════════════════════════
+// FUNÇÃO PARA DETETAR CAMPANHA ANGOLA
+// ═══════════════════════════════════════════════════════════
 function isAngolaCampaign(): boolean {
   try {
     const params = new URLSearchParams(window.location.search);
@@ -206,46 +261,35 @@ function isAngolaCampaign(): boolean {
 }
 
 // ═══════════════════════════════════════════════════════════
-// STATIC DATA
+// DADOS ESTÁTICOS
 // ═══════════════════════════════════════════════════════════
 const MANIFESTO_PHRASES = [
   "Clareza é poder.",
   "O caos custa futuros.",
-  "Disciplina visual.",
+  "Disciplina que se vê.",
   "Organizados vencem."
 ];
 
 const BONUSES = [
-  { title: "Comunidade Elite Minds 2026", desc: "Grupo privado de operadores mentais com desafios semanais, reposts e suporte direto.", value: 97 },
-  { title: "Hub de Prompts de IA (20+)", desc: "Prompts testados para resumir, criar e acelerar estudos com IA nativa do Notion.", value: 67 },
-  { title: "Atualizações Vitalícias 2026/2027", desc: "Novas versões e módulos adicionados sem custo extra. Acesso perpétuo.", value: 120 },
-  { title: "Setup Guiado em 24h", desc: "Vídeo prático de três passos para duplicar e personalizar tudo em menos de um dia.", value: 57 }
-];
-
-const FAQ_DATA = [
-  { q: "Nunca usei o Notion. Consigo mesmo assim?", a: "Sim. O kit foi construído para iniciantes. Inclui guia prático de três passos para duplicar e personalizar tudo em menos de 24 horas." },
-  { q: "Funciona no telemóvel?", a: "Sim. O sistema foi otimizado para desktop e smartphone. A interface é mobile-first para consultares prazos e tarefas em qualquer lugar." },
-  { q: "Preciso pagar mensalidade ao Notion?", a: "Não. A versão gratuita do Notion é suficiente. Toda a estrutura funciona a 100% sem custos recorrentes." },
-  { q: "Recebo acesso imediato?", a: "Sim. O acesso é enviado e liberado automaticamente assim que a compra for confirmada." },
-  { q: "Quanto tempo demora o setup?", a: "Menos de 24 horas. O vídeo de setup guiado mostra cada passo — duplicar e personalizar. A maioria termina em menos de 4 horas." },
-  { q: "É só para estudantes ou também para profissionais?", a: "Para os dois. Módulos independentes de gestão académica e acompanhamento de projetos correm em paralelo sem misturar informações." },
-  { q: "Recebo atualizações futuras?", a: "Sim. Pagamento único, acesso vitalício às versões 2026 e 2027, e novos prompts de IA incluídos gratuitamente." },
-  { q: "Como funciona o pagamento em Angola?", a: "Acedes à página de checkout Angola, preenchas o teu nome e email, recebes os dados bancários e uma referência única. Após a transferência, envias o comprovativo por email. O sistema entrega o kit automaticamente em menos de 10 minutos." }
+  { title: "Comunidade Elite Minds 2026", desc: "O lugar onde estudantes sérios se apoiam uns aos outros: desafios semanais, estratégias partilhadas e alguém sempre pronto a responder-te.", value: 97 },
+  { title: "Hub de Prompts de IA (20+)", desc: "Mais de 20 prompts já testados que resumem matéria, criam planos de estudo e poupam-te horas inteiras de trabalho manual.", value: 67 },
+  { title: "Atualizações Vitalícias 2026/2027", desc: "O sistema evolui — e tu evoluis com ele, sem pagar mais nada, para sempre. Acesso perpétuo, sem surpresas.", value: 120 },
+  { title: "Setup Guiado em 24h", desc: "Um vídeo, passo a passo, que te leva pela mão até teres tudo pronto — mesmo que nunca tenhas aberto o Notion na vida.", value: 57 }
 ];
 
 const NOTIFICATIONS_POOL = [
-  { name: "Lucas R.", item: "Ativou God Mode" },
-  { name: "Marta S.", item: "Reset Operacional" },
-  { name: "Tiago M.", item: "Ativou God Mode" },
-  { name: "Inês P.", item: "Elite Minds 2026" },
-  { name: "Rui C.", item: "Ativou God Mode" },
-  { name: "Ana F.", item: "Comprou Elite Kit" },
-  { name: "Carlos M.", item: "Reset Operacional" },
-  { name: "Fernanda L.", item: "Ativou God Mode" },
+  { name: "Lucas R.", item: "Ativou o sistema" },
+  { name: "Marta S.", item: "Reset organizacional" },
+  { name: "Tiago M.", item: "Ativou o sistema" },
+  { name: "Inês P.", item: "Entrou para Elite" },
+  { name: "Rui C.", item: "Ativou o sistema" },
+  { name: "Ana F.", item: "Comprou o Kit" },
+  { name: "Carlos M.", item: "Reset organizacional" },
+  { name: "Fernanda L.", item: "Ativou o sistema" },
   { name: "José A.", item: "Entrou na Comunidade" },
-  { name: "Paula S.", item: "Comprou Elite Kit" },
-  { name: "Miguel R.", item: "Ativou God Mode" },
-  { name: "Sara T.", item: "Reset Operacional" }
+  { name: "Paula S.", item: "Comprou o Kit" },
+  { name: "Miguel R.", item: "Ativou o sistema" },
+  { name: "Sara T.", item: "Reset organizacional" }
 ];
 
 const shuffled = [...NOTIFICATIONS_POOL];
@@ -260,7 +304,7 @@ const NOTIFICATIONS = shuffled.map((n, index) => ({
 }));
 
 // ═══════════════════════════════════════════════════════════
-// TELEMETRY
+// TELEMETRIA
 // ═══════════════════════════════════════════════════════════
 const Telemetry = {
   emit: (eventAction: string, metadata: Record<string, unknown> = {}) => {
@@ -287,12 +331,12 @@ const Telemetry = {
       if (typeof (window as any).trackEvent === "function") {
         (window as any).trackEvent(eventAction, { ...metadata });
       }
-    } catch { /* silent */ }
+    } catch { /* silencioso */ }
   }
 };
 
 // ═══════════════════════════════════════════════════════════
-// ANGOLA CHECKOUT PAGE
+// PÁGINA DE CHECKOUT ANGOLA
 // ═══════════════════════════════════════════════════════════
 const AngolaCheckoutPage = memo(() => {
   const [step, setStep] = useState<"form" | "payment">("form");
@@ -352,69 +396,50 @@ const AngolaCheckoutPage = memo(() => {
       <div className="min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center px-6 py-12">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
-            <img src={CONFIG.productLogo} alt="Elite OS"
-                 className="w-14 h-14 mx-auto mb-4 object-contain" />
-            <h1 className="text-2xl font-bold text-white mb-2">
-              Activar Acesso — Angola
-            </h1>
-            <p className="text-sm text-[#A1A1AA]">
-              Preenche os teus dados para receberes as instruções de pagamento
-            </p>
+            <img src={CONFIG.productLogo} alt="Elite OS" className="w-14 h-14 mx-auto mb-4 object-contain" />
+            <h1 className="text-2xl font-bold text-white mb-2">Falta um passo. Vamos ativar o teu acesso.</h1>
+            <p className="text-sm text-[#A1A1AA]">Preenche os dados abaixo e recebe já as instruções de pagamento</p>
           </div>
 
           <div className="bg-[#141414] border border-white/[0.08] rounded-2xl p-6 space-y-4">
             <div>
-              <label className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider block mb-2">
-                Nome completo
-              </label>
+              <label className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider block mb-2">Nome completo</label>
               <input
                 type="text"
                 value={name}
                 onChange={e => setName(e.target.value)}
                 placeholder="O teu nome"
-                className="w-full bg-[#1A1A1A] border border-white/[0.08] rounded-xl
-                           px-4 py-3 text-white text-base placeholder-[#555]
-                           outline-none focus:border-[#D4AF37]/40 transition-colors"
+                className="w-full bg-[#1A1A1A] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-base placeholder-[#555] outline-none focus:border-[#D4AF37]/40 transition-colors"
               />
             </div>
             <div>
-              <label className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider block mb-2">
-                Email (para receber o kit)
-              </label>
+              <label className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider block mb-2">Email (para receber o kit)</label>
               <input
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 placeholder="teu@email.com"
-                className="w-full bg-[#1A1A1A] border border-white/[0.08] rounded-xl
-                           px-4 py-3 text-white text-base placeholder-[#555]
-                           outline-none focus:border-[#D4AF37]/40 transition-colors"
+                className="w-full bg-[#1A1A1A] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-base placeholder-[#555] outline-none focus:border-[#D4AF37]/40 transition-colors"
               />
             </div>
 
             <button
               onClick={handleSubmit}
               disabled={loading || !name.trim() || !email.trim()}
-              className="w-full bg-[#25D366] hover:bg-[#1EBE5A] disabled:opacity-40
-                         disabled:cursor-not-allowed text-white font-bold py-4
-                         rounded-xl transition-all flex items-center justify-center gap-2
-                         shadow-[0_10px_30px_-10px_rgba(37,211,102,0.5)] text-base"
+              className="w-full bg-[#25D366] hover:bg-[#1EBE5A] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_10px_30px_-10px_rgba(37,211,102,0.5)] text-base"
             >
               {loading ? (
-                <span className="w-4 h-4 border-2 border-white/30 border-t-white
-                                 rounded-full animate-spin" />
+                <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
               ) : (
                 <>
                   <ArrowRight className="w-4 h-4" />
-                  Ver dados de pagamento
+                  Ver os dados de pagamento agora
                 </>
               )}
             </button>
           </div>
 
-          <p className="text-center text-xs text-[#A1A1AA] mt-4">
-            🔒 Os teus dados são usados apenas para entregar o teu acesso
-          </p>
+          <p className="text-center text-xs text-[#A1A1AA] mt-4">🔒 Os teus dados são usados apenas para entregar o teu acesso</p>
         </div>
       </div>
     );
@@ -462,20 +487,14 @@ const AngolaCheckoutPage = memo(() => {
         </div>
 
         <div className="text-center mb-6">
-          <div className="w-12 h-12 rounded-full bg-[#25D366]/10 border border-[#25D366]/30
-                          flex items-center justify-center mx-auto mb-4">
+          <div className="w-12 h-12 rounded-full bg-[#25D366]/10 border border-[#25D366]/30 flex items-center justify-center mx-auto mb-4">
             <CheckCircle2 className="w-6 h-6 text-[#25D366]" />
           </div>
-          <h1 className="text-xl font-bold text-white mb-1">Dados de pagamento</h1>
-          <p className="text-sm text-[#A1A1AA]">
-            Transfere e envia o comprovativo por email
-          </p>
+          <h1 className="text-xl font-bold text-white mb-1">Estás a um passo de mudar o teu semestre</h1>
+          <p className="text-sm text-[#A1A1AA]">Transfere o valor e envia-nos o comprovativo — o resto tratamos nós</p>
         </div>
 
-        <div className="bg-[#141414] border-2 border-[#00E5FF] rounded-2xl p-5 mb-4 
-                        shadow-[0_0_20px_rgba(0,229,255,0.15)] hover:shadow-[0_0_30px_rgba(0,229,255,0.25)] 
-                        transition-all duration-300">
-          
+        <div className="bg-[#141414] border-2 border-[#00E5FF] rounded-2xl p-5 mb-4 shadow-[0_0_20px_rgba(0,229,255,0.15)] hover:shadow-[0_0_30px_rgba(0,229,255,0.25)] transition-all duration-300">
           <div className="text-center mb-3 pb-2 border-b border-[#00E5FF]/30">
             <span className="text-[11px] font-mono text-[#00E5FF] font-bold uppercase tracking-wider flex items-center justify-center gap-2">
               <span>⚡</span> Multicaixa Express <span className="text-[#25D366] text-[9px] bg-[#25D366]/10 px-2 py-0.5 rounded-full">RECOMENDADO</span>
@@ -483,32 +502,19 @@ const AngolaCheckoutPage = memo(() => {
           </div>
           
           {expressDetails.map((d) => (
-            <div key={d.key}
-                 className="flex items-center justify-between py-2
-                            border-b border-white/[0.04] last:border-0">
+            <div key={d.key} className="flex items-center justify-between py-2 border-b border-white/[0.04] last:border-0">
               <span className="text-xs text-[#A1A1AA] font-mono">{d.label}</span>
               <div className="flex items-center gap-2">
-                <span className={`text-sm font-mono font-bold ${
-                  d.key === "ref"   ? "text-[#00E5FF]"  :
-                  d.key === "valor" ? "text-[#25D366]"  : "text-white"
-                }`}>{d.value}</span>
-                <button onClick={() => copy(d.value, d.key)}
-                        className="text-[#A1A1AA] hover:text-[#D4AF37] transition-colors">
-                  {copied === d.key ? (
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366]" />
-                  ) : (
-                    <span className="text-[10px] border border-white/20
-                                     rounded px-1.5 py-0.5 font-mono">copiar</span>
-                  )}
+                <span className={`text-sm font-mono font-bold ${d.key === "ref" ? "text-[#00E5FF]" : d.key === "valor" ? "text-[#25D366]" : "text-white"}`}>{d.value}</span>
+                <button onClick={() => copy(d.value, d.key)} className="text-[#A1A1AA] hover:text-[#D4AF37] transition-colors">
+                  {copied === d.key ? <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366]" /> : <span className="text-[10px] border border-white/20 rounded px-1.5 py-0.5 font-mono">copiar</span>}
                 </button>
               </div>
             </div>
           ))}
           
           <div className="mt-3 pt-2 text-center border-t border-[#00E5FF]/20">
-            <span className="text-[9px] font-mono text-[#25D366] flex items-center justify-center gap-1">
-              ✅ Pagamento imediato, sem esperas bancárias
-            </span>
+            <span className="text-[9px] font-mono text-[#25D366] flex items-center justify-center gap-1">✅ Pagamento imediato, sem esperas bancárias</span>
           </div>
         </div>
 
@@ -518,23 +524,12 @@ const AngolaCheckoutPage = memo(() => {
           </div>
           
           {bankDetails.map((d) => (
-            <div key={d.key}
-                 className="flex items-center justify-between py-2
-                            border-b border-white/[0.04] last:border-0">
+            <div key={d.key} className="flex items-center justify-between py-2 border-b border-white/[0.04] last:border-0">
               <span className="text-xs text-[#A1A1AA] font-mono">{d.label}</span>
               <div className="flex items-center gap-2">
-                <span className={`text-sm font-mono font-bold ${
-                  d.key === "ref"   ? "text-[#00E5FF]"  :
-                  d.key === "valor" ? "text-[#25D366]"  : "text-white"
-                }`}>{d.value}</span>
-                <button onClick={() => copy(d.value, d.key)}
-                        className="text-[#A1A1AA] hover:text-[#D4AF37] transition-colors">
-                  {copied === d.key ? (
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366]" />
-                  ) : (
-                    <span className="text-[10px] border border-white/20
-                                     rounded px-1.5 py-0.5 font-mono">copiar</span>
-                  )}
+                <span className={`text-sm font-mono font-bold ${d.key === "ref" ? "text-[#00E5FF]" : d.key === "valor" ? "text-[#25D366]" : "text-white"}`}>{d.value}</span>
+                <button onClick={() => copy(d.value, d.key)} className="text-[#A1A1AA] hover:text-[#D4AF37] transition-colors">
+                  {copied === d.key ? <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366]" /> : <span className="text-[10px] border border-white/20 rounded px-1.5 py-0.5 font-mono">copiar</span>}
                 </button>
               </div>
             </div>
@@ -542,58 +537,39 @@ const AngolaCheckoutPage = memo(() => {
         </div>
 
         <div className="bg-[#00E5FF]/5 border border-[#00E5FF]/20 rounded-2xl p-5 mb-4">
-          <p className="text-xs font-mono text-[#00E5FF] uppercase tracking-wider mb-3 font-bold">
-            📧 Após a transferência
-          </p>
+          <p className="text-xs font-mono text-[#00E5FF] uppercase tracking-wider mb-3 font-bold">📧 Após a transferência</p>
           <p className="text-sm text-white mb-3">Envia o comprovativo por email para:</p>
-          <div className="flex items-center justify-between bg-[#1A1A1A] rounded-xl
-                          px-4 py-3 border border-white/[0.06]">
-            <span className="text-sm font-mono text-[#00E5FF] font-bold">
-              {CONFIG.paymentEmail}
-            </span>
-            <button onClick={() => copy(CONFIG.paymentEmail, "email2")}
-                    className="text-[10px] border border-white/20 rounded
-                               px-1.5 py-0.5 font-mono text-[#A1A1AA] hover:text-white">
+          <div className="flex items-center justify-between bg-[#1A1A1A] rounded-xl px-4 py-3 border border-white/[0.06]">
+            <span className="text-sm font-mono text-[#00E5FF] font-bold">{CONFIG.paymentEmail}</span>
+            <button onClick={() => copy(CONFIG.paymentEmail, "email2")} className="text-[10px] border border-white/20 rounded px-1.5 py-0.5 font-mono text-[#A1A1AA] hover:text-white">
               {copied === "email2" ? "✓" : "copiar"}
             </button>
           </div>
 
           <div className="mt-3 p-3 bg-[#D4AF37]/5 border border-[#D4AF37]/20 rounded-xl">
-            <p className="text-xs text-[#D4AF37] font-mono font-bold mb-1">
-              ⚠️ Assunto do email obrigatório:
-            </p>
+            <p className="text-xs text-[#D4AF37] font-mono font-bold mb-1">⚠️ Assunto do email obrigatório:</p>
             <div className="flex items-center justify-between">
               <span className="text-sm font-mono text-white font-bold">{ref}</span>
-              <button onClick={() => copy(ref, "ref2")}
-                      className="text-[10px] border border-white/20 rounded
-                                 px-1.5 py-0.5 font-mono text-[#A1A1AA] hover:text-white">
+              <button onClick={() => copy(ref, "ref2")} className="text-[10px] border border-white/20 rounded px-1.5 py-0.5 font-mono text-[#A1A1AA] hover:text-white">
                 {copied === "ref2" ? "✓" : "copiar"}
               </button>
             </div>
           </div>
-          <p className="text-xs text-[#A1A1AA] mt-3 leading-relaxed">
-            O assunto com a tua referência permite ao sistema identificar
-            o teu pagamento e entregar o kit automaticamente.
-          </p>
+          <p className="text-xs text-[#A1A1AA] mt-3 leading-relaxed">O assunto com a tua referência permite ao sistema identificar o teu pagamento e entregar o kit automaticamente.</p>
         </div>
 
         <div className="bg-[#141414] border border-white/[0.08] rounded-2xl p-5 mb-4">
-          <p className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider mb-3">
-            O que acontece a seguir
-          </p>
+          <p className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider mb-3">O que acontece a seguir</p>
           <div className="space-y-3">
             {[
-              { t: "Agora",      d: "Transferes 10.000 AKZ via Multicaixa Express ou IBAN", c: "#25D366" },
-              { t: "2 minutos",  d: `Envias o comprovativo para ${CONFIG.paymentEmail} com assunto ${ref} — kit entregue automaticamente em menos de 10 min. WhatsApp +244 923 379 486 também disponível.`, c: "#00E5FF" },
+              { t: "Agora", d: "Transferes 10.000 AKZ via Multicaixa Express ou IBAN", c: "#25D366" },
+              { t: "2 minutos", d: `Envias o comprovativo para ${CONFIG.paymentEmail} com assunto ${ref} — kit entregue automaticamente em menos de 10 min. WhatsApp +244 923 379 486 também disponível.`, c: "#00E5FF" },
               { t: "Até 10 min", d: "Recebes o link do kit no teu email em menos de 10 minutos", c: "#D4AF37" }
             ].map((s, i) => (
               <div key={i} className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0"
-                     style={{ background: s.c }} />
+                <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ background: s.c }} />
                 <div>
-                  <span className="text-xs font-mono font-bold" style={{ color: s.c }}>
-                    {s.t}
-                  </span>
+                  <span className="text-xs font-mono font-bold" style={{ color: s.c }}>{s.t}</span>
                   <p className="text-xs text-[#A1A1AA]">{s.d}</p>
                 </div>
               </div>
@@ -601,12 +577,10 @@ const AngolaCheckoutPage = memo(() => {
           </div>
         </div>
 
-        <div className="bg-[#141414] border border-[#D4AF37]/20 rounded-2xl p-4
-                        flex items-center gap-3">
+        <div className="bg-[#141414] border border-[#D4AF37]/20 rounded-2xl p-4 flex items-center gap-3">
           <Shield className="w-5 h-5 text-[#D4AF37] shrink-0" />
           <p className="text-xs text-[#A1A1AA] leading-relaxed">
-            <strong className="text-white">Garantia 30 dias.</strong>{" "}
-            Se não ficares satisfeito, devolvemos 100% do teu dinheiro. Sem perguntas.
+            <strong className="text-white">Garantia 30 dias.</strong> Se não ficares satisfeito, devolvemos 100% do teu dinheiro. Sem perguntas.
           </p>
         </div>
       </div>
@@ -615,7 +589,7 @@ const AngolaCheckoutPage = memo(() => {
 });
 
 // ═══════════════════════════════════════════════════════════
-// THANK YOU PAGE
+// PÁGINA DE AGRADECIMENTO
 // ═══════════════════════════════════════════════════════════
 const ThankYouPage = memo(() => {
   useEffect(() => {
@@ -685,60 +659,38 @@ const ThankYouPage = memo(() => {
         currency: conv.currency,
         segment: conv.segment
       });
-    } catch { /* silent */ }
+    } catch { /* silencioso */ }
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#050505] flex flex-col
-                    items-center justify-center text-center px-6">
-      <div className="w-16 h-16 rounded-full bg-[#25D366]/10 border border-[#25D366]/30
-                      flex items-center justify-center mb-6">
+    <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center text-center px-6">
+      <div className="w-16 h-16 rounded-full bg-[#25D366]/10 border border-[#25D366]/30 flex items-center justify-center mb-6">
         <CheckCircle2 className="w-8 h-8 text-[#25D366]" />
       </div>
-      <img src={CONFIG.productLogo} alt="Elite OS"
-           className="w-12 h-12 object-contain mb-4" />
-      <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">
-        Acesso confirmado!
-      </h1>
-      <p className="text-[#A1A1AA] max-w-md mb-2 leading-relaxed">
-        Bem-vindo à Elite. O teu kit foi enviado para o teu email.
-      </p>
-      <p className="text-xs text-[#A1A1AA] mb-8">
-        Verifica também a pasta de spam.
-      </p>
+      <img src={CONFIG.productLogo} alt="Elite OS" className="w-12 h-12 object-contain mb-4" />
+      <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">Acesso confirmado!</h1>
+      <p className="text-[#A1A1AA] max-w-md mb-2 leading-relaxed">Bem-vindo à Elite. O teu sistema já está a caminho do teu email.</p>
+      <p className="text-xs text-[#A1A1AA] mb-8">Verifica também a pasta de spam.</p>
 
-      <div className="bg-[#0A0A0A] border border-white/[0.08] rounded-2xl
-                      p-5 max-w-sm w-full text-left mb-6">
-        <p className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-wider mb-3 font-bold">
-          Primeiro passo
-        </p>
+      <div className="bg-[#0A0A0A] border border-white/[0.08] rounded-2xl p-5 max-w-sm w-full text-left mb-6">
+        <p className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-wider mb-3 font-bold">Primeiro passo</p>
         <p className="text-sm text-[#A1A1AA] leading-relaxed">
-          Abre o kit e vai à <strong className="text-white">Página 36</strong> —
-          lá encontras o link de duplicação do sistema e todos os bónus.
+          Abre o kit e vai à <strong className="text-white">Página 36</strong> — lá encontras o link de duplicação do sistema e todos os bónus.
         </p>
       </div>
 
-      <a href={CONFIG.communityLink} target="_blank" rel="noopener noreferrer"
-         className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5A]
-                    text-white font-bold px-8 py-4 rounded-2xl transition-all
-                    shadow-[0_10px_30px_rgba(37,211,102,0.3)] mb-4">
+      <a href={CONFIG.communityLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5A] text-white font-bold px-8 py-4 rounded-2xl transition-all shadow-[0_10px_30px_rgba(37,211,102,0.3)] mb-4">
         <MessageCircle className="w-5 h-5 fill-white" />
         Entrar na Comunidade Elite Minds
       </a>
 
-      <p className="text-xs text-[#A1A1AA]">
-        Dúvidas?{" "}
-        <a href={`mailto:${CONFIG.supportEmail}`}
-           className="text-[#00E5FF] hover:underline">
-          {CONFIG.supportEmail}
-        </a>
-      </p>
+      <p className="text-xs text-[#A1A1AA]">Dúvidas? <a href={`mailto:${CONFIG.supportEmail}`} className="text-[#00E5FF] hover:underline">{CONFIG.supportEmail}</a></p>
     </div>
   );
 });
 
 // ═══════════════════════════════════════════════════════════
-// HEADER — COM BARRA DE URGÊNCIA EM TICKER MÓVEL COM NÚMEROS DOURADOS
+// CABEÇALHO
 // ═══════════════════════════════════════════════════════════
 const Header = memo(({ onCTA }: { onCTA: () => void }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -754,47 +706,26 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "header-glass py-3" : "bg-[#050505] py-4"}`}>
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
       
-      {/* ── BARRA DE URGÊNCIA — TICKER MÓVEL COM NÚMEROS DOURADOS ── */}
       <div className="bg-[#080808] border-b border-white/[0.06] overflow-hidden">
-        <div
-          className="marquee-track py-2.5"
-          style={{ animation: "marqueeScroll 20s linear infinite" }}
-        >
+        <div className="marquee-track py-2.5" style={{ animation: "marqueeScroll 20s linear infinite" }}>
           {[
-            "⚡ ÚLTIMAS VAGAS · $10 agora — sobe para $49 em breve",
-            "🔥 Founder Batch 01 · Preço sobe para $49 em breve",
-            "⚡ Garante o teu acesso agora por $10",
-            "♟ Clareza é poder · $10 agora — $49 em breve",
-            "⚡ ÚLTIMAS VAGAS · $10 agora — sobe para $49 em breve",
-            "🔥 Founder Batch 01 · Preço sobe para $49 em breve",
-            "⚡ Garante o teu acesso agora por $10",
-            "♟ Clareza é poder · $10 agora — $49 em breve",
-            "⚡ ÚLTIMAS VAGAS · $10 agora — sobe para $49 em breve",
-            "🔥 Founder Batch 01 · Preço sobe para $49 em breve",
-            "⚡ Garante o teu acesso agora por $10",
-            "♟ Clareza é poder · $10 agora — $49 em breve",
+            "⚡ ÚLTIMAS VAGAS · Preço especial — sobe em breve",
+            "🔥 Founder Batch 01 · Oferta limitada",
+            "⚡ Estudantes como tu já garantiram o acesso — e tu?",
+            "♟ Clareza é poder · O caos custa caro",
           ].map((text, i) => {
-            // Substitui $10 e $49 por versões com cor dourada
-            const formattedText = text
-              .replace(/\$10/g, '<span class="text-[#D4AF37] font-bold">$10</span>')
-              .replace(/\$49/g, '<span class="text-[#D4AF37] font-bold">$49</span>');
-            
             return (
-              <span 
-                key={i} 
-                className="text-[11px] font-mono text-[#FF007A] font-semibold tracking-wide shrink-0 px-8 whitespace-nowrap"
-                dangerouslySetInnerHTML={{ __html: `⚡ ${formattedText}` }}
-              />
+              <span key={i} className="text-[11px] font-mono text-[#FF007A] font-semibold tracking-wide shrink-0 px-8 whitespace-nowrap">
+                {text}
+              </span>
             );
           })}
         </div>
       </div>
 
-      {/* ── BARRA DE NAVEGAÇÃO ── */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between mt-3">
         <a href="/" className="flex items-center gap-3 group">
-          <img src={CONFIG.productLogo} alt="Elite OS"
-               className="w-11 h-11 sm:w-12 sm:h-12 object-contain group-hover:scale-105 transition-transform" />
+          <img src={CONFIG.productLogo} alt="Elite OS" className="w-11 h-11 sm:w-12 sm:h-12 object-contain group-hover:scale-105 transition-transform" />
           <div className="hidden sm:flex flex-col leading-tight">
             <span className="font-bold text-[13px] text-white tracking-tight">Notion Elite OS</span>
             <span className="text-[9.5px] font-mono text-[#D4AF37] tracking-widest uppercase">Founder 2026</span>
@@ -807,17 +738,14 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
           <a href="#pilares" className="hover:text-white transition-colors">O Sistema</a>
           <a href="#bonus" className="hover:text-white transition-colors">Bónus</a>
           <a href="#provas" className="hover:text-white transition-colors">Elite Minds</a>
-          <a href="#autoridade" className="hover:text-white transition-colors">O Criador</a>
         </nav>
 
         <div className="flex items-center gap-3">
-          <button onClick={() => { Telemetry.emit("header_cta"); onCTA(); }}
-                  className="btn-founder-gold text-xs px-4 py-2 rounded-md flex items-center gap-1.5 cursor-pointer animate-pulse-gold">
-            <span>Founder Batch 01 · $10</span>
+          <button onClick={() => { Telemetry.emit("header_cta"); onCTA(); }} className="btn-founder-gold text-xs px-4 py-2 rounded-md flex items-center gap-1.5 cursor-pointer animate-pulse-gold">
+            <span>Founder Batch 01 · Oferta Especial</span>
             <ArrowRight className="w-3 h-3" />
           </button>
-          <button onClick={() => setMobileOpen(!mobileOpen)}
-                  className="md:hidden text-[#A1A1AA] hover:text-white p-1.5 outline-none">
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden text-[#A1A1AA] hover:text-white p-1.5 outline-none">
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
@@ -825,15 +753,12 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
 
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="md:hidden border-t border-white/[0.06] bg-[#080808] mt-3 px-6 py-5 space-y-4 text-xs overflow-hidden">
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="md:hidden border-t border-white/[0.06] bg-[#080808] mt-3 px-6 py-5 space-y-4 text-xs overflow-hidden">
             <a href="#manifesto" onClick={() => setMobileOpen(false)} className="block text-gray-300 hover:text-white">Manifesto</a>
             <a href="#caos" onClick={() => setMobileOpen(false)} className="block text-gray-300 hover:text-white">O Problema</a>
             <a href="#pilares" onClick={() => setMobileOpen(false)} className="block text-gray-300 hover:text-white">O Sistema</a>
             <a href="#bonus" onClick={() => setMobileOpen(false)} className="block text-gray-300 hover:text-white">Bónus</a>
             <a href="#provas" onClick={() => setMobileOpen(false)} className="block text-gray-300 hover:text-white">Elite Minds</a>
-            <a href="#autoridade" onClick={() => setMobileOpen(false)} className="block text-gray-300 hover:text-white">O Criador</a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -842,171 +767,231 @@ const Header = memo(({ onCTA }: { onCTA: () => void }) => {
 });
 
 // ═══════════════════════════════════════════════════════════
-// CTA BUTTONS
+// BOTÕES CTA (COMPONENTE REUTILIZÁVEL COM CTAS DUPLOS)
 // ═══════════════════════════════════════════════════════════
-const CTAButtons = memo(({ onConvert, size = "lg" }: {
+const CTAButtons = memo(({ onConvert, size = "lg", variant = "default" }: {
   onConvert: (seg: "international" | "angola") => void;
   size?: "sm" | "lg";
+  variant?: "default" | "gold" | "green";
 }) => {
   const angola = isAngolaCampaign();
   const py = size === "sm" ? "py-3 px-4 text-sm" : "py-4 text-base sm:text-lg";
 
-  if (angola) {
-    return (
-      <div className="w-full space-y-3">
-        <button onClick={() => onConvert("angola")}
-                className={`w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white ${py} font-bold rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_-10px_rgba(37,211,102,0.6)] transition-all hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.8)] animate-pulse-ring`}>
-          <MessageCircle className="w-5 h-5 fill-white" />
-          Angola · 10.000 AKZ — Activar Agora
-        </button>
-        <button onClick={() => onConvert("international")}
-                className={`w-full bg-white/[0.05] hover:bg-white/[0.08] border border-white/[0.12] text-white/70 hover:text-white ${py} font-medium rounded-2xl flex items-center justify-center gap-2 transition-all text-sm`}>
-          <Crown className="w-4 h-4 text-[#D4AF37]" />
-          Pagamento Internacional · $10 USD
-        </button>
-      </div>
-    );
-  }
+  const getMainButtonStyle = () => {
+    if (variant === "gold") {
+      return "bg-gradient-to-r from-[#D4AF37] to-[#F4D77A] text-black hover:shadow-[0_15px_40px_rgba(212,175,55,0.5)]";
+    }
+    if (variant === "green") {
+      return "bg-gradient-to-r from-[#25D366] to-[#1EBE5A] text-white hover:shadow-[0_15px_40px_rgba(37,211,102,0.5)]";
+    }
+    return "bg-gradient-to-r from-[#25D366] to-[#1EBE5A] text-white hover:shadow-[0_15px_40px_rgba(37,211,102,0.5)]";
+  };
 
   return (
     <div className="w-full space-y-3">
-      <button onClick={() => onConvert("international")}
-              className={`w-full btn-luxury-cyan ${py} font-bold rounded-2xl flex items-center justify-center gap-3 animate-pulse-ring`}>
-        <Crown className="w-5 h-5" />
-        Quero organizar a minha vida agora — $10
-        <ArrowRight className="w-4 h-4" />
+      <button 
+        onClick={() => onConvert(angola ? "angola" : "international")}
+        className={`w-full ${getMainButtonStyle()} font-bold rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_-10px_rgba(37,211,102,0.4)] transition-all hover:scale-[1.02] active:scale-[0.98] ${py}`}
+      >
+        {angola ? (
+          <>
+            <MessageCircle className="w-5 h-5 fill-current" />
+            Angola · 10.000 AKZ — Ativar Agora
+          </>
+        ) : (
+          <>
+            <Crown className="w-5 h-5" />
+            Sim, quero o meu sistema agora — $10
+            <ArrowRight className="w-4 h-4" />
+          </>
+        )}
       </button>
-      <button onClick={() => onConvert("angola")}
-              className={`w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white ${py} font-bold rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_-10px_rgba(37,211,102,0.5)] transition-all hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.7)]`}>
-        <MessageCircle className="w-5 h-5 fill-white" />
-        Angola · 10.000 AKZ — Activar Agora
+      
+      <button 
+        onClick={() => onConvert(angola ? "international" : "angola")}
+        className="w-full bg-white/[0.05] hover:bg-white/[0.08] border border-white/[0.12] text-white/70 hover:text-white font-medium rounded-2xl flex items-center justify-center gap-2 transition-all text-sm py-3 px-4"
+      >
+        {angola ? (
+          <>
+            <Crown className="w-4 h-4 text-[#D4AF37]" />
+            Pagamento Internacional · $10 USD
+          </>
+        ) : (
+          <>
+            <MessageCircle className="w-4 h-4 text-[#25D366]" />
+            Angola · 10.000 AKZ
+          </>
+        )}
       </button>
     </div>
   );
 });
 
 // ═══════════════════════════════════════════════════════════
-// HERO VSL — CAPA CORRETA (NÃO MEXER!)
-// ═══════════════════════════════════════════════════════════
-const HeroVSL = memo(() => {
-  const [playing, setPlaying] = useState(false);
-  return (
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.25 }}
-                className="max-w-4xl mx-auto mb-10">
-      <div className="video-luxury-container">
-        {!playing ? (
-          <button onClick={() => { setPlaying(true); Telemetry.emit("vsl_hero_play", { src: "hero" }); }}
-                  className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]">
-            <img src={CONFIG.laptopOffer}
-                 alt="VSL Preview"
-                 className="absolute inset-0 w-full h-full object-cover"
-                 loading="eager"
-                 onError={(e) => {
-                   console.error('❌ laptopOffer não carregou:', CONFIG.laptopOffer);
-                   (e.target as HTMLImageElement).style.border = '3px solid red';
-                 }}
-                 onLoad={() => console.log('✅ laptopOffer carregou:', CONFIG.laptopOffer)} />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/40 to-transparent" />
-            <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#F4D77A] text-[#050505] flex items-center justify-center shadow-[0_0_40px_rgba(212,175,55,0.5)] group-hover:scale-110 transition-transform duration-400">
-              <Play className="w-6 h-6 fill-[#050505] translate-x-0.5" />
-            </div>
-            <p className="relative z-10 text-xs font-bold text-white mt-4 tracking-wide group-hover:text-[#D4AF37] transition-colors drop-shadow-lg">
-              ▶ Assistir Apresentação Estratégica (3 Min)
-            </p>
-            <span className="relative z-10 text-[10px] text-[#D4AF37] mt-1 font-mono font-semibold drop-shadow-lg">
-              Recomendado com áudio ativado
-            </span>
-          </button>
-        ) : (
-          <iframe src={`${CONFIG.heroVideo}?autoplay=1&rel=0&modestbranding=1`}
-                  title="VSL" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen />
-        )}
-      </div>
-    </motion.div>
-  );
-});
-
-// ═══════════════════════════════════════════════════════════
-// HERO SECTION — COM pt-52 PARA COMPENSAR A BARRA DE URGÊNCIA
+// SECÇÃO HERO - VERSÃO 100% PORTUGUÊS
 // ═══════════════════════════════════════════════════════════
 const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const hero = getHeroContent();
+  const isAngola = isAngolaCampaign();
+  const [playing, setPlaying] = useState(false);
+
   return (
-    <section id="hero-section" className="relative pt-52 pb-16 md:pt-56 md:pb-20 px-4 sm:px-6 max-w-6xl mx-auto text-center overflow-x-hidden">
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                  className="inline-flex items-center gap-2 badge-founder-premium px-4 py-1.5 rounded-full text-xs font-mono tracking-wider mb-8">
-        <Crown className="w-3.5 h-3.5" />
-        {hero.tag}
+    <section id="hero-section" className="relative pt-36 pb-16 md:pt-40 md:pb-20 px-4 sm:px-6 max-w-6xl mx-auto text-center overflow-x-hidden">
+      
+      <motion.div 
+        initial={{ opacity: 0, y: 10 }} 
+        animate={{ opacity: 1, y: 0 }}
+        className="inline-flex items-center gap-2 bg-white/[0.05] border border-[#D4AF37]/30 rounded-full px-5 py-2 mb-8"
+      >
+        <span className="text-xs sm:text-sm font-mono tracking-widest text-[#D4AF37]">
+          ♟ O sistema que estudantes lusófonos usam para dominar o caos académico
+        </span>
       </motion.div>
 
-      <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-[-1.6px] leading-[1.02] max-w-5xl mx-auto mb-6 font-bold break-words whitespace-normal">
-        {hero.headline}<br className="hidden md:block" />
+      <motion.h1 
+        initial={{ opacity: 0, y: 20 }} 
+        animate={{ opacity: 1, y: 0 }}
+        className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-[-1.6px] leading-[1.05] max-w-5xl mx-auto mb-6 font-bold"
+      >
+        {hero.headline}<br />
         <span className="text-gradient-magnetic" dangerouslySetInnerHTML={{ __html: hero.headlineHighlight }} />
       </motion.h1>
 
-      <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-base sm:text-lg md:text-xl text-[#A1A1AA] max-w-3xl mx-auto mb-8 leading-relaxed break-words whitespace-normal">
-        {hero.subtitle}
+      <motion.p 
+        initial={{ opacity: 0, y: 15 }} 
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+        className="text-base sm:text-lg md:text-xl text-[#A1A1AA] max-w-3xl mx-auto mb-8 leading-relaxed"
+      >
+        <span className="text-white font-medium">Eu sei exatamente como te sentes.</span><br />
+        Apontamentos espalhados por dez sítios diferentes. Prazos que aparecem do nada, como se tivessem combinado apanhar-te desprevenido. Noites inteiras perdidas só a tentar pôr ordem no caos...<br />
+        E no dia seguinte, o caos recomeça do zero.<br />
+        <span className="text-white font-medium">Eu vivi isso durante muito tempo.</span>
       </motion.p>
 
-      <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.25 }}
-                  className="inline-flex flex-col sm:flex-row items-center gap-3 px-5 py-3 rounded-2xl bg-[#0A0A0A] border border-white/[0.08] mx-auto mb-8">
-        <CheckCircle2 className="w-5 h-5 text-[#25D366] shrink-0" />
-        <div className="text-left">
-          <p className="text-[12px] text-[#D4D4D8] leading-tight break-words whitespace-normal">
-            ⭐ "Gostei muito da Notion. A minha esposa também gostou. Quis logo saber como podia recomendar a outras pessoas."
-          </p>
-          <p className="text-[9px] text-[#A1A1AA] font-mono mt-0.5">— Utilizador verificado, Angola</p>
+      <motion.p 
+        initial={{ opacity: 0, y: 10 }} 
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.15 }}
+        className="text-lg sm:text-xl text-white max-w-2xl mx-auto mb-10 font-medium"
+      >
+        Até criar um sistema que mudou tudo.<br />
+        Um verdadeiro <span className="text-[#25D366]">"segundo cérebro"</span> — que guarda, organiza e te avisa de tudo o que importa, antes de te esqueceres.
+      </motion.p>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 5 }} 
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.25 }}
+        className="inline-flex flex-col sm:flex-row items-center gap-3 px-5 py-3 rounded-2xl bg-[#0A0A0A] border border-white/[0.08] mx-auto mb-10"
+      >
+        <div className="flex items-center gap-1">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} className="w-4 h-4 text-[#D4AF37] fill-[#D4AF37]" />
+          ))}
+        </div>
+        <span className="text-sm text-[#D4D4D8]">
+          +{SOCIAL_PROOF_COUNT.toLocaleString("pt-PT")} estudantes e profissionais já trocaram o caos por clareza · 4.8/5
+        </span>
+      </motion.div>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }} 
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.22 }}
+        className="max-w-xl mx-auto mb-10"
+      >
+        <button 
+          onClick={() => document.getElementById("caos")?.scrollIntoView({ behavior: "smooth" })}
+          className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D77A] text-black font-bold py-5 rounded-2xl text-lg sm:text-xl shadow-[0_10px_30px_rgba(212,175,55,0.3)] hover:shadow-[0_15px_40px_rgba(212,175,55,0.5)] transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3"
+        >
+          <span>Quero ver exactamente como isto funciona</span>
+          <ArrowRight className="w-5 h-5" />
+        </button>
+        <p className="text-[10px] text-[#A1A1AA] mt-3 font-mono">
+          ⚡ Setup em menos de 24h · Suporte real, humano, sempre que precisares
+        </p>
+      </motion.div>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }} 
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.25 }}
+        className="max-w-4xl mx-auto mb-10"
+      >
+        <div className="video-luxury-container">
+          {!playing ? (
+            <button 
+              onClick={() => { setPlaying(true); Telemetry.emit("vsl_hero_play", { src: "hero" }); }}
+              className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]"
+            >
+              <img 
+                src={CONFIG.laptopOffer} 
+                alt="VSL Preview" 
+                className="absolute inset-0 w-full h-full object-cover" 
+                loading="eager" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/40 to-transparent" />
+              <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#F4D77A] text-[#050505] flex items-center justify-center shadow-[0_0_40px_rgba(212,175,55,0.5)] group-hover:scale-110 transition-transform duration-400">
+                <Play className="w-6 h-6 fill-[#050505] translate-x-0.5" />
+              </div>
+              <p className="relative z-10 text-xs font-bold text-white mt-4 tracking-wide group-hover:text-[#D4AF37] transition-colors drop-shadow-lg">
+                ▶ Vê como isto funciona, em 3 minutos
+              </p>
+              <span className="relative z-10 text-[10px] text-[#D4AF37] mt-1 font-mono font-semibold drop-shadow-lg">
+                Liga o som — vale a pena
+              </span>
+            </button>
+          ) : (
+            <iframe 
+              src={`${CONFIG.heroVideo}?autoplay=1&rel=0&modestbranding=1`}
+              title="VSL" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen 
+              className="w-full h-full absolute inset-0 border-0"
+            />
+          )}
         </div>
       </motion.div>
 
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="max-w-md mx-auto mb-10 p-5 rounded-2xl bg-[#0A0A0A] border border-white/[0.08] text-left">
-        <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-3 font-bold break-words whitespace-normal">Em menos de 24 horas vais:</p>
-        <div className="space-y-2.5 text-sm text-[#D4D4D8]">
-          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Parar de perder prazos e reprovar por falta de organização</span></div>
-          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Ter um sistema completo pronto em menos de 24 horas</span></div>
-          <div className="flex items-center gap-2 flex-wrap"><Check className="w-4 h-4 text-[#25D366] shrink-0" /><span className="break-words whitespace-normal">Poupar dinheiro — $10 agora antes que suba para $49</span></div>
-        </div>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.96, y: 30 }} 
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.9, delay: 0.35 }}
+        className="relative max-w-5xl mx-auto mb-6 rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
+      >
+        <img src={CONFIG.productHero} alt="Notion Elite Starter Kit 2026" className="w-full h-auto" loading="eager" />
       </motion.div>
 
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.22 }}
-                  className="max-w-xl mx-auto mb-10">
-        <CTAButtons onConvert={onConvert} size="lg" />
-      </motion.div>
-
-      <HeroVSL />
-
-      <motion.div initial={{ opacity: 0, scale: 0.96, y: 30 }} animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 0.9, delay: 0.35 }}
-                  className="relative max-w-5xl mx-auto mb-6 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-        <img src={CONFIG.productHero.replace('/upload/', '/upload/w_800,f_auto,q_auto/')}
-             alt="Notion Elite Starter Kit 2026" className="w-full h-auto" loading="eager" />
-      </motion.div>
-
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
-                className="text-xs md:text-sm text-[#A1A1AA] max-w-3xl mx-auto mb-12 leading-relaxed break-words whitespace-normal">
-        Chega de perder tempo a tentar organizar-se. Com o <strong className="text-white">Notion Elite Starter Kit 2026</strong>, você não gere apenas tarefas — gere a sua carreira e estudos com a precisão de um arquiteto de sistemas.
+      <motion.p 
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }} 
+        transition={{ delay: 0.45 }}
+        className="text-xs md:text-sm text-[#A1A1AA] max-w-3xl mx-auto mb-8 leading-relaxed"
+      >
+        {isAngola ? (
+          <>
+            Este sistema foi construído para sobreviver à tua realidade: <strong className="text-[#25D366]">internet lenta</strong>, apagões inesperados, dias imprevisíveis. Funciona mesmo quando tudo o resto falha — adaptado à
+            <strong className="text-[#D4AF37]"> realidade angolana</strong>. 
+            E agora está pronto para ti.
+          </>
+        ) : (
+          <>
+            Este sistema foi construído para a vida real de quem estuda, trabalha e ainda tenta ter uma vida — não para o mundo perfeito dos tutoriais. 
+            E agora está pronto para ti.
+          </>
+        )}
       </motion.p>
 
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
-                className="text-xs text-[#A1A1AA] mt-8 mb-12">
-        +{SOCIAL_PROOF_COUNT.toLocaleString("pt-PT")} utilizadores · 4.8/5 · Feito para a realidade angolana
-      </motion.p>
-
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
-                  className="mt-12 flex flex-col items-center gap-2 cursor-pointer"
-                  onClick={() => document.getElementById("pilares")?.scrollIntoView({ behavior: "smooth" })}>
-        <span className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-widest">Descobre como</span>
-        <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-5 h-8 rounded-full border border-[#D4AF37]/40 flex items-start justify-center pt-1.5">
+      <motion.div 
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }} 
+        transition={{ delay: 1.2 }}
+        className="mt-8 flex flex-col items-center gap-2 cursor-pointer"
+        onClick={() => document.getElementById("caos")?.scrollIntoView({ behavior: "smooth" })}
+      >
+        <span className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-widest">A parte mais importante vem a seguir ↓</span>
+        <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }} className="w-5 h-8 rounded-full border border-[#D4AF37]/40 flex items-start justify-center pt-1.5">
           <div className="w-0.5 h-1.5 rounded-full bg-[#D4AF37]" />
         </motion.div>
       </motion.div>
@@ -1015,7 +1000,7 @@ const HeroSection = memo(({ onConvert }: { onConvert: (seg: "international" | "a
 });
 
 // ═══════════════════════════════════════════════════════════
-// ANIMATED COUNTER
+// CONTADOR ANIMADO
 // ═══════════════════════════════════════════════════════════
 const AnimatedCounter = memo(({ end, suffix = "", label }: { end: number; suffix?: string; label: string }) => {
   const [count, setCount] = useState(0);
@@ -1044,129 +1029,305 @@ const AnimatedCounter = memo(({ end, suffix = "", label }: { end: number; suffix
 
   return (
     <div ref={ref} className="text-center">
-      <p className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
-        {count.toLocaleString("pt-PT")}{suffix}
-      </p>
+      <p className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">{count.toLocaleString("pt-PT")}{suffix}</p>
       <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-widest mt-2">{label}</p>
     </div>
   );
 });
 
 // ═══════════════════════════════════════════════════════════
-// COUNTERS SECTION
+// SECÇÃO DE CONTADORES
 // ═══════════════════════════════════════════════════════════
 const CountersSection = memo(() => (
   <section className="py-16 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
     <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-      <AnimatedCounter end={SOCIAL_PROOF_COUNT} suffix="+" label="Avaliações Verificadas" />
-      <AnimatedCounter end={9} label="Países CPLP" />
-      <AnimatedCounter end={24} suffix="h" label="Setup Médio" />
-      <AnimatedCounter end={98} suffix="%" label="Taxa de Retenção" />
+      <AnimatedCounter end={SOCIAL_PROOF_COUNT} suffix="+" label="Vidas Académicas Transformadas" />
+      <AnimatedCounter end={9} label="Países Lusófonos Já Alcançados" />
+      <AnimatedCounter end={24} suffix="h" label="Tempo Até à Clareza Total" />
+      <AnimatedCounter end={98} suffix="%" label="Continuam a Usar Todos os Dias" />
     </div>
   </section>
 ));
 
 // ═══════════════════════════════════════════════════════════
-// ANGOLA CONTEXT SECTION
+// SECÇÃO DE CONTEXTO LUSÓFONO
 // ═══════════════════════════════════════════════════════════
-const AngolaContextSection = memo(() => (
-  <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-gradient-to-b from-[#050505] to-[#0A0A0A]">
-    <div className="max-w-4xl mx-auto">
-      <div className="p-6 md:p-10 rounded-3xl border border-[#25D366]/30 bg-[#050505] relative overflow-hidden shadow-[0_20px_60px_rgba(37,211,102,0.05)]">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-[#25D366]/[0.03] rounded-full blur-3xl pointer-events-none" />
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="flex-1 text-center md:text-left">
-            <span className="inline-flex items-center gap-2 text-[10px] font-mono text-[#25D366] font-bold uppercase tracking-widest mb-4 bg-[#25D366]/10 px-3 py-1.5 rounded-lg border border-[#25D366]/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
-              Vantagem Competitiva Real
-            </span>
-            <h2 className="premium-heading text-2xl sm:text-3xl text-white mb-4 leading-tight break-words whitespace-normal">
-              Feito para a nossa realidade. <br />
-              <span className="text-[#25D366]">Funciona mesmo offline.</span>
-            </h2>
-            <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6 break-words whitespace-normal">
-              Enquanto outros sistemas param quando a net cai, o teu Elite OS continua. O sistema foi desenhado para simplicidade, velocidade e controlo real, independentemente do contexto.
-            </p>
-            <div className="grid grid-cols-2 gap-3 text-left">
-              {["Internet lenta","Dados móveis limitados","Rotina caótica","Múltiplos projetos","Telemóvel ou Desktop","Apagões inesperados"].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-xs text-[#D4D4D8]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
-                  <span className="break-words whitespace-normal">{item}</span>
-                </div>
-              ))}
+const AngolaContextSection = memo(() => {
+  const isAngola = isAngolaCampaign();
+  
+  return (
+    <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-gradient-to-b from-[#050505] to-[#0A0A0A]">
+      <div className="max-w-4xl mx-auto">
+        <div className="p-6 md:p-10 rounded-3xl border border-[#25D366]/30 bg-[#050505] relative overflow-hidden shadow-[0_20px_60px_rgba(37,211,102,0.05)]">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#25D366]/[0.03] rounded-full blur-3xl pointer-events-none" />
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="flex-1 text-center md:text-left">
+              <span className="inline-flex items-center gap-2 text-[10px] font-mono text-[#25D366] font-bold uppercase tracking-widest mb-4 bg-[#25D366]/10 px-3 py-1.5 rounded-lg border border-[#25D366]/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+                {isAngola ? "Construído Para a Tua Realidade, Não Para a Ideal" : "Construído Para a Comunidade Lusófona, Não Para o Mundo Perfeito"}
+              </span>
+              <h2 className="text-2xl sm:text-3xl text-white mb-4 leading-tight">
+                {isAngola ? (
+                  <>Funciona mesmo quando a <span className="text-[#25D366]">internet trai</span>.</>
+                ) : (
+                  <>Um sistema que se dobra à <span className="text-[#25D366]">tua realidade</span> — nunca o contrário.</>
+                )}
+              </h2>
+              <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6">
+                {isAngola ? (
+                  "Enquanto outros sistemas exigem a internet perfeita que ninguém tem, o teu sistema continua a funcionar mesmo quando a rede cai. Foi pensado desde o primeiro dia para simplicidade, velocidade e controlo real — não importa o que aconteça à tua volta."
+                ) : (
+                  "Este sistema foi desenhado para funcionar em qualquer contexto — com ou sem internet, em telemóvel ou computador, adaptado à rotina de cada estudante e profissional lusófono."
+                )}
+              </p>
+              <div className="grid grid-cols-2 gap-3 text-left">
+                {isAngola ? (
+                  ["Internet lenta", "Dados móveis limitados", "Rotina caótica", "Múltiplos projetos", "Telemóvel ou Desktop", "Apagões inesperados"]
+                ) : (
+                  ["Telemóvel ou Desktop", "Rotina pesada", "Múltiplos projetos", "Conectividade variável", "Organização total", "Foco garantido"]
+                ).map((item, i) => (
+                  <div key={i} className="flex items-center gap-2 text-xs text-[#D4D4D8]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="w-full md:w-1/3 shrink-0 flex justify-center">
-            <div className="w-32 h-32 rounded-full border-4 border-[#25D366]/20 flex items-center justify-center bg-[#0A0A0A] relative shadow-[0_0_40px_rgba(37,211,102,0.15)]">
-              <div className="absolute inset-0 rounded-full border border-[#25D366]/40 animate-pulse-ring" />
-              <Zap className="w-12 h-12 text-[#25D366]" />
+            <div className="w-full md:w-1/3 shrink-0 flex justify-center">
+              <div className="w-32 h-32 rounded-full border-4 border-[#25D366]/20 flex items-center justify-center bg-[#0A0A0A] relative shadow-[0_0_40px_rgba(37,211,102,0.15)]">
+                <div className="absolute inset-0 rounded-full border border-[#25D366]/40 animate-pulse-ring" />
+                <Zap className="w-12 h-12 text-[#25D366]" />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-));
+    </section>
+  );
+});
 
 // ═══════════════════════════════════════════════════════════
-// PROBLEM SOLUTION SECTION
+// SECÇÃO PROBLEMA-SOLUÇÃO
 // ═══════════════════════════════════════════════════════════
-const ProblemSolutionSection = memo(() => (
-  <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
-    <div className="max-w-5xl mx-auto">
-      <div className="text-center mb-10 max-w-2xl mx-auto">
-        <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-3 block">O Diagnóstico</span>
-        <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white leading-tight break-words whitespace-normal">
-          Sentes que estudas muito, <br className="hidden md:block" />
-          <span className="display-heading text-[#FF007A]">mas não avanças?</span>
-        </h2>
-        <p className="text-sm text-[#A1A1AA] mt-4 leading-relaxed break-words whitespace-normal">
-          O problema não é a tua dedicação. É a falta de um sistema. Este kit elimina a fricção e coloca à tua disposição <strong className="text-white">6 pilares de alta performance</strong>, prontos para uso imediato.
-        </p>
+const ProblemSolutionSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
+  const isAngola = isAngolaCampaign();
+
+  return (
+    <section id="caos" className="py-24 px-4 sm:px-6 border-b border-white/[0.05] bg-gradient-to-b from-[#070707] to-[#050505]">
+      <div className="max-w-5xl mx-auto">
+        
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <span className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FF007A] animate-pulse" />
+            A VERDADE QUE NINGUÉM TE DIZ
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            Já sentiste que estudas o dobro <br />
+            <span className="text-[#FF007A]">e avanças metade?</span>
+          </h2>
+          <p className="text-base sm:text-lg text-[#A1A1AA] mt-4 leading-relaxed">
+            {isAngola ? (
+              <>
+                Não é falta de inteligência. Não é falta de esforço. <br />
+                É a ausência de um sistema que aguente <strong className="text-white">a tua realidade</strong> — internet lenta, apagões, dias que nunca correm como planeaste.
+              </>
+            ) : (
+              <>
+                Não é falta de inteligência. Não é falta de esforço. <br />
+                É a ausência de um sistema que aguente <strong className="text-white">a tua realidade</strong> — rotina pesada, múltiplas tarefas e pressão constante.
+              </>
+            )}
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-[#0A0A0A] border border-red-500/20 rounded-3xl p-8 md:p-10 relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 bg-red-500/10 text-red-400 text-[9px] font-mono font-bold px-4 py-1.5 rounded-bl-xl">
+              ANTES
+            </div>
+            
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center">
+                <Activity className="w-5 h-5 text-red-400" />
+              </div>
+              <span className="text-sm font-mono text-red-400 font-bold uppercase tracking-wider">O QUE ESTÁ A ACONTECER</span>
+            </div>
+
+            <ul className="space-y-4">
+              {[
+                "Materiais e apontamentos espalhados por dez sítios diferentes",
+                "Prazos que aparecem do nada e te apanham sempre desprevenido",
+                "Aquele nó no estômago de estares sempre um passo atrás",
+                "Notas medianas, apesar de todas as horas que investes",
+                "Fechas o semestre exausto — e sem saber o que correu mal"
+              ].map((text, i) => (
+                <li key={i} className="flex items-start gap-3 text-[#A1A1AA] text-sm sm:text-base border-b border-white/[0.04] pb-3 last:border-0 last:pb-0">
+                  <span className="text-red-400 text-lg shrink-0 mt-0.5">✘</span>
+                  <span className="leading-relaxed">{text}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 p-4 bg-red-500/5 border border-red-500/20 rounded-xl">
+              <p className="text-red-400 text-xs font-mono text-center font-bold">⚠️ Este é o preço que pagas, mesmo sem perceberes</p>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-[#0A0A0A] border border-[#25D366]/30 rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-[0_20px_60px_rgba(37,211,102,0.05)]"
+          >
+            <div className="absolute top-0 right-0 bg-[#25D366]/10 text-[#25D366] text-[9px] font-mono font-bold px-4 py-1.5 rounded-bl-xl">
+              DEPOIS
+            </div>
+            
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-full bg-[#25D366]/10 flex items-center justify-center">
+                <Target className="w-5 h-5 text-[#25D366]" />
+              </div>
+              <span className="text-sm font-mono text-[#25D366] font-bold uppercase tracking-wider">A SOLUÇÃO QUE MUDA TUDO</span>
+            </div>
+
+            <ul className="space-y-4">
+              {[
+                "Um sistema que se lembra de tudo, para que tu não precises",
+                "Calendário inteligente que te avisa antes de ser tarde demais",
+                "Sabes, todas as manhãs, exactamente por onde começar",
+                "Vês o teu progresso a acontecer — não apenas sentes que devia estar a acontecer",
+                "Resultados reais, com uma fração do stress de antes"
+              ].map((text, i) => (
+                <li key={i} className="flex items-start gap-3 text-white text-sm sm:text-base border-b border-white/[0.04] pb-3 last:border-0 last:pb-0">
+                  <span className="text-[#25D366] text-lg shrink-0 mt-0.5">✓</span>
+                  <span className="leading-relaxed">{text}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 p-4 bg-[#25D366]/10 border border-[#25D366]/30 rounded-xl">
+              <p className="text-[#25D366] text-xs font-mono text-center font-bold">
+                🚀 Testado por milhares na vida real
+              </p>
+            </div>
+
+            <div className="mt-4 flex items-center gap-3 p-3 bg-[#D4AF37]/5 border border-[#D4AF37]/20 rounded-xl">
+              <div className="w-8 h-8 rounded-full bg-[#D4AF37]/20 flex items-center justify-center shrink-0">
+                <Quote className="w-4 h-4 text-[#D4AF37]" />
+              </div>
+              <p className="text-[10px] text-[#D4AF37] leading-relaxed">
+                <span className="font-bold">"Eu vivi isso durante anos."</span>
+                <br />
+                <span className="text-[#A1A1AA]">— Gabriel Sapalo</span>
+              </p>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="mt-12 max-w-xl mx-auto">
+          <p className="text-center text-sm text-[#A1A1AA] mb-4">
+            <span className="text-white font-medium">E se te dissesse que já não precisas de viver assim?</span>
+          </p>
+          <CTAButtons onConvert={onConvert} size="lg" variant="green" />
+          <p className="text-[10px] text-[#A1A1AA] mt-3 font-mono text-center">
+            ⚡ Pagamento seguro · Acesso imediato
+          </p>
+        </div>
       </div>
-      <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2 shadow-[0_30px_80px_rgba(0,0,0,0.8)]">
-        <img src={CONFIG.productIntro} alt="Notion Elite Kit — Problema vs Solução" className="w-full h-auto rounded-xl object-cover block" loading="lazy" />
-      </div>
-    </div>
-  </section>
-));
+    </section>
+  );
+});
 
 // ═══════════════════════════════════════════════════════════
-// PILARES SECTION
+// SECÇÃO PILARES - COM MOCKUPS
 // ═══════════════════════════════════════════════════════════
 const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
+  const isAngola = isAngolaCampaign();
+
   const pilares = [
-    { label: "Pilar 01", title: "Dashboard — Centro de Comando", desc: "O seu centro de comando diário. Saiba exactamente o que é prioridade, sem distrações.", img: CONFIG.productDashboard },
-    { label: "Pilar 02", title: "Gestor de Projectos — Método Kanban", desc: "Pare de procrastinar trabalhos práticos. O método Kanban visual mantém os seus projetos sob controlo total.", img: CONFIG.productGestorProjeto },
-    { label: "Pilar 03", title: "Gestor Financeiro — Controlo Total", desc: "Domine as suas finanças. Controlo rigoroso de receitas e despesas com a clareza que o seu bolso exige.", img: CONFIG.productGestorFinanceiro },
-    { label: "Pilar 04", title: "Cérebro Digital — Arquivo de Conhecimento", desc: "Nunca mais esqueça uma informação valiosa. O seu arquivo de conhecimento, organizado e reutilizável.", img: CONFIG.productCerebroDigital, ctaAfter: true },
-    { label: "Pilar 05", title: "Exames e Provas — Planeamento Estratégico", desc: "Antecipe-se às datas críticas. Planeamento estratégico para garantir que nada passe despercebido.", img: CONFIG.productExamesProvas },
-    { label: "Pilar 06", title: "Habit Tracker — Rotinas que Compõem", desc: "Pequenas rotinas, resultados gigantes. O rastreador que transforma hábitos em resultados mensuráveis.", img: CONFIG.productHabitTracker }
+    { 
+      label: "Pilar 01", 
+      title: "Dashboard — Centro de Comando", 
+      desc: "Abres o Notion e, em três segundos, já sabes o que importa hoje. Sem procurar. Sem adivinhar. Sem distrações a roubar-te o foco.", 
+      img: CONFIG.productDashboard 
+    },
+    { 
+      label: "Pilar 02", 
+      title: "Gestor de Projetos — Método Kanban", 
+      desc: "Aquele trabalho que já adiaste três vezes? O método Kanban visual torna impossível perdê-lo de vista — e ainda mais impossível continuar a fugir dele.", 
+      img: CONFIG.productGestorProjeto 
+    },
+    { 
+      label: "Pilar 03", 
+      title: "Gestor Financeiro — Controlo Total", 
+      desc: "Sabes para onde vai o teu dinheiro até ao último cêntimo. Sem surpresas a meio do mês, sem aquele aperto na conta bancária.", 
+      img: CONFIG.productGestorFinanceiro 
+    },
+    { 
+      label: "Pilar 04", 
+      title: "Cérebro Digital — Arquivo de Conhecimento", 
+      desc: "Cada ideia, cada apontamento, cada descoberta importante — guardada, ligada e pronta a usar quando mais precisares dela. Nunca mais \"onde é que eu vi isto?\"", 
+      img: CONFIG.productCerebroDigital,
+      ctaAfter: true 
+    },
+    { 
+      label: "Pilar 05", 
+      title: "Exames e Provas — Planeamento Estratégico", 
+      desc: "Enquanto os outros descobrem a data da prova três dias antes, tu já sabes, há semanas, exactamente o que revisar e quando.", 
+      img: CONFIG.productExamesProvas 
+    },
+    { 
+      label: "Pilar 06", 
+      title: "Habit Tracker — Rotinas que Compõem", 
+      desc: "Pequenos hábitos, seguidos todos os dias, tornam-se a diferença gigante entre quem promete mudar e quem muda de facto.", 
+      img: CONFIG.productHabitTracker 
+    }
   ];
 
   return (
-    <section id="pilares" className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-[#050505]">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-3 block">Os 6 Pilares de Alta Performance</span>
-          <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-tight break-words whitespace-normal">
-            Prova de funcionalidade. <br />
-            <span className="display-heading text-gradient-gold">Sem promessas vazias.</span>
+    <section id="pilares" className="py-24 px-4 sm:px-6 bg-[#050505] border-b border-white/[0.05] relative overflow-hidden">
+      
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D4AF37]/[0.02] rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        
+        <div className="text-center mb-16 max-w-2xl mx-auto">
+          <span className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+            OS 6 PILARES DE ALTA PERFORMANCE
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            Não é promessa. <br />
+            <span className="text-[#D4AF37]">É o sistema, peça por peça.</span>
           </h2>
+          <p className="text-sm sm:text-base text-[#A1A1AA] mt-4">
+            Seis módulos. Cada um resolve um problema real que já viveste. Junta-os, e o caos deixa de ter onde se esconder.
+          </p>
         </div>
+
         <div className="space-y-10">
           {pilares.map((p, i) => (
             <div key={i}>
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.6 }}
-                          className={`grid md:grid-cols-2 gap-6 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }} 
+                transition={{ duration: 0.6 }}
+                className={`grid md:grid-cols-2 gap-6 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}
+              >
                 <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
                   <img src={p.img} alt={p.title} className="w-full h-auto rounded-xl object-cover block" loading="lazy" />
                 </div>
                 <div className="space-y-3">
                   <span className="text-[10px] font-mono tracking-[0.25em] text-[#D4AF37] uppercase font-bold">{p.label}</span>
-                  <h3 className="text-xl md:text-2xl font-bold text-white leading-tight break-words whitespace-normal">{p.title}</h3>
-                  <p className="text-sm text-[#A1A1AA] leading-relaxed break-words whitespace-normal">{p.desc}</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">{p.title}</h3>
+                  <p className="text-sm text-[#A1A1AA] leading-relaxed">{p.desc}</p>
                   <div className="flex items-center gap-2 pt-2">
                     <Check className="w-3.5 h-3.5 text-[#25D366]" />
                     <span className="text-xs text-[#D4D4D8] font-mono">Incluído no Founder Batch 01</span>
@@ -1174,12 +1335,17 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
                 </div>
               </motion.div>
               {p.ctaAfter && (
-                <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="mt-10 p-6 rounded-2xl border-gradient-gold bg-[#0A0A0A] max-w-2xl mx-auto text-center">
-                  <p className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-widest font-bold mb-2">A Solução Está Aqui</p>
-                  <p className="text-sm text-white mb-4 break-words whitespace-normal">Não precisas de ver o resto da página.<br />Se estás cansado do caos, este é o momento de agir.</p>
-                  <CTAButtons onConvert={onConvert} size="sm" />
+                <motion.div 
+                  initial={{ opacity: 0, y: 15 }} 
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="mt-10 p-6 rounded-2xl border-gradient-gold bg-[#0A0A0A] max-w-2xl mx-auto text-center"
+                >
+                  <p className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-widest font-bold">A SOLUÇÃO ESTÁ AQUI</p>
+                  <p className="text-sm text-white mb-4">
+                    Já viste o suficiente para saber que isto funciona. Se estás cansado do caos, age agora — o resto da página só confirma o que já sabes.
+                  </p>
+                  <CTAButtons onConvert={onConvert} size="sm" variant="gold" />
                 </motion.div>
               )}
             </div>
@@ -1191,380 +1357,203 @@ const PilaresSection = memo(({ onConvert }: { onConvert: (seg: "international" |
 });
 
 // ═══════════════════════════════════════════════════════════
-// MID PAGE CTA
+// SECÇÃO TRANSFORMAÇÃO - COM IMAGENS ANTES/DEPOIS
 // ═══════════════════════════════════════════════════════════
-const MidPageCTA = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => (
-  <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="my-16 py-10 px-6 bg-gradient-to-br from-[#0A0A0A] to-[#050505] border border-[#D4AF37]/30 rounded-3xl max-w-2xl mx-auto text-center">
-    <p className="text-lg font-semibold text-white mb-2 break-words whitespace-normal">O caos só vai piorar se não agires agora.</p>
-    <p className="text-sm text-[#A1A1AA] mb-6 break-words whitespace-normal">Em menos de 24 horas podes ter tudo organizado.</p>
-    <CTAButtons onConvert={onConvert} size="lg" />
-  </motion.div>
-));
-
-// ═══════════════════════════════════════════════════════════
-// ROI CALCULATOR
-// ═══════════════════════════════════════════════════════════
-const ROICalculatorSection = memo(() => {
-  const [hoursPerWeek, setHoursPerWeek] = useState(5);
-  const hourlyValue = 800;
-  const weeksPerYear = 40;
-  const annualLoss = hoursPerWeek * hourlyValue * weeksPerYear;
-  const kitPrice = 10000;
-  const roi = Math.round(annualLoss / kitPrice);
+const TransformationSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
+  const isAngola = isAngolaCampaign();
 
   return (
-    <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-10">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-3 block">A Lógica da Compra</span>
-          <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white leading-tight break-words whitespace-normal">
-            Quanto te custa, <span className="display-heading text-[#FF007A]">por ano</span>, continuar desorganizado?
-          </h2>
-        </div>
-        <div className="p-6 md:p-8 rounded-3xl bg-[#0A0A0A] border border-white/[0.06]">
-          <label className="block text-xs text-[#A1A1AA] mb-2 font-mono uppercase tracking-wider">Horas perdidas por semana a organizar tarefas</label>
-          <div className="flex items-center gap-4 mb-1">
-            <input type="range" min="1" max="20" value={hoursPerWeek}
-                   onChange={(e) => setHoursPerWeek(parseInt(e.target.value, 10))}
-                   className="flex-1 h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#00E5FF]" />
-            <span className="text-3xl font-black text-white font-mono min-w-[80px] text-right">{hoursPerWeek}h</span>
-          </div>
-          <p className="text-[10px] text-[#A1A1AA] mb-6 font-mono">Ajusta o slider consoante a tua realidade. Estimativa baseada em {hourlyValue} AKZ/hora.</p>
-          <div className="grid sm:grid-cols-3 gap-3 pt-5 border-t border-white/[0.05]">
-            <div className="p-4 rounded-xl bg-[#050505] border border-[#FF007A]/20 text-center">
-              <p className="text-[9px] font-mono text-[#FF007A] uppercase tracking-widest mb-1">Custo anual do caos</p>
-              <p className="text-xl font-black text-white font-mono">{annualLoss.toLocaleString("pt-PT")} <span className="text-xs text-[#A1A1AA]">AKZ</span></p>
-            </div>
-            <div className="p-4 rounded-xl bg-[#050505] border border-[#00E5FF]/20 text-center">
-              <p className="text-[9px] font-mono text-[#00E5FF] uppercase tracking-widest mb-1">Preço do Elite OS</p>
-              <p className="text-xl font-black text-white font-mono">10.000 <span className="text-xs text-[#A1A1AA]">AKZ</span></p>
-            </div>
-            <div className="p-4 rounded-xl bg-[#050505] border border-[#D4AF37]/30 text-center">
-              <p className="text-[9px] font-mono text-[#D4AF37] uppercase tracking-widest mb-1">ROI estimado</p>
-              <p className="text-xl font-black text-[#D4AF37] font-mono">{roi}x</p>
-            </div>
-          </div>
-          <p className="text-center text-xs text-[#A1A1AA] mt-6 italic break-words whitespace-normal">Menos que uma saída ao fim de semana. Mais que um semestre inteiro de clareza.</p>
-        </div>
-      </div>
-    </section>
-  );
-});
+    <section id="transformacao" className="py-24 px-4 sm:px-6 border-b border-white/[0.05] bg-[#050505] relative overflow-hidden">
+      
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-[#D4AF37]/[0.03] to-transparent rounded-full blur-3xl pointer-events-none" />
 
-// ═══════════════════════════════════════════════════════════
-// MARQUEE SECTION — COM ANIMAÇÃO TAILWIND
-// ═══════════════════════════════════════════════════════════
-const MarqueeSection = memo(() => (
-  <section className="relative border-y border-white/[0.05] bg-[#050505] marquee-container py-5">
-    <div className="marquee-track">
-      {[...MANIFESTO_PHRASES, ...MANIFESTO_PHRASES, ...MANIFESTO_PHRASES].map((p, i) => (
-        <div key={i} className="flex items-center gap-12 shrink-0 px-8">
-          <span className="text-xl md:text-2xl font-serif italic text-white/80 whitespace-nowrap">{p}</span>
-          <span className="text-[#D4AF37]">♟</span>
-        </div>
-      ))}
-    </div>
-  </section>
-));
-
-// ═══════════════════════════════════════════════════════════
-// TRANSFORMATION SECTION
-// ═══════════════════════════════════════════════════════════
-const TransformationSection = memo(() => {
-  const rows = [
-    { a: "Abas perdidas e dispersão", b: "Sistema centralizado" },
-    { a: "Tarefas e prazos esquecidos", b: "Execução diária implacável" },
-    { a: "Caos e ruído mental", b: "Clareza absoluta" },
-    { a: "Procrastinação e paralisia", b: "Rotina fluida e automática" },
-    { a: "Sobrevivência académica", b: "Execução com clareza" }
-  ];
-  return (
-    <section id="transformacao" className="py-24 px-4 sm:px-6 border-b border-white/[0.05]">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-14 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#00E5FF] uppercase font-bold mb-4 block">A Virada de Chave</span>
-          <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight break-words whitespace-normal">
-            Do caos ao <span className="display-heading text-gradient-magnetic whitespace-normal">cockpit de execução</span>
+      <div className="max-w-5xl mx-auto relative z-10">
+        
+        <div className="text-center mb-16 max-w-2xl mx-auto">
+          <span className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+            A DIFERENÇA QUE O SISTEMA FAZ
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            De estudante à beira do esgotamento <br />
+            <span className="text-[#D4AF37]">a estudante no controlo total</span>
           </h2>
+          <p className="text-sm text-[#A1A1AA] mt-4">
+            A diferença nunca esteve em quantas horas estudas. <br />
+            <span className="text-white">Está em como organizas essas horas.</span>
+          </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-5 text-left">
-          <div className="p-7 rounded-2xl bg-gradient-to-b from-[#140508] to-[#0A0505] border border-[#FF007A]/20 relative overflow-hidden">
-            <div className="absolute top-0 right-0 bg-[#FF007A]/10 text-[#FF007A] font-mono text-[9px] font-bold px-3 py-1 rounded-bl-lg">ANTES</div>
-            <p className="text-[10px] font-mono text-[#FF007A] font-extrabold uppercase mb-2">A Sobrecarga Diária</p>
-            <h3 className="text-xl font-bold text-white mb-2 break-words whitespace-normal">Sobreviver ao semestre.</h3>
-            <p className="text-xs text-gray-500 mb-5 italic break-words whitespace-normal">WhatsApp, PDFs, caos, stress.</p>
-            <div className="space-y-3">
-              {rows.map((r, i) => (
-                <div key={i} className="flex items-start gap-2.5 text-xs text-gray-400 border-b border-[#FF007A]/[0.08] pb-3">
-                  <X className="w-4 h-4 text-[#FF007A] shrink-0 mt-0.5" />
-                  <span className="line-through break-words whitespace-normal">{r.a}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="p-7 rounded-2xl bg-gradient-to-b from-[#05140A] to-[#050A06] border border-[#25D366]/25 relative overflow-hidden shadow-[0_0_40px_rgba(37,211,102,0.08)]">
-            <div className="absolute top-0 right-0 bg-[#25D366]/10 text-[#25D366] font-mono text-[9px] font-bold px-3 py-1 rounded-bl-lg">DEPOIS · CLAREZA</div>
-            <p className="text-[10px] font-mono text-[#25D366] font-extrabold uppercase mb-2">A Experiência Elite</p>
-            <h3 className="text-xl font-bold text-white mb-2 break-words whitespace-normal">Operar com clareza.</h3>
-            <p className="text-xs text-[#A1A1AA] mb-5 italic break-words whitespace-normal">Dashboard, calendário, foco, silêncio.</p>
-            <div className="space-y-3">
-              {rows.map((r, i) => (
-                <div key={i} className="flex items-start gap-2.5 text-xs text-white font-semibold border-b border-[#25D366]/[0.08] pb-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
-                  <span className="text-[#00E5FF] break-words whitespace-normal">{r.b}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="mt-10 rounded-2xl overflow-hidden border border-white/[0.06] bg-[#0A0A0A] p-2 max-w-4xl mx-auto">
+
+        <div className="rounded-2xl overflow-hidden border border-white/[0.06] bg-[#0A0A0A] p-2 max-w-4xl mx-auto mb-12">
           <img src={CONFIG.antesDepoisMockup} alt="Antes e Depois" className="w-full h-auto rounded-xl object-cover block" loading="lazy" />
         </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mt-12">
+          
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-[#0A0A0A] border border-red-500/20 rounded-3xl p-8 md:p-10 relative group hover:border-red-500/40 transition-colors"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center">
+                <X className="w-5 h-5 text-red-400" />
+              </div>
+              <span className="text-sm font-mono text-red-400 font-bold uppercase tracking-wider">A REALIDADE ATUAL</span>
+            </div>
+
+            <ul className="space-y-4">
+              {[
+                "Acordas sem saber por onde começar",
+                "Perdes horas preciosas só à procura de um documento",
+                "Prazos que te apanham sempre de surpresa",
+                "Notas que não reflectem todo o esforço que investes",
+                "Chegas ao fim do semestre a arrastar-te"
+              ].map((text, i) => (
+                <li key={i} className="flex items-center gap-3 text-[#A1A1AA] text-sm sm:text-base border-b border-white/[0.04] pb-3 last:border-0 last:pb-0">
+                  <span className="text-red-400 text-lg shrink-0">✘</span>
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 p-4 bg-red-500/5 border border-red-500/20 rounded-xl text-center">
+              <p className="text-red-400 text-xs font-mono font-bold">⬤ VIDA REATIVA · STRESS CONSTANTE</p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-[#0A0A0A] border border-[#25D366]/30 rounded-3xl p-8 md:p-10 relative group hover:border-[#25D366]/60 transition-colors shadow-[0_20px_60px_rgba(37,211,102,0.05)]"
+          >
+            <div className="absolute -top-3 -right-3 bg-[#25D366] text-black text-[10px] font-bold px-4 py-1.5 rounded-xl shadow-lg rotate-3">
+              🏆 A SUA NOVA REALIDADE
+            </div>
+
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-full bg-[#25D366]/10 flex items-center justify-center">
+                <Check className="w-5 h-5 text-[#25D366]" />
+              </div>
+              <span className="text-sm font-mono text-[#25D366] font-bold uppercase tracking-wider">A NOVA REALIDADE</span>
+            </div>
+
+            <ul className="space-y-4">
+              {[
+                "Sabes exatamente o que estudar cada dia",
+                "Encontras qualquer material em segundos",
+                "Prazos sob controlo total",
+                "Vês as tuas notas a subir, com metade do stress",
+                "Terminas o semestre com orgulho"
+              ].map((text, i) => (
+                <li key={i} className="flex items-center gap-3 text-white text-sm sm:text-base border-b border-white/[0.04] pb-3 last:border-0 last:pb-0">
+                  <span className="text-[#25D366] text-lg shrink-0">✓</span>
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 p-4 bg-[#25D366]/10 border border-[#25D366]/30 rounded-xl text-center">
+              <p className="text-[#25D366] text-xs font-mono font-bold">⬤ VIDA PROATIVA · CLAREZA MENTAL</p>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="mt-12 max-w-xl mx-auto">
+          <p className="text-center text-sm text-[#A1A1AA] mb-4">
+            <span className="text-white font-medium">Isto não é sorte. É um sistema. E pode ser a tua próxima semana.</span>
+          </p>
+          <CTAButtons onConvert={onConvert} size="lg" variant="gold" />
+          <p className="text-[10px] text-[#A1A1AA] mt-3 font-mono text-center">
+            ⚡ Acesso imediato · Garantia 30 dias
+          </p>
+        </div>
       </div>
     </section>
   );
 });
 
 // ═══════════════════════════════════════════════════════════
-// REVEAL SECTION
+// SECÇÃO BÓNUS
 // ═══════════════════════════════════════════════════════════
-const RevealSection = memo(() => (
-  <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-[#050505] relative overflow-hidden">
-    <div className="max-w-5xl mx-auto text-center">
-      <motion.p 
-        initial={{ opacity: 0, y: 10 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true }}
-        className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4"
-      >
-        ♟ A Virada de Chave
-      </motion.p>
-      
-      <motion.h2 
-        initial={{ opacity: 0, y: 15 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true }}
-        transition={{ delay: 0.1 }}
-        className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white mb-10 leading-tight break-words whitespace-normal"
-      >
-        Do caos… <span className="display-heading text-gradient-gold">à clareza</span>.
-      </motion.h2>
-      
-      <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-2 shadow-[0_30px_80px_rgba(0,0,0,0.8)]">
-        <motion.div 
-          initial={{ opacity: 0, scale: 1.02 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <img 
-            src={CONFIG.notionMockup} 
-            alt="Transição Caos → Controlo" 
-            className="w-full h-auto rounded-xl object-cover block" 
-            loading="lazy"
-          />
-        </motion.div>
-      </div>
-      
-      <motion.p 
-        initial={{ opacity: 0 }} 
-        whileInView={{ opacity: 1 }} 
-        viewport={{ once: true }}
-        transition={{ delay: 1.2 }}
-        className="text-sm text-[#A1A1AA] mt-6 max-w-xl mx-auto italic font-serif break-words whitespace-normal"
-      >
-        "Quando o sistema entra, o ruído sai."
-      </motion.p>
-    </div>
-  </section>
-));
+const BonusSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
+  const isAngola = isAngolaCampaign();
+  const totalValue = BONUSES.reduce((s, b) => s + b.value, 0);
 
-// ═══════════════════════════════════════════════════════════
-// MANIFESTO SECTION
-// ═══════════════════════════════════════════════════════════
-const ManifestoSection = memo(() => (
-  <section id="manifesto" className="relative py-28 px-4 sm:px-6 overflow-hidden border-b border-white/[0.05]">
-    <div className="absolute inset-0 chess-deco opacity-30 pointer-events-none" />
-    <div className="max-w-3xl mx-auto text-center relative">
-      <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-6 block">♟ O Manifesto · Elite OS</span>
-      <Quote className="w-8 h-8 text-[#D4AF37]/40 mx-auto mb-4" />
-      <p className="text-2xl sm:text-3xl md:text-4xl text-white leading-[1.15] font-serif italic mb-8 break-words whitespace-normal">
-        Nós acreditamos que o caos moderno está a destruir mentes brilhantes. <br className="hidden md:block" />
-        <span className="text-gradient-magnetic not-italic font-sans font-bold text-xl sm:text-2xl md:text-3xl block mt-6 break-words whitespace-normal">
-          Enquanto o mundo vive fragmentado, nós construímos sistemas.
-        </span>
-      </p>
-      <div className="divider-gold max-w-md mx-auto mb-10" />
-      <div className="mb-12 max-w-xl mx-auto">
-        <p className="text-3xl sm:text-4xl md:text-5xl font-serif italic text-white leading-tight mb-3 break-words whitespace-normal">
-          Clareza é <span className="text-gradient-magnetic not-italic font-bold whitespace-normal">poder</span>.
-        </p>
-        <p className="text-sm sm:text-base text-[#A1A1AA] italic break-words whitespace-normal">
-          O slogan dos que se recusam a viver no ruído.
-        </p>
-        <div className="divider-gold max-w-[120px] mx-auto mb-3 mt-4" />
-        <p className="text-xs text-[#A1A1AA] italic break-words whitespace-normal">"O caos custa caro."</p>
-      </div>
-      <div className="grid sm:grid-cols-3 gap-6 text-left max-w-3xl mx-auto">
-        {[
-          { p: "O caos custa futuros.", sub: "Cada dia desorganizado é oportunidade perdida." },
-          { p: "Disciplina visual.", sub: "O que não é visto não é gerido." },
-          { p: "Organizados vencem.", sub: "2026 pertence a quem tem sistema." }
-        ].map((item, i) => (
-          <div key={i} className="p-5 rounded-xl bg-[#0A0A0A] border border-white/[0.05]">
-            <span className="text-[10px] font-mono text-[#D4AF37] block mb-2 tracking-widest">0{i + 1}</span>
-            <p className="text-base font-bold text-white mb-1.5 break-words whitespace-normal">{item.p}</p>
-            <p className="text-[11px] text-[#A1A1AA] leading-relaxed break-words whitespace-normal">{item.sub}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-));
-
-// ═══════════════════════════════════════════════════════════
-// PAIN SECTION
-// ═══════════════════════════════════════════════════════════
-const PainSection = memo(() => {
-  const pains = [
-    { icon: Activity, title: "Fragmentação Digital", desc: "PDFs perdidos. Apontamentos no WhatsApp. Prazos que te apanham de surpresa. O teu cérebro virou um browser com 47 abas abertas.", color: "pink" },
-    { icon: Brain, title: "Sobrecarga Mental", desc: "Acordas cansado antes de começar. A mente nunca desliga. A ansiedade do domingo à noite virou rotina semanal.", color: "cyan" },
-    { icon: Coins, title: "Custo Real", desc: "Cada semestre desperdiçado custa dinheiro, oportunidades e saúde mental. O caos não é gratuito — é o imposto invisível da desorganização.", color: "gold" }
-  ];
   return (
-    <section id="caos" className="relative py-28 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-14 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-4 block">O Diagnóstico</span>
-          <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-[1.05] break-words whitespace-normal">
-            Estás a estudar… <br />
-            ou apenas a <span className="display-heading text-[#FF007A]">sobreviver</span> no caos?
+    <section id="bonus" className="py-24 px-4 sm:px-6 bg-gradient-to-b from-[#050505] to-[#0A0A0A] border-b border-white/[0.05] relative overflow-hidden">
+      
+      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-[#D4AF37]/[0.02] rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-5xl mx-auto relative z-10">
+        
+        <div className="text-center mb-16 max-w-2xl mx-auto">
+          <span className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.3em] text-[#25D366] uppercase font-bold mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+            VALOR EXTRA INCLUÍDO
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            E isto ainda <br />
+            <span className="text-[#D4AF37]">nem é o principal</span>
           </h2>
+          <div className="inline-flex items-center gap-3 mt-4 px-6 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full">
+            <span className="text-sm text-[#A1A1AA]">Valor total dos bónus:</span>
+            <span className="text-2xl font-bold text-[#D4AF37]">${totalValue}</span>
+          </div>
         </div>
-        <div className="grid md:grid-cols-3 gap-5">
-          {pains.map((p, i) => {
-            const Icon = p.icon;
-            const colorMap: Record<string, string> = {
-              pink: "from-[#FF007A]/15 to-transparent border-[#FF007A]/20 text-[#FF007A]",
-              cyan: "from-[#00E5FF]/15 to-transparent border-[#00E5FF]/20 text-[#00E5FF]",
-              gold: "from-[#D4AF37]/15 to-transparent border-[#D4AF37]/20 text-[#D4AF37]"
-            };
-            return (
-              <div key={i} className={`relative p-6 md:p-8 rounded-2xl bg-gradient-to-b ${colorMap[p.color]} border bg-[#050505] flex flex-col`}>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[10px] font-mono text-current tracking-widest font-bold uppercase">PROBLEMA 0{i + 1}</span>
-                  <div className="w-9 h-9 rounded-lg bg-[#0A0A0A] border border-white/[0.06] text-current flex items-center justify-center">
-                    <Icon className="w-4 h-4" />
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {BONUSES.map((b, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-[#0A0A0A] border border-white/[0.08] rounded-3xl p-8 hover:border-[#D4AF37]/40 transition-all group"
+            >
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <span className="text-[#D4AF37] font-bold text-sm">0{i + 1}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white">{b.title}</h3>
+                    <span className="text-[#25D366] font-mono text-sm font-bold">${b.value}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3 break-words whitespace-normal">{p.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed break-words whitespace-normal">{p.desc}</p>
               </div>
-            );
-          })}
-        </div>
-        <div className="mt-14 text-center">
-          <div className="divider-glow max-w-md mx-auto mb-6" />
-          <p className="text-xs md:text-sm text-white italic max-w-xl mx-auto font-serif break-words whitespace-normal">
-            "No xadrez, uma jogada errada pode custar o campeonato. Na vida, um prazo esquecido pode custar o semestre inteiro."
-          </p>
-          <p className="text-[10px] text-[#D4AF37] font-mono mt-3 tracking-widest uppercase break-words whitespace-normal">— Gabriel Sapalo, Campeão Nacional de Xadrez 2024</p>
-        </div>
-      </div>
-    </section>
-  );
-});
-
-// ═══════════════════════════════════════════════════════════
-// NOT TEMPLATE SECTION
-// ═══════════════════════════════════════════════════════════
-const NotTemplateSection = memo(() => {
-  const pillars = [
-    { k: "Sistema operacional", v: "Infraestrutura mental que pensa por ti, não decoração bonita." },
-    { k: "Integração total", v: "Tarefas, metas, IA, finanças e hábitos interligados num único cockpit." },
-    { k: "Redução de carga cognitiva", v: "O teu cérebro descansa enquanto o sistema executa em segundo plano." },
-    { k: "Execução diária real", v: "Não inspira motivação. Obriga à clareza e à ação concreta todos os dias." }
-  ];
-  return (
-    <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#FF007A] uppercase font-bold mb-4 block">Destruição de Objeção</span>
-          <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight break-words whitespace-normal">
-            Isto <span className="line-through text-gray-500">não é um template</span>. <br className="hidden sm:block" />
-            <span className="display-heading text-gradient-magnetic">É um sistema operacional.</span>
-          </h2>
-        </div>
-        <div className="grid sm:grid-cols-2 gap-4">
-          {pillars.map((p, i) => (
-            <div key={i} className="p-5 rounded-xl bg-[#0A0A0A] border border-white/[0.05] flex gap-3">
-              <span className="text-[10px] font-mono text-[#00E5FF] shrink-0 mt-1">0{i + 1}</span>
-              <div>
-                <p className="text-sm font-bold text-white mb-1 break-words whitespace-normal">{p.k}</p>
-                <p className="text-xs text-[#A1A1AA] leading-relaxed break-words whitespace-normal">{p.v}</p>
+              <p className="text-sm text-[#A1A1AA] leading-relaxed">{b.desc}</p>
+              <div className="mt-4 flex items-center gap-2 text-[10px] text-[#25D366] font-mono font-bold">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>INCLUÍDO · $0</span>
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-});
-
-// ═══════════════════════════════════════════════════════════
-// JOURNEY SECTION
-// ═══════════════════════════════════════════════════════════
-const JourneySection = memo(() => {
-  const steps = [
-    { time: "Minuto 0", title: "Acesso instantâneo", desc: "Recebes o link de duplicação imediatamente após o pagamento.", color: "cyan" },
-    { time: "Minuto 20", title: "Personalização guiada", desc: "Vídeo de setup passo-a-passo para adaptar o sistema à tua vida.", color: "gold" },
-    { time: "Dia 1", title: "Execução total", desc: "Acordas com clareza. Sabes exactamente o que fazer. O sistema já trabalha por ti.", color: "green" }
-  ];
-  const colorMap: Record<string, string> = {
-    cyan: "text-[#00E5FF] border-[#00E5FF]/30 bg-[#00E5FF]/5",
-    gold: "text-[#D4AF37] border-[#D4AF37]/30 bg-[#D4AF37]/5",
-    green: "text-[#25D366] border-[#25D366]/30 bg-[#25D366]/5"
-  };
-  return (
-    <section className="py-20 px-4 sm:px-6 border-b border-white/[0.05]">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-3 block">A Tua Jornada em 3 Etapas</span>
-          <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white leading-tight break-words whitespace-normal">
-            Do pagamento à execução total <br className="hidden md:block" />
-            <span className="display-heading text-gradient-gold">em menos de 24 horas.</span>
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-3 gap-5 mb-16">
-          {steps.map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                        className={`p-6 rounded-2xl border ${colorMap[s.color]} relative`}>
-              <span className="text-[10px] font-mono font-bold uppercase tracking-widest block mb-2">{s.time}</span>
-              <h3 className="text-base font-bold text-white mb-2 break-words whitespace-normal">{s.title}</h3>
-              <p className="text-xs text-[#A1A1AA] leading-relaxed break-words whitespace-normal">{s.desc}</p>
-              <span className="absolute top-4 right-4 text-3xl font-black text-white/[0.04]">0{i + 1}</span>
             </motion.div>
           ))}
         </div>
-        <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-[#0A0505] to-[#050505] border border-[#FF007A]/20">
-            <p className="text-[10px] font-mono text-[#FF007A] font-bold uppercase tracking-widest mb-3">Isto NÃO é para ti se…</p>
-            <ul className="space-y-2 text-xs text-[#A1A1AA]">
-              <li className="flex items-start gap-2"><X className="w-3 h-3 text-[#FF007A] shrink-0 mt-0.5" /><span className="break-words whitespace-normal">Procuras motivação mágica ou atalhos</span></li>
-              <li className="flex items-start gap-2"><X className="w-3 h-3 text-[#FF007A] shrink-0 mt-0.5" /><span className="break-words whitespace-normal">Queres um template "bonito" só para mostrar</span></li>
-              <li className="flex items-start gap-2"><X className="w-3 h-3 text-[#FF007A] shrink-0 mt-0.5" /><span className="break-words whitespace-normal">Não estás disposto a investir 20 minutos no setup</span></li>
-            </ul>
+
+        <div className="mt-12 p-8 bg-gradient-to-r from-[#D4AF37]/10 to-transparent border border-[#D4AF37]/30 rounded-3xl text-center">
+          <p className="text-sm text-[#A1A1AA] mb-2">Tu pagas apenas</p>
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <span className="text-4xl font-bold text-white">$10</span>
+            <span className="text-xl text-[#A1A1AA] line-through">${totalValue + 49}</span>
+            <span className="text-sm text-[#25D366] font-bold bg-[#25D366]/10 px-4 py-1.5 rounded-full">Economia de 97%</span>
           </div>
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-[#05140A] to-[#050A06] border border-[#25D366]/25">
-            <p className="text-[10px] font-mono text-[#25D366] font-bold uppercase tracking-widest mb-3">Isto É para ti se…</p>
-            <ul className="space-y-2 text-xs text-[#D4D4D8]">
-              <li className="flex items-start gap-2"><Check className="w-3 h-3 text-[#25D366] shrink-0 mt-0.5" /><span className="break-words whitespace-normal">Queres operar com clareza todos os dias</span></li>
-              <li className="flex items-start gap-2"><Check className="w-3 h-3 text-[#25D366] shrink-0 mt-0.5" /><span className="break-words whitespace-normal">Estás pronto para executar e não só planear</span></li>
-              <li className="flex items-start gap-2"><Check className="w-3 h-3 text-[#25D366] shrink-0 mt-0.5" /><span className="break-words whitespace-normal">Valorizas sistema acima de inspiração</span></li>
-            </ul>
-          </div>
+          <p className="text-xs text-[#A1A1AA] mt-3">
+            {isAngola ? "ou 10.000 AKZ — menos que uma saída ao fim de semana" : "menos que uma saída ao fim de semana"}
+          </p>
+        </div>
+
+        <div className="mt-10 max-w-xl mx-auto">
+          <p className="text-center text-sm text-[#A1A1AA] mb-4">
+            <span className="text-white font-medium">E ainda faltam as provas de que isto realmente funciona...</span>
+          </p>
+          <CTAButtons onConvert={onConvert} size="lg" variant="green" />
+          <p className="text-[10px] text-[#A1A1AA] mt-3 font-mono text-center">
+            ⚡ Pagamento seguro · Acesso imediato
+          </p>
         </div>
       </div>
     </section>
@@ -1572,46 +1561,89 @@ const JourneySection = memo(() => {
 });
 
 // ═══════════════════════════════════════════════════════════
-// BONUS SECTION
+// SECÇÃO PROVA SOCIAL
 // ═══════════════════════════════════════════════════════════
-const BonusSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
-  const totalValue = BONUSES.reduce((s, b) => s + b.value, 0);
+const SocialProofSection = memo(() => {
   return (
-    <section id="bonus" className="py-24 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707] relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[700px] h-[400px] gradient-gold-glow opacity-50 rounded-full blur-[140px] pointer-events-none -z-10" />
-      <div className="max-w-5xl mx-auto relative">
-        <div className="text-center mb-12 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ Tudo Incluído na Fase Founder</span>
-          <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight break-words whitespace-normal">
-            Mais do que o sistema. <br />
-            <span className="display-heading text-gradient-gold">Tudo o que precisas.</span>
+    <section id="provas" className="py-24 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
+      <div className="max-w-6xl mx-auto">
+        
+        <div className="text-center mb-16 max-w-2xl mx-auto">
+          <span className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.3em] text-[#00E5FF] uppercase font-bold mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse" />
+            RESULTADOS REAIS
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            Não acredites em nós. <br />
+            <span className="text-[#00E5FF]">Acredita neles.</span>
           </h2>
+          <p className="text-sm text-[#A1A1AA] mt-4">
+            +{SOCIAL_PROOF_COUNT.toLocaleString("pt-PT")} utilizadores · Avaliações 5 estrelas
+          </p>
         </div>
-        <div className="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
-          {BONUSES.map((b, i) => (
-            <div key={i} className="p-5 rounded-xl bg-[#0A0A0A] border border-white/[0.05] flex flex-col">
-              <div className="flex items-start justify-between mb-3">
-                <span className="text-[9px] font-mono badge-founder-premium px-2 py-0.5 rounded uppercase font-bold tracking-wider">Bónus 0{i + 1}</span>
-                <span className="text-xs font-mono text-[#A1A1AA] line-through">${b.value}</span>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {TESTIMONIALS.map((t, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              className="bg-[#0A0A0A] border border-white/[0.08] rounded-2xl p-6 hover:border-[#D4AF37]/30 transition-all group"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#D4AF37]/30 shrink-0">
+                  <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-white">{t.name}</p>
+                  <p className="text-[10px] text-[#A1A1AA] font-mono">{t.role} · {t.location}</p>
+                  <div className="flex items-center gap-0.5 mt-0.5">
+                    {[...Array(5)].map((_, j) => (
+                      <Star key={j} className="w-3 h-3 text-[#D4AF37] fill-[#D4AF37]" />
+                    ))}
+                  </div>
+                </div>
               </div>
-              <h3 className="text-sm font-bold text-white mb-1.5 break-words whitespace-normal">{b.title}</h3>
-              <p className="text-[11px] text-[#A1A1AA] leading-relaxed flex-1 break-words whitespace-normal">{b.desc}</p>
-              <div className="mt-3 pt-3 border-t border-white/[0.04] flex items-center gap-1.5 text-[10px] font-mono text-[#25D366] font-bold">
-                <CheckCircle2 className="w-3 h-3" /><span>INCLUÍDO · $0</span>
+
+              <p className="text-sm text-[#A1A1AA] leading-relaxed italic">"{t.text}"</p>
+
+              <div className="mt-4 pt-4 border-t border-white/[0.05] flex items-center justify-between">
+                <div className="flex items-center gap-1.5 text-[9px] text-[#25D366] font-mono">
+                  <CheckCircle2 className="w-3 h-3" />
+                  <span>Verificado</span>
+                </div>
+                <span className="text-[10px] font-mono font-bold text-[#D4AF37] bg-[#D4AF37]/10 px-3 py-1 rounded-full">
+                  {t.metric}
+                </span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-        <div className="mt-10 max-w-2xl mx-auto p-6 rounded-2xl border-gradient-gold text-center">
-          <p className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-widest mb-2 font-bold">Valor Total dos Bónus</p>
-          <p className="text-3xl md:text-4xl font-black text-white mb-2">
-            <span className="line-through text-[#A1A1AA] font-mono text-xl mr-3">${totalValue}</span>
-            <span className="text-gradient-gold">$0</span>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 p-8 md:p-10 bg-gradient-to-br from-[#D4AF37]/10 to-transparent border border-[#D4AF37]/30 rounded-3xl text-center max-w-3xl mx-auto"
+        >
+          <Quote className="w-8 h-8 text-[#D4AF37]/50 mx-auto mb-4" />
+          <p className="text-xl md:text-2xl italic text-white leading-relaxed">
+            "Estava à beira do pânico com os exames a bater à porta. Três dias depois de configurar o Kit, tinha todas as minhas revisões organizadas — e pela primeira vez na vida, sentia que era eu a controlar o semestre, não o contrário."
           </p>
-          <p className="text-xs text-[#A1A1AA]">Tudo incluído na tua licença Founder.</p>
-        </div>
-        <div className="mt-8 max-w-xl mx-auto">
-          <CTAButtons onConvert={onConvert} size="lg" />
+          <p className="mt-4 text-[#D4AF37] font-medium">— Ana Luísa Mendes, Luanda</p>
+          <div className="flex items-center justify-center gap-1 mt-2">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-4 h-4 text-[#D4AF37] fill-[#D4AF37]" />
+            ))}
+          </div>
+        </motion.div>
+
+        <div className="mt-12 max-w-xl mx-auto">
+          <p className="text-center text-sm text-[#A1A1AA] mb-4">
+            <span className="text-white font-medium">A única diferença entre eles e tú? Eles decidiram agir primeiro.</span>
+          </p>
         </div>
       </div>
     </section>
@@ -1619,35 +1651,69 @@ const BonusSection = memo(({ onConvert }: { onConvert: (seg: "international" | "
 });
 
 // ═══════════════════════════════════════════════════════════
-// ENGINEERING SECTION
+// SECÇÃO AUTORIDADE
 // ═══════════════════════════════════════════════════════════
-const EngineeringSection = memo(() => {
-  const [playing, setPlaying] = useState(false);
+const AuthoritySection = memo(() => {
+  const isAngola = isAngolaCampaign();
+
   return (
-    <section id="engenharia" className="py-24 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707]">
-      <div className="max-w-5xl mx-auto">
+    <section id="autoridade" className="py-24 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707] relative overflow-hidden">
+      <div className="absolute inset-0 chess-deco opacity-20 pointer-events-none" />
+      <div className="max-w-5xl mx-auto relative">
         <div className="text-center mb-10 max-w-2xl mx-auto">
-          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">Engenharia em Ação</span>
-          <h2 className="premium-heading text-2xl sm:text-3xl md:text-4xl text-white break-words whitespace-normal">
-            Vê o sistema a funcionar <span className="display-heading text-gradient-magnetic">na prática</span>
+          <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ A Mente por Trás da Matriz</span>
+          <h2 className="premium-heading text-3xl sm:text-4xl text-white break-words whitespace-normal">
+            Um sistema pensado como uma partida de xadrez — pelo <span className="display-heading text-gradient-gold">Campeão Nacional de Xadrez de Angola</span>
           </h2>
         </div>
-        <div className="video-luxury-container max-w-4xl mx-auto">
-          {!playing ? (
-            <div onClick={() => { setPlaying(true); Telemetry.emit("demo_played"); }}
-                 className="absolute inset-0 cursor-pointer group flex flex-col items-center justify-center bg-[#050505]">
-              <img src={CONFIG.internalView} alt="Demo"
-                   className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity duration-500" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/50 to-transparent" />
-              <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#00E5FF] to-[#4CF2FF] text-[#050505] flex items-center justify-center shadow-[0_0_40px_rgba(0,229,255,0.5)] group-hover:scale-110 transition-transform duration-400">
-                <Play className="w-6 h-6 fill-[#050505] translate-x-0.5" />
-              </div>
-              <p className="relative z-10 text-xs font-bold text-white mt-4 tracking-wide">Assistir Demonstração Real</p>
+        <div className="grid md:grid-cols-2 gap-8 items-start">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-4">
+            <div className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-[#D4AF37]/60 bg-[#0A0A0A] shadow-[0_0_40px_rgba(212,175,55,0.3)]">
+              <img src={CONFIG.authorPhoto} alt={CONFIG.authorName} className="w-full h-full object-cover" loading="lazy" />
             </div>
-          ) : (
-            <iframe src={CONFIG.videoDemonstracaoReal} title="Demo"
-                    className="w-full h-full absolute inset-0 border-0" allow="autoplay" allowFullScreen />
-          )}
+            <div>
+              <h3 className="text-xl font-bold text-white break-words whitespace-normal">{CONFIG.authorName}</h3>
+              <p className="text-[10px] text-[#D4AF37] font-mono mt-1 tracking-widest uppercase block break-words whitespace-normal">{CONFIG.authorTitle}</p>
+            </div>
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-2">
+              <span className="badge-founder-premium px-3 py-1 rounded-full font-mono font-semibold text-[10px]">
+                ♟ Campeão Nacional Absoluto · Angola 2024
+              </span>
+              <a href="https://ratings.fide.com/report.phtml?event=368341" target="_blank" rel="noopener noreferrer"
+                 className="px-3 py-1 rounded-full border border-[#00E5FF]/20 text-[#00E5FF] text-[9px] font-mono hover:bg-[#00E5FF]/5 transition-colors inline-flex items-center gap-1">
+                Ver ranking oficial FIDE ↗
+              </a>
+            </div>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] shadow-lg">
+            <img src={CONFIG.fideProof} alt="Resultado oficial FIDE" className="w-full h-auto object-cover" loading="lazy" />
+            <div className="p-3 bg-[#050505] border-t border-white/[0.05] flex items-center justify-between">
+              <span className="text-[9px] font-mono text-[#25D366] flex items-center gap-1.5">
+                <CheckCircle2 className="w-3 h-3" /> Verificado pela FIDE
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="mt-10 space-y-5 text-sm text-[#A1A1AA] leading-relaxed">
+          <p className="text-lg md:text-xl font-serif italic text-white border-l-2 border-[#D4AF37] pl-5 py-2 bg-white/[0.01] rounded-r break-words whitespace-normal">
+            "No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exatamente o mesmo."
+          </p>
+          <div className="grid grid-cols-2 gap-3 pt-4">
+            {[
+              { icon: Eye, label: "Visão três passos à frente" },
+              { icon: Zap, label: "Foco sem ruído" },
+              { icon: Target, label: "Execução sem hesitação" },
+              { icon: Lock, label: "Controlo que não se negocia" }
+            ].map((it, i) => {
+              const Icon = it.icon;
+              return (
+                <div key={i} className="p-3 rounded-lg bg-[#0A0A0A] border border-white/[0.05] flex items-center gap-2">
+                  <Icon className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
+                  <span className="text-xs text-white font-medium break-words whitespace-normal">{it.label}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
@@ -1655,117 +1721,7 @@ const EngineeringSection = memo(() => {
 });
 
 // ═══════════════════════════════════════════════════════════
-// SOCIAL PROOF SECTION
-// ═══════════════════════════════════════════════════════════
-const SocialProofSection = memo(() => (
-  <section id="provas" className="py-24 px-4 sm:px-6 border-b border-white/[0.05]">
-    <div className="max-w-6xl mx-auto">
-      <div className="text-center mb-14 max-w-2xl mx-auto">
-        <span className="text-[10px] font-mono tracking-[0.3em] text-[#00E5FF] uppercase font-bold mb-4 block">♟ Elite Minds · Validação Operacional</span>
-        <h2 className="premium-heading text-3xl sm:text-4xl text-white leading-tight break-words whitespace-normal">
-          Eles já fizeram o <span className="display-heading text-gradient-magnetic">reset operacional</span>
-        </h2>
-        <p className="text-sm text-[#A1A1AA] mt-3 break-words whitespace-normal">+{SOCIAL_PROOF_COUNT.toLocaleString("pt-PT")} operadores mentais. Avaliações 5 estrelas. Evidências reais.</p>
-      </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {TESTIMONIALS.map((t, i) => (
-          <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.04 }}
-                      className="card-luxury p-6 flex flex-col">
-            <div className="flex items-center gap-3 mb-4 pb-4 border-b border-white/[0.05]">
-              <div className="w-14 h-14 rounded-full overflow-hidden border border-[#D4AF37]/50 shrink-0">
-                <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-0.5 mb-0.5">
-                  {[...Array(5)].map((_, j) => <Star key={j} className="w-2.5 h-2.5 text-[#D4AF37] fill-[#D4AF37]" />)}
-                </div>
-                <p className="text-xs font-bold text-white truncate">{t.name}</p>
-                <p className="text-[10px] text-[#A1A1AA] font-mono truncate">{t.role} · {t.location}</p>
-              </div>
-            </div>
-            <p className="text-xs text-[#A1A1AA] leading-relaxed italic flex-1 break-words whitespace-normal">"{t.text}"</p>
-            <div className="mt-4 pt-3 border-t border-white/[0.04] flex items-center justify-between">
-              <div className="flex items-center gap-1 text-[9px] font-mono text-[#25D366]">
-                <CheckCircle2 className="w-3 h-3" /> Identidade Verificada
-              </div>
-              <span className="text-[10px] font-mono font-bold text-[#D4AF37] bg-[#D4AF37]/10 px-2 py-0.5 rounded">{t.metric}</span>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
-));
-
-// ═══════════════════════════════════════════════════════════
-// AUTHORITY SECTION
-// ═══════════════════════════════════════════════════════════
-const AuthoritySection = memo(() => (
-  <section id="autoridade" className="py-24 px-4 sm:px-6 border-b border-white/[0.05] bg-[#070707] relative overflow-hidden">
-    <div className="absolute inset-0 chess-deco opacity-20 pointer-events-none" />
-    <div className="max-w-5xl mx-auto relative">
-      <div className="text-center mb-10 max-w-2xl mx-auto">
-        <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ A Mente por Trás da Matriz</span>
-        <h2 className="premium-heading text-3xl sm:text-4xl text-white break-words whitespace-normal">
-          O sistema criado pelo <span className="display-heading text-gradient-gold">Campeão Nacional de Xadrez de Angola</span>
-        </h2>
-      </div>
-      <div className="grid md:grid-cols-2 gap-8 items-start">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left gap-4">
-          <div className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-[#D4AF37]/60 bg-[#0A0A0A] shadow-[0_0_40px_rgba(212,175,55,0.3)]">
-            <img src={CONFIG.authorPhoto} alt={CONFIG.authorName} className="w-full h-full object-cover" loading="lazy" />
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-white break-words whitespace-normal">{CONFIG.authorName}</h3>
-            <p className="text-[10px] text-[#D4AF37] font-mono mt-1 tracking-widest uppercase block break-words whitespace-normal">{CONFIG.authorTitle}</p>
-          </div>
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-2">
-            <span className="badge-founder-premium px-3 py-1 rounded-full font-mono font-semibold text-[10px]">
-              ♟ Campeão Nacional Absoluto · Angola 2024
-            </span>
-            <a href="https://ratings.fide.com/report.phtml?event=368341" target="_blank" rel="noopener noreferrer"
-               className="px-3 py-1 rounded-full border border-[#00E5FF]/20 text-[#00E5FF] text-[9px] font-mono hover:bg-[#00E5FF]/5 transition-colors inline-flex items-center gap-1">
-              Ver ranking oficial FIDE ↗
-            </a>
-          </div>
-        </div>
-        <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] shadow-lg">
-          <img src={CONFIG.fideProof} alt="Resultado oficial FIDE" className="w-full h-auto object-cover" loading="lazy" />
-          <div className="p-3 bg-[#050505] border-t border-white/[0.05] flex items-center justify-between">
-            <span className="text-[9px] font-mono text-[#25D366] flex items-center gap-1.5">
-              <CheckCircle2 className="w-3 h-3" /> Verificado pela FIDE
-            </span>
-          </div>
-        </div>
-      </div>
-      <div className="mt-10 space-y-5 text-sm text-[#A1A1AA] leading-relaxed">
-        <p className="text-lg md:text-xl font-serif italic text-white border-l-2 border-[#D4AF37] pl-5 py-2 bg-white/[0.01] rounded-r break-words whitespace-normal">
-          "No xadrez, cada jogada tem consequência. Cada peça tem função. Cada movimento precisa de plano. Na vida académica e profissional acontece exactamente o mesmo."
-        </p>
-        <div className="grid grid-cols-2 gap-3 pt-4">
-          {[
-            { icon: Eye, label: "Antecipação estruturada" },
-            { icon: Zap, label: "Redução de ruído" },
-            { icon: Target, label: "Execução eficiente" },
-            { icon: Lock, label: "Controlo inegociável" }
-          ].map((it, i) => {
-            const Icon = it.icon;
-            return (
-              <div key={i} className="p-3 rounded-lg bg-[#0A0A0A] border border-white/[0.05] flex items-center gap-2">
-                <Icon className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
-                <span className="text-xs text-white font-medium break-words whitespace-normal">{it.label}</span>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  </section>
-));
-
-// ═══════════════════════════════════════════════════════════
-// URGENCY TIMER
+// TEMPORIZADOR DE URGÊNCIA
 // ═══════════════════════════════════════════════════════════
 const UrgencyTimer = memo(() => {
   const [timeLeft, setTimeLeft] = useState({ h: 0, m: 0, s: 0 });
@@ -1814,167 +1770,230 @@ const UrgencyTimer = memo(() => {
 });
 
 // ═══════════════════════════════════════════════════════════
-// PREMIUM OFFER SECTION — COM MULTICAIXA EXPRESS
+// SECÇÃO OFERTA PREMIUM - COM REVELAÇÃO DO PREÇO
 // ═══════════════════════════════════════════════════════════
-const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => (
-  <section id="oferta" className="py-24 px-4 sm:px-6 border-b border-white/[0.05]">
-    <div className="max-w-4xl mx-auto text-center">
-      <div className="mb-10">
-        <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4 block">♟ Licenciamento Exclusivo · Fase Founder</span>
-        <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white leading-tight break-words whitespace-normal">
-          O investimento mais inteligente <br className="hidden md:block" />
-          que podes fazer em <span className="display-heading text-gradient-gold">ti mesmo</span>
-        </h2>
-      </div>
-      <div className="border border-[#00E5FF]/30 bg-[#101010] p-5 sm:p-8 md:p-10 rounded-3xl text-center max-w-2xl mx-auto relative overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.7)] w-full">
-        <p className="text-xs text-white/60 uppercase tracking-widest font-mono">Preço de Lançamento — Founder Batch 01</p>
-        <div className="flex justify-center mt-3 mb-4"><UrgencyTimer /></div>
-        <div className="flex items-end justify-center gap-2 my-5 flex-wrap">
-          <span className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight">$10</span>
-          <span className="text-base sm:text-lg font-normal text-white/50 pb-1">ou <span className="text-[#25D366] font-bold">10.000 AKZ</span></span>
-        </div>
-        <div className="mt-6 max-w-md mx-auto">
-          <div className="flex items-center justify-between text-xs mb-2">
-            <span className="text-[#A1A1AA] font-mono">Vagas Founder Batch 01</span>
-            <span className="text-[#25D366] font-bold font-mono">Preferência limitada</span>
+const PremiumOfferSection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
+  const isAngola = isAngolaCampaign();
+  const totalValue = BONUSES.reduce((s, b) => s + b.value, 0);
+
+  return (
+    <section id="oferta" className="py-28 px-4 sm:px-6 bg-gradient-to-b from-[#050505] to-black border-t border-white/[0.08] relative overflow-hidden">
+      
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#D4AF37]/[0.02] rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto relative z-10">
+        
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full px-6 py-2 mb-6">
+            <Crown className="w-4 h-4 text-[#D4AF37]" />
+            <span className="text-[10px] font-mono text-[#D4AF37] tracking-widest font-bold">FOUNDER BATCH · PREÇO ESPECIAL</span>
           </div>
-          <div className="h-2 bg-[#0A0A0A] rounded-full overflow-hidden border border-white/[0.05]">
-            <div className="h-full bg-gradient-to-r from-[#25D366] to-[#00E5FF] rounded-full" style={{ width: '68%' }} />
-          </div>
-          <p className="text-[10px] text-[#FF007A] font-mono font-bold mt-2 flex items-center justify-center gap-1.5">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FF007A] animate-pulse" />
-            Vagas limitadas para o Founder Batch 01
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            Transforma o teu semestre <br />
+            <span className="text-[#D4AF37]">por apenas $10</span>
+          </h2>
+          <p className="text-base sm:text-lg text-[#A1A1AA] mt-4 max-w-xl mx-auto">
+            {isAngola
+              ? "O Notion Elite Kit 2026 completo, com todos os bónus incluídos, por menos do que costumas gastar num único almoço para dois."
+              : "O Notion Elite Kit 2026 completo, com todos os bónus incluídos, por menos do que costumas gastar num único almoço fora de casa."}
           </p>
         </div>
-        <div className="mt-2 mb-6 bg-red-500/10 border border-red-500/20 text-left p-4 rounded-xl max-w-md mx-auto">
-          <p className="text-xs font-bold text-red-400 mb-1 flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            Viste os nossos anúncios de $10?
-          </p>
-          <p className="text-[11px] text-[#A1A1AA] leading-relaxed break-words whitespace-normal">
-            Parabéns, chegaste a tempo. O <strong className="text-white">Founder Batch 01</strong> ainda tem vagas, mas o preço subirá para <strong className="text-white">$49</strong> em breve.
-          </p>
-        </div>
-        <div className="mt-6 rounded-2xl border border-[#D4AF37]/20 bg-[#0A0A0A] p-6 text-left max-w-md mx-auto">
-          <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37] mb-4 font-bold text-center">Estrutura de Preço Founder</p>
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="text-white font-semibold flex items-center gap-2">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
-                Founder Batch 01 <span className="text-[9px] font-mono text-[#25D366] uppercase tracking-wider">(atual)</span>
-              </span>
-              <span className="font-mono text-[#25D366] font-bold">$10</span>
+
+        <div className="bg-[#0A0A0A] border-2 border-[#D4AF37]/40 rounded-3xl p-8 md:p-12 max-w-xl mx-auto shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
+          
+          <div className="text-center mb-6">
+            <div className="flex items-center justify-center gap-4">
+              <span className="text-6xl sm:text-7xl font-bold text-white">$10</span>
+              <span className="text-2xl text-[#A1A1AA] line-through">$49</span>
             </div>
-            <div className="flex items-center justify-between opacity-80">
-              <span className="text-[#A1A1AA]">Próximo lote</span>
-              <span className="font-mono text-white">$49</span>
+            <div className="inline-flex items-center gap-2 mt-2 bg-[#FF007A]/10 border border-[#FF007A]/30 rounded-full px-4 py-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF007A] animate-pulse" />
+              <span className="text-[10px] font-mono text-[#FF007A] font-bold uppercase tracking-wider">Preço sobe em breve</span>
             </div>
-            <div className="flex items-center justify-between opacity-70">
-              <span className="text-[#A1A1AA]">Preço final</span>
-              <span className="font-mono text-white">$97</span>
+            <div className="mt-4">
+              <UrgencyTimer />
             </div>
           </div>
-        </div>
-        <p className="text-xs text-[#00E5FF] font-mono font-semibold mt-6">Acesso vitalício • Garantia de 30 dias</p>
-        <div className="mt-8 text-left max-w-md mx-auto">
-          <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-widest mb-3 font-semibold text-center">Inclui:</p>
-          <div className="space-y-2 text-sm">
-            {["Sistema Operacional Notion Elite 2026","Dashboard académico + profissional","Habit Matrix + Goal Radar","Finance Command","Guia de setup em 24h","Acesso à comunidade Elite Minds","Atualizações 2026 + 2027"].map((item, i) => (
-              <div key={i} className="flex items-start gap-2.5 text-[#D4D4D8]">
-                <Check className="w-3.5 h-3.5 text-[#00E5FF] shrink-0 mt-0.5" />
-                <span className="break-words whitespace-normal">{item}</span>
+
+          <div className="space-y-3 mb-8">
+            {[
+              "Notion Elite Kit 2026 completo",
+              `Todos os bónus (valor total: $${totalValue})`,
+              "Atualizações vitalícias 2026/2027",
+              "Setup guiado em vídeo (menos de 24h)",
+              "Garantia de 30 dias (risco zero)"
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-3 text-sm text-[#D4D4D8]">
+                <Check className="w-4 h-4 text-[#25D366] shrink-0" />
+                <span>{item}</span>
               </div>
             ))}
           </div>
-        </div>
-        <div className="mt-10 space-y-3">
-          <CTAButtons onConvert={onConvert} size="lg" />
-        </div>
-        {/* ═══ MÉTODOS DE PAGAMENTO COM MULTICAIXA EXPRESS ═══ */}
-        <div className="mt-5 pt-5 border-t border-white/[0.05]">
-          <p className="text-[10px] font-mono text-[#A1A1AA] uppercase tracking-wider mb-2">Métodos de pagamento aceites</p>
-          <div className="flex items-center justify-center gap-3 flex-wrap text-[10px] text-white/70 font-mono">
-            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">💳 Cartão Internacional</span>
-            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05] bg-[#00E5FF]/5 border-[#00E5FF]/30 text-[#00E5FF]">⚡ Multicaixa Express</span>
-            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">🏦 IBAN</span>
-            <span className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05]">📧 Comprovativo por Email</span>
+
+          <CTAButtons onConvert={onConvert} size="lg" variant="green" />
+
+          <div className="mt-6 pt-6 border-t border-white/[0.05]">
+            <p className="text-[10px] text-[#A1A1AA] font-mono text-center uppercase tracking-wider mb-3">
+              Métodos de pagamento aceites
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {isAngola ? (
+                <>
+                  <span className="px-3 py-1.5 rounded-lg bg-[#00E5FF]/10 border border-[#00E5FF]/30 text-[#00E5FF] text-[10px] font-mono font-bold">⚡ Multicaixa Express</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-white/[0.05] border border-white/[0.08] text-[#A1A1AA] text-[10px] font-mono">🏦 IBAN</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-white/[0.05] border border-white/[0.08] text-[#A1A1AA] text-[10px] font-mono">📧 Comprovativo por Email</span>
+                </>
+              ) : (
+                <>
+                  <span className="px-3 py-1.5 rounded-lg bg-white/[0.05] border border-white/[0.08] text-[#A1A1AA] text-[10px] font-mono">💳 Cartão de Crédito</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-white/[0.05] border border-white/[0.08] text-[#A1A1AA] text-[10px] font-mono">🏦 Transferência</span>
+                </>
+              )}
+            </div>
           </div>
         </div>
-        <div className="mt-8 pt-6 border-t border-white/[0.05]">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <Shield className="w-4 h-4 text-[#D4AF37]" />
-            <p className="text-xs font-bold text-white uppercase tracking-wider">Garantia de Resultado 30 Dias</p>
+
+        <div className="mt-8 text-center">
+          <div className="flex items-center justify-center gap-2">
+            <Shield className="w-5 h-5 text-[#D4AF37]" />
+            <span className="text-sm text-[#A1A1AA]">
+              <strong className="text-white">Garantia de 30 dias</strong> — Se não ficares satisfeito, devolvemos 100% do teu dinheiro.
+            </span>
           </div>
-          <p className="text-sm text-gray-400 max-w-md mx-auto leading-relaxed break-words whitespace-normal">
-            Se o sistema não fizer sentido para ti nos primeiros 30 dias, devolvemos <strong className="text-white">100% do teu dinheiro</strong>. O risco é 100% nosso.
+          <p className="text-[10px] text-[#A1A1AA]/60 mt-2 font-mono">
+            Pagamento único · Acesso imediato · Sem mensalidades
           </p>
         </div>
-      </div>
-    </div>
-  </section>
-));
-
-// ═══════════════════════════════════════════════════════════
-// FAQ SECTION
-// ═══════════════════════════════════════════════════════════
-const FAQSection = memo(() => {
-  const [open, setOpen] = useState<number | null>(null);
-  return (
-    <section id="faq" className="py-24 px-4 sm:px-6 max-w-3xl mx-auto">
-      <div className="text-center mb-12">
-        <h2 className="premium-heading text-3xl sm:text-4xl text-white break-words whitespace-normal">Perguntas Frequentes</h2>
-      </div>
-      <div className="space-y-2.5">
-        {FAQ_DATA.map((item, i) => {
-          const isOpen = open === i;
-          return (
-            <div key={i} className="bg-[#0A0A0A] border border-white/[0.05] rounded-lg overflow-hidden">
-              <button onClick={() => setOpen(isOpen ? null : i)}
-                      className="w-full text-left p-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors outline-none cursor-pointer text-sm font-semibold text-white">
-                <span className="break-words whitespace-normal text-left">{item.q}</span>
-                {isOpen ? <ChevronUp className="w-4 h-4 text-[#D4AF37] shrink-0" /> : <ChevronDown className="w-4 h-4 text-[#A1A1AA] shrink-0" />}
-              </button>
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25 }}
-                              className="px-5 pb-5 text-xs text-[#A1A1AA] border-t border-white/[0.04] pt-4 leading-relaxed break-words whitespace-normal">
-                    {item.a}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          );
-        })}
       </div>
     </section>
   );
 });
 
 // ═══════════════════════════════════════════════════════════
-// FINAL CTA SECTION
+// SECÇÃO FAQ
 // ═══════════════════════════════════════════════════════════
-const FinalCTASection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => (
-  <section className="py-28 px-4 sm:px-6 text-center relative overflow-hidden border-b border-white/[0.05] bg-gradient-to-b from-[#050505] via-[#080808] to-[#050505]">
-    <div className="max-w-2xl mx-auto relative">
-      <span className="text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold block mb-5">♟ A Decisão Inevitável</span>
-      <h2 className="premium-heading text-3xl sm:text-4xl md:text-5xl text-white max-w-2xl mx-auto leading-[1.05] mb-5 break-words whitespace-normal">
-        A elite não espera pelas oportunidades. <br />
-        <span className="display-heading text-gradient-gold">Ela cria o seu próprio sistema.</span>
-      </h2>
-      <p className="text-sm text-[#A1A1AA] max-w-xl mx-auto leading-relaxed mb-8 break-words whitespace-normal">
-        O Notion Elite Starter Kit 2026 é o investimento que separa quem apenas deseja de quem realmente executa.
-      </p>
-      <div className="max-w-xl mx-auto mb-6">
-        <CTAButtons onConvert={onConvert} size="lg" />
+const FAQSection = memo(() => {
+  const [open, setOpen] = useState<number | null>(null);
+
+  return (
+    <section id="faq" className="py-24 px-4 sm:px-6 border-t border-white/[0.05] bg-[#050505]">
+      <div className="max-w-3xl mx-auto">
+        
+        <div className="text-center mb-12 max-w-2xl mx-auto">
+          <span className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+            DÚVIDAS COMUNS
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold">
+            Perguntas <span className="text-[#D4AF37]">frequentes</span>
+          </h2>
+        </div>
+
+        <div className="space-y-3">
+          {FAQ_DATA.map((item, i) => {
+            const isOpen = open === i;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="bg-[#0A0A0A] border border-white/[0.06] rounded-xl overflow-hidden hover:border-white/[0.12] transition-colors"
+              >
+                <button
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  className="w-full text-left px-6 py-4 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors cursor-pointer"
+                >
+                  <span className="text-sm font-medium text-white">{item.q}</span>
+                  {isOpen ? (
+                    <ChevronUp className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4 text-[#A1A1AA] shrink-0" />
+                  )}
+                </button>
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="px-6 pb-5 text-sm text-[#A1A1AA] leading-relaxed border-t border-white/[0.04] pt-4"
+                    >
+                      {item.a}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <div className="mt-12 max-w-xl mx-auto">
+          <p className="text-center text-sm text-[#A1A1AA] mb-4">
+            <span className="text-white font-medium">Ainda tens dúvidas?</span>
+          </p>
+          <a
+            href={CONFIG.whatsappSupport}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,211,102,0.2)] transition-all hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <MessageCircle className="w-5 h-5 fill-white" />
+            Falar com o suporte no WhatsApp
+          </a>
+          <p className="text-[10px] text-[#A1A1AA] mt-3 font-mono text-center">Resposta em menos de 24h</p>
+        </div>
       </div>
-      <p className="text-[10px] text-[#A1A1AA]/60 font-mono">Licenciamento perpétuo · Garantia 30 dias · Acesso imediato</p>
-    </div>
-  </section>
-));
+    </section>
+  );
+});
 
 // ═══════════════════════════════════════════════════════════
-// LEGAL FOOTER
+// SECÇÃO CTA FINAL
+// ═══════════════════════════════════════════════════════════
+const FinalCTASection = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
+  const isAngola = isAngolaCampaign();
+
+  return (
+    <section className="py-28 px-4 sm:px-6 text-center relative overflow-hidden bg-gradient-to-b from-[#050505] via-[#0A0A0A] to-[#050505]">
+      
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#D4AF37]/[0.03] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 chess-deco opacity-10 pointer-events-none" />
+
+      <div className="max-w-3xl mx-auto relative z-10">
+        
+        <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 border border-[#D4AF37]/40 rounded-full px-6 py-2 mb-8">
+          <Crown className="w-4 h-4 text-[#D4AF37]" />
+          <span className="text-[10px] font-mono text-[#D4AF37] tracking-widest font-bold">ÚLTIMA OPORTUNIDADE NESTE PREÇO</span>
+        </div>
+
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] mb-6">
+          A decisão que separa <br />
+          <span className="text-[#D4AF37]">quem sonha de quem realiza</span>
+        </h2>
+
+        <p className="text-base sm:text-lg text-[#A1A1AA] max-w-xl mx-auto mb-10 leading-relaxed">
+          Chegaste até aqui porque uma parte de ti já sabe que precisa de mudar. Não deixes mais um semestre escapar-te pelas mãos por causa do caos. Ativa o teu sistema hoje — e começa, finalmente, a decidir tu os teus resultados.
+        </p>
+
+        <div className="max-w-xl mx-auto">
+          <CTAButtons onConvert={onConvert} size="lg" variant="gold" />
+        </div>
+
+        <p className="text-[10px] text-[#A1A1AA]/60 mt-8 font-mono">
+          {isAngola
+            ? "Preço sobe em breve · Licença vitalícia · Multicaixa Express · IBAN"
+            : "Preço sobe em breve · Licença vitalícia · Pagamento seguro"}
+        </p>
+      </div>
+    </section>
+  );
+});
+
+// ═══════════════════════════════════════════════════════════
+// RODAPÉ LEGAL
 // ═══════════════════════════════════════════════════════════
 const LegalFooter = memo(() => (
   <footer className="border-t border-white/[0.05] bg-[#050505] pt-14 pb-28 px-4 sm:px-6 text-xs text-[#A1A1AA]">
@@ -2006,14 +2025,14 @@ const LegalFooter = memo(() => (
         </div>
         <div>
           <p className="text-[10px] font-mono text-white uppercase tracking-wider mb-3 font-semibold">Especificações</p>
-          <p className="text-[#A1A1AA]/80 text-[10px] leading-relaxed break-words whitespace-normal">
+          <p className="text-[#A1A1AA]/80 text-[10px] leading-relaxed">
             Notion Elite OS 2026.<br />
-            Sistema operacional pessoal para estudantes e profissionais.
+            O sistema operativo pessoal para estudantes, profissionais e professores que recusam viver no caos.
           </p>
         </div>
       </div>
       <div className="pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row justify-between items-center gap-2 text-[10px] text-[#A1A1AA]/60">
-        <p>© 2026 Gabriel Sapalo. Todos os direitos reservados.</p>
+        <p>© 2026 GlowScalePro. Todos os direitos reservados.</p>
         <p className="font-mono text-[9px]">Clareza é poder · O caos custa caro</p>
       </div>
     </div>
@@ -2021,7 +2040,7 @@ const LegalFooter = memo(() => (
 ));
 
 // ═══════════════════════════════════════════════════════════
-// EXIT INTENT MODAL
+// MODAL DE SAÍDA
 // ═══════════════════════════════════════════════════════════
 const ExitIntentModal = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const [show, setShow] = useState(false);
@@ -2058,9 +2077,9 @@ const ExitIntentModal = memo(({ onConvert }: { onConvert: (seg: "international" 
           <X className="w-5 h-5" />
         </button>
         <Crown className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
-        <h3 className="text-2xl font-bold mb-3 break-words whitespace-normal">Não percas esta oportunidade</h3>
-        <p className="text-[#A1A1AA] mb-6 break-words whitespace-normal">O Founder Batch 01 está quase no fim. Depois o preço sobe para <strong className="text-white">$49</strong>.</p>
-        <CTAButtons onConvert={onConvert} size="sm" />
+        <h3 className="text-2xl font-bold mb-3">Não percas esta oportunidade</h3>
+        <p className="text-[#A1A1AA] mb-6">Estás mesmo prestes a sair sem resolver o problema que te trouxe até aqui? O Founder Batch 01 está quase esgotado — depois disto, o preço sobe para <strong className="text-white">$49</strong>.</p>
+        <CTAButtons onConvert={onConvert} size="sm" variant="green" />
         <button onClick={handleClose} className="text-sm text-gray-400 hover:text-white mt-4 block mx-auto">
           Não, obrigado.
         </button>
@@ -2070,7 +2089,7 @@ const ExitIntentModal = memo(({ onConvert }: { onConvert: (seg: "international" 
 });
 
 // ═══════════════════════════════════════════════════════════
-// STICKY BARS
+// BARRAS FIXAS (STICKY BARS)
 // ═══════════════════════════════════════════════════════════
 const StickyBar = memo(({ onConvert }: { onConvert: (seg: "international" | "angola") => void }) => {
   const [visible, setVisible] = useState(false);
@@ -2080,16 +2099,18 @@ const StickyBar = memo(({ onConvert }: { onConvert: (seg: "international" | "ang
     return () => window.removeEventListener("scroll", h);
   }, []);
   if (!visible) return null;
+  const isAngola = isAngolaCampaign();
+  
   return (
     <div className="hidden md:flex fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-[#0A0A0A] border border-[#D4AF37]/40 rounded-2xl shadow-2xl px-6 py-3 items-center gap-4 backdrop-blur-sm">
-      <span className="text-sm font-medium text-white">Não deixes o caos controlar a tua vida</span>
-      <button onClick={() => onConvert("international")}
-              className="btn-luxury-cyan px-6 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2">
-        <Crown className="w-4 h-4" />$10 — Activar Agora
+      <span className="text-sm font-medium text-white">Ainda vais deixar o caos decidir por ti?</span>
+      <button onClick={() => onConvert(isAngola ? "angola" : "international")}
+              className="bg-gradient-to-r from-[#25D366] to-[#1EBE5A] px-6 py-2.5 rounded-xl text-sm font-bold text-white flex items-center gap-2 hover:shadow-lg transition-all">
+        {isAngola ? "10.000 AKZ" : "$10"} — Ativar Agora
       </button>
-      <button onClick={() => onConvert("angola")}
-              className="bg-[#25D366] px-4 py-2.5 rounded-xl text-sm font-bold text-white flex items-center gap-2">
-        <MessageCircle className="w-4 h-4 fill-white" />Angola
+      <button onClick={() => onConvert(isAngola ? "international" : "angola")}
+              className="bg-white/[0.05] border border-white/[0.1] px-4 py-2.5 rounded-xl text-sm font-medium text-white/70 hover:text-white flex items-center gap-2 transition-all">
+        {isAngola ? "$10 USD" : "10.000 AKZ"}
       </button>
     </div>
   );
@@ -2103,32 +2124,18 @@ const MobileStickyBar = memo(({ onConvert }: { onConvert: (seg: "international" 
     return () => window.removeEventListener("scroll", h);
   }, []);
   if (!visible) return null;
-  const angola = isAngolaCampaign();
+  const isAngola = isAngolaCampaign();
+  
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#050505]/95 backdrop-blur-xl border-t border-white/[0.08] p-3 flex items-center gap-2">
-      {angola ? (
-        <>
-          <button onClick={() => onConvert("angola")}
-                  className="flex-1 bg-[#25D366] hover:bg-[#1EBE5A] text-white py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-            <MessageCircle className="w-4 h-4 fill-white" />Angola · 10k AKZ
-          </button>
-          <button onClick={() => onConvert("international")}
-                  className="flex-1 bg-white/[0.05] border border-white/[0.1] text-white/70 py-3 rounded-xl text-sm font-medium flex items-center justify-center gap-2">
-            <Crown className="w-4 h-4 text-[#D4AF37]" />$10 USD
-          </button>
-        </>
-      ) : (
-        <>
-          <button onClick={() => onConvert("international")}
-                  className="flex-1 btn-luxury-cyan py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-            <Crown className="w-4 h-4" />$10 USD
-          </button>
-          <button onClick={() => onConvert("angola")}
-                  className="flex-1 bg-[#25D366] hover:bg-[#1EBE5A] text-white py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-            <MessageCircle className="w-4 h-4 fill-white" />10k AKZ
-          </button>
-        </>
-      )}
+      <button onClick={() => onConvert(isAngola ? "angola" : "international")}
+              className="flex-1 bg-gradient-to-r from-[#25D366] to-[#1EBE5A] text-white py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
+        {isAngola ? "10.000 AKZ" : "$10"}
+      </button>
+      <button onClick={() => onConvert(isAngola ? "international" : "angola")}
+              className="flex-1 bg-white/[0.05] border border-white/[0.1] text-white/70 py-3 rounded-xl text-sm font-medium flex items-center justify-center gap-2">
+        {isAngola ? "$10 USD" : "10.000 AKZ"}
+      </button>
     </div>
   );
 });
@@ -2245,8 +2252,8 @@ export function App() {
   return (
     <div className="cinematic-noise min-h-screen bg-[#050505] text-white font-sans relative overflow-x-hidden">
       <Helmet>
-        <title>Notion Elite OS 2026 — Sistema Operacional Pessoal | Gabriel Sapalo</title>
-        <meta name="description" content="Organiza toda a tua vida académica em 24 horas. Sistema pronto para estudantes. $10 agora, sobe para $49." />
+        <title>Notion Elite OS 2026 — Sistema de Organização para Estudantes | GlowScalePro</title>
+        <meta name="description" content="Organiza toda a tua vida académica em 24 horas. Sistema pronto para estudantes. Oferta especial Founder Batch." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
       </Helmet>
 
@@ -2254,19 +2261,10 @@ export function App() {
       <HeroSection onConvert={convert} />
       <CountersSection />
       <AngolaContextSection />
-      <ProblemSolutionSection />
+      <ProblemSolutionSection onConvert={convert} />
       <PilaresSection onConvert={convert} />
-      <MidPageCTA onConvert={convert} />
-      <ROICalculatorSection />
-      <MarqueeSection />
-      <TransformationSection />
-      <RevealSection />
-      <ManifestoSection />
-      <PainSection />
-      <NotTemplateSection />
-      <JourneySection />
+      <TransformationSection onConvert={convert} />
       <BonusSection onConvert={convert} />
-      <EngineeringSection />
       <SocialProofSection />
       <AuthoritySection />
       <PremiumOfferSection onConvert={convert} />
@@ -2290,19 +2288,12 @@ export function App() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-6 right-5 z-40 bg-[#25D366] hover:bg-[#20ba59]
-                       p-3.5 rounded-full shadow-2xl hover:scale-105 active:scale-95
-                       transition-all outline-none flex items-center justify-center group"
+            className="fixed bottom-6 right-5 z-40 bg-[#25D366] hover:bg-[#20ba59] p-3.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all outline-none flex items-center justify-center group"
           >
             <Send className="w-5 h-5 text-white" />
-            <span className="absolute right-full mr-3 bottom-1/2 translate-y-1/2
-                             bg-[#050505] text-white text-[10px] font-mono
-                             px-3 py-2 rounded-lg border border-white/[0.08]
-                             opacity-0 group-hover:opacity-100 transition-opacity
-                             pointer-events-none whitespace-nowrap shadow-xl
-                             leading-relaxed text-left">
+            <span className="absolute right-full mr-3 bottom-1/2 translate-y-1/2 bg-[#050505] text-white text-[10px] font-mono px-3 py-2 rounded-lg border border-white/[0.08] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl leading-relaxed text-left">
               <span className="block font-bold text-[#25D366] mb-0.5">Dúvidas?</span>
-              Fala directamente com o Gabriel
+              Fala com o suporte
             </span>
           </motion.a>
         )}
